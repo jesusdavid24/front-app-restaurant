@@ -1,0 +1,13 @@
+.container_card_address {
+  border: 0.1px solid grey;
+  padding: 10px;
+  border-color: rgb(2, 2, 2);
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.card_view {
+  margin-left: 100px;
+}
