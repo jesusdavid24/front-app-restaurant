@@ -1,0 +1,203 @@
+.filters-type-container {
+   width: 95%;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   padding: 15px;
+   margin: 20px auto 10px auto;
+   background-color: var(--primary-background);
+}
+
+.filter-box {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   gap: 5px;
+}
+
+.box {
+   width: 150px;
+   position: absolute;
+   top: 420px;
+   padding: 10px 15px;
+   box-shadow: -5px -3px 12px -8px var(--neutral-cod);
+   background-color: var(--neutral-main-cards);
+}
+
+.box__list {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   list-style: none;
+}
+
+.list__item {
+   font-weight: 700;
+}
+
+.list__item--selected {
+   font-weight: 700;
+   color: var(--primary-accent);
+}
+
+.filter-menu {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.bi-caret-down-fill {
+   font-size: 10px;
+   align-self: end;
+}
+.menu-icon {
+   width: 12px;
+   height: 10px;
+   align-self: center;
+   cursor: pointer;
+}
+
+.filter__menu {
+   width: 80%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   border-left: 2px solid #d3d3d3a2;
+   background-color: var(--neutral-main-cards);
+   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+   z-index: 10;
+   overflow: scroll;
+}
+
+.filter__menu * {
+   font-size: 15px !important;
+   color: var(--neutral-cod) !important;
+   background-color: var(--neutral-main-cards);
+
+   .mantine-Accordion-chevron path {
+      color: var(--neutral-cod);
+   }
+}
+
+.back-button-container {
+   width: 100%;
+   padding: 20px 10px 20px 20px;
+   // border-bottom: 1px solid var(--primary-background);
+   margin-bottom: 2px;
+}
+
+.filter__close-button {
+   align-self: start;
+   font-weight: 700;
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}
+
+// CARACTERISTICAS DE MANTINE
+
+.filter-menu__main-control {
+   padding: 10px 15px 20px 20px;
+}
+
+.filter-menu__control {
+   padding: 10px 0 15px 0;
+   // border-top: 1px solid var(--primary-background);
+}
+
+.filter-menu__main-control:hover,
+.filter-menu__control:hover {
+   background-color: var(--neutral-main-cards);
+}
+
+.mantine-1avyp1d {
+   width: 100%;
+}
+
+.mantine-1h0npq1 {
+   border: none;
+}
+
+// .mantine-1h0npq1 {
+//    border: none !important;
+// }
+
+.mantine-gm39d {
+   font-size: 15px;
+   padding: 10px 0 10px 0;
+}
+
+// TERMINAN CARACTERISTICAS DE MANTINE
+
+.subMenu__container {
+   position: relative;
+   left: -20px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 10px;
+}
+.submenu__checkbox {
+   appearance: none;
+   width: 20px;
+   height: 20px;
+   background-color: var(--primary-background);
+   cursor: pointer;
+}
+
+.submenu__checkbox:checked {
+   content: "\2713"; //símbolo de check ✔
+   color: #ffffff;
+   background-color: var(--primary-accent);
+   border: none;
+}
+
+.subMenu__title {
+   font-weight: 400;
+   color: var(--neutral-silver-text) !important;
+}
+
+.subMenu__stars {
+   font-size: 22px !important;
+   color: gold !important;
+}
+
+.help-button-container {
+   width: 100%;
+   margin-top: -1px;
+   // border-top: 1px solid var(--primary-background);
+}
+
+.help-button {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 5px;
+   font-weight: 700;
+   color: var(--neutral-main-cards);
+   padding: 5px 10px;
+   margin: 30px 0 10px 20px;
+   border: none;
+   border-radius: 15px;
+   background-color: var(--primary-accent);
+}
+
+.bi-info-circle {
+   color: var(--neutral-main-cards);
+   background-color: var(--primary-accent);
+}
+.telephone {
+   padding: 0 0 0 20px;
+}
+.schedule {
+   font-size: 12px;
+   padding: 5px 0 0 20px;
+}
+
+// .accordion-container {
+//    border: 1px solid blue;
+// }

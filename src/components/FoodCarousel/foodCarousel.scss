@@ -1,0 +1,47 @@
+.restaurant-img {
+   width: 135px;
+   height: 135px;
+   border-radius: 20px;
+   object-fit: cover;
+}
+
+.restaurant-container {
+   width: fit-content;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-right: 40px;
+}
+
+.restaurant-type {
+   font-size: 15px;
+   font-weight: 700;
+   margin-top: 5px;
+}
+
+.restaurant-number {
+   line-height: 5px;
+   font-size: 10px;
+   font-weight: 400;
+   color: var(--neutral-silver-text);
+}
+
+.mantine-1ov5ect,
+.mantine-1mmaoap,
+.mantine-1my8u2w,
+.mantine-7c7vou,
+.mantine-Carousel-slide,
+.mantine-iqrf0t,
+.mantine-Carousel-container,
+.mantine-dnaiam,
+.mantine-Carousel-viewport {
+   height: fit-content;
+   margin: 0;
+}
+
+.mantine-Carousel-container {
+   width: 180px;
+   height: 170px;
+   margin: 30px 0 0 30px;
+}

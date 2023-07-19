@@ -1,0 +1,58 @@
+.form-container {
+   width: 100%;
+   height: 300px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   background-image: url("../src/assets/img/1.jpg");
+   background-size: cover;
+   background-position: center;
+}
+.title-container {
+   width: 95%;
+   font-weight: 400;
+}
+
+.form-title {
+   font-weight: 700;
+   background-color: var(--primary-background-transparency);
+}
+.input-box {
+   width: 95%;
+   height: 55%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   background-color: var(--neutral-main-cards);
+   border-radius: 10px;
+}
+.location-input,
+.craving-input {
+   width: 90%;
+   height: 35px;
+   background-color: var(--primary-background);
+   border-radius: 5px;
+   border: none;
+   padding-left: 10px;
+}
+.location-input::placeholder,
+.craving-input::placeholder {
+   line-height: 35px;
+   font-size: 14px;
+   color: rgb(172, 172, 172);
+}
+
+.food-button {
+   width: 90%;
+   height: 30px;
+   font-weight: 700;
+   color: var(--primary-background);
+   border: none;
+   border-radius: 5px;
+
+   background-color: var(--primary-accent);
+}
