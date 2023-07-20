@@ -4,7 +4,7 @@ import LocationForm from "../components/LocationForm/LocationForm";
 import FoodCarousel from "../components/FoodCarousel/FoodCarousel";
 import Promos from "../components/Promos/Promos";
 import BookingPath from "../components/BookingPath/BookingPath";
-import RestaurantsFilters from "../components/RestaurantsFilters/RestaurantsFilters";
+import ButtonsFilters from "../components/ButtonsFilters/ButtonsFilters";
 import RestaurantsList from "../components/RestaurantsList/RestaurantsList";
 import Store from "../components/Store/Store";
 import Footer from "../components/Footer/Footer";
@@ -23,7 +23,7 @@ const Home = () => {
          <FoodCarousel />
          <Promos />
          <BookingPath />
-         <RestaurantsFilters />
+         <ButtonsFilters />
          <RestaurantsList />
          <Store />
          <Footer />

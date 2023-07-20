@@ -1,19 +1,24 @@
 import React from "react";
 import { Carousel } from "@mantine/carousel";
-import { types } from "../../assets/data/types";
+import { cuisines } from "../../assets/data/cuisines";
 
 import "./foodCarousel.scss";
 
 const FoodCarousel = () => {
    return (
       <Carousel withControls={false} dragFree loop>
-         {types.map((item) => {
+         {cuisines.map((item) => {
             return (
                <Carousel.Slide key={item.id}>
-                  <div className="restaurant-container">
-                     <img src={item.image} className="restaurant-img" />
-                     <h2 className="restaurant-type">{item.type}</h2>
-                     <h2 className="restaurant-number">
+                  <div className="carousel-restaurant">
+                     <img
+                        src={item.image}
+                        className="carousel-restaurant__image"
+                     />
+                     <h2 className="carousel-restaurant__cuisine">
+                        {item.cuisine}
+                     </h2>
+                     <h2 className="carousel-restaurant__number">
                         {item.number} Restaurants
                      </h2>
                   </div>

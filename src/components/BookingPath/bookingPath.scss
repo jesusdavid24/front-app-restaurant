@@ -1,89 +1,86 @@
-.booking__container {
-   position: relative;
+.booking-container {
    width: 100%;
+   position: relative;
    display: flex;
    flex-direction: column;
    align-items: center;
    text-align: center;
    gap: 20px;
    padding: 20px 0 20px 0;
+   background-image: url("../src/assets/img/bookingPath.jpg");
    background-size: cover;
    background-position: 60% 0;
-}
 
-.booking__container::before {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-image: linear-gradient(to top, transparent, #ffffff80);
-}
+   &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to top, transparent, #ffffff80);
+   }
 
-.booking__info {
-   width: 95%;
-   padding: 10px;
-   border-radius: 15px;
-   background-color: var(--primary-background-transparency);
-}
+   &__info-box {
+      width: 95%;
+      padding: 10px;
+      border-radius: 15px;
+      background-color: var(--primary-background-transparency);
+   }
 
-.booking__title {
-   position: relative;
-   font-size: 20px;
-   font-weight: 900;
-   margin-bottom: 20px;
-}
+   &__title {
+      position: relative;
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 20px;
+   }
 
-.booking__content {
-   position: relative;
-   font-weight: 700;
-   text-justify: justify;
-}
+   &__content {
+      position: relative;
+      text-justify: justify;
+      font-weight: 700;
+   }
 
-.path-container {
-   width: 100%;
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 20px;
-}
+   &__path-box {
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
 
-.path-container::before {
-   content: "";
-   position: absolute;
-   width: 2px;
-   height: calc(100% - 20px);
-   border-left: 2px dashed black;
-   top: 50%;
-   left: 50%;
-   transform: translateY(-50%);
-   z-index: 1;
-}
+      &::before {
+         content: "";
+         width: 2px;
+         height: calc(100% - 20px);
+         position: absolute;
+         border-left: 2px dashed black;
+         top: 50%;
+         left: 50%;
+         transform: translateY(-50%);
+         z-index: 1;
+      }
 
-.booking__path {
-   width: 95%;
-   height: 100px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   gap: 15px;
-   border-radius: 15px;
-   background-color: var(--neutral-main-cards);
-   z-index: 2;
-}
+      .path-box__step {
+         width: 95%;
+         height: 100px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 15px;
+         border-radius: 15px;
+         background-color: var(--neutral-main-cards);
+         z-index: 2;
 
-.booking__path:not(:first-child) {
-   margin-top: 20px; /* Ajustamos el margen entre los contenedores hijos */
-}
+         &__icon {
+            width: 40px;
+            height: 40px;
+         }
 
-.booking__icon {
-   width: 40px;
-   height: 40px;
-}
-
-.booking__path-message {
-   color: var(--neutral-silver-text);
+         &__message {
+            color: var(--neutral-silver-text);
+         }
+      }
+   }
 }

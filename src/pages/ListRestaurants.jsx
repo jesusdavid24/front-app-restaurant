@@ -4,6 +4,7 @@ import LocationForm from "../components/LocationForm/LocationForm";
 import FilterMenu from "../components/FilterMenu/FilterMenu";
 import RestaurantsList from "../components/RestaurantsList/RestaurantsList";
 import Footer from "../components/Footer/Footer";
+import MenuSlider from "../components/MenuSlider/MenuSlider";
 
 const ListRestaurants = () => {
    const [menuOpen, setMenuOpen] = useState(false);

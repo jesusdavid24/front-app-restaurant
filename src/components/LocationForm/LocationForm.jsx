@@ -3,24 +3,29 @@ import "./locationForm.scss";
 
 const LocationForm = ({ menuOpen }) => {
    return (
-      <div className="form-container">
-         <h1 className="title-container">
-            <span className="form-title"> The Food You Love, Delivered With Care &nbsp; </span>
+      <div className="location-form">
+         <h1 className="location-form__title">
+            <span className="location-form__title-span">
+               The Food You Love, Delivered With Care &nbsp;
+            </span>
          </h1>
-         <div className="input-box">
+         <div className="location-form__input-box">
             <input
                type="text"
                id="location"
-               className="location-input"
+               className="location-form__input-box__location"
                placeholder="Enter Your Location"
             />
             <input
                type="text"
                id="craving"
-               className="craving-input"
+               className="location-form__input-box__craving"
                placeholder="What Are You Craving?"
             />
-            <button type="submit" className="food-button" disabled={menuOpen}>
+            <button
+               type="submit"
+               className="location-form__input-box__food"
+               disabled={menuOpen}>
                Find Food
             </button>
          </div>

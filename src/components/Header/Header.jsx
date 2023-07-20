@@ -61,26 +61,30 @@ const Header = ({ menuOpen, onMenuOpen }) => {
                   </div>
                   <ul>
                      <li className="normalLi">
-                        HOME <i className="bi bi-plus"></i>
+                        HOME <i className="bi bi-plus header-menu__plus"></i>
                      </li>
                      <li className="menu-containerLi">
                         <div className="row">
-                           RESTAURANT <i className="bi bi-dash"></i>
+                           RESTAURANT{" "}
+                           <i className="bi bi-dash header-menu__dash"></i>
                         </div>
                         <ul className="containedUl">
                            <li className="containedLi">
-                              Listing <i className="bi bi-plus"></i>
+                              Listing{" "}
+                              <i className="bi bi-plus header-menu__plus"></i>
                            </li>
                            <li className="containedLi">
-                              Single Page <i className="bi bi-plus"></i>
+                              Single Page{" "}
+                              <i className="bi bi-plus header-menu__plus"></i>
                            </li>
                            <li className="containedLi">
-                              Booking <i className="bi bi-plus"></i>
+                              Booking{" "}
+                              <i className="bi bi-plus header-menu__plus"></i>
                            </li>
                         </ul>
                      </li>
                      <li className="normalLi">
-                        PAGES <i className="bi bi-plus"></i>
+                        PAGES <i className="bi bi-plus header-menu__plus"></i>
                      </li>
                   </ul>
                </nav>

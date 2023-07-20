@@ -1,47 +1,51 @@
 import React from "react";
-import "./restaurantsFilters.scss";
+import "./buttonsFilters.scss";
 
-const RestaurantsFilters = () => {
+const ButtonsFilters = () => {
    const handleClick = (event) => {
       const currentElement = event.target;
 
       const selectedElement = document.querySelector(
-         ".filters-box__filter--selected"
+         ".buttons-filters__box__button--selected"
       );
 
       if (currentElement !== selectedElement) {
          selectedElement &&
-            selectedElement.classList.remove("filters-box__filter--selected");
+            selectedElement.classList.remove(
+               "buttons-filters__box__button--selected"
+            );
 
-         currentElement.classList.toggle("filters-box__filter--selected");
+         currentElement.classList.toggle(
+            "buttons-filters__box__button--selected"
+         );
       }
    };
 
    return (
-      <div className="filters-container">
-         <h1 className="filters__title">Popular Restaurant</h1>
-         <div className="filters-box">
+      <div className="buttons-filters">
+         <h1 className="buttons-filters__title">Popular Restaurant</h1>
+         <div className="buttons-filters__box">
             <button
                id="1"
-               className="filters-box__filter filters-box__filter--selected"
+               className="buttons-filters__box__button buttons-filters__box__button--selected"
                onClick={handleClick}>
                All
             </button>
             <button
                id="2"
-               className="filters-box__filter"
+               className="buttons-filters__box__button"
                onClick={handleClick}>
                Popular
             </button>
             <button
                id="3"
-               className="filters-box__filter"
+               className="buttons-filters__box__button"
                onClick={handleClick}>
                Latest
             </button>
             <button
                id="4"
-               className="filters-box__filter"
+               className="buttons-filters__box__button"
                onClick={handleClick}>
                Trend
             </button>
@@ -50,4 +54,4 @@ const RestaurantsFilters = () => {
    );
 };
 
-export default RestaurantsFilters;
+export default ButtonsFilters;
