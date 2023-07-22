@@ -40,7 +40,7 @@ const MenuSlider = () => {
                   ? [{ value: 0, label: "$0" }]
                   : [{ value: 1000, label: "" }]
             }
-            thumbChildren={<i className="bi bi-heart-fill" />}
+            thumbChildren={<i className="bi-heart-fill slider__thumb" />}
             thumbSize={30}
          />
       </div>

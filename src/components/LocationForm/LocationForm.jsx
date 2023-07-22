@@ -1,7 +1,7 @@
 import React from "react";
 import "./locationForm.scss";
 
-const LocationForm = ({ menuOpen }) => {
+const LocationForm = () => {
    return (
       <div className="location-form">
          <h1 className="location-form__title">
@@ -22,10 +22,7 @@ const LocationForm = ({ menuOpen }) => {
                className="location-form__input-box__craving"
                placeholder="What Are You Craving?"
             />
-            <button
-               type="submit"
-               className="location-form__input-box__food"
-               disabled={menuOpen}>
+            <button type="submit" className="location-form__input-box__food">
                Find Food
             </button>
          </div>

@@ -1,24 +1,14 @@
-import React, { useState } from "react";
-import Header from "../components/Header/Header";
+import React from "react";
 import LocationForm from "../components/LocationForm/LocationForm";
-import FilterMenu from "../components/FilterMenu/FilterMenu";
+import FilterBox from "../components/FilterBox/FilterBox";
 import RestaurantsList from "../components/RestaurantsList/RestaurantsList";
-import Footer from "../components/Footer/Footer";
-import MenuSlider from "../components/MenuSlider/MenuSlider";
 
 const ListRestaurants = () => {
-   const [menuOpen, setMenuOpen] = useState(false);
-
-   const handleMenuOpen = (newValue) => {
-      setMenuOpen(newValue);
-   };
    return (
       <>
-         <Header menuOpen={menuOpen} onMenuOpen={setMenuOpen} />
-         <LocationForm menuOpen={menuOpen} />
-         <FilterMenu />
+         <LocationForm />
+         <FilterBox />
          <RestaurantsList />
-         <Footer />
       </>
    );
 };

@@ -23,7 +23,7 @@
       &__button {
          @include buttons-filter__button;
 
-         &__--selected {
+         &--selected {
             @include buttons-filter__button(
                $color: var(--neutral-main-cards),
                $background-color: var(--primary-accent)

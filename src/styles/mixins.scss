@@ -30,6 +30,28 @@
    gap: 10px;
 }
 
+@mixin menu-container {
+   width: 80%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   overflow: scroll;
+   border-left: 2px solid #d3d3d3a2;
+   background-color: var(--neutral-main-cards);
+   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+   z-index: 10;
+}
+
+@mixin menu-back-button {
+   font-weight: 700;
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}
+
 @mixin promo(
    $background-position: center,
    $background-size: calc(100% + 10px) calc(100% + 80px)
@@ -79,14 +101,3 @@
    border-radius: 5px;
    background-color: $background-color;
 }
-
-// para llamar mixins dentro del archivo scss
-
-// @import "../../styles/mixins.scss";
-
-// .submit-button:hover {
-//     @include submit-button(
-//       $background-color: var(--white),
-//       $color: var(--main-color)
-//     );
-//   }

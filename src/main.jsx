@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/index.jsx";
 // import App from './App.jsx'
-import ListRestaurants from "./pages/listRestaurants.jsx";
-import Home from "./pages/Home.jsx";
-
+// import ListRestaurants from "./pages/ListRestaurants.jsx";
+// import Home from "./pages/Home.jsx";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
    <React.StrictMode>
-      {/* <Home /> */}
-      <ListRestaurants />
+      <RouterProvider router={router} />
    </React.StrictMode>
 );
