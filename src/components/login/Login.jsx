@@ -1,7 +1,7 @@
-import Google from '../shared/svg/Google.jsx'
-import Twitter from '../shared/svg/Twitter.jsx';
-import GitHub from '../shared/svg/Github.jsx';
-import login from '../../assets/img/login.jpg'
+import Google from '../shared/svg/Google';
+import Twitter from '../shared/svg/Twitter';
+import GitHub from '../shared/svg/Github';
+import login from '../../assets/img/login.jpg';
 import './login.scss';
 
 const Login = () => {
@@ -64,5 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login
-
+export default Login;

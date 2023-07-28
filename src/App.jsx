@@ -4,16 +4,10 @@ import Registration from "./components/registration/Registration.jsx";
 import "./App.scss";
 
 function App() {
-   return (
-      <>
-         {/* <Topbar /> */}
-         <Registration />
-
-         {/* <div className='registration'>
-        <Registration />
-      </div> */}
-      </>
-   );
+  return (
+    <>
+    </>
+  )
 }
 
 export default App;
