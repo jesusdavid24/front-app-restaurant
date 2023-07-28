@@ -1,0 +1,60 @@
+.filters {
+   width: 95%;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   padding: 15px;
+   margin: 20px auto 10px auto;
+   background-color: var(--primary-background);
+
+   &__buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 5px;
+
+      &__icon {
+         align-self: end;
+         font-size: 10px;
+      }
+
+      &__box {
+         width: 150px;
+         position: absolute;
+         top: 420px;
+         padding: 10px 15px;
+         box-shadow: -5px -3px 12px -8px var(--neutral-cod);
+         background-color: var(--neutral-main-cards);
+         z-index: 10;
+      }
+
+      &__box-list {
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+         list-style: none;
+
+         .box-list__item {
+            font-weight: 700;
+
+            &--selected {
+               font-weight: 700;
+               color: var(--primary-accent);
+            }
+         }
+      }
+   }
+
+   &__menu-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &__button {
+         width: 12px;
+         height: 10px;
+         align-self: center;
+         cursor: pointer;
+      }
+   }
+}

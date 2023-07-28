@@ -1,15 +1,13 @@
-import CardView from "./Components/CardView/CardView"
-import Checkout from "./Pages/Checkout/Checkout"
+// import Login from './components/login/Login.jsx';
+// import Topbar from './components/shared/Topbar.jsx';
+import Registration from "./components/registration/Registration.jsx";
+import "./App.scss";
 
 function App() {
-  
   return (
     <>
-      <h1>Hola</h1>
-      <Checkout />
-      
     </>
   )
 }
 
-export default App
+export default App;
