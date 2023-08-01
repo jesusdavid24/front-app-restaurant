@@ -22,7 +22,8 @@ return(
         <Accordion variant="contained">
       <Accordion.Item value="photos">
         <Accordion.Control>
-          Debit Card
+          <input type="radio" name="debit_card"/>
+          <label htmlFor="debit_card">Debit Card</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div className="container">
@@ -51,7 +52,8 @@ return(
 
       <Accordion.Item value="print">
         <Accordion.Control>
-          Credit Card
+            <input type="radio" name="credit_card"/>
+            <label htmlFor="credit_card">Credit Card</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div className="container">
@@ -76,7 +78,8 @@ return(
 
       <Accordion.Item value="camera">
         <Accordion.Control>
-          Net Banking
+            <input type="radio" name="net_banking"/>
+            <label htmlFor="net_banking">Net Banking</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div>
@@ -118,7 +121,8 @@ return(
 
       <Accordion.Item value="wall">
         <Accordion.Control>
-          My Wallet
+            <input type="radio" name="my_wallet"/>
+            <label htmlFor="my_wallet">My Wallet</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div>
