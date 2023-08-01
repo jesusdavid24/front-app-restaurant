@@ -6,17 +6,22 @@ import BookingPath from "../components/BookingPath/BookingPath";
 import ButtonsFilters from "../components/ButtonsFilters/ButtonsFilters";
 import RestaurantsList from "../components/RestaurantsList/RestaurantsList";
 import Store from "../components/Store/Store";
+import Checkout from "./Checkout/Checkout";
 
 const Home = () => {
    return (
       <>
-         <LocationForm />
-         <FoodCarousel />
+         <Checkout />
          <Promos />
+         {/*
+         <FoodCarousel />
+         <LocationForm />
          <BookingPath />
          <ButtonsFilters />
          <RestaurantsList />
          <Store />
+         */}
+
       </>
    );
 };

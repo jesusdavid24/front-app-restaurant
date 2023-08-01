@@ -1,5 +1,5 @@
 import React from 'react';
-import "./ButtonsComponent.css"
+import "./ButtonsComponent.scss"
 
 const ButtonsComponent = ({title}) => {
 

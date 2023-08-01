@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddressList from "../../Components/AddressList/AddressList";
 import Paymentitems from "../../Components/Paymentitems/Paymentitems";
 import CardView from "../../Components/CardView/CardView";
-import "./Checkout.css"
+import "./Checkout.scss";
 
 const Checkout = () => {
     const [addresses, setAddresses] = useState([])
@@ -30,6 +30,7 @@ const Checkout = () => {
 
 return (
     <div>
+        <img src="./"></img>
         <div className="container_card_address">
             <h1>Vista de pagos</h1>
             <h2>Direcciones</h2>
