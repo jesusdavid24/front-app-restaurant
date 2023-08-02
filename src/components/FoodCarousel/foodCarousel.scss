@@ -1,34 +1,102 @@
-.carousel-restaurant {
-   width: fit-content;
-   height: fit-content;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-right: 40px;
+.carousel {
+  @media (min-width: 576px) {
+    width: 540px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
 
-   &__image {
-      width: 135px;
-      height: 135px;
+  @media (min-width: 768px) {
+    width: 690px;
+  }
+
+  @media (min-width: 992px) {
+    width: 930px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1120px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1300px;
+  }
+
+  &__restaurant {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    &__image {
+      width: 125px;
+      height: 125px;
       border-radius: 20px;
       object-fit: cover;
-   }
 
-   &__cuisine {
+      @media (min-width: 992px) {
+        width: 130px;
+        height: 130px;
+      }
+
+      @media (min-width: 1200px) {
+        width: 155px;
+        height: 160px;
+      }
+    }
+
+    &__cuisine {
       font-size: 18px;
       font-weight: 700;
-      margin-top: 5px;
-   }
+      margin-top: 10px;
 
-   &__number {
-      line-height: 5px;
-      font-size: 10px;
+      @media (min-width: 768px) {
+        font-size: 20px;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 23px;
+      }
+    }
+
+    &__number {
+      font-size: 14px;
       font-weight: 400;
       color: var(--neutral-silver-text);
-   }
-}
 
-.mantine-Carousel-container {
-   width: 180px;
-   height: 170px;
-   margin: 30px 0 0 30px;
+      @media (min-width: 768px) {
+        font-size: 15px;
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 17px;
+      }
+    }
+  }
+
+  .mantine-Carousel-container {
+    width: 150px;
+    height: fit-content;
+    gap: 20px;
+    padding-bottom: 5px;
+    margin: 30px 0 0 30px;
+
+    @media (min-width: 768px) {
+      width: 145px;
+    }
+
+    @media (min-width: 992px) {
+      width: 160px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 195px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 190px;
+    }
+  }
 }
