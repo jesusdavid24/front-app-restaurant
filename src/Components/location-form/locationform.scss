@@ -1,0 +1,51 @@
+@import "../../styles/mixins.scss";
+
+.location-form {
+  @include location-form__box;
+  background-image: url("../src/assets/img/1.jpg");
+  background-size: cover;
+  background-position: center;
+
+  &__title {
+    width: 95%;
+    font-weight: 400;
+  }
+
+  &__title-span {
+    font-weight: 700;
+    background-color: var(--primary-background-transparency);
+  }
+
+  &__input-box {
+    @include location-form__box($width: 95%, $height: 55%);
+    border-radius: 10px;
+    background-color: var(--neutral-main-cards);
+
+    &__location,
+    &__craving {
+      width: 90%;
+      height: 35px;
+      padding-left: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--primary-background);
+    }
+
+    &__location::placeholder,
+    &__craving::placeholder {
+      line-height: 35px;
+      font-size: 14px;
+      color: rgb(172, 172, 172);
+    }
+
+    &__food {
+      width: 90%;
+      height: 30px;
+      font-weight: 700;
+      color: var(--primary-background);
+      border: none;
+      border-radius: 5px;
+      background-color: var(--primary-accent);
+    }
+  }
+}

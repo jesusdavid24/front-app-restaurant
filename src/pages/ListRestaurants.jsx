@@ -1,16 +1,16 @@
 import React from "react";
-import LocationForm from "../components/LocationForm/LocationForm";
-import FilterBox from "../components/FilterBox/FilterBox";
-import RestaurantsList from "../components/RestaurantsList/RestaurantsList";
+import LocationForm from "../components/location-form/LocationForm";
+import FilterBox from "../components/filter-box/FilterBox";
+import RestaurantsList from "../components/restaurants-list/RestaurantsList";
 
 const ListRestaurants = () => {
-   return (
-      <>
-         <LocationForm />
-         <FilterBox />
-         <RestaurantsList />
-      </>
-   );
+  return (
+    <>
+      <LocationForm />
+      <FilterBox />
+      <RestaurantsList />
+    </>
+  );
 };
 
 export default ListRestaurants;

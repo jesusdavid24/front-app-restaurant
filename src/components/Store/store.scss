@@ -1,49 +1,47 @@
 @import "../../styles/mixins.scss";
 
 .store {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   gap: 15px;
-   padding: 20px 25px 30px 25px;
-   background-color: var(--primary-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px 30px 25px;
+  background-color: var(--primary-background);
 
-   &__title {
-      font-size: 20px;
-      font-weight: 900;
-   }
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+  }
 
-   &__info {
-      text-align: center;
-      font-size: 14px;
-      color: #575757;
-   }
+  &__info {
+    text-align: center;
+    font-size: 14px;
+    color: #575757;
+  }
 
-   &__complement {
-      font-size: 16px;
-      font-weight: 900;
-   }
+  &__complement {
+    font-size: 16px;
+    font-weight: 900;
+  }
 
-   &__buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 15px;
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
 
-      &__app-store {
-         @include store__buttons;
-      }
+    &__app-store {
+      @include store__buttons;
+    }
 
-      &__icon {
-         width: 15px;
-      }
+    &__icon {
+      width: 15px;
+    }
 
-      &__play-store {
-         @include store__buttons(
-            $background-color: var(--neutral-main-cards),
-            $color: var(--primary-accent)
-         );
-      }
-   }
+    &__play-store {
+      @include store__buttons($background-color: var(--neutral-main-cards),
+        $color: var(--primary-accent));
+    }
+  }
 }

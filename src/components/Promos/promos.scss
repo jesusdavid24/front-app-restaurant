@@ -1,25 +1,26 @@
 @import "../../styles/mixins.scss";
 
 .promo {
-   width: 95%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 30px;
-   margin: 20px auto;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 20px auto;
 
-   &__promo-1 {
-      @include promo;
-      padding-left: 10px;
-   }
-   &__promo-2 {
-      @include promo($background-position: 0px 60%, $background-size: cover);
-      text-align: end;
-      padding-right: 10px;
-   }
+  &__promo-1 {
+    @include promo;
+    padding-left: 10px;
+  }
 
-   &__title {
-      color: var(--primary-accent);
-      line-height: 10px;
-   }
+  &__promo-2 {
+    @include promo($background-position: 0px 60%, $background-size: cover);
+    text-align: end;
+    padding-right: 10px;
+  }
+
+  &__title {
+    color: var(--primary-accent);
+    line-height: 10px;
+  }
 }
