@@ -8,17 +8,17 @@ import RestaurantsList from "../components/RestaurantsList/RestaurantsList";
 import Store from "../components/Store/Store";
 
 const Home = () => {
-   return (
-      <>
-         <LocationForm />
-         <FoodCarousel />
-         <Promos />
-         <BookingPath />
-         <ButtonsFilters />
-         <RestaurantsList />
-         <Store />
-      </>
-   );
+  return (
+    <>
+      <LocationForm />
+      <FoodCarousel />
+      <Promos />
+      <BookingPath />
+      <ButtonsFilters />
+      <RestaurantsList />
+      <Store />
+    </>
+  );
 };
 
 export default Home;

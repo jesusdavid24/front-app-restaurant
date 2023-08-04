@@ -46,13 +46,14 @@
     &__icon {
       align-self: end;
       font-size: 10px;
+      cursor: pointer;
     }
 
     &__box {
       display: none;
       width: 150px;
       position: absolute;
-      top: 420px;
+      top: 450px;
       padding: 10px 15px;
       box-shadow: -5px -3px 12px -8px var(--neutral-cod);
       background-color: var(--primary-background);
@@ -91,12 +92,12 @@
 
       .box-list__item {
         font-weight: 700;
+        line-height: 35px;
 
         @media (min-width: 576px) {
           @include buttons-filter__button(
             $background-color: var(--primary-background)
           );
-          line-height: 35px;
         }
 
         &--selected {

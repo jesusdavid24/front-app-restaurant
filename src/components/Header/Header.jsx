@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HomeMenu from "../HomeMenu/HomeMenu";
+import HomeMenuWide from "../HomeMenuWide/HomeMenuWide";
+
 import "./header.scss";
 
 const Header = () => {
@@ -26,7 +28,11 @@ const Header = () => {
           className="header__logo-container__logo"
         />
       </div>
+
       <div className="header__menu-container">
+        <div className="header__menu-container__row-menu">
+          <HomeMenuWide />
+        </div>
         <button
           className="header__menu-container__button"
           onClick={handleMenuOpen}
@@ -34,20 +40,24 @@ const Header = () => {
           <i className="bi bi-list" />
         </button>
       </div>
+
       <div className="header__buttons-container">
         <select className="header__buttons-container__currency">
           <option value="usd">USD</option>
           <option value="cop">COP</option>
           <option value="eur">EUR</option>
         </select>
+
         <select className="header__buttons-container__language">
           <option value="eng">ENG</option>
           <option value="spa">ESP</option>
           <option value="ita">ITA</option>
         </select>
+
         <button className="header__buttons-container__profile">
           <i className="bi bi-person-fill" />
         </button>
+
         <button className="header__buttons-container__settings">
           <i className="bi bi-gear-fill" />
         </button>

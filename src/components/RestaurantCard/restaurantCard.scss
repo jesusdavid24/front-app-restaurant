@@ -2,6 +2,7 @@
 
 .card {
   width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,6 +10,12 @@
   margin-bottom: 20px;
   background-color: var(--neutral-main-cards);
   box-shadow: 0px 0px 5px 0px rgba(217, 217, 217, 0.75);
+  cursor: pointer;
+  transition: box-shadow 0.5s ease;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 2px rgba(210, 210, 210, 0.75);
+  }
 
   @media (min-width: 576px) {
     width: 250px;
@@ -35,13 +42,61 @@
     margin-bottom: 0px;
   }
 
-  &__image {
+  &__ribbon {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    z-index: 1;
+  }
+
+  &__ribbon span {
+    width: 95px;
+    position: absolute;
+    top: 19px;
+    display: block;
+    text-align: start;
+    line-height: 20px;
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--neutral-main-cards);
+    padding-left: 8px;
+
+    @media (min-width: 1200px) {
+      width: 110px;
+      font-size: 13px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 125px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 15px;
+    }
+  }
+
+  &__ribbon span::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    margin-top: 0.5px;
+    border-top: 3px solid #a3222a;
+    border-right: 3px solid #a3222a;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    z-index: -1;
+  }
+
+  &__ribbon--red span {
+    background: #fc3b48;
+  }
+
+  &__image-container {
     width: 100%;
     height: 64vw;
-    position: relative;
-    align-self: center;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
 
     @media (min-width: 576px) {
       height: 160px;
@@ -59,47 +114,21 @@
       height: 170px;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1440px) {
       height: 205px;
     }
 
-    &__ribbon {
-      width: 75px;
-      height: 75px;
-      position: absolute;
-      top: -10px;
-      left: -5px;
-      z-index: 1;
-    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.5s ease;
 
-    &__ribbon span {
-      width: 95px;
-      position: absolute;
-      top: 19px;
-      display: block;
-      text-align: start;
-      line-height: 20px;
-      font-size: 11px;
-      font-weight: 900;
-      color: var(--neutral-main-cards);
-      padding-left: 8px;
-    }
-
-    &__ribbon span::after {
-      content: "";
-      position: absolute;
-      left: 0%;
-      top: 100%;
-      margin-top: 0.5px;
-      border-top: 3px solid #a3222a;
-      border-right: 3px solid #a3222a;
-      border-bottom: 3px solid transparent;
-      border-left: 3px solid transparent;
-      z-index: -1;
-    }
-
-    &__ribbon--red span {
-      background: #fc3b48;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -147,10 +176,13 @@
       font-size: 13px;
       font-weight: 400;
       color: var(--neutral-silver-text);
-      letter-spacing: 1px;
 
       @media (min-width: 768px) {
         font-size: 15px;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 14px;
       }
     }
   }

@@ -55,12 +55,31 @@
       padding-right: 20px;
     }
 
+    @media (min-width: 1200px) {
+      margin: 0;
+      width: 750px;
+      padding: 0;
+    }
+
+    &__row-menu {
+      width: 100%;
+      height: 40px;
+      display: none;
+
+      @media (min-width: 1200px) {
+        display: block;
+      }
+    }
+
     &__button {
       width: 35px;
       height: 35px;
       cursor: pointer;
       border: none;
       background-color: var(--neutral-main-cards);
+      @media (min-width: 1200px) {
+        display: none;
+      }
 
       [class*=" bi-"]::before {
         font-size: 25px;

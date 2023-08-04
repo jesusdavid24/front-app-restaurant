@@ -4,10 +4,7 @@ import Registration from "./components/registration/Registration.jsx";
 import "./App.scss";
 
 function App() {
-  return (
-    <>
-    </>
-  )
+  return <></>;
 }
 
 export default App;

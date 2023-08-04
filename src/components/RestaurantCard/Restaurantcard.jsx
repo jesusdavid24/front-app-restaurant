@@ -15,15 +15,16 @@ const Restaurantcard = ({
   return (
     <>
       <div id={id} className="card">
-        <div
-          className="card__image"
-          style={{ backgroundImage: `url(${image})` }}
-        >
-          {rating >= 4.0 && (
-            <div className="card__image__ribbon card__image__ribbon--red">
-              <span>Recommended</span>
-            </div>
-          )}
+        {rating >= 4.0 && (
+          <div className="card__ribbon card__ribbon--red">
+            <span>Recommended</span>
+          </div>
+        )}
+        <div className="card__image-container">
+          <div
+            className="card__image-container__image"
+            style={{ backgroundImage: `url(${image})` }}
+          />
         </div>
         <div className="card__content">
           <div className="card__content__rating">
