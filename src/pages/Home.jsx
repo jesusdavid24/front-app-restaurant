@@ -12,10 +12,10 @@ const Home = () => {
    return (
       <>
          <Checkout />
-         <Promos />
          {/*
-         <FoodCarousel />
+         <Promos />
          <LocationForm />
+         <FoodCarousel />
          <BookingPath />
          <ButtonsFilters />
          <RestaurantsList />

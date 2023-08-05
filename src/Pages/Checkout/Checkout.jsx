@@ -30,7 +30,9 @@ const Checkout = () => {
 
 return (
     <div>
-        <img src="./"></img>
+        <div className="container_immg">
+            <img className="object" src="/src/assets/img/1.jpg"></img>
+        </div>
         <div className="container_card_address">
             <h1>Vista de pagos</h1>
             <h2>Direcciones</h2>
@@ -45,13 +47,12 @@ return (
         </div>
         <br />
         <div>
-            <h2>Items de pagos</h2>
+            <h2>Payment:</h2>
             <Paymentitems
                 paymentitems={paymentitems}
                 addPaymentitem={addPaymentitem}
                 removePaymentitem={removePaymentitem}
             />
-            <h2>Seccion de Pago</h2>
         </div>
     </div>
 )}

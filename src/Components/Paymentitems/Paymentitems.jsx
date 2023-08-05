@@ -19,11 +19,13 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
 
 return(
     <div>
-        <Accordion variant="contained">
+        <Accordion variant="contained"
+        chevron={false}
+        >
       <Accordion.Item value="photos">
         <Accordion.Control>
           <input type="radio" name="debit_card"/>
-          <label htmlFor="debit_card">Debit Card</label>
+          <label className="space" htmlFor="debit_card">Debit Card</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div className="container">
@@ -53,7 +55,7 @@ return(
       <Accordion.Item value="print">
         <Accordion.Control>
             <input type="radio" name="credit_card"/>
-            <label htmlFor="credit_card">Credit Card</label>
+            <label className="space" htmlFor="credit_card">Credit Card</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div className="container">
@@ -79,7 +81,7 @@ return(
       <Accordion.Item value="camera">
         <Accordion.Control>
             <input type="radio" name="net_banking"/>
-            <label htmlFor="net_banking">Net Banking</label>
+            <label className="space" htmlFor="net_banking">Net Banking</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div>
@@ -122,7 +124,7 @@ return(
       <Accordion.Item value="wall">
         <Accordion.Control>
             <input type="radio" name="my_wallet"/>
-            <label htmlFor="my_wallet">My Wallet</label>
+            <label className="space" htmlFor="my_wallet">My Wallet</label>
         </Accordion.Control>
         <Accordion.Panel>
             <div>

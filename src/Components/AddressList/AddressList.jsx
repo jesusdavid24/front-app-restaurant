@@ -1,4 +1,5 @@
 import React from "react"
+import "./AddressList.scss"
 
 const AddressList = ({ addresses, addAddress, removeAddress}) => {
     const handleAddress = () => {
@@ -18,16 +19,18 @@ return (
     <div>
         <section>
             <h1>Delivery Address</h1>
-            <h2>Saved Address</h2>
-            <button onClick={handleAddress}>Add New Address</button>
-            <ul>
-                {addresses.map((address, index) => (
-                    <li key={index}>
-                        {address}
-                        <button onClick={() => handleRemoveAddress(index)}>Eliminar</button>
-                    </li>
-                ))}
-            </ul>
+            <div className="container_addressb">
+                <h2>Saved Address</h2>
+                <button onClick={handleAddress}>Add New Address</button>
+                <ul>
+                    {addresses.map((address, index) => (
+                        <li key={index}>
+                            {address}
+                            <button onClick={() => handleRemoveAddress(index)}>Eliminar</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </section>
 
     </div>
