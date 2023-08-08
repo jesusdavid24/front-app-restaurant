@@ -4,6 +4,7 @@ import Root from "../layout/Root";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import ListRestaurants from "../pages/ListRestaurant/ListRestaurants";
+import SingleRestaurant from "../pages/SingleRestaurant/SingleRestaurant";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/restaurants",
         element: <ListRestaurants />,
+      },
+      {
+        path: "/restaurants/:id",
+        element: <SingleRestaurant />,
       },
     ],
   },

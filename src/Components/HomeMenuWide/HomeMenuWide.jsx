@@ -101,6 +101,7 @@ const HomeMenuWide = () => {
                 Home
               </NavLink>
             </Accordion.Panel>
+
             <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
                 to="/restaurants"
@@ -108,6 +109,16 @@ const HomeMenuWide = () => {
                 onClick={handleMenuOpen}
               >
                 Restaurants
+              </NavLink>
+            </Accordion.Panel>
+
+            <Accordion.Panel className="home-menu__accordion__panel">
+              <NavLink
+                to="/restaurants/:id"
+                className="home-menu__accordion__nav"
+                onClick={handleMenuOpen}
+              >
+                Single Restaurant
               </NavLink>
             </Accordion.Panel>
           </div>

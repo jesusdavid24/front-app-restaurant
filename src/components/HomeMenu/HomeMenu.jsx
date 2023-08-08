@@ -78,6 +78,16 @@ const HomeMenu = ({ menuOpen, onMenuOpen }) => {
               Restaurants
             </NavLink>
           </Accordion.Panel>
+
+          <Accordion.Panel className="home-menu__accordion__panel">
+            <NavLink
+              to="/restaurants/:id"
+              className="home-menu__accordion__nav"
+              onClick={handleMenuOpen}
+            >
+              Single Restaurant
+            </NavLink>
+          </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
     </nav>
