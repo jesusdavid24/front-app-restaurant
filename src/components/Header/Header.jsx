@@ -21,25 +21,27 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo-container">
-        <img
-          alt="logo"
-          src={logo}
-        />
-      </div>
-      <div className="buttons-container">
-        <button className="header__open-menu" onClick={handleMenuOpen}>
-          <i className="bi bi-list" />
-        </button>
-        <Link to="/login" className="header__profile-menu">
-          <i className="bi bi-person-fill" />
-        </Link>
-        <button className="header__settings-menu">
-          <i className="bi bi-gear-fill" />
-        </button>
-        {menuOpen && (
-          <HomeMenu menuOpen={menuOpen} onMenuOpen={handleMenuOpen} />
-        )}
+      <div className="header__container">
+        <div className="header__container__img">
+          <img
+            alt="logo"
+            src={logo}
+          />
+        </div>
+        <div className="header__container__buttons">
+          <button className="header__container__buttons__open-menu" onClick={handleMenuOpen}>
+            <i className="bi bi-list" />
+          </button>
+          <Link to="/login" className="header__container__buttons__profile-menu">
+            <i className="bi bi-person-fill" />
+          </Link>
+          <button className="header__container__buttons__settings-menu">
+            <i className="bi bi-gear-fill" />
+          </button>
+          {menuOpen && (
+            <HomeMenu menuOpen={menuOpen} onMenuOpen={handleMenuOpen} />
+          )}
+        </div>
       </div>
     </header>
   );
