@@ -5,6 +5,9 @@ import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import ListRestaurants from "../pages/ListRestaurant/ListRestaurants";
 import SingleRestaurant from "../pages/SingleRestaurant/SingleRestaurant";
+import ListRestaurants from "../pages/ListRestaurants";
+import Login from "../components/login/Login";
+import Registration from "../components/registration/Registration"
 
 const router = createBrowserRouter([
   {
@@ -24,8 +27,16 @@ const router = createBrowserRouter([
         path: "/restaurants/:id",
         element: <SingleRestaurant />,
       },
-    ],
-  },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/registration",
+        element: <Registration />
+      },
+    ]
+  }
 ]);
 
 export default router;

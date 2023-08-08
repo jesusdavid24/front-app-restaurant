@@ -114,10 +114,8 @@
     }
 
     &__play-store {
-      @include store__buttons(
-        $background-color: var(--neutral-main-cards),
-        $color: var(--primary-accent)
-      );
+      @include store__buttons($background-color: var(--neutral-main-cards),
+        $color: var(--primary-accent));
     }
   }
 

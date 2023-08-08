@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import registration from "../../assets/img/registration.jpg";
 import './registration.scss';
 
@@ -75,7 +76,9 @@ const Registration = () => {
             </div>
             <p className="registration__container__form__signin">
               Already have an acount?
-              <a href="#"> Signin</a>
+              <Link href="#" to="/login">
+                Signin
+              </Link>
             </p>
           </form>
         </div>

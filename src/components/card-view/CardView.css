@@ -1,4 +1,4 @@
-.container{
+.container {
   border: 0.1px solid grey;
   border-color: rgb(30, 30, 30);
   background-color: white;
@@ -17,13 +17,13 @@
   align-self: center;
 }
 
-h6{
+h6 {
   color: black;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 15px;
 }
 
-p{
+p {
   color: black;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 10px;

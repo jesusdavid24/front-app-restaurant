@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import HomeMenu from "../HomeMenu/HomeMenu";
-import HomeMenuWide from "../HomeMenuWide/HomeMenuWide";
+import HomeMenu from "../home-menu/HomeMenu";
+import HomeMenuWide from "../home-menu-wide/HomeMenuWide";
 
 import "./header.scss";
 
