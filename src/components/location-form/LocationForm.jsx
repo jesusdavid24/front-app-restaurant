@@ -9,7 +9,7 @@ const LocationForm = () => {
           The Food You Love, Delivered With Care &nbsp;
         </span>
       </h1>
-      <div className="location-form__input-box">
+      <form className="location-form__input-box">
         <input
           type="text"
           id="location"
@@ -25,7 +25,7 @@ const LocationForm = () => {
         <button type="submit" className="location-form__input-box__food">
           Find Food
         </button>
-      </div>
+      </form>
     </div>
   );
 };

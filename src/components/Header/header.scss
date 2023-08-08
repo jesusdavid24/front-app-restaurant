@@ -1,4 +1,122 @@
 .header {
+<<<<<<< HEAD
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px 10px;
+  background-color: var(--neutral-main-cards);
+
+  @media (min-width: 576px) {
+    width: 560px;
+    padding: 20px 15px;
+  }
+
+  @media (min-width: 768px) {
+    width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    width: 940px;
+    padding: 20px 0px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+    padding: 15px 40px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1360px;
+    padding: 15px 30px;
+  }
+
+  &__logo-container {
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    &__logo {
+      width: 110px;
+      filter: invert(1);
+    }
+  }
+
+  &__menu-container {
+    padding-right: 10px;
+    margin-left: auto;
+
+    @media (min-width: 768px) {
+      padding-right: 20px;
+    }
+
+    @media (min-width: 1200px) {
+      margin: 0;
+      width: 750px;
+      padding: 0;
+    }
+
+    &__row-menu {
+      width: 100%;
+      height: 40px;
+      display: none;
+
+      @media (min-width: 1200px) {
+        display: block;
+      }
+    }
+
+    &__button {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      border: none;
+      background-color: var(--neutral-main-cards);
+      @media (min-width: 1200px) {
+        display: none;
+      }
+
+      [class*=" bi-"]::before {
+        font-size: 25px;
+        font-weight: 900 !important;
+      }
+    }
+  }
+
+  &__buttons-container {
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+      width: 213px;
+      gap: 15px;
+    }
+
+    &__language,
+    &__currency {
+      display: none;
+      width: fit-content;
+      height: 35px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 900;
+      padding: 0px 10px;
+      background-color: var(--primary-background);
+      cursor: pointer;
+
+      & option {
+        font-weight: 700;
+=======
   padding: 0.5% 2%;
 
   &__container {
@@ -19,9 +137,46 @@
         width: 10%;
         object-fit: cover;
         box-sizing: border-box;
+>>>>>>> dev
       }
     }
 
+<<<<<<< HEAD
+      & option:checked {
+        font-weight: 700;
+        background-color: var(--primary-accent);
+        color: var(--primary-background);
+      }
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+
+    &__profile,
+    &__settings {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      border: none;
+    }
+
+    &__profile {
+      background-color: var(--primary-background);
+      border-radius: 5px;
+    }
+
+    &__settings {
+      background-color: var(--primary-background);
+      border-radius: 5px;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+=======
     &__buttons {
       width: 35%;
       display: flex;
@@ -47,3 +202,4 @@
     }
   }
 }
+>>>>>>> dev

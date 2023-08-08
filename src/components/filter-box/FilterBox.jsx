@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from "react";
-import FilterMenu from "../filter-menu/FilterMenu";
+import React from "react";
 import "./filterBox.scss";
 
-const FilterBox = () => {
-  const [boxOpen, setBoxOpen] = useState(false);
-  const [filterMenuOpen, setFilterMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (filterMenuOpen) {
-      document.body.classList.add("menu-open");
-    } else {
-      document.body.classList.remove("menu-open");
-    }
-  }, [filterMenuOpen]);
-
+const FilterBox = ({ handleBoxAndMenuOpen }) => {
   const handleClick = (event) => {
     const currentElement = event.target;
 
-    const selectedElement = document.querySelector(
-      ".box-list__item--selected"
-    );
+    const selectedElement = document.querySelector(".box-list__item--selected");
 
     if (currentElement !== selectedElement) {
       selectedElement &&
@@ -29,12 +15,8 @@ const FilterBox = () => {
     }
   };
 
-  const handleBoxOpen = () => {
-    setBoxOpen(!boxOpen);
-  };
-
-  const handleFilterMenuOpen = (event) => {
-    setFilterMenuOpen(!filterMenuOpen);
+  const handleMenuOpen = (event) => {
+    handleBoxAndMenuOpen(event);
   };
 
   return (
@@ -43,52 +25,40 @@ const FilterBox = () => {
         <h2>Filter</h2>
         <i
           className="bi bi-caret-down-fill filters__buttons__icon"
-          onClick={handleBoxOpen}
+          id="filter-box-open-button"
+          onClick={handleMenuOpen}
         />
       </div>
+
+      <div className="filters__buttons__box">
+        <ul className="filters__buttons__box-list">
+          <li
+            id="all"
+            className="box-list__item box-list__item--selected"
+            onClick={handleClick}
+          >
+            All
+          </li>
+          <li id="popular" className="box-list__item" onClick={handleClick}>
+            Popular
+          </li>
+          <li id="latest" className="box-list__item" onClick={handleClick}>
+            Latest
+          </li>
+          <li id="trend" className="box-list__item" onClick={handleClick}>
+            Trend
+          </li>
+        </ul>
+      </div>
+
       <div className="filters__menu-box">
         <h2>Latest Filter</h2>
         <img
           src="/src/assets/icons/filters-menu.png"
+          id="filter-menu-open-button"
           className="filters__menu-box__button"
-          onClick={handleFilterMenuOpen}
+          onClick={handleMenuOpen}
         />
-        {boxOpen && (
-          <div className="filters__buttons__box">
-            <ul className="filters__buttons__box-list">
-              <li
-                id="all"
-                className="box-list__item box-list__item--selected"
-                onClick={handleClick}>
-                All
-              </li>
-              <li
-                id="popular"
-                className="box-list__item"
-                onClick={handleClick}>
-                Popular
-              </li>
-              <li
-                id="latest"
-                className="box-list__item"
-                onClick={handleClick}>
-                Latest
-              </li>
-              <li
-                id="trend"
-                className="box-list__item"
-                onClick={handleClick}>
-                Trend
-              </li>
-            </ul>
-          </div>
-        )}
-        {filterMenuOpen && (
-          <FilterMenu
-            filterMenuOpen={filterMenuOpen}
-            onFilterMenuOpen={handleFilterMenuOpen}
-          />
-        )}
       </div>
     </div>
   );

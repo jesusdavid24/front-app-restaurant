@@ -3,6 +3,7 @@
 .home-menu {
   @include menu-container;
   right: 0;
+  overflow-x: hidden;
 
   &__back {
     width: 100%;
@@ -46,8 +47,9 @@
     }
 
     &__control {
-      width: 100%;
+      width: 300px;
       display: flex;
+      flex-direction: row-reverse;
       justify-content: space-between;
       padding: 0 15px;
 
@@ -59,6 +61,7 @@
     }
 
     &__panel {
+      width: 300px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;

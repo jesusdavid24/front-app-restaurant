@@ -15,9 +15,7 @@ const ButtonsFilters = () => {
           "buttons-filters__box__button--selected"
         );
 
-      currentElement.classList.toggle(
-        "buttons-filters__box__button--selected"
-      );
+      currentElement.classList.toggle("buttons-filters__box__button--selected");
     }
   };
 
@@ -28,25 +26,29 @@ const ButtonsFilters = () => {
         <button
           id="1"
           className="buttons-filters__box__button buttons-filters__box__button--selected"
-          onClick={handleClick}>
+          onClick={handleClick}
+        >
           All
         </button>
         <button
           id="2"
           className="buttons-filters__box__button"
-          onClick={handleClick}>
+          onClick={handleClick}
+        >
           Popular
         </button>
         <button
           id="3"
           className="buttons-filters__box__button"
-          onClick={handleClick}>
+          onClick={handleClick}
+        >
           Latest
         </button>
         <button
           id="4"
           className="buttons-filters__box__button"
-          onClick={handleClick}>
+          onClick={handleClick}
+        >
           Trend
         </button>
       </div>

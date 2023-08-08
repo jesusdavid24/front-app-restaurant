@@ -1,15 +1,17 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
+import MapBox from "../MapBox/MapBox";
 import "./footer.scss";
 
 const Footer = () => {
-  const locationUrl = "../src/assets/img/location.png";
   return (
     <div className="footer">
       <Accordion
         radius="xs"
         defaultValue="customization"
-        transitionDuration={1000}>
+        transitionDuration={1000}
+        className="main-accordion"
+      >
         <Accordion.Item value="contact-us">
           <Accordion.Control className="footer__control">
             Contact Us
@@ -17,21 +19,19 @@ const Footer = () => {
           <Accordion.Panel className="footer__panel">
             <div className="footer__panel__contact">
               <div className="footer__panel__contact__logo-container">
-                <div className="footer__panel__contact__logo-background">
-                  <img
-                    id="logo"
-                    src="/src/assets/icons/logo2.png"
-                    className="footer__panel__contact__logo"
-                  />
-                </div>
+                <img
+                  id="logo"
+                  src="/src/assets/icons/logo2.png"
+                  className="footer__panel__contact__logo"
+                />
                 <h1 id="logo" className="footer__panel__contact__title">
                   RICA
                 </h1>
               </div>
               <p className="footer__panel__contact__content">
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the...
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the...
               </p>
               <h2 className="footer__panel__contact__data">
                 <img
@@ -65,50 +65,48 @@ const Footer = () => {
           <Accordion.Control className="footer__control">
             Useful Links
           </Accordion.Control>
-          <Accordion.Panel className="footer__panel">Home</Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Our Vehical
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Latest Video
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Services
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Booking Deal
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Emergency Call
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Mobile App
-          </Accordion.Panel>
+          <div className="footer__links-panel-box">
+            <Accordion.Panel className="footer__panel">Home</Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Our Vehical
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Latest Video
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Services
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Booking Deal
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Emergency Call
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Mobile App
+            </Accordion.Panel>
+          </div>
         </Accordion.Item>
 
         <Accordion.Item value="about">
           <Accordion.Control className="footer__control">
-            About
-          </Accordion.Control>
-          <Accordion.Panel className="footer__panel">
             About Us
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">FAQ</Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Login
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Register
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Terms & Co.
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Privacy
-          </Accordion.Panel>
-          <Accordion.Panel className="footer__panel">
-            Support
-          </Accordion.Panel>
+          </Accordion.Control>
+          <div className="footer__about-panel-box">
+            <Accordion.Panel className="footer__panel">
+              About Us
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">FAQ</Accordion.Panel>
+            <Accordion.Panel className="footer__panel">Login</Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Register
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">
+              Terms & Co.
+            </Accordion.Panel>
+            <Accordion.Panel className="footer__panel">Privacy</Accordion.Panel>
+            <Accordion.Panel className="footer__panel">Support</Accordion.Panel>
+          </div>
         </Accordion.Item>
 
         <Accordion.Item value="our-location">
@@ -116,9 +114,9 @@ const Footer = () => {
             Our Location
           </Accordion.Control>
           <Accordion.Panel className="footer__panel">
-            <div
-              className="footer__panel__location"
-              style={{ backgroundImage: `url(${locationUrl})` }}></div>
+            <div className="footer__panel__location">
+              <MapBox />
+            </div>
           </Accordion.Panel>
         </Accordion.Item>
 
@@ -133,9 +131,7 @@ const Footer = () => {
                 className="footer__panel__topics__image"
               />
               <div className="footer__panel__topics__cotent-box">
-                <h1 className="footer__panel__topics__title">
-                  Recent News
-                </h1>
+                <h1 className="footer__panel__topics__title">Recent News</h1>
                 <p className="footer__panel__topics__content">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been th...
@@ -150,9 +146,7 @@ const Footer = () => {
                 className="footer__panel__topics__image2"
               />
               <div className="footer__panel__topics__cotent-box">
-                <h1 className="footer__panel__topics__title">
-                  Recent News
-                </h1>
+                <h1 className="footer__panel__topics__title">Recent News</h1>
                 <p className="footer__panel__topics__content">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been th...

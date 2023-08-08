@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
+import ListRestaurants from "../pages/ListRestaurant/ListRestaurants";
+import SingleRestaurant from "../pages/SingleRestaurant/SingleRestaurant";
 import ListRestaurants from "../pages/ListRestaurants";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration"
@@ -15,7 +17,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
+      },
+      {
+        path: "/restaurants",
+        element: <ListRestaurants />,
+      },
+      {
+        path: "/restaurants/:id",
+        element: <SingleRestaurant />,
       },
       {
         path: "/login",
@@ -25,10 +35,6 @@ const router = createBrowserRouter([
         path: "/registration",
         element: <Registration />
       },
-      {
-        path: "/restaurants",
-        element: <ListRestaurants />
-      }
     ]
   }
 ]);
