@@ -1,6 +1,6 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
-import MapBox from "../MapBox/MapBox";
+import MapBox from "../map-box/MapBox";
 import "./footer.scss";
 
 const Footer = () => {

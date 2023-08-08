@@ -9,7 +9,6 @@
     background-color: var(--neutral-cod);
   }
 
-<<<<<<< HEAD
   &__links-panel-box {
     @media (min-width: 768px) {
       width: 100vw;
@@ -36,23 +35,15 @@
     background-color: var(--neutral-cod);
     cursor: pointer;
 
-=======
-  &__panel {
-    background-color: var(--neutral-cod);
-    cursor: pointer;
-
->>>>>>> dev
     &__contact {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       gap: 10px;
-<<<<<<< HEAD
+
       @media (min-width: 768px) {
         width: 100vw;
       }
-=======
->>>>>>> dev
 
       &__logo-container {
         height: fit-content;
@@ -62,19 +53,6 @@
         gap: 10px;
       }
 
-<<<<<<< HEAD
-=======
-      &__logo-background {
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 60px;
-        margin-right: 6px;
-        border-radius: 15px;
-        background-color: #7c7c7c;
-      }
-
->>>>>>> dev
       &__logo {
         width: 30px;
         height: fit-content;
@@ -91,10 +69,7 @@
         font-weight: 700;
         color: var(--neutral-silver-text);
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
       &__data {
         display: flex;
         align-items: center;
@@ -109,7 +84,6 @@
     }
 
     &__location {
-<<<<<<< HEAD
       height: calc(60px + 25vw);
       padding-left: 10px;
 
@@ -120,26 +94,17 @@
         left: -53vw;
         padding-top: 10px;
       }
-=======
-      @include promo;
-      padding-left: 10px;
->>>>>>> dev
     }
 
     &__topics {
       width: 100%;
       display: flex;
       flex-direction: row;
-<<<<<<< HEAD
       justify-content: flex-start;
-=======
-      justify-content: space-between;
->>>>>>> dev
       align-items: flex-start;
       gap: 20px;
       padding-left: 3px;
 
-<<<<<<< HEAD
       @media (min-width: 768px) {
         width: 100vw;
         position: relative;
@@ -147,19 +112,15 @@
         padding: 0px 20px;
       }
 
-=======
->>>>>>> dev
       &__image {
         width: 280px;
         height: 100px;
         margin-bottom: 10px;
-<<<<<<< HEAD
+
         @media (min-width: 768px) {
           width: 200px;
           height: 150px;
         }
-=======
->>>>>>> dev
       }
 
       &__cotent-box {
@@ -172,10 +133,7 @@
         font-weight: 700;
         color: var(--neutral-main-cards);
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
       &__content {
         font-size: 13px;
         font-weight: 700;
@@ -186,13 +144,11 @@
         width: 280px;
         height: 100px;
         margin-bottom: 20px;
-<<<<<<< HEAD
+
         @media (min-width: 768px) {
           width: 200px;
           height: 150px;
         }
-=======
->>>>>>> dev
       }
     }
   }
@@ -220,10 +176,7 @@
 
     &__icon {
       width: 15px;
-<<<<<<< HEAD
       cursor: pointer;
-=======
->>>>>>> dev
     }
   }
 
@@ -244,18 +197,13 @@
   .mantine-gm39d {
     font-size: 15px;
     font-weight: 700;
-<<<<<<< HEAD
     padding: 10px 0 5px 0;
     white-space: nowrap;
-=======
-    padding: 5px 0 5px 0;
->>>>>>> dev
   }
 
   .mantine-gm39d:hover {
     background-color: var(--neutral-cod);
   }
-<<<<<<< HEAD
 
   .mantine-731ldn {
     font-size: 13px;
@@ -263,22 +211,12 @@
     color: var(--neutral-silver-text);
     padding-bottom: 5px;
     padding-left: 18px;
+
     &:hover {
       color: var(--neutral-main-cards);
     }
   }
 
-=======
-
-  .mantine-731ldn {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--neutral-silver-text);
-    padding-bottom: 5px;
-    padding-left: 18px;
-  }
-
->>>>>>> dev
   .mantine-Accordion-chevron path {
     color: var(--neutral-main-cards);
   }
@@ -286,7 +224,6 @@
   .mantine-hp9ccp:hover {
     background-color: var(--neutral-cod);
   }
-<<<<<<< HEAD
 }
 
 .main-accordion {
@@ -305,6 +242,3 @@
     border-bottom: none;
   }
 }
-=======
-}
->>>>>>> dev

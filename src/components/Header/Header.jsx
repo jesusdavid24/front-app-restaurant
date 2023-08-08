@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import HomeMenu from "../home-menu/HomeMenu";
 import HomeMenuWide from "../home-menu-wide/HomeMenuWide";
-
 import "./header.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,11 +22,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__logo-container">
-        <img
-          id="logo"
-          src="/src/assets/img/logo2.png"
-          className="header__logo-container__logo"
-        />
+        <Link to="/">
+          <img
+            id="logo"
+            src="/src/assets/img/logo2.png"
+            className="header__logo-container__logo"
+          />
+        </Link>
       </div>
 
       <div className="header__menu-container">
@@ -55,7 +57,7 @@ const Header = () => {
         </select>
 
         <button className="header__buttons-container__profile">
-          <i className="bi bi-person-fill" />
+          <Link to="/login"><i className="bi bi-person-fill" /></Link>
         </button>
 
         <button className="header__buttons-container__settings">

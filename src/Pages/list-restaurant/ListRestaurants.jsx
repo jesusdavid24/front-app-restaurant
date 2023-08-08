@@ -1,8 +1,8 @@
 import React from "react";
-import LocationForm from "../../components/LocationForm/LocationForm";
-import FilterBox from "../../components/FilterBox/FilterBox";
-import FilterMenu from "../../components/FilterMenu/FilterMenu";
-import RestaurantsList from "../../components/RestaurantsList/RestaurantsList";
+import LocationForm from "../../components/location-form/LocationForm";
+import FilterBox from "../../components/filter-box/FilterBox";
+import FilterMenu from "../../components/filter-menu/FilterMenu";
+import RestaurantsList from "../../components/restaurants-list/RestaurantsList";
 import "./listRestaurant.scss";
 
 const ListRestaurants = () => {
@@ -20,7 +20,7 @@ const ListRestaurants = () => {
       (menuBox.classList.toggle(
         "restaurants-page__menu-list__filter-menu--active"
       ),
-      document.body.classList.toggle("menu-open"));
+        document.body.classList.toggle("menu-open"));
   };
 
   return (
