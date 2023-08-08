@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HomeMenu from "../home-menu/HomeMenu";
 import { Link } from "react-router-dom";
+import logo from "../../assets/img/logo-tab.png"
 import "./header.scss";
 
 const Header = () => {
@@ -20,31 +21,27 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo-container">
-        <div className="logo-background">
+      <div className="header__container">
+        <div className="header__container__img">
           <img
-            id="logo"
-            src="/src/assets/icons/logo.png"
-            className="header__logo"
+            alt="logo"
+            src={logo}
           />
         </div>
-        <h1 id="logo" className="header__title">
-          RICA
-        </h1>
-      </div>
-      <div className="buttons-container">
-        <button className="header__open-menu" onClick={handleMenuOpen}>
-          <i className="bi bi-list" />
-        </button>
-        <Link to="/login" className="header__profile-menu">
-          <i className="bi bi-person-fill" />
-        </Link>
-        <button className="header__settings-menu">
-          <i className="bi bi-gear-fill" />
-        </button>
-        {menuOpen && (
-          <HomeMenu menuOpen={menuOpen} onMenuOpen={handleMenuOpen} />
-        )}
+        <div className="header__container__buttons">
+          <button className="header__container__buttons__open-menu" onClick={handleMenuOpen}>
+            <i className="bi bi-list" />
+          </button>
+          <Link to="/login" className="header__container__buttons__profile-menu">
+            <i className="bi bi-person-fill" />
+          </Link>
+          <button className="header__container__buttons__settings-menu">
+            <i className="bi bi-gear-fill" />
+          </button>
+          {menuOpen && (
+            <HomeMenu menuOpen={menuOpen} onMenuOpen={handleMenuOpen} />
+          )}
+        </div>
       </div>
     </header>
   );
