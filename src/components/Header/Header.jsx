@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HomeMenu from "../home-menu/HomeMenu";
 import { Link } from "react-router-dom";
+import logo from "../../assets/img/logo-tab.png"
 import "./header.scss";
 
 const Header = () => {
@@ -21,16 +22,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo-container">
-        <div className="logo-background">
-          <img
-            id="logo"
-            src="/src/assets/icons/logo.png"
-            className="header__logo"
-          />
-        </div>
-        <h1 id="logo" className="header__title">
-          RICA
-        </h1>
+        <img
+          alt="logo"
+          src={logo}
+        />
       </div>
       <div className="buttons-container">
         <button className="header__open-menu" onClick={handleMenuOpen}>

@@ -49,7 +49,7 @@
         .registration__container__form {
           &__title {
             font-size: 28px;
-            color: var(--black_text);
+            color: var(--neutral-cod);
             font-weight: 600;
             letter-spacing: -1px;
             position: relative;
@@ -66,13 +66,13 @@
               width: 16px;
               border-radius: 50%;
               left: 0px;
-              background-color: var(--Amarantha_primary);
+              background-color: var(--primary-accent);
             }
 
             &::before {
               width: 18px;
               height: 18px;
-              background-color: var(--Amarantha_primary);
+              background-color: var(--primary-accent);
             }
 
             &::after {
@@ -133,7 +133,7 @@
                 }
 
                 &__input:valid+span {
-                  color: var(--color_text);
+                  color: var(--neutral-silver-text);
                 }
               }
             }
@@ -185,7 +185,7 @@
                 }
 
                 &__input:valid+span {
-                  color: var(--color_text);
+                  color: var(--neutral-silver-text);
                 }
               }
             }
@@ -197,7 +197,7 @@
             & button {
               border: none;
               outline: none;
-              background-color: var(--Amarantha_primary);
+              background-color: var(--primary-accent);
               ;
               padding: 10px;
               border-radius: 10px;
@@ -209,7 +209,6 @@
 
               &:hover {
                 background-color: #f80516;
-                ;
               }
             }
           }
@@ -217,14 +216,17 @@
       }
 
       &__signin {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 7px;
+        gap: 5px;
 
         & a {
-          color: var(--color_text);
+          color: var(--neutral-silver-text);
           text-decoration: none;
 
           &:hover {
-            color: var(--black_text);
+            color: var(--neutral-cod);
             font-style: italic;
           }
         }
