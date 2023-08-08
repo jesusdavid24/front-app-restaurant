@@ -2,6 +2,7 @@ import Google from '../shared/svg/Google';
 import Twitter from '../shared/svg/Twitter';
 import GitHub from '../shared/svg/Github';
 import login from '../../assets/img/login.jpg';
+import { Link } from "react-router-dom";
 import './login.scss';
 
 const Login = () => {
@@ -53,7 +54,9 @@ const Login = () => {
             </button>
           </div>
           <p className="login__container__form__signup">Don&apos;t have an account?
-            <a rel="noopener noreferrer" href="#" className=""> Sign up</a>
+            <Link rel="noopener noreferrer" href="#" to="/registration">
+              Sign up
+            </Link>
           </p>
         </div>
         <div className="login__container__img">

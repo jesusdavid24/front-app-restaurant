@@ -1,72 +1,152 @@
 .header {
-   width: 100%;
-   box-sizing: border-box;
-   height: fit-content;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   justify-content: space-between;
-   align-items: center;
-   padding: 10px 10px;
-   background-color: var(--neutral-main-cards);
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px 10px;
+  background-color: var(--neutral-main-cards);
 
-   .logo-container {
-      height: fit-content;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+  @media (min-width: 576px) {
+    width: 560px;
+    padding: 20px 15px;
+  }
+
+  @media (min-width: 768px) {
+    width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    width: 940px;
+    padding: 20px 0px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+    padding: 15px 40px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1360px;
+    padding: 15px 30px;
+  }
+
+  &__logo-container {
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    &__logo {
+      width: 110px;
+      filter: invert(1);
+    }
+  }
+
+  &__menu-container {
+    padding-right: 10px;
+    margin-left: auto;
+
+    @media (min-width: 768px) {
+      padding-right: 20px;
+    }
+
+    @media (min-width: 1200px) {
+      margin: 0;
+      width: 750px;
+      padding: 0;
+    }
+
+    &__row-menu {
+      width: 100%;
+      height: 40px;
+      display: none;
+
+      @media (min-width: 1200px) {
+        display: block;
+      }
+    }
+
+    &__button {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      border: none;
+      background-color: var(--neutral-main-cards);
+
+      @media (min-width: 1200px) {
+        display: none;
+      }
+
+      [class*=" bi-"]::before {
+        font-size: 25px;
+        font-weight: 900 !important;
+      }
+    }
+  }
+
+  &__buttons-container {
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+      width: 213px;
+      gap: 15px;
+    }
+
+    &__language,
+    &__currency {
+      display: none;
+      width: fit-content;
+      height: 35px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 900;
+      padding: 0px 10px;
+      background-color: var(--primary-background);
       cursor: pointer;
 
-      .logo-background {
-         width: 25px;
-         height: 25px;
-         background-color: rgb(205, 205, 205);
-         line-height: 33px;
-         border-radius: 10px;
-         text-align: center;
-         margin-right: 6px;
+      & option {
+        font-weight: 700;
       }
 
-      .header__logo {
-         width: 17px;
-         height: fit-content;
-         color: #fff;
+      & option:checked {
+        font-weight: 700;
+        background-color: var(--primary-accent);
+        color: var(--primary-background);
       }
 
-      .header__title {
-         font-size: 1.1rem;
-         font-weight: 900;
+      @media (min-width: 768px) {
+        display: block;
       }
-   }
+    }
 
-   .buttons-container {
-      width: 35%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
+    &__profile,
+    &__settings {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      border: none;
+    }
 
-      .header__open-menu,
-      .header__profile-menu,
-      .header__settings-menu {
-         width: 30px;
-         height: 30px;
-         cursor: pointer;
-         border: none;
+    &__profile,
+    &__settings {
+      background-color: var(--primary-background);
+      border-radius: 5px;
+    }
+
+    &__settings {
+      @media (min-width: 768px) {
+        display: none;
       }
-
-      .header__open-menu {
-         background-color: var(--neutral-main-cards);
-      }
-
-      .header__profile-menu {
-         background-color: var(--primary-background);
-         border-radius: 5px;
-      }
-
-      .header__settings-menu {
-         background-color: var(--primary-background);
-         border-radius: 5px;
-      }
-   }
+    }
+  }
 }

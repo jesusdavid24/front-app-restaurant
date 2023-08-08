@@ -1,0 +1,108 @@
+.carousel {
+  @media (min-width: 576px) {
+    width: 540px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 768px) {
+    width: 690px;
+  }
+
+  @media (min-width: 992px) {
+    width: 930px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1120px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1300px;
+  }
+
+  &__restaurant {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    &__image {
+      width: 125px;
+      height: 125px;
+      border-radius: 20px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: box-shadow 0.5s ease;
+
+      &:hover {
+        box-shadow: -2px 6px 8px 0px rgba(61, 61, 61, 0.75);
+      }
+
+      @media (min-width: 992px) {
+        width: 130px;
+        height: 130px;
+      }
+
+      @media (min-width: 1200px) {
+        width: 155px;
+        height: 160px;
+      }
+    }
+
+    &__cuisine {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 10px;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 23px;
+      }
+    }
+
+    &__number {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--neutral-silver-text);
+
+      @media (min-width: 768px) {
+        font-size: 15px;
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 17px;
+      }
+    }
+  }
+
+  .mantine-Carousel-container {
+    width: 150px;
+    height: fit-content;
+    gap: 20px;
+    padding-bottom: 5px;
+    margin: 30px 0 0 30px;
+
+    @media (min-width: 768px) {
+      width: 145px;
+    }
+
+    @media (min-width: 992px) {
+      width: 160px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 195px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 190px;
+    }
+  }
+}
