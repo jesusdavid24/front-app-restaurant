@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+  margin-bottom: 10px;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 2px 4px 0 #dedede;
 
@@ -16,8 +17,7 @@
 
   &__menu {
     height: 100%;
-    padding: 20px;
-    padding-top: 10px;
+    padding: 10px 20px;
 
     &__bestseller {
       margin-bottom: 10px;
@@ -58,10 +58,6 @@
       padding: 10px 0;
       border-bottom: 2px solid var(--primary-background);
     }
-
-    // &__item-name {
-    //   font-size: 14px;
-    // }
 
     &__item-description {
       color: var(--neutral-silver-text);

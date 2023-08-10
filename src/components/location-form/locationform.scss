@@ -79,6 +79,10 @@
       border: none;
       border-radius: 5px;
       background-color: var(--primary-background);
+
+      &:focus {
+        outline-color: var(--primary-accent);
+      }
     }
 
     &__location {

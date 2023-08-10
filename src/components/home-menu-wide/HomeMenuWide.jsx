@@ -91,6 +91,7 @@ const HomeMenuWide = () => {
           >
             PAGES
           </Accordion.Control>
+
           <div className="home-menu-wide__accordion__panel-box">
             <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
@@ -112,19 +113,20 @@ const HomeMenuWide = () => {
               </NavLink>
             </Accordion.Panel>
 
-            <Accordion.Panel className="home-menu__accordion__panel">
+            <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
                 to="/restaurants/:id"
-                className="home-menu__accordion__nav"
+                className="home-menu-wide__accordion__nav"
                 onClick={handleMenuOpen}
               >
                 Single Restaurant
               </NavLink>
             </Accordion.Panel>
-            <Accordion.Panel className="home-menu__accordion__panel">
+
+            <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
                 to="/checkout"
-                className="home-menu__accordion__nav"
+                className="home-menu-wide__accordion__nav"
                 onClick={handleMenuOpen}
               >
                 Checkout

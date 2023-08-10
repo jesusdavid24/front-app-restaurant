@@ -7,7 +7,7 @@ import SingleRestaurant from "../pages/single-restaurant/SingleRestaurant";
 import ListRestaurants from "../pages/list-restaurant/ListRestaurants";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration";
-import Checkout from "../pages/checkout/Checkout"
+import Checkout from "../pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -29,18 +29,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/registration",
-        element: <Registration />
+        element: <Registration />,
       },
       {
         path: "/checkout",
-        element: <Checkout />
+        element: <Checkout />,
       },
-    ]
-  }
+    ],
+  },
 ]);
 
 export default router;

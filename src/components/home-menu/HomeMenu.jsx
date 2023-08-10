@@ -88,6 +88,16 @@ const HomeMenu = ({ menuOpen, onMenuOpen }) => {
               Single Restaurant
             </NavLink>
           </Accordion.Panel>
+
+          <Accordion.Panel className="home-menu__accordion__panel">
+            <NavLink
+              to="/checkout"
+              className="home-menu__accordion__nav"
+              onClick={handleMenuOpen}
+            >
+              Checkout
+            </NavLink>
+          </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
     </nav>

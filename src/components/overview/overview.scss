@@ -1,0 +1,38 @@
+.overview {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: var(--neutral-main-cards);
+
+  &__col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 25px;
+  }
+
+  &__col-2 {
+    padding: 0px 25px;
+  }
+
+  &__phone {
+    font-weight: 700;
+  }
+
+  &__category {
+    margin-bottom: 5px;
+  }
+
+  ul {
+    padding-left: 25px;
+
+    li {
+      list-style: square;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

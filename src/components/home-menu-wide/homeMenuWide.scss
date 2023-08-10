@@ -59,6 +59,7 @@
       border-radius: 10px;
       background-color: var(--neutral-main-cards);
       box-shadow: 0px 0px 5px 1px rgba(204, 204, 204, 0.75);
+      z-index: 6;
     }
 
     &__panel {

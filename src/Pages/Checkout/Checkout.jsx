@@ -5,31 +5,31 @@ import CardView from "../../Components/card-view/CardView";
 import "./checkout.scss";
 
 const Checkout = () => {
-  const [addresses, setAddresses] = useState([])
-  const [paymentitems, setPaymentitems] = useState([])
+  const [addresses, setAddresses] = useState([]);
+  const [paymentitems, setPaymentitems] = useState([]);
 
   const addAddress = (address) => {
-    setAddresses([...addresses, address])
-  }
+    setAddresses([...addresses, address]);
+  };
 
   const removeAddress = (index) => {
-    const updateAddress = [...addresses]
-    updateAddress.splice(index, 1)
-    setAddresses(updateAddress)
-  }
+    const updateAddress = [...addresses];
+    updateAddress.splice(index, 1);
+    setAddresses(updateAddress);
+  };
 
   const addPaymentitem = (item) => {
-    setPaymentitems([...paymentitems, item])
-  }
+    setPaymentitems([...paymentitems, item]);
+  };
 
   const removePaymentitem = (index) => {
-    const updatePaymentitems = [...paymentitems]
-    updatePaymentitems.splice(index, 1)
-    setPaymentitems(updatePaymentitems)
-  }
+    const updatePaymentitems = [...paymentitems];
+    updatePaymentitems.splice(index, 1);
+    setPaymentitems(updatePaymentitems);
+  };
 
   return (
-    <div>
+    <div className="checkout_container">
       <div className="container_immg">
         <img className="object" src="/src/assets/img/1.jpg" />
       </div>
@@ -64,7 +64,7 @@ const Checkout = () => {
         <h2>Seccion de Pago</h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;
