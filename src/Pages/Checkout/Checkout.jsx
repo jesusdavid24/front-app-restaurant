@@ -55,12 +55,6 @@ const Checkout = () => {
         />
       </div>
       <div>
-        <h2>Items de pagos</h2>
-        <Paymentitems
-          paymentitems={paymentitems}
-          addPaymentitem={addPaymentitem}
-          removePaymentitem={removePaymentitem}
-        />
         <h2>Seccion de Pago</h2>
       </div>
     </div>
