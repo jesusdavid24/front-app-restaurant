@@ -20,10 +20,24 @@
           display: none;
         }
       }
-    }
 
-    // &__carousel {
-    //   margin: 20px 0;
-    // }
+      &__map {
+        width: 95%;
+        height: 280px;
+        padding: 15px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        background-color: var(--neutral-main-cards);
+        box-shadow: 0 2px 4px 0 #dedede;
+
+        .mapboxgl-ctrl-bottom-left {
+          display: none;
+        }
+      }
+
+      // &__carousel {
+      //   margin: 20px 0;
+      // }
+    }
   }
 }

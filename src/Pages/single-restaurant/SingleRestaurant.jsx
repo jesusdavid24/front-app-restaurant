@@ -3,6 +3,7 @@ import RestaurantSlider from "../../components/restaurant-slider/RestaurantSlide
 import RestaurantOptions from "../../components/restaurant-options/RestaurantOptions";
 import OrderOnline from "../../components/order-online/OrderOnline";
 import Overview from "../../components/overview/Overview";
+import MapBox from "../../components/map-box/MapBox";
 import Booking from "../../components/booking/Booking";
 import Reviews from "../../components/reviews/Reviews";
 import RestaurantsCarousel from "../../components/restaurants-carousel/RestaurantsCarousel";
@@ -10,6 +11,8 @@ import AlwaysFirst from "../../components/always-first/AlwaysFirst";
 import "./singleRestaurant.scss";
 
 const SingleRestaurant = () => {
+  const coordinates = [-73.5, 40.8];
+
   return (
     <div className="single-restaurant">
       <RestaurantSlider />
@@ -32,10 +35,15 @@ const SingleRestaurant = () => {
             {/*
             <div className="single-restaurant__principal__options-box__election--inactive">
               <Gallery />
-            </div>
-            <div className="single-restaurant__principal__options-box__election--inactive">
-              <Location />
             </div> */}
+            <div
+              id="location"
+              className="single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive"
+            >
+              <div className="single-restaurant__principal__options-box__map">
+                <MapBox coordinates={coordinates} />
+              </div>
+            </div>
             <div
               id="booking"
               className="single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive"

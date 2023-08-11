@@ -1,0 +1,41 @@
+.restaurant-reviews {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: var(--neutral-main-cards);
+  box-shadow: 0 2px 4px 0 #dedede;
+
+  &__review {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 15px;
+    border-top: 1px solid var(--primary-background);
+
+    &:first-child {
+      padding-top: 0px;
+      border-top: none;
+    }
+
+    &__rating {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    &__star {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+
+    &__author {
+      font-weight: 400;
+      color: var(--neutral-silver-text);
+    }
+  }
+}

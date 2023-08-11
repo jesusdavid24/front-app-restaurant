@@ -4,6 +4,7 @@ import MapBox from "../map-box/MapBox";
 import "./footer.scss";
 
 const Footer = () => {
+  const coordinates = [-73.9999, 40.6892];
   return (
     <div className="footer">
       <Accordion
@@ -115,7 +116,7 @@ const Footer = () => {
           </Accordion.Control>
           <Accordion.Panel className="footer__panel">
             <div className="footer__panel__location">
-              <MapBox />
+              <MapBox coordinates={coordinates} />
             </div>
           </Accordion.Panel>
         </Accordion.Item>

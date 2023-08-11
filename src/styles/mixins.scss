@@ -10,8 +10,10 @@
   }
 }
 
-@mixin buttons-filter__button($color: #000000,
-  $background-color: var(--primary-background)) {
+@mixin buttons-filter__button(
+  $color: #000000,
+  $background-color: var(--primary-background)
+) {
   height: 35px;
   font-weight: 700;
   color: $color;
@@ -39,7 +41,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  overflow: scroll;
+  overflow: scroll !important;
   border-left: 2px solid #d3d3d3a2;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
@@ -93,8 +95,10 @@
   gap: 10px;
 }
 
-@mixin restaurants-list__navigate-buttons($color: #000000,
-  $background-color: var(--neutral-main-cards)) {
+@mixin restaurants-list__navigate-buttons(
+  $color: #000000,
+  $background-color: var(--neutral-main-cards)
+) {
   width: 30px;
   height: 30px;
   display: flex;
@@ -108,8 +112,10 @@
   cursor: pointer;
 }
 
-@mixin store__buttons($color: var(--neutral-main-cards),
-  $background-color: var(--primary-accent)) {
+@mixin store__buttons(
+  $color: var(--neutral-main-cards),
+  $background-color: var(--primary-accent)
+) {
   height: 30px;
   display: flex;
   flex-direction: row;
@@ -120,7 +126,7 @@
   font-weight: 900;
   padding: 10px 10px;
   color: $color;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 5px;
   background-color: $background-color;
   cursor: pointer;

@@ -32,8 +32,9 @@
     align-self: flex-end;
     font-weight: 700;
     padding: 5px 15px;
+    margin-top: 5px;
     color: var(--neutral-main-cards);
-    border: none;
+    border: 1px solid transparent;
     background-color: var(--primary-accent);
   }
 }
