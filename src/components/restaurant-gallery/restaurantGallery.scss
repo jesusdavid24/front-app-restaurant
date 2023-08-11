@@ -1,0 +1,21 @@
+.restaurant-gallery {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: var(--neutral-main-cards);
+  box-shadow: 0 2px 4px 0 #dedede;
+
+  &__box {
+    height: calc(65vw - 30px);
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

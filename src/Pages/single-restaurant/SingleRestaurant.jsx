@@ -3,6 +3,7 @@ import RestaurantSlider from "../../components/restaurant-slider/RestaurantSlide
 import RestaurantOptions from "../../components/restaurant-options/RestaurantOptions";
 import OrderOnline from "../../components/order-online/OrderOnline";
 import Overview from "../../components/overview/Overview";
+import RestaurantGallery from "../../components/restaurant-gallery/RestaurantGallery";
 import MapBox from "../../components/map-box/MapBox";
 import Booking from "../../components/booking/Booking";
 import Reviews from "../../components/reviews/Reviews";
@@ -32,10 +33,13 @@ const SingleRestaurant = () => {
             >
               <Overview />
             </div>
-            {/*
-            <div className="single-restaurant__principal__options-box__election--inactive">
-              <Gallery />
-            </div> */}
+
+            <div
+              id="gallery"
+              className="single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive"
+            >
+              <RestaurantGallery />
+            </div>
             <div
               id="location"
               className="single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive"
