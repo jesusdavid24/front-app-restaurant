@@ -15,6 +15,10 @@
       @media (min-width: 992px) {
         width: 300px;
       }
+
+      @media (min-width: 1200px) {
+        width: 400px;
+      }
     }
   }
 
@@ -39,6 +43,10 @@
       width: 300px;
     }
 
+    @media (min-width: 1200px) {
+      width: 400px;
+    }
+
     &__image-container {
       @media (min-width: 576px) {
         height: 345px;
@@ -48,6 +56,9 @@
       }
       @media (min-width: 992px) {
         height: 195px;
+      }
+      @media (min-width: 1200px) {
+        height: 270px;
       }
     }
 

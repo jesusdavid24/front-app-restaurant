@@ -23,6 +23,11 @@
       padding: 10px;
       cursor: pointer;
 
+      @media (min-width: 1200px) {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
       &--selected {
         color: var(--primary-accent);
         border-bottom: 2px solid var(--primary-accent);

@@ -24,6 +24,10 @@
       gap: 20px;
     }
 
+    @media (min-width: 1200px) {
+      width: 1120px;
+    }
+
     &__option-selection {
       display: flex;
       flex-direction: column;
@@ -32,6 +36,10 @@
 
       @media (min-width: 992px) {
         width: 66.6%;
+      }
+
+      @media (min-width: 1200px) {
+        width: 75%;
       }
 
       // @media (min-width: 576px) {
@@ -87,6 +95,11 @@
     &__cart {
       @media (min-width: 992px) {
         width: 33.3%;
+        margin-bottom: 30px;
+      }
+
+      @media (min-width: 1200px) {
+        width: 25%;
         margin-bottom: 30px;
       }
 

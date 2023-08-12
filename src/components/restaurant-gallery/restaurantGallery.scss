@@ -32,6 +32,11 @@
       height: 115px;
     }
 
+    @media (min-width: 1200px) {
+      width: 235px;
+      height: 160px;
+    }
+
     &__image {
       width: 100%;
       height: 100%;
