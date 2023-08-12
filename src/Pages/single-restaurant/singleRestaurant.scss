@@ -28,6 +28,10 @@
       width: 1120px;
     }
 
+    @media (min-width: 1440px) {
+      width: 1390px;
+    }
+
     &__option-selection {
       display: flex;
       flex-direction: column;

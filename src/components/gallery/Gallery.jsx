@@ -1,7 +1,7 @@
 import React from "react";
-import "./restaurantGallery.scss";
+import "./gallery.scss";
 
-const RestaurantGallery = () => {
+const Gallery = () => {
   const galleryImages = [
     "../src/assets/img/gallery1.jpg",
     "../src/assets/img/gallery2.jpg",
@@ -22,4 +22,4 @@ const RestaurantGallery = () => {
   );
 };
 
-export default RestaurantGallery;
+export default Gallery;

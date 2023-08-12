@@ -39,6 +39,12 @@ const RestaurantSlider = () => {
         </Carousel.Slide>
         <Carousel.Slide className="restaurant-slider__carousel__slide">
           <img
+            src="../src/assets/img/italian3.jpg"
+            className="restaurant-slider__carousel__slide__img"
+          />
+        </Carousel.Slide>
+        <Carousel.Slide className="restaurant-slider__carousel__slide">
+          <img
             src="../src/assets/img/1.jpg"
             className="restaurant-slider__carousel__slide__img"
           />
