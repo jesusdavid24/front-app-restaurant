@@ -7,7 +7,7 @@ import SingleRestaurant from "../pages/single-restaurant/SingleRestaurant";
 import ListRestaurants from "../pages/list-restaurant/ListRestaurants";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration";
-import Checkout from "../pages/checkout/Checkout"
+import Checkout from "../Pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
   {
