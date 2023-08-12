@@ -27,6 +27,11 @@
       height: 205px;
     }
 
+    @media (min-width: 992px) {
+      width: 164px;
+      height: 115px;
+    }
+
     &__image {
       width: 100%;
       height: 100%;
