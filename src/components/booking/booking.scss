@@ -1,34 +1,35 @@
+@import "../../styles/mixins.scss";
+
 .booking {
-  width: 95%;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 15px;
-  margin: 0 auto;
-  margin-bottom: 10px;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 2px 4px 0 #dedede;
 
+  @media (min-width: 576px) {
+    padding: 30px;
+  }
+
   &__user-name {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    @include booking__inputs;
   }
 
   &__user-communication {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    @include booking__inputs;
   }
 
   &__date-picker {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    @include booking__inputs;
 
     &__date-input {
       width: 100%;
       margin: 0;
+
+      @media (min-width: 576px) {
+        width: 50%;
+      }
 
       &__button {
         width: 100%;
@@ -60,6 +61,10 @@
     border: 1px solid #ced4da;
     border-radius: 5px;
 
+    @media (min-width: 576px) {
+      width: 50%;
+    }
+
     &:focus {
       outline-color: var(--primary-accent);
     }
@@ -73,5 +78,9 @@
     padding: 6px 12px;
     border: none;
     background-color: var(--primary-accent);
+    @media (min-width: 576px) {
+      font-size: 17px;
+      padding: 8px 20px;
+    }
   }
 }

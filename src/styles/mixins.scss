@@ -10,6 +10,17 @@
   }
 }
 
+@mixin booking__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    gap: 25px;
+  }
+}
+
 @mixin buttons-filter__button(
   $color: #000000,
   $background-color: var(--primary-background)

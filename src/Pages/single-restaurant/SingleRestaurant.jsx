@@ -8,6 +8,7 @@ import MapBox from "../../components/map-box/MapBox";
 import Booking from "../../components/booking/Booking";
 import Reviews from "../../components/reviews/Reviews";
 import RestaurantsCarousel from "../../components/restaurants-carousel/RestaurantsCarousel";
+import Cart from "../../components/cart/Cart";
 import AlwaysFirst from "../../components/always-first/AlwaysFirst";
 import "./singleRestaurant.scss";
 
@@ -17,7 +18,7 @@ const SingleRestaurant = () => {
   return (
     <div className="single-restaurant">
       <RestaurantSlider />
-      <div className="single-restaurant__principal flex row">
+      <div className="single-restaurant__principal">
         <div className="single-restaurant__principal__option-selection">
           <RestaurantOptions />
           <div className="single-restaurant__principal__options-box">
@@ -65,15 +66,51 @@ const SingleRestaurant = () => {
             <RestaurantsCarousel />
           </div>
         </div>
-        <div className="single-restaurant__principal__cart flex column">
-          {/* <div className="single-restaurant__principal__cart>
-          <CartItems />
-          </div> */}
-          <div className="single-restaurant__principal__offers">
-            <AlwaysFirst />
+        <div className="single-restaurant__principal__cart">
+          <div className="single-restaurant__principal__cart__sticky">
+            <div className="single-restaurant__principal__cart__items">
+              <Cart />
+            </div>
+            <div className="single-restaurant__principal__offers">
+              <AlwaysFirst />
+            </div>
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

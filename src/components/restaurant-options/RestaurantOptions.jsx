@@ -21,11 +21,11 @@ const RestaurantOptions = () => {
     }
 
     const id = event.target.id;
-    const div = document.querySelectorAll(
+    const divs = document.querySelectorAll(
       ".single-restaurant__principal__options-box__election"
     );
 
-    div.forEach((item) => {
+    divs.forEach((item) => {
       item.id != id
         ? item.classList.add(
             "single-restaurant__principal__options-box__election--inactive"

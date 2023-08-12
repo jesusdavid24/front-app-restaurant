@@ -6,14 +6,12 @@ const RestaurantSlider = () => {
   return (
     <div className="restaurant-slider">
       <div className="restaurant-slider__box">
-        {/* <div className="restaurant-carousel__logo"> */}
         <img
-          src="../src/assets/img/logo-tab.png"
+          src="../src/assets/img/rest-logo1.png"
           className="restaurant-slider__box__img"
         />
-        {/* </div> */}
         <h2 className="restaurant-slider__box__name">Italian Restro</h2>
-        <h3 className="restaurant-slider__box__cusine">
+        <h3 className="restaurant-slider__box__cuisine">
           Fast Food, Cafe, Italian
         </h3>
         <div className="restaurant-slider__box__inner-box">

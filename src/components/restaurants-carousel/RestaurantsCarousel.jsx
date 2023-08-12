@@ -9,7 +9,7 @@ const RestaurantsCarousel = () => {
   return (
     <div className="order-restaurants">
       <Carousel
-        // align="end"
+        align="end"
         withControls={false}
         loop
         className="order-restaurants__carousel"

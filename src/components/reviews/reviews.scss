@@ -1,13 +1,14 @@
 .restaurant-reviews {
-  width: 95%;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 15px;
-  margin: 0 auto;
-  margin-bottom: 10px;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 2px 4px 0 #dedede;
+
+  @media (min-width: 576px) {
+    padding: 30px;
+  }
 
   &__review {
     display: flex;

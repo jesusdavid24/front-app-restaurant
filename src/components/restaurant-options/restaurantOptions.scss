@@ -1,8 +1,12 @@
 .restaurant-options {
-  width: 95%;
-  margin: 0 auto;
+  // width: 95%;
+  // margin: 0 auto;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 2px 4px 0 #dedede;
+
+  // @media(min-width: 576px) {
+
+  // }
 
   &__menu {
     display: flex;
@@ -13,6 +17,7 @@
     &__item {
       height: 42.4px;
       list-style: none;
+      font-size: 14px;
       font-weight: 700;
       white-space: nowrap;
       padding: 10px;
