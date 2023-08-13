@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import NotFound from "../pages/NotFound";
@@ -8,6 +7,8 @@ import ListRestaurants from "../pages/list-restaurant/ListRestaurants";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration";
 import Checkout from "../pages/checkout/Checkout"
+import PaymentStatus from "../components/payment-status/PaymentStatus";
+import PaymentFailed from "../components/payment-failed/PaymentFailed";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />
+      },
+      {
+        path: "/payment-status",
+        element: <PaymentStatus />
+      },
+      {
+        path: "/payment-failed",
+        element: <PaymentFailed />
       },
     ]
   }

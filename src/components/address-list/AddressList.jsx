@@ -1,4 +1,3 @@
-import React from "react"
 import "./AddressList.scss"
 
 const AddressList = ({ addresses, addAddress, removeAddress}) => {
