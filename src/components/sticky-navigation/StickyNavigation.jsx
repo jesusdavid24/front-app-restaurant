@@ -11,7 +11,7 @@ const StickyNavigation = () => {
           placeholder="Search dishes..."
         />
         <br />
-        <i class="bi bi-search sticky-nav__search__icon" />
+        <i className="bi bi-search sticky-nav__search__icon" />
       </div>
 
       <ul className="sticky-nav__list">

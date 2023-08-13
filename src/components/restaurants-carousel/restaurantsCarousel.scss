@@ -1,8 +1,6 @@
 .order-restaurants {
   &__carousel {
-    // .mantine-1my8u2w {
-    //   overflow: visible;
-    // }
+    z-index: 10 !important;
     &__slide {
       margin-right: 30px;
     }
@@ -27,12 +25,8 @@
 
   //Clase de otro componente
   .card {
-    // width: 95%;
     margin: 0 auto;
     box-shadow: 0 2px 4px 0 #dedede;
-
-    // margin: 0 auto;
-    // margin-bottom: 0;
 
     @media (min-width: 576px) {
       width: 100%;
@@ -58,15 +52,19 @@
       @media (min-width: 576px) {
         height: 345px;
       }
+
       @media (min-width: 768px) {
         height: 220px;
       }
+
       @media (min-width: 992px) {
         height: 195px;
       }
+
       @media (min-width: 1200px) {
         height: 270px;
       }
+
       @media (min-width: 1440px) {
         height: 320px;
       }

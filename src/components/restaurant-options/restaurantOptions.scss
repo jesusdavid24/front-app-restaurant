@@ -1,12 +1,6 @@
 .restaurant-options {
-  // width: 95%;
-  // margin: 0 auto;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 2px 4px 0 #dedede;
-
-  // @media(min-width: 576px) {
-
-  // }
 
   &__menu {
     display: flex;
@@ -24,12 +18,14 @@
       cursor: pointer;
 
       @media (min-width: 1200px) {
+        height: 52.4px;
         font-size: 16px;
-        padding: 10px 20px;
+        padding: 15px 20px;
       }
+
       @media (min-width: 1440px) {
         font-size: 18px;
-        padding: 10px 30px;
+        padding: 15px 30px;
       }
 
       &--selected {

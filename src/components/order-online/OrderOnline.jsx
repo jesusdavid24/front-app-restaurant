@@ -6,7 +6,6 @@ import "./orderOnline.scss";
 const OrderOnline = () => {
   const italian = restaurants[0];
   const { menu } = italian;
-  //   console.log(menu.bestseller.best);
 
   return (
     <div className="restaurant-order">

@@ -28,15 +28,13 @@ const Booking = () => {
           className="booking__date-picker__date-input"
           valueFormat="DD MMM YYYY hh:mm A"
           placeholder="Choose Date & Time"
-          //   size="md"
-          //   maw={400}
           mx="auto"
           rightSection={
             <button
               type="button"
               className="booking__date-picker__date-input__button"
             >
-              <i class="bi bi-calendar-event"></i>
+              <i className="bi bi-calendar-event"></i>
             </button>
           }
         />
