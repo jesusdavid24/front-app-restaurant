@@ -19,8 +19,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
 
   return (
     <div>
-      <div>
-
+      <div className="container_accordion">
         <Accordion variant="contained"
           chevron={false}
         >
@@ -36,6 +35,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <input type="text" name="nameCard" />
                   <label htmlFor="cardNumber">Card Number</label>
                   <input type="text" name="cardNumber" />
+                  <img className="container_img_tc" src="src/assets/img/creditcards.png" alt="" />
                 </div>
                 <br />
                 <div className="container_dates">
@@ -45,6 +45,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <input type="text" name="year_label" />
                   <label htmlFor="pay_cvv">Cvv</label>
                   <input type="text" name="pay_cvv" />
+                  <img className="container_img_tc" src="src/assets/img/cvv.png" alt="" />
                 </div>
                 <br />
                 <div className="container_buttonP">
@@ -66,6 +67,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <input type="text" name="nameCard" />
                   <label htmlFor="cardNumber">Card Number</label>
                   <input type="text" name="cardNumber" />
+                  <img className="container_img_tc" src="src/assets/img/creditcards.png" alt="" />
                 </div>
                 <br />
                 <div className="container_dates">
@@ -75,6 +77,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <input type="text" name="year_label" placeholder="Year..." />
                   <label htmlFor="pay_cvv">Cvv</label>
                   <input type="text" name="pay_cvv" />
+                  <img className="container_img_tc" src="src/assets/img/cvv.png" alt="" />
                 </div>
               </div>
             </Accordion.Panel>
@@ -90,28 +93,28 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                 <div className="container_banks">
                   <div className="check">
                     <input type="radio" name="industrial_bank" />
-                    <label htmlFor="industrial_bank">Industrial & Commercial Bank</label>
+                    <label className="space" htmlFor="industrial_bank">Industrial & Commercial Bank</label>
                   </div>
                   <div className="check">
                     <input type="radio" name="agricultura_bank" />
-                    <label htmlFor="agricultura_bank">Agricultural Bank</label>
+                    <label className="space" htmlFor="agricultura_bank">Agricultural Bank</label>
                   </div>
                   <div className="check">
                     <input type="radio" name="bank_america" />
-                    <label htmlFor="bank_america">Bank of America</label>
+                    <label className="space" htmlFor="bank_america">Bank of America</label>
                   </div>
                   <div className="check">
                     <input type="radio" name="construction_bank" />
-                    <label htmlFor="construction_bank">Construction Bank Corp.</label>
+                    <label className="space" htmlFor="construction_bank">Construction Bank Corp.</label>
 
                   </div>
                   <div className="check">
                     <input type="radio" name="hsbc_bank" />
-                    <label htmlFor="hsbc_bank">HSBC Holdings</label>
+                    <label className="space" htmlFor="hsbc_bank">HSBC Holdings</label>
                   </div>
                   <div className="check">
                     <input type="radio" name="morgan_bank" />
-                    <label htmlFor="morgan_bank">JPMorgan Chase & Co</label>
+                    <label className="space" htmlFor="morgan_bank">JPMorgan Chase & Co</label>
                   </div>
                 </div>
                 <br />
