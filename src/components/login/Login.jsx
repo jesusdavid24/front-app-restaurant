@@ -5,12 +5,14 @@ import login from '../../assets/img/login.jpg';
 import { Link } from "react-router-dom";
 import './login.scss';
 
+
 const Login = () => {
+
   return (
     <div className="login">
       <div className="login__container">
         <div className="login__container__form">
-          <Link className="login__container__form__link" to="/">Back to Home</Link>
+          <Link className="login__container__form__link" to="/">← Back to Home</Link>
           <p className="login__container__form__title">Welcome Back</p>
           <form>
             <div className="login__container__form__input-group">

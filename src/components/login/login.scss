@@ -18,7 +18,7 @@
       flex: 1;
 
       &__link {
-        font-style: italic;
+        font-size: 14px !important;
       }
 
       &__title {
@@ -189,7 +189,6 @@
   }
 
 }
-
 
 @media (max-width: 1024px) {
 

@@ -14,7 +14,7 @@ const PaymentStatus = () => {
           </div>
           <div className="payment__container__description__body">
             <p>Thank you for payment. We have received your payment
-              successfully. Your <br /> transaction ID is "SHJG12155215",
+              successfully. Your <span><br /></span> transaction ID is &quot;SHJG12155215&quot;,
               you will get an email invoice soon!
             </p>
           </div>

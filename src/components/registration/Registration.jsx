@@ -11,7 +11,7 @@ const Registration = () => {
         </div>
         <div className="registration__container__form">
           <form>
-            <Link className="registration__container__form__link" to="/">Back to Home</Link>
+            <Link className="registration__container__form__link" to="/">← Back to Home</Link>
             <p className="registration__container__form__title">
               Register
             </p>

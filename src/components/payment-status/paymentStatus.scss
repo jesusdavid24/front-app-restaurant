@@ -1,5 +1,5 @@
 .payment {
-  padding: 6%;
+  padding: 7%;
 
   &__container {
     display: flex;
@@ -64,6 +64,56 @@
           font-weight: bolder;
           font-size: 13px;
           cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .payment {
+    padding: 6%;
+
+    &__container {
+
+      &__img {
+        img {
+          width: 265px;
+        }
+      }
+
+      &__description {
+        display: block;
+        width: 100%;
+        padding: 5px;
+
+        &__title {
+          h2 {
+            font-size: 22px;
+          }
+        }
+
+        &__body {
+          margin-top: 30px;
+          padding: 0 5px;
+
+          p {
+            font-size: 13px;
+            font-weight: normal;
+
+            span {
+              display: none;
+            }
+          }
+        }
+
+        &__dowload {
+          margin-top: 8px;
+
+          button {
+            width: 40%;
+          }
         }
       }
     }
