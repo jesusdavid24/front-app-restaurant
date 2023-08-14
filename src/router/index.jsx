@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import NotFound from "../Pages/not-found/NotFound";
 import Home from "../Pages/home/Home";
-import SingleRestaurant from "../Pages/single-restaurant/SingleRestaurant";
-import ListRestaurants from "../Pages/list-restaurant/ListRestaurants";
+import SingleRestaurant from "../Pages/single-restaurant/index";
+import ListRestaurants from "../Pages/list-restaurant/index";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration";
-import Checkout from "../Pages/summary/Checkout"
+import Checkout from "../Pages/summary/index"
 import PaymentStatus from "../components/payment-status/PaymentStatus";
 import PaymentFailed from "../components/payment-failed/PaymentFailed";
 
