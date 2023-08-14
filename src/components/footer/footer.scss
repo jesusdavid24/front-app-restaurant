@@ -54,7 +54,6 @@
       }
 
       &__logo {
-        width: 30px;
         height: fit-content;
       }
 
@@ -85,7 +84,6 @@
 
     &__location {
       height: calc(60px + 25vw);
-      padding-left: 10px;
 
       @media (min-width: 768px) {
         width: 80vw;
@@ -230,7 +228,6 @@
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
-    // position: absolute;
   }
 }
 

@@ -25,7 +25,7 @@ const Header = () => {
         <Link to="/">
           <img
             id="logo"
-            src="/src/assets/img/logo2.png"
+            src="/src/assets/img/logo.png"
             className="header__logo-container__logo"
           />
         </Link>
@@ -57,7 +57,9 @@ const Header = () => {
         </select>
 
         <button className="header__buttons-container__profile">
-          <Link to="/login"><i className="bi bi-person-fill" /></Link>
+          <Link to="/login">
+            <i className="bi bi-person-fill" />
+          </Link>
         </button>
 
         <button className="header__buttons-container__settings">

@@ -171,12 +171,16 @@
     }
 
     &__title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
       font-weight: 400;
       color: var(--neutral-silver-text);
 
-      @media (min-width: 992px) {
-        padding-bottom: 10px;
-      }
+      // @media (min-width: 992px) {
+      //   padding-bottom: 10px;
+      // }
 
       @media (min-width: 1440px) {
         font-size: 16px;
@@ -184,8 +188,9 @@
     }
 
     &__stars {
-      font-size: 22px;
-      color: gold;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
     }
 
     &__slider {

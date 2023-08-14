@@ -202,7 +202,12 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
-                        ★★★★★
+                        {[1, 2, 3, 4, 5].map((item) => (
+                          <img
+                            src="/src/assets/icons/star-fill.png"
+                            style={{ width: "14px", height: "14px" }}
+                          />
+                        ))}
                       </span>
                       (4025)
                     </h2>
@@ -216,7 +221,19 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
-                        ★★★★☆
+                        {[1, 2, 3, 4, 5].map((item) =>
+                          item <= 4 ? (
+                            <img
+                              src="/src/assets/icons/star-fill.png"
+                              style={{ width: "14px", height: "14px" }}
+                            />
+                          ) : (
+                            <img
+                              src="/src/assets/icons/star.png"
+                              style={{ width: "14px", height: "14px" }}
+                            />
+                          )
+                        )}
                       </span>
                       (2012)
                     </h2>
@@ -230,7 +247,19 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
-                        ★★★☆☆
+                        {[1, 2, 3, 4, 5].map((item) =>
+                          item <= 3 ? (
+                            <img
+                              src="/src/assets/icons/star-fill.png"
+                              style={{ width: "14px", height: "14px" }}
+                            />
+                          ) : (
+                            <img
+                              src="/src/assets/icons/star.png"
+                              style={{ width: "14px", height: "14px" }}
+                            />
+                          )
+                        )}
                       </span>
                       (25)
                     </h2>
@@ -245,9 +274,21 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
 
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
-                        ★★☆☆☆
+                        {[1, 2, 3, 4, 5].map((item) =>
+                          item <= 2 ? (
+                            <img
+                              src="/src/assets/icons/star-fill.png"
+                              style={{ width: "14px", height: "14px" }}
+                            />
+                          ) : (
+                            <img
+                              src="/src/assets/icons/star.png"
+                              style={{ width: "14px", height: "14px" }}
+                            />
+                          )
+                        )}
                       </span>
-                      (1)
+                      (3)
                     </h2>
                   </div>
                 </Accordion.Panel>

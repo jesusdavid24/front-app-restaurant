@@ -1,6 +1,4 @@
 .restaurant-options {
-  width: 95%;
-  margin: 20px auto;
   background-color: var(--neutral-main-cards);
   box-shadow: 0 2px 4px 0 #dedede;
 
@@ -13,10 +11,22 @@
     &__item {
       height: 42.4px;
       list-style: none;
+      font-size: 14px;
       font-weight: 700;
       white-space: nowrap;
       padding: 10px;
       cursor: pointer;
+
+      @media (min-width: 1200px) {
+        height: 52.4px;
+        font-size: 16px;
+        padding: 15px 20px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: 18px;
+        padding: 15px 30px;
+      }
 
       &--selected {
         color: var(--primary-accent);

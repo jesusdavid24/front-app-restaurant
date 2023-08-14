@@ -1,18 +1,22 @@
 import React from "react";
-import "./orderOnline.scss";
+import StickyNavigation from "../sticky-navigation/StickyNavigation";
 import { restaurants } from "../../assets/data/restaurants";
+import "./orderOnline.scss";
 
 const OrderOnline = () => {
   const italian = restaurants[0];
   const { menu } = italian;
-  //   console.log(menu.bestseller.best);
 
   return (
     <div className="restaurant-order">
-      <div className="restaurant-order__scroll-menu">menu</div>
+      <div className="restaurant-order__scroll-menu">
+        <StickyNavigation />
+      </div>
       <div className="restaurant-order__menu">
         <div className="restaurant-order__menu__bestseller">
-          <h3 className="restaurant-order__menu__subcategory">Bestseller</h3>
+          <h3 className="restaurant-order__menu__first-subcategory">
+            Bestseller
+          </h3>
           <h6 className="restaurant-order__menu__amount">
             {menu.bestseller.best.length} items
           </h6>

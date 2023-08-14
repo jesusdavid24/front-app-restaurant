@@ -4,6 +4,7 @@ import MapBox from "../map-box/MapBox";
 import "./footer.scss";
 
 const Footer = () => {
+  const coordinates = [-73.9999, 40.6892];
   return (
     <div className="footer">
       <Accordion
@@ -21,12 +22,9 @@ const Footer = () => {
               <div className="footer__panel__contact__logo-container">
                 <img
                   id="logo"
-                  src="/src/assets/icons/logo2.png"
+                  src="/src/assets/img/logo.png"
                   className="footer__panel__contact__logo"
                 />
-                <h1 id="logo" className="footer__panel__contact__title">
-                  RICA
-                </h1>
               </div>
               <p className="footer__panel__contact__content">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -115,7 +113,7 @@ const Footer = () => {
           </Accordion.Control>
           <Accordion.Panel className="footer__panel">
             <div className="footer__panel__location">
-              <MapBox />
+              <MapBox coordinates={coordinates} />
             </div>
           </Accordion.Panel>
         </Accordion.Item>
