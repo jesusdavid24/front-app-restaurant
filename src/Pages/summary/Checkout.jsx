@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddressList from "../../components/list-address/AddressList";
 import Paymentitems from "../../components/items-payment/PaymentItems"
 import CardView from "../../components/view-card/CardView"
-import "./checkout.scss";
+import "./index.scss";
 
 const Checkout = () => {
   const [addresses, setAddresses] = useState([]);
