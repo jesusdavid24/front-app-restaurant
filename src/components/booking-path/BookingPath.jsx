@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import order from "../../assets/icons/order.png"
 import "./index.scss";
 
 const BookingPath = () => {
@@ -31,7 +32,7 @@ const BookingPath = () => {
         <div className="path-box__step">
           <img
             id="logo"
-            src="../src/assets/icons/order.png"
+            src={order}
             className="path-box__step__icon"
           />
           <h2 className="path-box__step__message">
