@@ -26,16 +26,14 @@ const AddressList = ({ addresses, addAddress, removeAddress }) => {
             {addresses.map((address, index) => (
               <li key={index}>
                 {address}
-                <button onClick={() => handleRemoveAddress(index)}>
-                  Eliminar
-                </button>
+                <button onClick={() => handleRemoveAddress(index)}>Eliminar</button>
               </li>
             ))}
           </ul>
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
 export default AddressList;

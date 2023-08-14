@@ -1,10 +1,106 @@
-.container {
+.container_accordion {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+/* Estilos para los títulos del acordeón */
+.Accordion.Control label {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los paneles del acordeón */
+.Accordion.Panel {
+  display: flex;
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.Accordion.Item.active .Accordion.Panel {
+  display: flex;
+}
+
+/* Estilos para los botones */
+.container_buttonP button,
+.container_payments button {
+  background-color: #ef3f3e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  //border-color: #ef3f3e;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container_buttonP button:hover,
+.container_payments button:hover {
+  background-color: white;
+  color: #ef3f3e;
+}
+
+/* Estilos para los campos de entrada */
+.container_nameCard input,
+.container_dates input,
+.container_bank input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
 
-.space{
+/* Estilos para los campos de selección */
+.container_banks .check {
+  margin-right: 10px;
+}
+
+
+.space {
   margin-left: 10px;
+}
+
+.container_banks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.check {
+  grid-gap: 10px;
+}
+
+.container_img_tc {
+  height: 14px;
+  bottom: 12px;
+  //position: absolute;
+  right: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/*
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .container_nameCard {
@@ -12,12 +108,12 @@
   flex-direction: column;
 }
 
-.container_dates{
+.container_dates {
   display: flex;
   justify-content: space-around;
 }
 
-.container_buttonP{
+.container_buttonP {
   display: flex;
   flex-direction: row-reverse;
 }
@@ -27,13 +123,13 @@
   flex-direction: column;
 }
 
-.container_banks{
+.container_banks {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
 
-.check{
+.check {
   grid-gap: 10px;
 }
 
@@ -41,3 +137,4 @@
   display: flex;
   flex-direction: row-reverse;
 }
+*/
