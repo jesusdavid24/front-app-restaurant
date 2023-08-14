@@ -25,7 +25,7 @@ const Header = () => {
         <Link to="/">
           <img
             id="logo"
-            src="/src/assets/img/logo.png"
+            src="/src/assets/img/logo2.png"
             className="header__logo-container__logo"
           />
         </Link>

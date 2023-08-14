@@ -22,9 +22,12 @@ const Footer = () => {
               <div className="footer__panel__contact__logo-container">
                 <img
                   id="logo"
-                  src="/src/assets/img/logo.png"
+                  src="/src/assets/icons/logo2.png"
                   className="footer__panel__contact__logo"
                 />
+                <h1 id="logo" className="footer__panel__contact__title">
+                  RICA
+                </h1>
               </div>
               <p className="footer__panel__contact__content">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
