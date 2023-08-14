@@ -6,13 +6,9 @@ import SingleRestaurant from "../pages/single-restaurant/SingleRestaurant";
 import ListRestaurants from "../pages/list-restaurant/ListRestaurants";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration";
-<<<<<<< HEAD
 import Checkout from "../pages/checkout/Checkout"
 import PaymentStatus from "../components/payment-status/PaymentStatus";
 import PaymentFailed from "../components/payment-failed/PaymentFailed";
-=======
-import Checkout from "../Pages/Checkout/Checkout";
->>>>>>> 3481f8712a7ed915de9a2c9face5cb447b215ded
 
 const router = createBrowserRouter([
   {
