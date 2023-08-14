@@ -35,7 +35,7 @@ const Login = () => {
                 required
               />
               <div className="login__container__form__forgot">
-                <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+                <a rel="noopener noreferrer" href="#">Forgot Password?</a>
               </div>
             </div>
             <button className="login__container__form__sign">Sign in</button>
