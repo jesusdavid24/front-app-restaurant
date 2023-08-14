@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./bookingPath.scss";
+import "./index.scss";
 
 const BookingPath = () => {
   const [scrollPosition, setScrollPosition] = useState(0);

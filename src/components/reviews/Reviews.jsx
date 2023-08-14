@@ -1,6 +1,6 @@
 import React from "react";
 import { reviews } from "../../assets/data/reviews";
-import "./reviews.scss";
+import "./index.scss";
 
 const Reviews = () => {
   return (

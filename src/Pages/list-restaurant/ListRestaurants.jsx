@@ -3,7 +3,7 @@ import LocationForm from "../../components/location-form/LocationForm";
 import FilterBox from "../../components/filter-box/FilterBox";
 import FilterMenu from "../../components/filter-menu/FilterMenu";
 import RestaurantsList from "../../components/restaurants-list/RestaurantsList";
-import "./listRestaurant.scss";
+import "./index.scss";
 
 const ListRestaurants = () => {
   const handleBoxAndMenuOpen = (event) => {

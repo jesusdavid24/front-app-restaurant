@@ -3,7 +3,7 @@ import Twitter from '../shared/svg/Twitter';
 import GitHub from '../shared/svg/Github';
 import login from '../../assets/img/login.jpg';
 import { Link } from "react-router-dom";
-import './login.scss';
+import './index.scss';
 
 
 const Login = () => {

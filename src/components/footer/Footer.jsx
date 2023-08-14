@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
 import MapBox from "../map-box/MapBox";
-import "./footer.scss";
+import "./index.scss";
 
 const Footer = () => {
   const coordinates = [-73.9999, 40.6892];

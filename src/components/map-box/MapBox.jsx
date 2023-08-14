@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Map, NavigationControl, Marker } from "mapbox-gl";
-import "./mapBox.scss";
+import "./index.scss";
 
 const MapBox = ({ coordinates }) => {
   const mapDiv = useRef(null);

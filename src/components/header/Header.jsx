@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import HomeMenu from "../home-menu/HomeMenu";
 import HomeMenuWide from "../home-menu-wide/HomeMenuWide";
-import "./header.scss";
 import { Link } from "react-router-dom";
+import "./index.scss";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

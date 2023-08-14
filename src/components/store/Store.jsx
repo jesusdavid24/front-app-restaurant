@@ -1,5 +1,5 @@
 import React from "react";
-import "./store.scss";
+import "./index.scss";
 
 const Store = () => {
   return (

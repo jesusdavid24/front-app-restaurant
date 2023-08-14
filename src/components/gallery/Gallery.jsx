@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GalleryCarousel from "../gallery-carousel/GalleryCarousel";
-import "./gallery.scss";
+import "./index.scss";
 
 const Gallery = () => {
   const [carouselOpen, setCarouselOpen] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import StickyNavigation from "../sticky-navigation/StickyNavigation";
 import { restaurants } from "../../assets/data/restaurants";
-import "./orderOnline.scss";
+import "./index.scss";
 
 const OrderOnline = () => {
   const italian = restaurants[0];

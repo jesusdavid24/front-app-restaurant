@@ -1,6 +1,7 @@
 import React from "react"
 import { Accordion, useMantineTheme, rem } from '@mantine/core';
-import './paymentitems.scss'
+import './index.scss';
+
 const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
   const handleAddpaymentitem = () => {
     const item = prompt('Ingrese un nuevo producto: ')

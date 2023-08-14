@@ -1,7 +1,8 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-import "./homeMenuWide.scss";
+import "./index.scss";
+
 const HomeMenuWide = () => {
   const handleMenuOpen = () => {
     onMenuOpen(!menuOpen);

@@ -1,4 +1,4 @@
-import "./AddressList.scss"
+import "./index.scss"
 
 const AddressList = ({ addresses, addAddress, removeAddress}) => {
     const handleAddress = () => {

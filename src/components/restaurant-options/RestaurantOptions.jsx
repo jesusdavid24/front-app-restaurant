@@ -1,5 +1,6 @@
 import React from "react";
-import "./restaurantOptions.scss";
+import "./index.scss";
+
 const RestaurantOptions = () => {
   const handleClick = (event) => {
     const currentElement = event.target;
