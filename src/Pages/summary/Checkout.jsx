@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddressList from "../../components/list-address/AddressList";
-import Paymentitems from "../../components/payment-items/PaymentItems";
+import Paymentitems from "../../components/items-payment/PaymentItems"
 import CardView from "../../Components/card-view/CardView";
 import "./checkout.scss";
 
