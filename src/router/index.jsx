@@ -6,7 +6,7 @@ import SingleRestaurant from "../Pages/single-restaurant/SingleRestaurant";
 import ListRestaurants from "../Pages/list-restaurant/ListRestaurants";
 import Login from "../components/login/Login";
 import Registration from "../components/registration/Registration";
-import Checkout from "../Pages/checkout-app/Checkout";
+import Checkout from "../Pages/summary/Checkout"
 import PaymentStatus from "../components/payment-status/PaymentStatus";
 import PaymentFailed from "../components/payment-failed/PaymentFailed";
 
