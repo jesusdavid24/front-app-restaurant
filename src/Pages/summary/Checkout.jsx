@@ -37,7 +37,7 @@ const Checkout = () => {
 
       </div>
       <div className="container_card_address">
-        <h1>Vista de Pagos</h1>
+        <h1>Vista de pagos</h1>
         <h2>Direcciones</h2>
         <AddressList
           addresses={addresses}
