@@ -7,7 +7,7 @@ const RestaurantSlider = () => {
     <div className="restaurant-slider">
       <div className="restaurant-slider__box">
         <img
-          src="../src/assets/img/rest-logo1.png"
+          src="../src/assets/img/restuarant-italy.jpg"
           className="restaurant-slider__box__img"
         />
         <h2 className="restaurant-slider__box__name">Italian Restro</h2>

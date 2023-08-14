@@ -45,8 +45,9 @@
         width: 100px;
       }
 
-      @media (min-width: 768px) {
-        width: 115px;
+      @media (min-width: 1200px) {
+        width: 110px;
+        background-color: var(--primary-background-transparency);
       }
     }
 
