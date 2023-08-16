@@ -3,6 +3,21 @@
 .footer {
   background-color: var(--neutral-cod);
 
+  &__accordion-box {
+    display: block;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__accordion {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
   &__control {
     color: var(--neutral-main-cards);
     margin: -1px;
@@ -166,6 +181,18 @@
     border-bottom-right-radius: 5px;
     background-color: var(--neutral-cod);
 
+    @media (min-width: 768px) {
+      width: 720px;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px 22px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 992px) {
+      width: 965px;
+    }
+
     &__buttons {
       display: flex;
       flex-direction: row;
@@ -177,6 +204,10 @@
     &__icon {
       width: 15px;
       cursor: pointer;
+
+      @media (min-width: 768px) {
+        width: 18px;
+      }
     }
   }
 
@@ -189,8 +220,16 @@
     font-size: 14px;
     color: var(--neutral-silver-text);
 
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+
     &__hearth {
       width: 14px;
+
+      @media (min-width: 768px) {
+        width: 16px;
+      }
     }
   }
 
@@ -199,6 +238,14 @@
     font-weight: 700;
     padding: 10px 0 5px 0;
     white-space: nowrap;
+  }
+
+  &__wide-menu {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 
   .mantine-gm39d:hover {
@@ -224,20 +271,13 @@
   .mantine-hp9ccp:hover {
     background-color: var(--neutral-cod);
   }
-}
 
-.main-accordion {
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-.mantine-Accordion-item,
-.mantine-1h0npq1 {
-  @media (min-width: 768px) {
-    width: calc(100% / 5);
-    padding-bottom: 10px;
-    border-bottom: none;
+  .mantine-Accordion-item,
+  .mantine-1h0npq1 {
+    @media (min-width: 768px) {
+      width: calc(100% / 5);
+      padding-bottom: 10px;
+      border-bottom: none;
+    }
   }
 }
