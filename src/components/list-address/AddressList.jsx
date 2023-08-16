@@ -1,39 +1,34 @@
+import React, { useState } from "react"
 import "./index.scss"
+import AddressModal from "../address-modal/AddressModal"
 
-const AddressList = ({ addresses, addAddress, removeAddress}) => {
-    const handleAddress = () => {
-        const address = prompt('Ingrese una nueva direccion ')
-        if (address){
-            addAddress(address)
-        }
+function AddressList() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true)
     }
 
-    const handleRemoveAddress = (index) => {
-        if(window.confirm('¿Estas seguro de eliminar esta dirección?')){
-            removeAddress(index)
-        }
+    const handleCloseModal = () => {
+        setIsModalOpen(false)
     }
 
-return (
-    <div>
-        <section>
-            <h1>Delivery Address</h1>
-            <div className="container_addressb">
-                <h2>Saved Address</h2>
-                <button onClick={handleAddress}>Add New Address</button>
-                <ul>
-                    {addresses.map((address, index) => (
-                        <li key={index}>
-                            {address}
-                            <button onClick={() => handleRemoveAddress(index)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
+    const handleAddAddress = (newAddress) => {
+        console.log('Nuevo domicilio agregado', newAddress);
+    }
 
-    </div>
-)
+    return (
+        <div>
+            <section>
+                <h1>Delivery Address</h1>
+                <div className="container_addressb">
+                    <h2>Saved Address</h2>
+                    <button onClick={handleOpenModal}>Add New Address</button>
+                </div>
+            </section>
+            <AddressModal isOpen={isModalOpen} onClose={handleCloseModal} onAddAddress={handleAddAddress} />
+        </div>
+    )
 }
 
 export default AddressList

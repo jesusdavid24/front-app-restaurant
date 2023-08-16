@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddressList from "../../components/list-address/AddressList";
 import Paymentitems from "../../components/items-payment/PaymentItems"
 import CardView from "../../components/view-card/CardView"
+import AlwaysFirst from "../../components/always-first/AlwaysFirst"
 import "./index.scss";
 
 const Checkout = () => {
@@ -34,16 +35,10 @@ const Checkout = () => {
         <img className="object" src="/src/assets/img/1.jpg" />
       </div>
       <div>
-
+        <AlwaysFirst />
       </div>
       <div className="container_card_address">
-        <h1>Vista de pagos</h1>
-        <h2>Direcciones</h2>
-        <AddressList
-          addresses={addresses}
-          addAddress={addAddress}
-          removeAddress={removeAddress}
-        />
+        <AddressList />
         <div className="card_view">
           <CardView />
         </div>
