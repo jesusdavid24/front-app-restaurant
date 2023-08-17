@@ -29,7 +29,9 @@ function AddressModal({ isOpen, onClose, onAddAddress }) {
   return (
     <div className="modal_overlay">
       <div className="modal">
-        <h2>Add New Address</h2>
+        <div>
+          <h2>Add New Address</h2>
+        </div>
         <form onSubmit={handleSubmit}>
           <label>Name: </label>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
