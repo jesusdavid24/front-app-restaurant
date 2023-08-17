@@ -6,18 +6,7 @@ import AlwaysFirst from "../../components/always-first/AlwaysFirst"
 import "./index.scss";
 
 const Checkout = () => {
-  const [addresses, setAddresses] = useState([]);
   const [paymentitems, setPaymentitems] = useState([]);
-
-  const addAddress = (address) => {
-    setAddresses([...addresses, address]);
-  };
-
-  const removeAddress = (index) => {
-    const updateAddress = [...addresses];
-    updateAddress.splice(index, 1);
-    setAddresses(updateAddress);
-  };
 
   const addPaymentitem = (item) => {
     setPaymentitems([...paymentitems, item]);
