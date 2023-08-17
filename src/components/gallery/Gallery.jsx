@@ -51,11 +51,13 @@ const Gallery = () => {
       ))}
       {carouselOpen ? (
         <div className="gallery__modal">
-          <img
-            src="../src/assets/icons/gallery-icon.png"
-            className="gallery__modal__icon"
-            onClick={handleCarousel}
-          />
+          <div className="gallery__modal__icon-container">
+            <img
+              src="../src/assets/icons/gallery-icon.png"
+              className="gallery__modal__icon-container__icon"
+              onClick={handleCarousel}
+            />
+          </div>
           <div className="gallery__modal__carousel-container">
             <GalleryCarousel initialSlide={initialSlide} />
           </div>

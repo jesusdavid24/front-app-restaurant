@@ -89,17 +89,24 @@
     z-index: 20;
 
     @media (min-width: 576px) {
-      width: 450px;
-      height: 310px;
+      width: 448px;
+      height: 308px;
       margin: 0 auto;
     }
 
-    &__icon {
+    &__icon-container {
       position: absolute;
-      top: -30%;
+      top: -25vh;
       right: 0;
-      width: 25px;
-      transform: rotate(45deg);
+
+      @media (min-width: 576px) {
+        right: -10vw;
+      }
+
+      &__icon {
+        width: 25px;
+        transform: rotate(45deg);
+      }
     }
 
     &__carousel-container {
