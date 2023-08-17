@@ -19,7 +19,9 @@ const FooterWide = ({ coordinates }) => {
         <p className="footer-wide__contact-box__content">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the...
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries
         </p>
         <h2 className="footer-wide__contact-box__data">
           <img
@@ -41,7 +43,7 @@ const FooterWide = ({ coordinates }) => {
           <img
             id="logo"
             src="/src/assets/icons/mail.png"
-            className="cfooter__panel__contact__icon"
+            className="footer-wide__contact-box__icon"
           />
           &nbsp; Contact@Gmail.com
         </h2>
@@ -93,7 +95,10 @@ const FooterWide = ({ coordinates }) => {
             </h1>
             <p className="footer-wide__topics__item-box__content">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries
             </p>
           </div>
         </div>
@@ -111,7 +116,10 @@ const FooterWide = ({ coordinates }) => {
             </h1>
             <p className="footer-wide__topics__item-box__content">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries
             </p>
           </div>
         </div>

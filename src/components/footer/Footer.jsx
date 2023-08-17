@@ -164,9 +164,11 @@ const Footer = () => {
           </Accordion.Item>
         </Accordion>
       </div>
+
       <div className="footer__wide-menu">
         <FooterWide coordinates={coordinates} />
       </div>
+
       <div className="footer__networks">
         <div className="footer__networks__buttons">
           <img

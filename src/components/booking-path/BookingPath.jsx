@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import order from "../../assets/icons/order.png"
+import order from "../../assets/icons/order.png";
 import "./index.scss";
 
 const BookingPath = () => {
@@ -30,11 +30,7 @@ const BookingPath = () => {
       </div>
       <div className="booking-container__path-box">
         <div className="path-box__step">
-          <img
-            id="logo"
-            src={order}
-            className="path-box__step__icon"
-          />
+          <img id="logo" src={order} className="path-box__step__icon" />
           <h2 className="path-box__step__message">
             Order Food Threw Website Or App
           </h2>
@@ -42,7 +38,7 @@ const BookingPath = () => {
         <div className="path-box__step">
           <img
             id="logo"
-            src="../../assets/icons/confirmation.png"
+            src="/src/assets/icons/confirmation.png"
             className="path-box__step__icon"
           />
           <h2 className="path-box__step__message">
