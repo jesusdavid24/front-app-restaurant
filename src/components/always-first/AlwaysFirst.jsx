@@ -15,7 +15,7 @@ const AlwaysFirst = () => {
         placeholder="Enter your email"
       />
       <button type="submit" className="always-first__button">
-        Be the First.
+        Be the First
       </button>
     </form>
   );
