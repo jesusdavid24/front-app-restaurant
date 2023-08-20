@@ -1,10 +1,6 @@
 # Project front-app-restaurant
 ​
 ## Table of contents 📄
-
-<br/>
-<br/>
-​
 - [Overview](#overview)
   - [Installation](#Installation)  
   - [The challenge](#the-challenge)
