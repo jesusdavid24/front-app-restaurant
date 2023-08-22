@@ -1,5 +1,5 @@
 import React from "react";
-import "./filterBox.scss";
+import "./index.scss";
 
 const FilterBox = ({ handleBoxAndMenuOpen }) => {
   const handleClick = (event) => {

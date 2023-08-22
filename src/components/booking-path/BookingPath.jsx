@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import "./bookingPath.scss";
+import order from "../../assets/icons/order.png";
+import "./index.scss";
 
 const BookingPath = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -29,11 +30,7 @@ const BookingPath = () => {
       </div>
       <div className="booking-container__path-box">
         <div className="path-box__step">
-          <img
-            id="logo"
-            src="/src/assets/icons/order.png"
-            className="path-box__step__icon"
-          />
+          <img id="logo" src={order} className="path-box__step__icon" />
           <h2 className="path-box__step__message">
             Order Food Threw Website Or App
           </h2>

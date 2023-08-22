@@ -1,30 +1,25 @@
 import React from "react";
-import "./restaurantOptions.scss";
+import "./index.scss";
 
 const RestaurantOptions = () => {
   const handleClick = (event) => {
     const currentElement = event.target;
-
     const selectedElement = document.querySelector(
       ".restaurant-options__menu__item--selected"
     );
-
     if (currentElement !== selectedElement) {
       selectedElement &&
         selectedElement.classList.remove(
           "restaurant-options__menu__item--selected"
         );
-
       currentElement.classList.toggle(
         "restaurant-options__menu__item--selected"
       );
     }
-
     const id = event.target.id;
     const divs = document.querySelectorAll(
       ".single-restaurant__principal__options-box__election"
     );
-
     divs.forEach((item) => {
       item.id != id
         ? item.classList.add(
@@ -35,7 +30,6 @@ const RestaurantOptions = () => {
           );
     });
   };
-
   return (
     <div className="restaurant-options">
       <ul className="restaurant-options__menu">
@@ -85,5 +79,4 @@ const RestaurantOptions = () => {
     </div>
   );
 };
-
 export default RestaurantOptions;

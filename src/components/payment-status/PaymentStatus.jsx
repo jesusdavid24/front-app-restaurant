@@ -1,5 +1,5 @@
 import delivery from '../../assets/img/success-delivery.jpg';
-import "./paymentStatus.scss";
+import "./index.scss";
 
 const PaymentStatus = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Slider } from "@mantine/core";
 import "../../styles/variables.scss";
-import "./menuSlider.scss";
+import "./index.scss";
 
 const MenuSlider = () => {
   const [sliderValue, setSliderValue] = useState(1500);

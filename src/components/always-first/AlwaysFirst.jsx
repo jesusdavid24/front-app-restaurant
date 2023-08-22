@@ -1,5 +1,5 @@
 import React from "react";
-import "./alwaysFirst.scss";
+import "./index.scss";
 
 const AlwaysFirst = () => {
   return (

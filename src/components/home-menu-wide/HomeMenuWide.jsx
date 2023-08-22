@@ -1,31 +1,25 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-import "./homeMenuWide.scss";
+import "./index.scss";
 
 const HomeMenuWide = () => {
   const handleMenuOpen = () => {
     onMenuOpen(!menuOpen);
   };
-
   const handleClick = (event) => {
     const currentElement = event.target;
-
     const selectedElement = document.querySelector(
       ".mantine-Accordion-label--selected"
     );
-
     if (currentElement !== selectedElement) {
       selectedElement &&
         selectedElement.classList.remove("mantine-Accordion-label--selected");
-
       currentElement.classList.toggle("mantine-Accordion-label--selected");
     }
-
     currentElement == selectedElement &&
       currentElement.classList.toggle("mantine-Accordion-label--selected");
   };
-
   return (
     <div className="home-menu-wide">
       <Accordion
@@ -57,7 +51,6 @@ const HomeMenuWide = () => {
             </Accordion.Panel>
           </div>
         </Accordion.Item>
-
         <Accordion.Item
           value="restaurant"
           className="home-menu-wide__accordion__item"
@@ -80,7 +73,6 @@ const HomeMenuWide = () => {
             </Accordion.Panel>
           </div>
         </Accordion.Item>
-
         <Accordion.Item
           value="pages"
           className="home-menu-wide__accordion__item"
@@ -91,7 +83,6 @@ const HomeMenuWide = () => {
           >
             PAGES
           </Accordion.Control>
-
           <div className="home-menu-wide__accordion__panel-box">
             <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
@@ -102,7 +93,6 @@ const HomeMenuWide = () => {
                 Home
               </NavLink>
             </Accordion.Panel>
-
             <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
                 to="/restaurants"
@@ -112,7 +102,6 @@ const HomeMenuWide = () => {
                 Restaurants
               </NavLink>
             </Accordion.Panel>
-
             <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
                 to="/restaurants/:id"
@@ -122,7 +111,6 @@ const HomeMenuWide = () => {
                 Single Restaurant
               </NavLink>
             </Accordion.Panel>
-
             <Accordion.Panel className="home-menu-wide__accordion__panel">
               <NavLink
                 to="/checkout"
@@ -138,5 +126,4 @@ const HomeMenuWide = () => {
     </div>
   );
 };
-
 export default HomeMenuWide;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import HomeMenu from "../home-menu/HomeMenu";
 import HomeMenuWide from "../home-menu-wide/HomeMenuWide";
-import "./header.scss";
+import logo from "../../assets/img/logo.png"
 import { Link } from "react-router-dom";
+import "./index.scss";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Header = () => {
         <Link to="/">
           <img
             id="logo"
-            src="/src/assets/img/logo.png"
+            src={logo}
             className="header__logo-container__logo"
           />
         </Link>

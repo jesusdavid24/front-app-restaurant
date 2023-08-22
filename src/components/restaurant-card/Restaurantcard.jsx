@@ -1,5 +1,5 @@
 import React from "react";
-import "./restaurantCard.scss";
+import "./index.scss";
 
 const Restaurantcard = ({
   id,

@@ -1,5 +1,5 @@
 import failedPayment from '../../assets/img/failed-payment.webp';
-import "./paymentFailed.scss";
+import "./index.scss";
 
 const PaymentFailed = () => {
   return (

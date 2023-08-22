@@ -1,5 +1,5 @@
 import React from "react";
-import "./buttonsFilters.scss";
+import "./index.scss";
 
 const ButtonsFilters = () => {
   const handleClick = (event) => {

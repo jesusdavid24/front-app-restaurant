@@ -1,6 +1,6 @@
 import React from "react"
 import { Accordion, useMantineTheme, rem } from '@mantine/core';
-import './paymentitems.scss'
+import './index.scss';
 
 const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
   const handleAddpaymentitem = () => {
@@ -9,14 +9,11 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
       addPaymentitem(item)
     }
   }
-
   const handleRemoveAddress = (index) => {
     if (window.confirm('¿Are you sure you want to remove?')) {
       removePaymentitem(index)
     }
   }
-
-
   return (
     <div>
       <div className="container_accordion">
@@ -54,7 +51,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-
           <Accordion.Item value="print">
             <Accordion.Control>
               <input type="radio" name="credit_card" />
@@ -82,7 +78,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-
           <Accordion.Item value="camera">
             <Accordion.Control>
               <input type="radio" name="net_banking" />
@@ -106,7 +101,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <div className="check">
                     <input type="radio" name="construction_bank" />
                     <label className="space" htmlFor="construction_bank">Construction Bank Corp.</label>
-
                   </div>
                   <div className="check">
                     <input type="radio" name="hsbc_bank" />
@@ -125,7 +119,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-
           <Accordion.Item value="wall">
             <Accordion.Control>
               <input type="radio" name="my_wallet" />
@@ -149,7 +142,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <div className="check">
                     <input type="radio" name="construction_bank" />
                     <label htmlFor="construction_bank">Airtel Money</label>
-
                   </div>
                   <div className="check">
                     <input type="radio" name="hsbc_bank" />
@@ -167,7 +159,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-
         </Accordion>
       </div>
     </div>
@@ -182,5 +173,4 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
         </li>
     ))}
 </ul>*/
-
 export default Paymentitems

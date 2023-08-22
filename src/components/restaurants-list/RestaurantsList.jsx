@@ -1,7 +1,8 @@
 import React from "react";
 import Restaurantcard from "../restaurant-card/Restaurantcard";
 import { restaurants } from "../../assets/data/restaurants";
-import "./restaurantsList.scss";
+import "./index.scss";
+
 const RestaurantsList = () => {
   const handleFilterClick = (event) => {
     const currentElement = event.target;

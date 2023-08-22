@@ -2,8 +2,7 @@ import React from "react";
 import Restaurantcard from "../restaurant-card/Restaurantcard";
 import { Carousel } from "@mantine/carousel";
 import { restaurants } from "../../assets/data/restaurants";
-
-import "./restaurantsCarousel.scss";
+import "./index.scss";
 
 const RestaurantsCarousel = () => {
   return (

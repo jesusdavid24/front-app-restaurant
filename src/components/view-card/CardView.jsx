@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonsComponent from '../buttons-component/ButtonsComponent';
-import "./cardView.scss";
+import "./index.scss";
 
 const CardView = () => {
 

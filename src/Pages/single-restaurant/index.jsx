@@ -10,7 +10,7 @@ import Reviews from "../../components/reviews/Reviews";
 import RestaurantsCarousel from "../../components/restaurants-carousel/RestaurantsCarousel";
 import Cart from "../../components/cart/Cart";
 import AlwaysFirst from "../../components/always-first/AlwaysFirst";
-import "./singleRestaurant.scss";
+import "./index.scss";
 
 const SingleRestaurant = () => {
   const coordinates = [-73.5, 40.8];
@@ -77,23 +77,6 @@ const SingleRestaurant = () => {
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "@mantine/carousel";
-import "./restaurantSlider.scss";
+import "./index.scss";
 
 const RestaurantSlider = () => {
   return (
