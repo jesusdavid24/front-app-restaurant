@@ -91,50 +91,7 @@
 .container_img_tc {
   height: 14px;
   bottom: 12px;
-  //position: absolute;
   right: 10px;
   display: flex;
   flex-direction: row-reverse;
 }
-
-/*
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.container_nameCard {
-  display: flex;
-  flex-direction: column;
-}
-
-.container_dates {
-  display: flex;
-  justify-content: space-around;
-}
-
-.container_buttonP {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.container_bank {
-  display: flex;
-  flex-direction: column;
-}
-
-.container_banks {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-}
-
-.check {
-  grid-gap: 10px;
-}
-
-.container_payments {
-  display: flex;
-  flex-direction: row-reverse;
-}
-*/

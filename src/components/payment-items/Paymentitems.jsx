@@ -173,14 +173,5 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
     </div>
   )
 }
-/*<button onClick={handleAddpaymentitem}>Agregar Producto</button>
-<ul>
-    {paymentitems.map((item, index) =>(
-        <li key={index}>
-            {item}
-            <button onclick={() => handleRemovePaymentitem(index)}>Eliminar</button>
-        </li>
-    ))}
-</ul>*/
 
 export default Paymentitems
