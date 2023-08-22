@@ -42,7 +42,7 @@ const BookingPath = () => {
         <div className="path-box__step">
           <img
             id="logo"
-            src="../../assets/icons/confirmation.png"
+            src="icons/confirmation.png"
             className="path-box__step__icon"
           />
           <h2 className="path-box__step__message">

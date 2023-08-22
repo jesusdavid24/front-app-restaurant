@@ -5,7 +5,7 @@ import OrderOnline from "../../components/order-online/OrderOnline";
 import Overview from "../../components/overview/Overview";
 import Gallery from "../../components/gallery/Gallery";
 import MapBox from "../../components/map-box/MapBox";
-import Booking from "../../components/booking/Booking";
+import Booking from "../../components/Booking";
 import Reviews from "../../components/reviews/Reviews";
 import RestaurantsCarousel from "../../components/restaurants-carousel/RestaurantsCarousel";
 import Cart from "../../components/cart/Cart";
