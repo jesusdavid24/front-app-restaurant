@@ -1,0 +1,116 @@
+@import "../../styles/mixins.scss";
+
+.location-form {
+  @include location-form__box;
+  background-image: url("../../assets/img/form.jpg");
+  background-size: cover;
+  background-position: center;
+
+  @media (min-width: 768px) {
+    height: calc(200px + 20vw);
+    padding: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    height: calc(180px + 20vw);
+    padding: 20px;
+  }
+
+  &__title {
+    width: 95%;
+    font-weight: 400;
+
+    @media (min-width: 576px) {
+      width: 530px;
+    }
+
+    @media (min-width: 768px) {
+      width: 690px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 750px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 870px;
+    }
+  }
+
+  &__title-span {
+    background-color: var(--primary-background-transparency);
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  &__input-box {
+    @include location-form__box($width: 95%, $height: 190px);
+    border-radius: 10px;
+    background-color: var(--neutral-main-cards);
+
+    @media (min-width: 576px) {
+      width: 530px;
+    }
+
+    @media (min-width: 768px) {
+      width: 690px;
+      height: fit-content;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 750px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 870px;
+    }
+
+    &__location,
+    &__craving {
+      width: 90%;
+      height: 40px;
+      padding-left: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--primary-background);
+
+      &:focus {
+        outline-color: var(--primary-accent);
+      }
+    }
+
+    &__location {
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    &__location::placeholder,
+    &__craving::placeholder {
+      line-height: 35px;
+      font-size: 14px;
+      color: rgb(172, 172, 172);
+    }
+
+    &__food {
+      width: 90%;
+      height: 35px;
+      font-weight: 900;
+      color: var(--primary-background);
+      border: none;
+      border-radius: 5px;
+      background-color: var(--primary-accent);
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        width: 40%;
+      }
+    }
+  }
+}

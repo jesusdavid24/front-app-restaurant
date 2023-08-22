@@ -3,7 +3,7 @@ import Twitter from '../shared/svg/Twitter';
 import GitHub from '../shared/svg/Github';
 import login from '../../assets/img/login.jpg';
 import { Link } from "react-router-dom";
-import './login.scss';
+import './index.scss';
 
 
 const Login = () => {
@@ -35,7 +35,7 @@ const Login = () => {
                 required
               />
               <div className="login__container__form__forgot">
-                <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+                <a rel="noopener noreferrer" href="#">Forgot Password?</a>
               </div>
             </div>
             <button className="login__container__form__sign">Sign in</button>

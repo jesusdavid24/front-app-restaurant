@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "@mantine/carousel";
-import "./galleryCarousel.scss";
+import "./index.scss";
 
 const GalleryCarousel = ({ initialSlide }) => {
   const galleryImages = [

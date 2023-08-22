@@ -1,5 +1,5 @@
 import React from "react";
-import "./locationForm.scss";
+import "./index.scss";
 
 const LocationForm = () => {
   return (

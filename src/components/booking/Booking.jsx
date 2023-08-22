@@ -1,6 +1,6 @@
 import React from "react";
 import { DateTimePicker } from "@mantine/dates";
-import "./booking.scss";
+import "./index.scss";
 
 const Booking = () => {
   return (

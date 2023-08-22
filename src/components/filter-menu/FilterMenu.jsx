@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
 import MenuSlider from "../menu-slider/MenuSlider";
-import "./filterMenu.scss";
+import "./index.scss";
 
 const FilterMenu = ({ handleBoxAndMenuOpen }) => {
   const handleMenuOpen = (event) => {

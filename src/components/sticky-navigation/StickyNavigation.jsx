@@ -1,5 +1,5 @@
 import React from "react";
-import "./stickyNavigation.scss";
+import "./index.scss";
 
 const StickyNavigation = () => {
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import registration from "../../assets/img/registration.jpg";
-import './registration.scss';
+import './index.scss';
 
 const Registration = () => {
   return (
