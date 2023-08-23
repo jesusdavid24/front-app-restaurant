@@ -1,5 +1,5 @@
 import React from "react";
-import Restaurantcard from "../CardsRestaurants";
+import Restaurantcard from "../CardRestaurant";
 import { restaurants } from "../../assets/data/restaurants";
 import "./index.scss";
 
