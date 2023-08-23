@@ -1,4 +1,4 @@
-import CardsRestaurants from "../Restaurant";
+import Restaurantcard from "../restaurant-card";
 import { Carousel } from "@mantine/carousel";
 import "./index.scss";
 
@@ -17,7 +17,7 @@ const RestaurantsCarousel = () => {
               key={restaurant.id}
               className="order-restaurants__carousel__slide"
             >
-              <CardsRestaurants
+              <Restaurantcard
                 id={restaurant.id}
                 image={restaurant.image}
                 name={restaurant.name}
