@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddressList from "../../components/list-address/AddressList";
-import Paymentitems from "../../components/items-payment/PaymentItems"
-import CardView from "../../components/view-card/CardView"
+import AddressList from "../../components/AddressList";
+import Paymentitems from "../../components/PaymentItems"
+import CardView from "../../components/CardView"
 import "./index.scss";
 
 const Checkout = () => {
@@ -31,7 +31,7 @@ const Checkout = () => {
   return (
     <div className="checkout_container">
       <div className="container_immg">
-        <img className="object" src="/src/assets/img/1.jpg" />
+        <img className="object" src="/img/1.jpg" />
       </div>
       <div>
 
