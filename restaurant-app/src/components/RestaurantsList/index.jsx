@@ -1,6 +1,6 @@
 import React from "react";
 import Restaurantcard from "../RestaurantCard";
-import { restaurants } from "../../../public/data/restaurants";
+import { restaurants } from "../../assets/data/restaurants";
 import "./index.scss";
 
 const RestaurantsList = () => {
