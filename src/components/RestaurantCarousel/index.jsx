@@ -1,4 +1,4 @@
-import Restaurantcard from "../restaurant-card";
+import Restaurantcard from "../Restaurantcard";
 import { Carousel } from "@mantine/carousel";
 import "./index.scss";
 
