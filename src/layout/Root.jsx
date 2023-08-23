@@ -5,25 +5,22 @@ import ValidateElement from "../components/ValidateElement";
 
 const Root = () => {
   const navigation = useNavigation();
-  const validPaths = ['/',
-  '/restaurants',
-  '/restaurants/:id',
-  '/checkout',
-  '/payment-status',
-  '/payment-failed'
-]
+  const validPaths = [
+    "/",
+    "/restaurants",
+    "/restaurants/:id",
+    "/checkout",
+    "/payment-status",
+    "/payment-failed",
+  ];
 
   return (
-    <div>
-      <ValidateElement
-        validPaths={validPaths}>
+    <div className="root-layout">
+      <ValidateElement validPaths={validPaths}>
         <Header />
       </ValidateElement>
-      <main>
-        {navigation.state === "loading" ? "Loading..." : <Outlet />}
-      </main>
-      <ValidateElement
-        validPaths={validPaths}>
+      <main>{navigation.state === "loading" ? "Loading..." : <Outlet />}</main>
+      <ValidateElement validPaths={validPaths}>
         <Footer />
       </ValidateElement>
     </div>

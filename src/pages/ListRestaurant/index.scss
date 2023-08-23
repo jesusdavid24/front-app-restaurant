@@ -4,6 +4,7 @@
   &__menu-container {
     @media (min-width: 992px) {
       width: 992px;
+      padding-bottom: 50px;
       margin: 0 auto;
     }
     @media (min-width: 1200px) {
@@ -33,6 +34,9 @@
         width: 230px;
         height: fit-content;
         display: block;
+        position: sticky;
+        top: 0;
+        left: 0;
       }
 
       @media (min-width: 1200px) {
@@ -64,9 +68,9 @@
     }
   }
 
-  //clase de otro componente
-
   .restaurants-list {
+    margin-bottom: 0;
+
     @media (min-width: 1440px) {
       width: 990px;
     }
@@ -92,20 +96,8 @@
         width: 980px;
       }
     }
-
-    &__navigate {
-      @media (min-width: 992px) {
-        width: 100%;
-        margin-right: 330px;
-      }
-
-      @media (min-width: 1200px) {
-        margin-right: 0px;
-      }
-    }
   }
 
-  //Clase de otro componente
   .card {
     transition: box-shadow 0.5s ease;
 

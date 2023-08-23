@@ -32,8 +32,11 @@
     }
   }
 
-  //clase para el div de los controles
-  // .mantine-vcl0d1 {
-  //   width: 95vw;
-  // }
+  .mantine-vcl0d1 {
+    @media (min-width: 576px) {
+      width: 548px;
+      position: absolute;
+      left: -50px;
+    }
+  }
 }
