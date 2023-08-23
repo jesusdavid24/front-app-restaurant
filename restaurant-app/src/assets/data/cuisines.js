@@ -1,7 +1,9 @@
+import mexican from "../../assets/img/mexican"
+
 export const cuisines = [
    {
       id: "C1",
-      image: "../src/assets/img/mexican.jpg",
+      image: {mexican},
       cuisine: "Mexican",
       number: 18
    },
