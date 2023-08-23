@@ -47,7 +47,7 @@ function AddressModal({ isOpen, onClose, onAddAddress }) {
           <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} />
           <div className="modal_buttons">
             <button type="button" onClick={onClose}>Close</button>
-            <button type="submit">Add Address</button>
+            <button type="submit">Add Address </button>
           </div>
         </form>
       </div>
