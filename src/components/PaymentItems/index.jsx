@@ -31,8 +31,10 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <label htmlFor="nameCard">Name On Card</label>
                   <input type="text" name="nameCard" />
                   <label htmlFor="cardNumber">Card Number</label>
-                  <input type="text" name="cardNumber" />
-                  <img className="container_img_tc" src="/img/creditcards.png" alt="" />
+                  <div className="container_cardNumber">
+                    <input type="text" name="cardNumber" />
+                    <img className="container_img_tc_debit" src="/img/creditcards.png" alt="" />
+                  </div>
                 </div>
                 <br />
                 <div className="container_dates">
@@ -41,8 +43,10 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <label htmlFor="year_label">Year</label>
                   <input type="text" name="year_label" />
                   <label htmlFor="pay_cvv">Cvv</label>
-                  <input type="text" name="pay_cvv" />
-                  <img className="container_img_tc" src="/img/cvv.png" alt="" />
+                  <div className="container_cardNumber">
+                    <input type="text" name="pay_cvv" />
+                    <img className="container_img_tc_debit" src="/img/cvv.png" alt="" />
+                  </div>
                 </div>
                 <br />
                 <div className="container_buttonP">
@@ -62,8 +66,10 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <label htmlFor="nameCard">Name On Card</label>
                   <input type="text" name="nameCard" />
                   <label htmlFor="cardNumber">Card Number</label>
-                  <input type="text" name="cardNumber" />
-                  <img className="container_img_tc" src="/img/creditcards.png" alt="" />
+                  <div className="container_cardNumber">
+                    <input type="text" name="cardNumber" />
+                    <img className="container_img_tc" src="/img/creditcards.png" alt="" />
+                  </div>
                 </div>
                 <br />
                 <div className="container_dates">
@@ -72,8 +78,10 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   <label htmlFor="year_label">Year</label>
                   <input type="text" name="year_label" placeholder="Year..." />
                   <label htmlFor="pay_cvv">Cvv</label>
-                  <input type="text" name="pay_cvv" />
-                  <img className="container_img_tc" src="/img/cvv.png" alt="" />
+                  <div className="container_cardNumber">
+                    <input type="text" name="pay_cvv" />
+                    <img className="container_img_tc" src="/img/cvv.png" alt="" />
+                  </div>
                 </div>
               </div>
             </Accordion.Panel>

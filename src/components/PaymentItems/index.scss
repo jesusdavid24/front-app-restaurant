@@ -87,6 +87,28 @@
   grid-gap: 10px;
 }
 
+.container_cardNumber {
+  position: relative;
+}
+
+.container_img_tc_debit {
+  height: 14px;
+  bottom: 12px;
+  position: absolute;
+  right: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container_img_tc {
+  height: 14px;
+  bottom: 12px;
+  position: absolute;
+  right: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .container_img_tc {
   height: 14px;
   bottom: 12px;
