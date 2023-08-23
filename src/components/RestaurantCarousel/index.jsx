@@ -10,7 +10,7 @@ const RestaurantsCarousel = () => {
   const { restaurants } = useContext(RestaurantsContext);
 
   useEffect(() => {
-    (restaurants.length > 0) & setLoading(false);
+    restaurants.length & setLoading(false);
   }, []);
 
   return (
