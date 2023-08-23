@@ -9,7 +9,7 @@ const FooterWide = ({ coordinates }) => {
         <div className='footer-wide__contact-box__logo-container'>
           <img
             id='logo'
-            src='/src/assets/icons/logo2.png'
+            src='/icons/logo2.png'
             className='footer-wide__contact-box__logo'
           />
           <h1 id='logo' className='footer-wide__contact-box__title'>
@@ -26,7 +26,7 @@ const FooterWide = ({ coordinates }) => {
         <h2 className='footer-wide__contact-box__data'>
           <img
             id='logo'
-            src='/src/assets/icons/position.png'
+            src='/icons/position.png'
             className='footer-wide__contact-box__icon'
           />
           &nbsp; A-32, Albany, New York.
@@ -34,7 +34,7 @@ const FooterWide = ({ coordinates }) => {
         <h2 className='footer-wide__contact-box__data'>
           <img
             id='logo'
-            src='/src/assets/icons/telephone.png'
+            src='/icons/telephone.png'
             className='footer-wide__contact-box__icon'
           />
           &nbsp; 518 - 457 - 5181
@@ -42,7 +42,7 @@ const FooterWide = ({ coordinates }) => {
         <h2 className='footer-wide__contact-box__data'>
           <img
             id='logo'
-            src='/src/assets/icons/mail.png'
+            src='/icons/mail.png'
             className='footer-wide__contact-box__icon'
           />
           &nbsp; Contact@Gmail.com
@@ -84,7 +84,7 @@ const FooterWide = ({ coordinates }) => {
         <div className='footer-wide__topics__item-box'>
           <div className='footer-wide__topics__item-box__image-container'>
             <img
-              src='../src/assets/img/taxi.jpg'
+              src='../img/taxi.jpg'
               className='footer-wide__topics__item-box__image'
             />
           </div>
@@ -106,7 +106,7 @@ const FooterWide = ({ coordinates }) => {
         <div className='footer-wide__topics__item-box'>
           <div className='footer-wide__topics__item-box__image-container'>
             <img
-              src='../src/assets/img/taxi2.jpg'
+              src='../img/taxi2.jpg'
               className='footer-wide__topics__item-box__image'
             />
           </div>
