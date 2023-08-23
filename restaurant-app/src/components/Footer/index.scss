@@ -1,0 +1,243 @@
+@import "../../styles/mixins.scss";
+
+.footer {
+  background-color: var(--neutral-cod);
+
+  &__control {
+    color: var(--neutral-main-cards);
+    margin: -1px;
+    background-color: var(--neutral-cod);
+  }
+
+  &__links-panel-box {
+    @media (min-width: 768px) {
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      left: -20vw;
+      padding: 0px 20px;
+    }
+  }
+
+  &__about-panel-box {
+    @media (min-width: 768px) {
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      left: -30vw;
+      padding: 0px 20px;
+    }
+  }
+
+  &__panel {
+    background-color: var(--neutral-cod);
+    cursor: pointer;
+
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 10px;
+
+      @media (min-width: 768px) {
+        width: 100vw;
+      }
+
+      &__logo-container {
+        height: fit-content;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+      }
+
+      &__logo {
+        width: 30px;
+        height: fit-content;
+      }
+
+      &__title {
+        font-size: 25px;
+        font-weight: 700;
+        color: var(--neutral-main-cards);
+      }
+
+      &__content {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--neutral-silver-text);
+      }
+
+      &__data {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--neutral-silver-text);
+      }
+
+      &__icon {
+        width: 14px;
+      }
+    }
+
+    &__location {
+      height: calc(60px + 25vw);
+      padding-left: 10px;
+
+      @media (min-width: 768px) {
+        width: 80vw;
+        height: 250px;
+        position: relative;
+        left: -53vw;
+        padding-top: 10px;
+      }
+    }
+
+    &__topics {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 20px;
+      padding-left: 3px;
+
+      @media (min-width: 768px) {
+        width: 100vw;
+        position: relative;
+        left: -82vw;
+        padding: 0px 20px;
+      }
+
+      &__image {
+        width: 280px;
+        height: 100px;
+        margin-bottom: 10px;
+
+        @media (min-width: 768px) {
+          width: 200px;
+          height: 150px;
+        }
+      }
+
+      &__cotent-box {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      &__title {
+        font-weight: 700;
+        color: var(--neutral-main-cards);
+      }
+
+      &__content {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--neutral-silver-text);
+      }
+
+      &__image2 {
+        width: 280px;
+        height: 100px;
+        margin-bottom: 20px;
+
+        @media (min-width: 768px) {
+          width: 200px;
+          height: 150px;
+        }
+      }
+    }
+  }
+
+  &__networks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    margin-top: -1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--neutral-cod);
+
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
+    }
+
+    &__icon {
+      width: 15px;
+      cursor: pointer;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: var(--neutral-silver-text);
+
+    &__hearth {
+      width: 14px;
+    }
+  }
+
+  .mantine-gm39d {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 0 5px 0;
+    white-space: nowrap;
+  }
+
+  .mantine-gm39d:hover {
+    background-color: var(--neutral-cod);
+  }
+
+  .mantine-731ldn {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--neutral-silver-text);
+    padding-bottom: 5px;
+    padding-left: 18px;
+
+    &:hover {
+      color: var(--neutral-main-cards);
+    }
+  }
+
+  .mantine-Accordion-chevron path {
+    color: var(--neutral-main-cards);
+  }
+
+  .mantine-hp9ccp:hover {
+    background-color: var(--neutral-cod);
+  }
+}
+
+.main-accordion {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.mantine-Accordion-item,
+.mantine-1h0npq1 {
+  @media (min-width: 768px) {
+    width: calc(100% / 5);
+    padding-bottom: 10px;
+    border-bottom: none;
+  }
+}
