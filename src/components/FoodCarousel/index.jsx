@@ -1,5 +1,5 @@
 import { Carousel } from "@mantine/carousel";
-import { cuisines } from "../../../public/data/cuisines";
+import { cuisines } from "../../assets/data/cuisines";
 import "./index.scss";
 
 const FoodCarousel = () => {

@@ -1,7 +1,7 @@
 export const restaurants = [
   {
     id: 1,
-    image: "../src/assets/img/1.jpg",
+    image: "/img/1.jpg",
     name: "Italian Restro",
     rating: 4.9,
     type: ["Italian", "Cafe"],
@@ -137,7 +137,7 @@ export const restaurants = [
 
   {
     id: 2,
-    image: "../src/assets/img/2.jpg",
+    image: "/img/2.jpg",
     name: "Asian Fusion Wok ",
     rating: 2.8,
     type: ["Chinese", "Sushi"],
@@ -148,7 +148,7 @@ export const restaurants = [
   },
   {
     id: 3,
-    image: "../src/assets/img/3.jpg",
+    image: "/img/3.jpg",
     name: "Grill & Beer Plaza",
     rating: 4.8,
     type: ["Roast", "Lunch"],
@@ -159,7 +159,7 @@ export const restaurants = [
   },
   {
     id: 4,
-    image: "../src/assets/img/4.jpg",
+    image: "/img/4.jpg",
     name: "Burger Town",
     rating: 4.2,
     type: ["Fast food", "Hamburger"],
@@ -170,7 +170,7 @@ export const restaurants = [
   },
   {
     id: 5,
-    image: "../src/assets/img/5.jpg",
+    image: "/img/5.jpg",
     name: "Sweet Palace",
     rating: 3.1,
     type: ["Bakery", "Desserts"],
@@ -181,7 +181,7 @@ export const restaurants = [
   },
   {
     id: 6,
-    image: "../src/assets/img/6.jpg",
+    image: "/img/6.jpg",
     name: "Orale Taco",
     rating: 3.8,
     type: ["Mexican", "Typical"],
@@ -192,7 +192,7 @@ export const restaurants = [
   },
   {
     id: 7,
-    image: "../src/assets/img/7.jpg",
+    image: "/img/7.jpg",
     name: "Socrates's Place",
     rating: 4.8,
     type: ["Greek", "Mediterranean"],
@@ -203,7 +203,7 @@ export const restaurants = [
   },
   {
     id: 8,
-    image: "../src/assets/img/8.jpg",
+    image: "/img/8.jpg",
     name: "Machu Pichu",
     rating: 3.9,
     type: ["Peruvian", "Typical"],
@@ -214,7 +214,7 @@ export const restaurants = [
   },
   {
     id: 9,
-    image: "../src/assets/img/9.jpg",
+    image: "/img/9.jpg",
     name: "Morgan's Stove",
     rating: 4.5,
     type: ["Seafood", "Mediterranean"],
@@ -225,7 +225,7 @@ export const restaurants = [
   },
   {
     id: 10,
-    image: "../src/assets/img/10.jpg",
+    image: "/img/10.jpg",
     name: "Pizza To Go",
     rating: 3.4,
     type: ["Fastfood", "Pizza"],
