@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
-import NotFound from "../Pages/not-found/NotFound";
-import Home from "../Pages/home/Home";
-import SingleRestaurant from "../Pages/single-restaurant/index";
-import ListRestaurants from "../Pages/list-restaurant/index";
-import Login from "../components/login/Login";
-import Registration from "../components/registration/Registration";
-import Checkout from "../Pages/summary/index"
-import PaymentStatus from "../components/payment-status/PaymentStatus";
-import PaymentFailed from "../components/payment-failed/PaymentFailed";
+import NotFound from "../pages/NotFound";
+import Home from "../pages/Home";
+import SingleRestaurant from "../pages/SingleRestaurant";
+import ListRestaurants from "../pages/ListRestaurant";
+import Login from "../components/Login";
+import Registration from "../components/Registration";
+import Checkout from "../pages/Summary"
+import PaymentStatus from "../components/PaymentStatus";
+import PaymentFailed from "../components/PaymentFailed";
 
 const router = createBrowserRouter([
   {
