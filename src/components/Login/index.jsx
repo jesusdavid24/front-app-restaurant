@@ -15,7 +15,7 @@ const Login = () => {
           <p className="login__container__form__title">Welcome Back</p>
           <form>
             <div className="login__container__form__input-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">UserName</label>
               <input
                 type="text"
                 name="username"
