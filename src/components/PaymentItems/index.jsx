@@ -15,14 +15,14 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
     }
   }
   return (
-    <div>
-      <div className="container_accordion">
+      <div className="payment-items">
         <Accordion variant="contained"
           chevron={false}
+          className="payment-items__accordion"
         >
-          <Accordion.Item value="photos">
+          <Accordion.Item className="payment-items__accordion__item" value="photos">
             <Accordion.Control>
-              <input type="radio" name="debit_card" />
+              <input type="radio" name="debit_card" className="radio_debit_Card" />
               <label className="space" htmlFor="debit_card">Debit Card</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -55,9 +55,9 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-          <Accordion.Item value="print">
+          <Accordion.Item className="payment-items__accordion__item" value="print">
             <Accordion.Control>
-              <input type="radio" name="credit_card" />
+              <input type="radio" name="credit_card" className="radio_debit_Card"/>
               <label className="space" htmlFor="credit_card">Credit Card</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -86,9 +86,9 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-          <Accordion.Item value="camera">
+          <Accordion.Item className="payment-items__accordion__item" value="camera">
             <Accordion.Control>
-              <input type="radio" name="net_banking" />
+              <input type="radio" name="net_banking" className="radio_debit_Card" />
               <label className="space" htmlFor="net_banking">Net Banking</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -127,9 +127,9 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
             </Accordion.Panel>
           </Accordion.Item>
-          <Accordion.Item value="wall">
+          <Accordion.Item className="payment-items__accordion__item" value="wall">
             <Accordion.Control>
-              <input type="radio" name="my_wallet" />
+              <input type="radio" name="my_wallet" className="radio_debit_Card" />
               <label className="space" htmlFor="my_wallet">My Wallet</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -169,7 +169,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
           </Accordion.Item>
         </Accordion>
       </div>
-    </div>
   )
 }
 export default Paymentitems

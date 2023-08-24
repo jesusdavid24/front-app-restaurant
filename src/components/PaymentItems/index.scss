@@ -1,118 +1,126 @@
-.container_accordion {
+.payment-items {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  background-color: #F4F4F4;
-  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   gap: 20px;
-}
 
-/* Estilos para los títulos del acordeón */
-.Accordion.Control label {
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  display: block;
-  padding: 10px;
-  background-color: #FFFFFF;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
+  &__accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-/* Estilos para los paneles del acordeón */
-.Accordion.Panel {
-  display: flex;
-  background-color: #FFFFFF;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
+    &__item {
+      background-color: var(--primary-background);
+      border: 1px solid rgba(0, 0, 0, 0.09);
+    }
+  }
 
-.Accordion.Item.active .Accordion.Panel {
-  display: flex;
-}
+  /* Estilos para los títulos del acordeón */
+  .Accordion.Control label {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    background-color: #fd0a0a;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
 
-/* Estilos para los botones */
-.container_buttonP button,
-.container_payments button {
-  background-color: #EF3F3E;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  //border-color: #EF3F3E;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row-reverse;
-}
+  /* Estilos para los paneles del acordeón */
+  .Accordion.Panel {
+    display: flex;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
 
-.container_buttonP button:hover,
-.container_payments button:hover {
-  background-color: white;
-  color: #EF3F3E;
-}
+  .Accordion.Item.active .Accordion.Panel {
+    display: flex;
+  }
 
-/* Estilos para los campos de entrada */
-.container_nameCard input,
-.container_dates input,
-.container_bank input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-}
+  /* Estilos para los botones */
+  .container_buttonP button,
+  .container_payments button {
+    background-color: #ef3f3e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    //border-color: #EF3F3E;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
-/* Estilos para los campos de selección */
-.container_banks .check {
-  margin-right: 10px;
-}
+  .container_buttonP button:hover,
+  .container_payments button:hover {
+    background-color: white;
+    color: #ef3f3e;
+  }
 
-.space {
-  margin-left: 10px;
-}
+  /* Estilos para los campos de entrada */
+  .container_nameCard input,
+  .container_dates input,
+  .container_bank input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
 
-.container_banks {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-}
+  /* Estilos para los campos de selección */
+  .container_banks .check {
+    margin-right: 10px;
+  }
 
-.check {
-  grid-gap: 10px;
-}
+  .space {
+    margin-left: 10px;
+  }
 
-.container_cardNumber {
-  position: relative;
-}
+  .container_banks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
 
-.container_img_tc_debit {
-  height: 14px;
-  bottom: 12px;
-  position: absolute;
-  right: 10px;
-  display: flex;
-  flex-direction: row-reverse;
-}
+  .check {
+    grid-gap: 10px;
+  }
 
-.container_img_tc {
-  height: 14px;
-  bottom: 12px;
-  position: absolute;
-  right: 10px;
-  display: flex;
-  flex-direction: row-reverse;
-}
+  .container_cardNumber {
+    position: relative;
+  }
 
-.container_img_tc {
-  height: 14px;
-  bottom: 12px;
-  right: 10px;
-  display: flex;
-  flex-direction: row-reverse;
+  .container_img_tc_debit {
+    height: 14px;
+    bottom: 12px;
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .container_img_tc {
+    height: 14px;
+    bottom: 12px;
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .container_img_tc {
+    height: 14px;
+    bottom: 12px;
+    right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }
