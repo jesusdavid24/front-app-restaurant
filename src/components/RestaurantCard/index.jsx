@@ -28,7 +28,7 @@ const Restaurantcard = ({
           />
         </div>
         <div className='card__content'>
-          <div className='card__content__rating'>
+          <div className='card__content__rating-box'>
             <h1 className='card__content__title'>{title}</h1>
             <h2
               className={

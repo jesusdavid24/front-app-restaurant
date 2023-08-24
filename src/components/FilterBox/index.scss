@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .filters {
   width: 95%;
@@ -10,7 +10,7 @@
   background-color: var(--neutral-main-cards);
 
   @media (min-width: 576px) {
-    width: 518px;
+    width: 525px;
     margin: 30px auto;
   }
 
