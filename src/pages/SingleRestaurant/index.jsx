@@ -1,4 +1,3 @@
-import React from 'react';
 import RestaurantSlider from '../../components/RestaurantSlider';
 import RestaurantOptions from '../../components/RestaurantOptions';
 import OrderOnline from '../../components/OrderOnline';
