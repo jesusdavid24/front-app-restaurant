@@ -28,7 +28,7 @@ const Checkout = () => {
         <div className="cart_container">
           <Cart />
         </div>
-        <div>
+        <div className="card_always">
           <AlwaysFirst />
         </div>
         <div className="container_card_address">

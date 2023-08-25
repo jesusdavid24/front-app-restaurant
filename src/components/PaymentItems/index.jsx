@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Accordion, useMantineTheme, rem } from '@mantine/core';
 import './index.scss';
 
@@ -14,6 +14,9 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
       removePaymentitem(index)
     }
   }
+
+  const [selectedOption, setSelectOption] = useState (null);
+
   return (
       <div className="payment-items">
         <Accordion variant="contained"
@@ -22,7 +25,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
         >
           <Accordion.Item className="payment-items__accordion__item" value="photos">
             <Accordion.Control>
-              <input type="radio" name="debit_card" className="radio_debit_Card" />
+              <input type="radio" name="debit_card" className="radio_debit_Card" checked={selectedOption === "td"} onChange={()=> setSelectOption("td")} />
               <label className="space" htmlFor="debit_card">Debit Card</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -57,7 +60,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
           </Accordion.Item>
           <Accordion.Item className="payment-items__accordion__item" value="print">
             <Accordion.Control>
-              <input type="radio" name="credit_card" className="radio_debit_Card"/>
+              <input type="radio" name="credit_card" className="radio_debit_Card" checked={selectedOption === "tc"} onChange={()=> setSelectOption("tc")}/>
               <label className="space" htmlFor="credit_card">Credit Card</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -88,7 +91,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
           </Accordion.Item>
           <Accordion.Item className="payment-items__accordion__item" value="camera">
             <Accordion.Control>
-              <input type="radio" name="net_banking" className="radio_debit_Card" />
+              <input type="radio" name="net_banking" className="radio_debit_Card" checked={selectedOption === "nb"} onChange={()=> setSelectOption("nb")}/>
               <label className="space" htmlFor="net_banking">Net Banking</label>
             </Accordion.Control>
             <Accordion.Panel>
@@ -129,7 +132,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
           </Accordion.Item>
           <Accordion.Item className="payment-items__accordion__item" value="wall">
             <Accordion.Control>
-              <input type="radio" name="my_wallet" className="radio_debit_Card" />
+              <input type="radio" name="my_wallet" className="radio_debit_Card" checked={selectedOption === "mw"} onChange={()=> setSelectOption("mw")}/>
               <label className="space" htmlFor="my_wallet">My Wallet</label>
             </Accordion.Control>
             <Accordion.Panel>
