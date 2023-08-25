@@ -1,4 +1,3 @@
-import React from 'react';
 import RestaurantSlider from '../../components/RestaurantSlider';
 import RestaurantOptions from '../../components/RestaurantOptions';
 import OrderOnline from '../../components/OrderOnline';
@@ -11,15 +10,19 @@ import RestaurantsCarousel from '../../components/RestaurantCarousel';
 import Cart from '../../components/Cart';
 import AlwaysFirst from '../../components/AlwaysFirst';
 import { RestaurantsProvider } from '../../store/RestaurantsContext';
+import { useLoaderData } from 'react-router-dom';
+import { fetchRestaurantById } from '../../api/restaurants';
 import './index.scss';
 
 const SingleRestaurant = () => {
-  const coordinates = [-73.5, 40.8];
+  const { restaurant } = useLoaderData();
+  const { latitude, longitude } = restaurant;
+  const coordinates = [latitude, longitude];
 
   return (
     <RestaurantsProvider>
       <div className='single-restaurant'>
-        <RestaurantSlider />
+        <RestaurantSlider restaurant={restaurant} />
         <div className='single-restaurant__principal'>
           <div className='single-restaurant__principal__option-selection'>
             <RestaurantOptions />
@@ -79,3 +82,9 @@ const SingleRestaurant = () => {
 };
 
 export default SingleRestaurant;
+
+export const loaderSingleRestaurant = async ({ params }) => {
+  const { id } = params;
+  const data = await fetchRestaurantById(id);
+  return { restaurant: data };
+};
