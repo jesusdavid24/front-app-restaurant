@@ -28,11 +28,12 @@ export const RestaurantsProvider = ({ children }) => {
 
       setRestaurants(trendingRestaurants);
     } else if (filter == 'latest') {
-      const compareTime = new Date('2023-08-23T14:15:00');
+      const currentTime = new Date();
+      const oneWeekAgo = new Date(currentTime - 1000 * 60 * 60 * 24 * 7);
 
       const recentRestaurants = data.filter((restaurant) => {
         const createdAtTime = new Date(restaurant.createdAt);
-        return createdAtTime > compareTime;
+        return createdAtTime > oneWeekAgo;
       });
 
       setRestaurants(recentRestaurants);

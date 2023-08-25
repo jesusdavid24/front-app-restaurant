@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
 const Restaurantcard = ({
@@ -14,7 +14,7 @@ const Restaurantcard = ({
   closeDay,
 }) => {
   return (
-    <>
+    <Link to={`/restaurants/${id}`} className='card__link'>
       <div id={id} className='card'>
         {rating >= 4.0 && (
           <div className='card__ribbon card__ribbon--red'>
@@ -50,7 +50,7 @@ const Restaurantcard = ({
           </div>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 

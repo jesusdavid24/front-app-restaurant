@@ -10,3 +10,12 @@ export const fetchRestaurants = async () => {
     return message;
   }
 };
+
+export const fetchRestaurantById = async (id) => {
+  try {
+    const { data } = await axios.get(`${URL}/${id}`);
+    return data;
+  } catch ({ message }) {
+    return message;
+  }
+};
