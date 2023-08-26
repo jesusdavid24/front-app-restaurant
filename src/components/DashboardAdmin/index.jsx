@@ -2,21 +2,34 @@ import CardsUsers from "../CardsUsers"
 
 const dashboardAdmin = () => {
   return (
-    <div class="container pt-3">
-      <div className="d-flex flex-column">
-        <div class="d-flex flex-row align-items-start justify-content-between">
-          <div class="col-3">
+    <div className="container-fluid p-5">
+      <div className="d-flex flex-column gap-5">
+        <div className="px-1">
+        <ul className="nav justify-content-start">
+          <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href="#">Clients</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Restaurant</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Administrators</a>
+          </li>
+        </ul>
+        </div>
+        <div className="d-flex flex-row align-items-start justify-content-between px-1">
+          <div className="col-3">
             <CardsUsers />
           </div>
-          <div class="col-3">
+          <div className="col-3">
             <CardsUsers />
           </div>
-          <div class="col-3">
+          <div className="col-3">
             <CardsUsers />
           </div>
         </div>
-        <div className="d-flex flex-column mt-5">
-          <table class="table table-hover table-responsive">
+        <div classNameName="px-5">
+          <table className="table table-hover table-responsive px-5">
             <thead>
               <tr>
                 <th>#</th>
