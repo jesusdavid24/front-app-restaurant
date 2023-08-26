@@ -62,9 +62,24 @@
     color: #ef3f3e;
   }
 
+  .container-dates {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+    }
+
+    &__confirm {
+      @media (min-width: 768px) {
+        width: calc(33.3% - (50px / 3));
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
   /* Estilos para los campos de entrada */
   .container_nameCard input,
-  .container_dates input,
+  .container-dates input,
   .container_bank input {
     width: 100%;
     padding: 8px;
@@ -105,6 +120,10 @@
     right: 10px;
     display: flex;
     flex-direction: row-reverse;
+
+    @media (min-width: 768px) {
+      bottom: 20px;
+    }
   }
 
   .container_img_tc {
@@ -122,5 +141,9 @@
     right: 10px;
     display: flex;
     flex-direction: row-reverse;
+
+    @media (min-width: 768px) {
+      bottom: 20px;
+    }
   }
 }
