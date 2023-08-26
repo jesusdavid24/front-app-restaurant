@@ -2,21 +2,11 @@ import React, { useState } from "react";
 import AddressList from "../../components/AddressList";
 import Paymentitems from "../../components/PaymentItems"
 import CardView from "../../components/CardView"
+import AlwaysFirst from "../../components/AlwaysFirst"
 import "./index.scss";
 
 const Checkout = () => {
-  const [addresses, setAddresses] = useState([]);
   const [paymentitems, setPaymentitems] = useState([]);
-
-  const addAddress = (address) => {
-    setAddresses([...addresses, address]);
-  };
-
-  const removeAddress = (index) => {
-    const updateAddress = [...addresses];
-    updateAddress.splice(index, 1);
-    setAddresses(updateAddress);
-  };
 
   const addPaymentitem = (item) => {
     setPaymentitems([...paymentitems, item]);
@@ -34,16 +24,10 @@ const Checkout = () => {
         <img className="object" src="/img/1.jpg" />
       </div>
       <div>
-
+        <AlwaysFirst />
       </div>
       <div className="container_card_address">
-        <h1>Vista de pagos</h1>
-        <h2>Direcciones</h2>
-        <AddressList
-          addresses={addresses}
-          addAddress={addAddress}
-          removeAddress={removeAddress}
-        />
+        <AddressList />
         <div className="card_view">
           <CardView />
         </div>

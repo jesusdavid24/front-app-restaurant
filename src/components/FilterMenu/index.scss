@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .filters__menu {
   @include menu-container;
@@ -90,7 +90,7 @@
         }
 
         &:after {
-          content: "";
+          content: '';
           position: relative;
           width: 1px;
           height: 12px;
@@ -163,7 +163,7 @@
     }
 
     &__checkbox:checked::before {
-      content: "\2713";
+      content: '\2713';
       display: block;
       text-align: center;
       line-height: 20px;
