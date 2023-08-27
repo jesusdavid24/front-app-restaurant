@@ -35,10 +35,17 @@
       flex-direction: row-reverse;
       padding: 0 28px;
     }
+
+    @media (min-width: 1200px) {
+      flex-direction: row-reverse;
+      padding: 0 45px;
+    }
   }
 
   &__contentca {
-    width: 33.33%;
+    @media (min-width: 992px) {
+      width: 33.33%;
+    }
   }
 
   &__cartfirst {
@@ -49,6 +56,7 @@
     @media (min-width: 992px) {
       position: sticky;
       top: 0;
+      // padding: 0 50px;
     }
   }
 
@@ -96,15 +104,6 @@
     background-color: #ffffff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-
-    // @media (min-width: 576px) {
-    //   width: 500px;
-    //}
-    // @media (min-width: 991px) {
-    //   width: 50%;
-    //   display: flex;
-    //   flex-direction: column;
-    // }
 
     &__title {
       font-size: 18px;

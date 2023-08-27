@@ -24,6 +24,10 @@
       width: calc(50% - (20px / 2));
     }
 
+    @media (min-width: 1200px) {
+      width: calc(40% - (20px / 2));
+    }
+
     &--selected {
       border: 1px solid rgba(0, 0, 0, 0.5);
     }
