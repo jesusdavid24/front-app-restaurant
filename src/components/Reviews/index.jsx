@@ -54,7 +54,7 @@ const Reviews = ({ restaurant }) => {
                 <h6>{review.title}</h6>
               </div>
               <h6 className='restaurant-reviews__review__author'>
-                By {review.user.firstname}. {''}
+                By {review.user.firstName}. {''}
                 {dayjs(review.createdAt).format('MMM D, YYYY')}
               </h6>
               <p className='restaurant-reviews__review__content'>
