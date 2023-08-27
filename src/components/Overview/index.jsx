@@ -37,11 +37,9 @@ const Overview = ({ restaurant }) => {
         <div className='overview__address'>
           <h6 className='overview__category'>Address</h6>
           <ul>
-            <li>
-              {address.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </li>
+            {address.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </div>
       </div>
