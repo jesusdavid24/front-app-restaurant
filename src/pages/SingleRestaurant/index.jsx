@@ -58,7 +58,7 @@ const SingleRestaurant = () => {
               <div
                 id='reviews'
                 className='single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive'>
-                <Reviews />
+                <Reviews restaurant={restaurant} />
               </div>
             </div>
             <div className='single-restaurant__principal__carousel'>
