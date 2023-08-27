@@ -1,5 +1,5 @@
 
-const cardsUsers = () => {
+const CardsUsers = () => {
   return (
     <div className="card border border-primary border-top-0 border-end-0 border-start-0 border-4">
       <div className="card-body">
@@ -10,4 +10,4 @@ const cardsUsers = () => {
   )
 }
 
-export default cardsUsers
+export default CardsUsers

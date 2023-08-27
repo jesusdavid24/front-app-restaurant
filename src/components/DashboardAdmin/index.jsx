@@ -1,8 +1,18 @@
-import CardsUsers from "../CardsUsers"
+import { useState } from "react";
+import CardsUsers from "../CardsUsers";
+import FormUsers from "../FormUsers";
 
-const dashboardAdmin = () => {
+const DashboardAdmin = () => {
+
+  const [showForm, setShowForm] = useState(false);
+
+  const handleShowForm = () => {
+    setShowForm(true)
+  }
+
+
   return (
-    <div className="container-fluid p-5">
+    <div className="container-fluid p-5 h-100">
       <div className="d-flex flex-column gap-5">
         <div className="px-1">
         <ul className="nav justify-content-start">
@@ -26,6 +36,14 @@ const dashboardAdmin = () => {
           </div>
           <div className="col-3">
             <CardsUsers />
+          </div>
+        </div>
+        <div className="row">
+          <div className="d-flex flex-column w-50">
+            <button type="button" className="w-25" onClick={handleShowForm}>Crear clientes</button>
+          </div>
+          <div className="d-flex mt-5">
+            {showForm && (<FormUsers />)}
           </div>
         </div>
         <div classNameName="px-5">
@@ -59,4 +77,4 @@ const dashboardAdmin = () => {
   )
 }
 
-export default dashboardAdmin
+export default DashboardAdmin
