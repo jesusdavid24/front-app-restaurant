@@ -8,7 +8,9 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
     handleBoxAndMenuOpen(event);
   };
 
-  const [selectedOption, setSelectOption] = useState(null);
+  const [selectedPopular, setSelectedPopular] = useState(null);
+  const [selectedStart, setSelectedStart] = useState(null);
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
 
   return (
     <nav className="filters__menu">
@@ -64,8 +66,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "p1"}
-                      onChange={() => setSelectOption("p1")}
+                      checked={selectedPopular === "p1"}
+                      onChange={() => setSelectedPopular("p1")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       Free Delivery
@@ -77,8 +79,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "p2"}
-                      onChange={() => setSelectOption("p2")}
+                      checked={selectedPopular === "p2"}
+                      onChange={() => setSelectedPopular("p2")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       Reached In 20 Min
@@ -90,8 +92,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "p3"}
-                      onChange={() => setSelectOption("p3")}
+                      checked={selectedPopular === "p3"}
+                      onChange={() => setSelectedPopular("p3")}
                     />
                     <h2 className="filters__menu__sub-menu__title">Pure Veg</h2>
                   </div>
@@ -101,8 +103,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "p4"}
-                      onChange={() => setSelectOption("p4")}
+                      checked={selectedPopular === "p4"}
+                      onChange={() => setSelectedPopular("p4")}
                     />
                     <h2 className="filters__menu__sub-menu__title">Non Veg</h2>
                   </div>
@@ -209,8 +211,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "sc1"}
-                      onChange={() => setSelectOption("sc1")}
+                      checked={selectedStart === "sc1"}
+                      onChange={() => setSelectedStart("sc1")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
@@ -231,8 +233,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "sc2"}
-                      onChange={() => setSelectOption("sc2")}
+                      checked={selectedStart === "sc2"}
+                      onChange={() => setSelectedStart("sc2")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
@@ -261,8 +263,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "sc3"}
-                      onChange={() => setSelectOption("sc3")}
+                      checked={selectedStart === "sc3"}
+                      onChange={() => setSelectedStart("sc3")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       <span className="filters__menu__sub-menu__stars">
@@ -291,8 +293,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "sc4"}
-                      onChange={() => setSelectOption("sc4")}
+                      checked={selectedStart === "sc4"}
+                      onChange={() => setSelectedStart("sc4")}
                     />
 
                     <h2 className="filters__menu__sub-menu__title">
@@ -361,8 +363,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "dt1"}
-                      onChange={() => setSelectOption("dt1")}
+                      checked={selectedDelivery === "dt1"}
+                      onChange={() => setSelectedDelivery("dt1")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       Upto 20 Minutes
@@ -374,8 +376,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "dt2"}
-                      onChange={() => setSelectOption("dt2")}
+                      checked={selectedDelivery === "dt2"}
+                      onChange={() => setSelectedDelivery("dt2")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       Upto 30 Minutes
@@ -387,8 +389,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "dt3"}
-                      onChange={() => setSelectOption("dt3")}
+                      checked={selectedDelivery === "dt3"}
+                      onChange={() => setSelectedDelivery("dt3")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       Upto 45 Minutes
@@ -400,8 +402,8 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
                     <input
                       type="checkbox"
                       className="filters__menu__sub-menu__checkbox"
-                      checked={selectedOption === "dt4"}
-                      onChange={() => setSelectOption("dt4")}
+                      checked={selectedDelivery === "dt4"}
+                      onChange={() => setSelectedDelivery("dt4")}
                     />
                     <h2 className="filters__menu__sub-menu__title">
                       Upto 60 Minutes
