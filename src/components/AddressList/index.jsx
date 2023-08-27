@@ -18,12 +18,12 @@ function AddressList() {
     }
 
     return (
-        <div>
-            <section>
-                <h1>Delivery Address</h1>
-                <div className="container_addressb">
-                    <h2>Saved Address</h2>
-                    <button onClick={handleOpenModal}>Add New Address</button>
+        <div className="addressList">
+            <section className="addressList__section">
+                <h2 className="addressList__section__title">Delivery Address:</h2>
+                <div className="addressList__savedAddress">
+                    <h3 className="addressList__savedAddress__title">Saved Address</h3>
+                    <button onClick={handleOpenModal} className="addressList__savedAddress__button">+ Add New Address</button>
                 </div>
             </section>
             <AddressModal isOpen={isModalOpen} onClose={handleCloseModal} onAddAddress={handleAddAddress} />
