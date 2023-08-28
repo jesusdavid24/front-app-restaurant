@@ -82,6 +82,16 @@ const HomeMenu = ({ menuOpen, onMenuOpen }) => {
               Checkout
             </NavLink>
           </Accordion.Panel>
+
+          <Accordion.Panel className='home-menu__accordion__panel'>
+            <NavLink
+              to="/admin"
+              className='home-menu__accordion__nav'
+              onClick={handleMenuOpen}>
+              Admin
+            </NavLink>
+          </Accordion.Panel>
+
         </Accordion.Item>
       </Accordion>
     </nav>

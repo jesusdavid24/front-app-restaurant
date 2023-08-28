@@ -7,6 +7,7 @@ import ButtonsFilters from '../../components/ButtonsFilters';
 import RestaurantsList from '../../components/RestaurantsList';
 import { RestaurantsProvider } from '../../store/RestaurantsContext';
 import Store from '../../components/Store';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (

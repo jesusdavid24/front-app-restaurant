@@ -46,14 +46,6 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: '/payment-status',
-        element: <PaymentStatus />,
-      },
-      {
-        path: '/payment-failed',
-        element: <PaymentFailed />,
-      },
-      {
         path: '/admin',
         element: <DashboardAdmin />,
         loader: loaderDashboardAdmin,
