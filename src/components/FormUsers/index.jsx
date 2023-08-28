@@ -3,13 +3,13 @@ import { createUsers } from "../../api/login";
 
 const FormUsers = ({roles}) => {
 
+  console.log(roles)
+
   const { form, handleChange } = useForm();
     const handleSubmit = async (event) => {
       event.preventDefault();
       return await createUsers(form);
     };
-
-    console.log(form)
 
   return (
     <div>
@@ -92,8 +92,8 @@ const FormUsers = ({roles}) => {
             name="roleId"
           >
             <option>Choose roles</option>
-            {roles.map((role, index) => (
-              <option key={index} value={role.id}>{role.name}</option>
+            {roles && roles.map((role) => (
+              <option value={role.id}>{role.name}</option>
             ))}
           </select>
         </div>
