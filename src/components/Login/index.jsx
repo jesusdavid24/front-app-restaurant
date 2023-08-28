@@ -1,11 +1,29 @@
 import Google from '../shared/svg/Google';
 import Twitter from '../shared/svg/Twitter';
 import GitHub from '../shared/svg/Github';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm"
+import { login } from '../../api/login';
 import './index.scss';
 
 
 const Login = () => {
+
+  const navigate = useNavigate()
+
+  const { form, handleChange } = useForm();
+  const handleSubmit = async (event) => {
+
+    event.preventDefault();
+    const data = await login(form);
+
+    localStorage.setItem('token', data.token)
+    localStorage.setItem('firstName', data.newUser.firstName)
+    localStorage.setItem('lasttName', data.newUser.lastName)
+    localStorage.setItem('email', data.newUser.email)
+
+    navigate("/")
+  };
 
   return (
     <div className="login">
@@ -13,13 +31,13 @@ const Login = () => {
         <div className="login__container__form">
           <Link className="login__container__form__link" to="/">← Back to Home</Link>
           <p className="login__container__form__title">Welcome Back</p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="login__container__form__input-group">
-              <label htmlFor="username">UserName</label>
+              <label htmlFor="email">UserName</label>
               <input
-                type="text"
-                name="username"
-                id="username"
+                type="email"
+                name="email"
+                onChange={handleChange}
                 placeholder="Enter your email address"
                 required
               />
@@ -29,7 +47,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                id="password"
+                onChange={handleChange}
                 placeholder="Enter your password"
                 required
               />
@@ -37,7 +55,7 @@ const Login = () => {
                 <a rel="noopener noreferrer" href="#">Forgot Password?</a>
               </div>
             </div>
-            <button className="login__container__form__sign">Sign in</button>
+            <button type="submit" className="login__container__form__sign">Sign in</button>
           </form>
           <div className="login__container__form__social-message">
             <div className="login__container__form__social-message__line"></div>

@@ -1,27 +1,20 @@
-import React from 'react';
 import ButtonsComponent from "../ButtonsComponents";
 import { cardView } from "../../assets/data/cardview";
 import "./index.scss";
-
 const CardView = () => {
   const handleClick = (event) => {
     const currentElement = event.target;
-
     const selectedElement = document.querySelector(
       ".checkout__container-card--selected"
     );
-
     if (currentElement !== selectedElement) {
       selectedElement &&
         selectedElement.classList.remove(
           "checkout__container-card--selected"
         );
-
       currentElement.classList.toggle("checkout__container-card--selected");
     }
   };
-
-
   return (
     <div className='checkout'>
       { cardView.map(( card, index ) => (
@@ -48,5 +41,4 @@ const CardView = () => {
     </div>
   );
 };
-
 export default CardView;
