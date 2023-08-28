@@ -9,7 +9,7 @@ const RestaurantsList = () => {
   const { restaurants } = useContext(RestaurantsContext);
 
   useEffect(() => {
-    restaurants.length & setLoading(false);
+    restaurants.length && setLoading(false);
   }, []);
 
   const handleFilterClick = (event) => {
