@@ -4,7 +4,7 @@ const URL = `${import.meta.env.VITE_BASE_URL}`;
 
 export const createUsers = async (form) => {
   try {
-    const { data } = await axios.post(`${URL}/createUser/`, form)
+    const { data } = await axios.post(`${URL}/api/createUser/`, form)
     return data
   }  catch ({ message }) {
     return message;
@@ -13,7 +13,7 @@ export const createUsers = async (form) => {
 
 export const login = async (form) => {
   try {
-    const { data } = await axios.post(`${URL}/auth/local/login`, form)
+    const { data } = await axios.post(`${URL}/api/auth/local/login`, form)
     return data
   }  catch ({ message }) {
     return message;
