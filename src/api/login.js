@@ -6,8 +6,9 @@ export const createUsers = async (form) => {
   try {
     const { data } = await axios.post(`${URL}/createUser`, form)
     return data
-  }  catch ({ message }) {
-    return message;
+  } catch (error) {
+    console.log(error)
+    return [];
   }
 }
 
@@ -15,8 +16,9 @@ export const login = async (form) => {
   try {
     const { data } = await axios.post(`${URL}/auth/local/login`, form)
     return data
-  }  catch ({ message }) {
-    return message;
+  } catch (error) {
+    console.log(error)
+    return [];
   }
 }
 

@@ -1,12 +1,9 @@
 import React from "react";
 import { Accordion } from "@mantine/core";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 const HomeMenuWide = () => {
-  const handleMenuOpen = () => {
-    onMenuOpen(!menuOpen);
-  };
   const handleClick = (event) => {
     const currentElement = event.target;
     const selectedElement = document.querySelector(
@@ -78,38 +75,38 @@ const HomeMenuWide = () => {
           </Accordion.Control>
           <div className="home-menu-wide__accordion__panel-box">
             <Accordion.Panel className="home-menu-wide__accordion__panel">
-              <NavLink
+              <Link
                 to="/"
                 className="home-menu-wide__accordion__nav"
-                onClick={handleMenuOpen}>
+              >
                 Home
-              </NavLink>
+              </Link>
             </Accordion.Panel>
             <Accordion.Panel className="home-menu-wide__accordion__panel">
-              <NavLink
+              <Link
                 to="/restaurants"
                 className="home-menu-wide__accordion__nav"
-                onClick={handleMenuOpen}>
+              >
                 Restaurants
-              </NavLink>
+              </Link>
             </Accordion.Panel>
 
             <Accordion.Panel className="home-menu-wide__accordion__panel">
-              <NavLink
+              <Link
                 to="/checkout"
                 className="home-menu-wide__accordion__nav"
-                onClick={handleMenuOpen}>
+              >
                 Checkout
-              </NavLink>
+              </Link>
             </Accordion.Panel>
 
             <Accordion.Panel className="home-menu-wide__accordion__panel">
-              <NavLink
+              <Link
                 to="/admin"
                 className="home-menu-wide__accordion__nav"
-                onClick={handleMenuOpen}>
+              >
                 Admin
-              </NavLink>
+              </Link>
             </Accordion.Panel>
           </div>
         </Accordion.Item>

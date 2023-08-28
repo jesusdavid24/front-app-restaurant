@@ -9,8 +9,6 @@ import ListRestaurants from '../pages/ListRestaurant';
 import Login from '../components/Login';
 import Registration from '../components/Registration';
 import Checkout from '../pages/Summary';
-import PaymentStatus from '../components/PaymentStatus';
-import PaymentFailed from '../components/PaymentFailed';
 import DashboardAdmin, { loaderDashboardAdmin } from '../components/DashboardAdmin';
 
 
@@ -18,7 +16,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <NotFound />,
     children: [
       {
         index: true,

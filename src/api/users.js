@@ -6,7 +6,8 @@ export const fetchUsers = async () => {
   try {
     const { data } = await axios.get(`${URL}/createUser`);
     return data;
-  } catch ({ message }) {
-    return message;
+  } catch (error) {
+    console.log(error)
+    return [];
   }
 };
