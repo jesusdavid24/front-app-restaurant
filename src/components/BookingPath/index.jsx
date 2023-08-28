@@ -7,7 +7,6 @@ const BookingPath = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
-      console.log(window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
