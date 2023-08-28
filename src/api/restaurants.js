@@ -7,7 +7,7 @@ export const fetchRestaurants = async () => {
     const { data } = await axios.get(`${URL}/restaurants`);
     return data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return [];
   }
 };
@@ -17,7 +17,7 @@ export const fetchRestaurantById = async (id) => {
     const { data } = await axios.get(`${URL}/restaurants/${id}`);
     return data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return [];
   }
 };
