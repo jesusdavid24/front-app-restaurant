@@ -92,7 +92,7 @@ const FormUsers = ({roles}) => {
             name="roleId"
           >
             <option>Choose roles</option>
-            {roles && roles.map((role) => (
+            {roles.map((role) => (
               <option value={role.id}>{role.name}</option>
             ))}
           </select>
