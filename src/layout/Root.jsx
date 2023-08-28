@@ -5,7 +5,7 @@ import ValidateElement from '../components/ValidateElement';
 
 const Root = () => {
   const navigation = useNavigation();
-  const invalidPaths = ['/registration', '/login'];
+  const invalidPaths = ['/registration', '/login', '/admin'];
 
   return (
     <div className='root-layout'>

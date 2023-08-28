@@ -1,45 +1,55 @@
-import React from "react";
-import "./index.scss";
+import { days } from '../../utils/days';
+import './index.scss';
 
-const Overview = () => {
+const Overview = ({ restaurant }) => {
+  const {
+    phone,
+    cuisines,
+    opening_first_day,
+    opening_last_day,
+    opening_hour,
+    closing_hour,
+    address,
+    services,
+  } = restaurant;
   return (
-    <div className="overview">
-      <div className="overview__col-1">
-        <div className="overview__phone">Phone Number: 09876543210</div>
-        <div className="overview__cuisine">
-          <h6 className="overview__category">Cuisine</h6>
+    <div className='overview'>
+      <div className='overview__col-1'>
+        <div className='overview__phone'>Phone Number: {phone}</div>
+        <div className='overview__cuisine'>
+          <h6 className='overview__category'>Cuisine</h6>
           <ul>
-            <li>Fast Food</li>
-            <li>Cafe</li>
-            <li>Italian</li>
+            {cuisines.map((cuisine, index) => (
+              <li key={index}>{cuisine}</li>
+            ))}
           </ul>
         </div>
-        <div className="overview__opening">
-          <h6 className="overview__category">Opening Hours</h6>
+        <div className='overview__opening'>
+          <h6 className='overview__category'>Opening Hours</h6>
           <ul>
-            <li>Monday To Friday: 11.00 A.M. To 11.00 P.M.</li>
-            <li>Saturday To Sunday: 10.00 A.M. To 12.00 A.M.</li>
+            <li>
+              {days[opening_first_day]} To {days[opening_last_day]}:{' '}
+              {opening_hour}
+              :00 P.M. To {closing_hour}:00 P.M.
+            </li>
           </ul>
         </div>
-        <div className="overview__address">
-          <h6 className="overview__category">Address</h6>
+        <div className='overview__address'>
+          <h6 className='overview__category'>Address</h6>
           <ul>
-            <li>9716 Riverside Dr, Mays Landing, NJ 08330</li>
-            <li>24 Lafayette Drive, Ladson, SC 29456</li>
+            {address.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </div>
       </div>
-      <div className="overview__col-2">
-        <div className="overview__facility">
-          <h6 className="overview__category">Facility</h6>
+      <div className='overview__col-2'>
+        <div className='overview__facility'>
+          <h6 className='overview__category'>Facility</h6>
           <ul>
-            <li>Card Accepted</li>
-            <li>Parking Avaliable</li>
-            <li>Banquet Area</li>
-            <li>Home Delivery</li>
-            <li>Table Booking</li>
-            <li>Avaliable For Events</li>
-            <li>Game Zone</li>
+            {services.map((service, index) => (
+              <li key={index}>{service}</li>
+            ))}
           </ul>
         </div>
       </div>
