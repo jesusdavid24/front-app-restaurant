@@ -11,7 +11,7 @@ import Registration from '../components/Registration';
 import Checkout from '../pages/Summary';
 import PaymentStatus from '../components/PaymentStatus';
 import PaymentFailed from '../components/PaymentFailed';
-import DashboardAdmin from '../components/DashboardAdmin';
+import DashboardAdmin, { loaderDashboardAdmin } from '../components/DashboardAdmin';
 
 
 const router = createBrowserRouter([
@@ -56,6 +56,7 @@ const router = createBrowserRouter([
       {
         path: '/admin',
         element: <DashboardAdmin />,
+        loader: loaderDashboardAdmin,
       },
     ],
   },

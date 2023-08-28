@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import CardsUsers from "../CardsUsers";
 import FormUsers from "../FormUsers";
+import { getRoles } from "../../api/roles";
 
 const DashboardAdmin = () => {
+
+  const { roles } = useLoaderData();
+
+  console.log(roles)
 
   const [showForm, setShowForm] = useState(false);
 
@@ -43,10 +49,10 @@ const DashboardAdmin = () => {
             <button type="button" className="w-25" onClick={handleShowForm}>Crear clientes</button>
           </div>
           <div className="d-flex mt-5">
-            {showForm && (<FormUsers />)}
+            {showForm && (<FormUsers roles={roles} />)}
           </div>
         </div>
-        <div classNameName="px-5">
+        <div className="px-5">
           <table className="table table-hover table-responsive px-5">
             <thead>
               <tr>
@@ -78,3 +84,8 @@ const DashboardAdmin = () => {
 }
 
 export default DashboardAdmin
+
+export const loaderDashboardAdmin = async () => {
+  const data = await getRoles();
+  return { roles: data };
+};
