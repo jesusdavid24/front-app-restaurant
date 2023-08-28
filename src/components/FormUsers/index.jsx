@@ -85,7 +85,7 @@ const FormUsers = ({roles}) => {
           />
         </div>
         <div className="col-md-6">
-        <label htmlFor="roleId" className="form-label">Roles</label>
+        <label htmlFor="roleId" className="form-label">Role</label>
           <select
             className="form-select"
             onChange={handleChange}
