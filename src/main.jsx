@@ -4,7 +4,6 @@ import { RouterProvider } from "react-router-dom";
 import router from "./router/index.jsx";
 import "./index.scss";
 import mapboxgl from "mapbox-gl";
-import "bootstrap/scss/bootstrap.scss";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY3Jpc3RpYW5qczkzIiwiYSI6ImNsa292YXBvcjBhcDIzcmw5cThnOGl6MTMifQ.K0CoYwD-yvtbr2VDTFecXQ";
