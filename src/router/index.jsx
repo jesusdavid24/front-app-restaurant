@@ -47,6 +47,10 @@ const router = createBrowserRouter([
         element: <DashboardAdmin />,
         loader: loaderDashboardAdmin,
       },
+      {
+        path: '*',
+        element: <NotFound />,
+      },
     ],
   },
 ]);
