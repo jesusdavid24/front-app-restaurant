@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 .home-menu-wide {
   display: flex;
   flex-direction: row;
@@ -65,10 +65,7 @@
       }
     }
     &__nav {
-      height: fit-content;
-      font-weight: 700;
-      padding-top: 0;
-      padding-bottom: 0;
+      border-bottom: none !important;
       text-decoration: none;
     }
     .mantine-19yykxz {
@@ -77,10 +74,10 @@
   }
   .mantine-Accordion-label {
     &--selected {
-      border-bottom: 3px solid #C9C9C9;
+      border-bottom: 3px solid #c9c9c9;
     }
     &:hover {
-      border-bottom: 3px solid #C9C9C9;
+      border-bottom: 3px solid #c9c9c9;
     }
   }
 }
