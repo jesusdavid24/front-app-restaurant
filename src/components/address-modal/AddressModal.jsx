@@ -89,6 +89,10 @@ function AddressModal({ isOpen, onClose, onAddAddress }) {
 export default AddressModal;
 
 const Overlay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pading: 40px;
   width: 100%;
   height: 100%;
   position: fixed;
