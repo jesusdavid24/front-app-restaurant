@@ -35,7 +35,16 @@
   border-radius: 3px;
 }
 
-.modal-buttons {
+.modal_3 {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+}
+
+.modal_buttons {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 }
