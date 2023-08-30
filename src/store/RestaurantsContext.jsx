@@ -4,47 +4,43 @@ import { fetchRestaurants } from '../api/restaurants';
 export const RestaurantsContext = createContext();
 
 export const RestaurantsProvider = ({ children }) => {
+  const [queryParams, setQueryParams] = useState({
+    filter: 'all',
+    page: 1,
+    limit: 12,
+  });
   const [restaurants, setRestaurants] = useState([]);
+  const [restaurantsLength, setRestaurantsLength] = useState([0]);
 
   useEffect(() => {
-    fetchRestaurants().then((res) => setRestaurants(res));
-  }, []);
+    fetchRestaurants(queryParams).then((res) => {
+      setRestaurants(res.data);
+      setRestaurantsLength(res.length);
+    });
+  }, [queryParams]);
 
-  const restaurantsFilterHandler = async (filter) => {
-    const data = await fetchRestaurants();
+  const queryParamsHandler = (name, id) => {
+    setQueryParams({
+      ...queryParams,
+      [name]: id,
+      limit: 12,
+    });
 
-    if (filter == 'all') {
-      setRestaurants(data);
-    } else if (filter == 'popular') {
-      const popularRestaurants = data.filter(
-        (restaurant) => restaurant.rating >= 4
-      );
-
-      setRestaurants(popularRestaurants);
-    } else if (filter == 'trend') {
-      const trendingRestaurants = data.filter(
-        (restaurant) => restaurant.trending
-      );
-
-      setRestaurants(trendingRestaurants);
-    } else if (filter == 'latest') {
-      const currentTime = new Date();
-      const oneWeekAgo = new Date(currentTime - 1000 * 60 * 60 * 24 * 7);
-
-      const recentRestaurants = data.filter((restaurant) => {
-        const createdAtTime = new Date(restaurant.createdAt);
-        return createdAtTime > oneWeekAgo;
+    name == 'filter' &&
+      setQueryParams({
+        ...queryParams,
+        [name]: id,
+        limit: 12,
+        page: 1,
       });
-
-      setRestaurants(recentRestaurants);
-    }
   };
 
   return (
     <RestaurantsContext.Provider
       value={{
         restaurants,
-        restaurantsFilterHandler,
+        restaurantsLength,
+        queryParamsHandler,
       }}>
       {children}
     </RestaurantsContext.Provider>

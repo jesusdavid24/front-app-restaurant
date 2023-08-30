@@ -3,7 +3,7 @@ import { RestaurantsContext } from '../../store/RestaurantsContext';
 import './index.scss';
 
 const FilterBox = ({ handleBoxAndMenuOpen }) => {
-  const { restaurantsFilterHandler } = useContext(RestaurantsContext);
+  const { queryParamsHandler } = useContext(RestaurantsContext);
 
   const handleClick = (event) => {
     const currentElement = event.target;
@@ -17,7 +17,23 @@ const FilterBox = ({ handleBoxAndMenuOpen }) => {
       currentElement.classList.toggle('box-list__item--selected');
     }
 
-    restaurantsFilterHandler(currentElement.id);
+    const actualPaginationElement = document.querySelector(
+      '.restaurants-pagination__numbers--selected'
+    );
+
+    actualPaginationElement.classList.remove(
+      'restaurants-pagination__numbers--selected'
+    );
+
+    const firstPaginationElement = document.querySelector(
+      '.restaurants-pagination__numbers'
+    );
+
+    firstPaginationElement.classList.add(
+      'restaurants-pagination__numbers--selected'
+    );
+
+    queryParamsHandler(currentElement.name, currentElement.id);
   };
 
   const handleMenuOpen = (event) => {
@@ -29,29 +45,42 @@ const FilterBox = ({ handleBoxAndMenuOpen }) => {
       <div className='filters__buttons'>
         <h2>Filter</h2>
         <i
-          className='bi bi-caret-down-fill filters__buttons__icon'
           id='filter-box-open-button'
+          className='bi bi-caret-down-fill filters__buttons__icon'
           onClick={handleMenuOpen}
         />
       </div>
 
       <div className='filters__buttons__box'>
         <ul className='filters__buttons__box-list'>
-          <li
+          <button
             id='all'
+            name='filter'
             className='box-list__item box-list__item--selected'
             onClick={handleClick}>
             All
-          </li>
-          <li id='popular' className='box-list__item' onClick={handleClick}>
+          </button>
+          <button
+            id='popular'
+            name='filter'
+            className='box-list__item'
+            onClick={handleClick}>
             Popular
-          </li>
-          <li id='latest' className='box-list__item' onClick={handleClick}>
+          </button>
+          <button
+            id='latest'
+            name='filter'
+            className='box-list__item'
+            onClick={handleClick}>
             Latest
-          </li>
-          <li id='trend' className='box-list__item' onClick={handleClick}>
+          </button>
+          <button
+            id='trend'
+            name='filter'
+            className='box-list__item'
+            onClick={handleClick}>
             Trend
-          </li>
+          </button>
         </ul>
       </div>
 
