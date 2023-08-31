@@ -1,5 +1,5 @@
 .container_b {
-  background-color: #DEE8CC;
+  background-color: rgba(0, 128, 0, 0.15);
   width: 50%;
   height: 90%;
   border-radius: 5px;
@@ -8,7 +8,7 @@
 
 .title_button {
   height: 30px;
-  color: #044D29;
+  color: rgba(0, 128, 0, 0.9);
   font-size: 15px;
   line-height: 30px;
 }
@@ -18,12 +18,12 @@
   height: 90%;
   border-radius: 5px;
   text-align: center;
-  background-color: #FFEAE4;
+  background-color: rgba(255, 0, 0, 0.15);
 }
 
 .title_b_remove {
   height: 30px;
-  color: #AD524B;
+  color: rgba(255, 0, 0, 0.9);
   font-size: 15px;
   line-height: 30px;
 }

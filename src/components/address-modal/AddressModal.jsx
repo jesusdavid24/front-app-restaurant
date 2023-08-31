@@ -52,21 +52,23 @@ function AddressModal({ isOpen, onClose, onAddAddress }) {
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
+              placeholder="1234 Main St"
             />
             <div className="modal_3">
-              <label>City: </label>
+              <label>City:</label>
               <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
-              <label>State: </label>
+              <label>State:</label>
               <input
                 type="text"
                 value={state}
                 onChange={(e) => setState(e.target.value)}
+                placeholder="Choose..."
               />
-              <label>Zip: </label>
+              <label>Zip:</label>
               <input
                 type="text"
                 value={zip}
@@ -74,10 +76,20 @@ function AddressModal({ isOpen, onClose, onAddAddress }) {
               />
             </div>
             <div className="modal_buttons">
-              <button type="button" onClick={onClose}>
-                Close
-              </button>
-              <button type="submit">Add Address </button>
+              <div>
+                <button
+                  className="modal_addressbc"
+                  type="button"
+                  onClick={onClose}
+                >
+                  Close
+                </button>
+              </div>
+              <div>
+                <button className="modal_addressba" type="submit">
+                  Add Address
+                </button>
+              </div>
             </div>
           </form>
         </div>
