@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { Link } from 'react-router-dom';
 import HomeMenu from '../HomeMenu';
 import HomeMenuWide from '../MenuWide';
-import { Link } from 'react-router-dom';
 import './index.scss';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { limit } = useContext(RestaurantsContext);
 
   useEffect(() => {
     if (menuOpen) {
@@ -22,7 +24,7 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='header__logo-container'>
-        <Link to='/'>
+        <Link to={`/?filter=all&page=1&limit=${limit}`}>
           <img
             id='logo'
             src='/img/logo.png'
@@ -33,7 +35,7 @@ const Header = () => {
 
       <div className='header__menu-container'>
         <div className='header__menu-container__row-menu'>
-          <HomeMenuWide />
+          <HomeMenuWide limit={limit} />
         </div>
         <button
           className='header__menu-container__button'
@@ -64,7 +66,7 @@ const Header = () => {
         <button className='header__buttons-container__settings'>
           <i className='bi bi-gear-fill' />
         </button>
-        {menuOpen && <HomeMenu onMenuOpen={handleMenuOpen} />}
+        {menuOpen && <HomeMenu onMenuOpen={handleMenuOpen} limit={limit} />}
       </div>
     </header>
   );

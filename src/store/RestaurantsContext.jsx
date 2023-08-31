@@ -4,12 +4,11 @@ import { fetchRestaurants } from '../api/restaurants';
 export const RestaurantsContext = createContext();
 
 export const RestaurantsProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(12);
 
   const [queryParams, setQueryParams] = useState({
-    filter: 'all',
-    page: currentPage,
+    filter: '',
+    page: 1,
     limit,
   });
   const [restaurants, setRestaurants] = useState([]);
@@ -20,52 +19,14 @@ export const RestaurantsProvider = ({ children }) => {
       setRestaurants(res.data);
       setRestaurantsLength(res.length);
     });
-  }, [queryParams, currentPage]);
+  }, [queryParams]);
 
-  const queryParamsHandler = (name, id) => {
-    const actions = {
-      next: () => {
-        setCurrentPage(currentPage + 1);
-        setQueryParams({
-          ...queryParams,
-          page: currentPage + 1,
-          limit,
-        });
-        console.log('next', currentPage, queryParams);
-      },
-
-      prev: () => {
-        setCurrentPage(currentPage - 1);
-        setQueryParams({
-          ...queryParams,
-          page: currentPage - 1,
-          limit,
-        });
-        console.log('prev', currentPage, queryParams);
-      },
-
-      page: () => {
-        setCurrentPage(parseInt(id));
-        setQueryParams({
-          ...queryParams,
-          page: parseInt(id),
-          limit,
-        });
-        console.log('page', currentPage, queryParams);
-      },
-
-      filter: () => {
-        setCurrentPage(1);
-        setQueryParams({
-          ...queryParams,
-          [name]: id,
-          limit,
-          page: 1,
-        });
-      },
-    };
-
-    actions[name]();
+  const queryParamsHandler = (filter, page) => {
+    setQueryParams({
+      ...queryParams,
+      filter,
+      page,
+    });
   };
 
   return (
@@ -74,7 +35,8 @@ export const RestaurantsProvider = ({ children }) => {
         restaurants,
         restaurantsLength,
         queryParamsHandler,
-        currentPage,
+        queryParams,
+        limit,
       }}>
       {children}
     </RestaurantsContext.Provider>

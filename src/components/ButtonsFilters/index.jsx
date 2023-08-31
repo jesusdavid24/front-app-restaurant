@@ -1,77 +1,71 @@
-import { useContext } from 'react';
-import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
-const ButtonsFilters = () => {
-  const { queryParamsHandler } = useContext(RestaurantsContext);
-
-  const handleClick = (event) => {
-    const currentElement = event.target;
-
-    const selectedElement = document.querySelector(
-      '.buttons-filters__box__button--selected'
-    );
-
-    if (currentElement !== selectedElement) {
-      selectedElement &&
-        selectedElement.classList.remove(
-          'buttons-filters__box__button--selected'
-        );
-
-      currentElement.classList.toggle('buttons-filters__box__button--selected');
-    }
-
-    const actualPaginationElement = document.querySelector(
-      '.restaurants-pagination__numbers--selected'
-    );
-
-    actualPaginationElement.classList.remove(
-      'restaurants-pagination__numbers--selected'
-    );
-
-    const firstPaginationElement = document.querySelector(
-      '.restaurants-pagination__numbers'
-    );
-
-    firstPaginationElement.classList.add(
-      'restaurants-pagination__numbers--selected'
-    );
-
-    queryParamsHandler(currentElement.name, currentElement.id);
-  };
-
+const ButtonsFilters = ({ filter, limit }) => {
   return (
     <div className='buttons-filters'>
       <h1 className='buttons-filters__title'>Popular Restaurant</h1>
       <div className='buttons-filters__box'>
-        <button
-          id='all'
-          name='filter'
-          className='buttons-filters__box__button buttons-filters__box__button--selected'
-          onClick={handleClick}>
-          All
-        </button>
-        <button
+        <Link id='all' name='filter' to={`/?filter=all&page=1&limit=${limit}`}>
+          <button
+            id='all'
+            name='filter'
+            className={
+              filter == 'all'
+                ? 'buttons-filters__box__button--selected'
+                : 'buttons-filters__box__button'
+            }>
+            All
+          </button>
+        </Link>
+
+        <Link
           id='popular'
           name='filter'
-          className='buttons-filters__box__button'
-          onClick={handleClick}>
-          Popular
-        </button>
-        <button
+          to={`/?filter=popular&page=1&limit=${limit}`}>
+          <button
+            id='popular'
+            name='filter'
+            className={
+              filter == 'popular'
+                ? 'buttons-filters__box__button--selected'
+                : 'buttons-filters__box__button'
+            }>
+            Popular
+          </button>
+        </Link>
+
+        <Link
           id='latest'
           name='filter'
-          className='buttons-filters__box__button'
-          onClick={handleClick}>
-          Latest
-        </button>
-        <button
+          to={`/?filter=latest&page=1&limit=${limit}`}>
+          <button
+            id='latest'
+            name='filter'
+            className={
+              filter == 'latest'
+                ? 'buttons-filters__box__button--selected'
+                : 'buttons-filters__box__button'
+            }>
+            Latest
+          </button>
+        </Link>
+
+        <Link
           id='trend'
           name='filter'
-          className='buttons-filters__box__button'
-          onClick={handleClick}>
-          Trend
-        </button>
+          to={`/?filter=trend&page=1&limit=${limit}`}>
+          <button
+            id='trend'
+            name='filter'
+            className={
+              filter == 'trend'
+                ? 'buttons-filters__box__button--selected'
+                : 'buttons-filters__box__button'
+            }>
+            Trend
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -9,8 +9,9 @@ import ListRestaurants from '../pages/ListRestaurant';
 import Login from '../components/Login';
 import Registration from '../components/Registration';
 import Checkout from '../pages/Summary';
-import DashboardAdmin, { loaderDashboardAdmin } from '../components/DashboardAdmin';
-
+import DashboardAdmin, {
+  loaderDashboardAdmin,
+} from '../components/DashboardAdmin';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: '/restaurants',
         element: <ListRestaurants />,
+        // loader: loaderRestaurants,
       },
       {
         path: '/restaurants/:id',

@@ -1,59 +1,69 @@
+import { useLocation, Link } from 'react-router-dom';
 import './index.scss';
 
-const Pagination = ({ restaurantsLength, queryParamsHandler, currentPage }) => {
-  const handleClick = (event) => {
-    const { name } = event.target;
-    const { id } = event.target;
-
-    queryParamsHandler(name, id);
-  };
+const Pagination = ({ actualPage, restaurantsLength, limit }) => {
+  const location = useLocation();
+  const queryParamsLocation = new URLSearchParams(location.search);
+  const filter = queryParamsLocation.get('filter');
+  const page = parseInt(queryParamsLocation.get('page'));
 
   return (
     <div className='restaurants-pagination'>
-      <button
-        id='prev'
-        name='prev'
-        className='restaurants-pagination__arrows'
-        onClick={handleClick}
-        disabled={currentPage === 1}>
-        <img
+      <Link
+        to={`${actualPage}?filter=${filter}&page=${page - 1}&limit=${limit}`}>
+        <button
           id='prev'
           name='prev'
-          src='/icons/left-arrow.png'
-          className='restaurants-pagination__arrow-icon'
-        />
-      </button>
+          className='restaurants-pagination__arrows'
+          disabled={page == 1}>
+          <img
+            id='prev'
+            name='prev'
+            src='/icons/left-arrow.png'
+            className='restaurants-pagination__arrow-icon'
+          />
+        </button>
+      </Link>
 
       {Array.from({ length: Math.ceil(restaurantsLength / 12) }).map(
         (_, index) => (
-          <button
+          <Link
             key={index}
             id={index + 1}
+            to={`${actualPage}?filter=${filter}&page=${
+              index + 1
+            }&limit=${limit}`}
             name='page'
-            className={
-              index + 1 == currentPage
-                ? 'restaurants-pagination__numbers restaurants-pagination__numbers--selected'
-                : 'restaurants-pagination__numbers'
-            }
-            onClick={handleClick}>
-            {index + 1}
-          </button>
+            className='restaurants-pagination__link'>
+            <button
+              id={index + 1}
+              name='page'
+              className={
+                index + 1 == page
+                  ? 'restaurants-pagination__numbers restaurants-pagination__numbers--selected'
+                  : 'restaurants-pagination__numbers'
+              }>
+              {index + 1}
+            </button>
+          </Link>
         )
       )}
 
-      <button
-        id='next'
-        name='next'
-        className='restaurants-pagination__arrows'
-        onClick={handleClick}
-        disabled={currentPage * 12 > restaurantsLength}>
-        <img
+      <Link
+        to={`${actualPage}?filter=${filter}&page=${page + 1}&limit=${limit}`}>
+        <button
           id='next'
           name='next'
-          src='/icons/right-arrow.png'
-          className='restaurants-pagination__arrow-icon'
-        />
-      </button>
+          className='restaurants-pagination__arrows'
+          disabled={page * 12 > restaurantsLength}>
+          <img
+            id='next'
+            name='next'
+            src='/icons/right-arrow.png'
+            className='restaurants-pagination__arrow-icon'
+          />
+        </button>
+      </Link>
     </div>
   );
 };
