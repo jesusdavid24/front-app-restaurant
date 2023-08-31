@@ -4,10 +4,13 @@ import { fetchRestaurants } from '../api/restaurants';
 export const RestaurantsContext = createContext();
 
 export const RestaurantsProvider = ({ children }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(12);
+
   const [queryParams, setQueryParams] = useState({
     filter: 'all',
-    page: 1,
-    limit: 12,
+    page: currentPage,
+    limit,
   });
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsLength, setRestaurantsLength] = useState([0]);
@@ -17,22 +20,52 @@ export const RestaurantsProvider = ({ children }) => {
       setRestaurants(res.data);
       setRestaurantsLength(res.length);
     });
-  }, [queryParams]);
+  }, [queryParams, currentPage]);
 
   const queryParamsHandler = (name, id) => {
-    setQueryParams({
-      ...queryParams,
-      [name]: id,
-      limit: 12,
-    });
+    const actions = {
+      next: () => {
+        setCurrentPage(currentPage + 1);
+        setQueryParams({
+          ...queryParams,
+          page: currentPage + 1,
+          limit,
+        });
+        console.log('next', currentPage, queryParams);
+      },
 
-    name == 'filter' &&
-      setQueryParams({
-        ...queryParams,
-        [name]: id,
-        limit: 12,
-        page: 1,
-      });
+      prev: () => {
+        setCurrentPage(currentPage - 1);
+        setQueryParams({
+          ...queryParams,
+          page: currentPage - 1,
+          limit,
+        });
+        console.log('prev', currentPage, queryParams);
+      },
+
+      page: () => {
+        setCurrentPage(parseInt(id));
+        setQueryParams({
+          ...queryParams,
+          page: parseInt(id),
+          limit,
+        });
+        console.log('page', currentPage, queryParams);
+      },
+
+      filter: () => {
+        setCurrentPage(1);
+        setQueryParams({
+          ...queryParams,
+          [name]: id,
+          limit,
+          page: 1,
+        });
+      },
+    };
+
+    actions[name]();
   };
 
   return (
@@ -41,6 +74,7 @@ export const RestaurantsProvider = ({ children }) => {
         restaurants,
         restaurantsLength,
         queryParamsHandler,
+        currentPage,
       }}>
       {children}
     </RestaurantsContext.Provider>

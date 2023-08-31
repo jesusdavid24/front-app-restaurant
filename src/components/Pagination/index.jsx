@@ -1,27 +1,24 @@
 import './index.scss';
 
-const Pagination = ({ restaurantsLength, queryParamsHandler }) => {
+const Pagination = ({ restaurantsLength, queryParamsHandler, currentPage }) => {
   const handleClick = (event) => {
-    const currentElement = event.target;
-    const selectedElement = document.querySelector(
-      '.restaurants-pagination__numbers--selected'
-    );
-    if (currentElement !== selectedElement) {
-      selectedElement &&
-        selectedElement.classList.remove(
-          'restaurants-pagination__numbers--selected'
-        );
-      currentElement.classList.toggle(
-        'restaurants-pagination__numbers--selected'
-      );
-    }
-    queryParamsHandler(currentElement.name, currentElement.id);
+    const { name } = event.target;
+    const { id } = event.target;
+
+    queryParamsHandler(name, id);
   };
 
   return (
     <div className='restaurants-pagination'>
-      <button className='restaurants-pagination__arrows'>
+      <button
+        id='prev'
+        name='prev'
+        className='restaurants-pagination__arrows'
+        onClick={handleClick}
+        disabled={currentPage === 1}>
         <img
+          id='prev'
+          name='prev'
           src='/icons/left-arrow.png'
           className='restaurants-pagination__arrow-icon'
         />
@@ -34,7 +31,7 @@ const Pagination = ({ restaurantsLength, queryParamsHandler }) => {
             id={index + 1}
             name='page'
             className={
-              index == 0
+              index + 1 == currentPage
                 ? 'restaurants-pagination__numbers restaurants-pagination__numbers--selected'
                 : 'restaurants-pagination__numbers'
             }
@@ -44,8 +41,15 @@ const Pagination = ({ restaurantsLength, queryParamsHandler }) => {
         )
       )}
 
-      <button className='restaurants-pagination__arrows'>
+      <button
+        id='next'
+        name='next'
+        className='restaurants-pagination__arrows'
+        onClick={handleClick}
+        disabled={currentPage * 12 > restaurantsLength}>
         <img
+          id='next'
+          name='next'
           src='/icons/right-arrow.png'
           className='restaurants-pagination__arrow-icon'
         />

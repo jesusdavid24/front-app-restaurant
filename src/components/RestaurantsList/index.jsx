@@ -7,7 +7,7 @@ import './index.scss';
 const RestaurantsList = () => {
   const [loading, setLoading] = useState(true);
 
-  const { restaurants, restaurantsLength, queryParamsHandler } =
+  const { restaurants, restaurantsLength, queryParamsHandler, currentPage } =
     useContext(RestaurantsContext);
 
   useEffect(() => {
@@ -41,6 +41,7 @@ const RestaurantsList = () => {
             <Pagination
               restaurantsLength={restaurantsLength}
               queryParamsHandler={queryParamsHandler}
+              currentPage={currentPage}
             />
           </div>
         </div>
