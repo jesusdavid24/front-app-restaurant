@@ -50,10 +50,11 @@
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    //border-color: #EF3F3E;
+    border: 1px solid #ef3f3e;
     cursor: pointer;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   .container_buttonP button:hover,

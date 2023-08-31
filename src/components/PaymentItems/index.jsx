@@ -141,6 +141,9 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   </div>
                 </div>
               </div>
+              <div className="container_buttonP">
+                <button>MAKE PAYMENT</button>
+              </div>
             </div>
           </Accordion.Panel>
         </Accordion.Item>
@@ -209,6 +212,9 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                   placeholder="Choose Bank..."
                 />
               </div>
+              <div className="container_buttonP">
+                <button>MAKE PAYMENT</button>
+              </div>
             </div>
           </Accordion.Panel>
         </Accordion.Item>
@@ -230,27 +236,39 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               <div className="container_banks">
                 <div className="check">
                   <input type="radio" name="industrial_bank" />
-                  <label htmlFor="industrial_bank">Adyen</label>
+                  <label className="space" htmlFor="industrial_bank">
+                    Adyen
+                  </label>
                 </div>
                 <div className="check">
                   <input type="radio" name="agricultura_bank" />
-                  <label htmlFor="agricultura_bank">AlliedWallet</label>
+                  <label className="space" htmlFor="agricultura_bank">
+                    AlliedWallet
+                  </label>
                 </div>
                 <div className="check">
                   <input type="radio" name="bank_america" />
-                  <label htmlFor="bank_america">Brinks</label>
+                  <label className="space" htmlFor="bank_america">
+                    Brinks
+                  </label>
                 </div>
                 <div className="check">
                   <input type="radio" name="construction_bank" />
-                  <label htmlFor="construction_bank">Airtel Money</label>
+                  <label className="space" htmlFor="construction_bank">
+                    Airtel Money
+                  </label>
                 </div>
                 <div className="check">
                   <input type="radio" name="hsbc_bank" />
-                  <label htmlFor="hsbc_bank">Apple Pay</label>
+                  <label className="space" htmlFor="hsbc_bank">
+                    Apple Pay
+                  </label>
                 </div>
                 <div className="check">
                   <input type="radio" name="morgan_bank" />
-                  <label htmlFor="morgan_bank">CardFree</label>
+                  <label className="space" htmlFor="morgan_bank">
+                    CardFree
+                  </label>
                 </div>
               </div>
               <br />
