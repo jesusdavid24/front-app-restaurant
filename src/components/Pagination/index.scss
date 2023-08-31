@@ -1,0 +1,39 @@
+@import '../../styles/mixins.scss';
+
+.restaurants-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+
+  &__arrows {
+    @include restaurants-list__navigate-buttons;
+  }
+
+  &__arrows:hover {
+    background-color: #e0dede;
+  }
+
+  &__arrow-icon {
+    width: 13px;
+  }
+
+  &__numbers {
+    @include restaurants-list__navigate-buttons;
+
+    &:hover {
+      color: var(--neutral-main-cards);
+      background-color: var(--primary-accent);
+    }
+
+    &--selected {
+      color: var(--neutral-main-cards);
+      background-color: var(--primary-accent) !important;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}

@@ -1,8 +1,9 @@
 import { Accordion } from '@mantine/core';
 import { Link } from 'react-router-dom';
+
 import './index.scss';
 
-const HomeMenu = ({ onMenuOpen }) => {
+const HomeMenu = ({ onMenuOpen, limit }) => {
   return (
     <nav className='home-menu'>
       <div className='home-menu__back'>
@@ -20,7 +21,7 @@ const HomeMenu = ({ onMenuOpen }) => {
         <Accordion.Item value='home' className='home-menu__accordion__item'>
           <Accordion.Control className='home-menu__accordion__control'>
             <Link
-              to='/'
+              to={`/?filter=all&page=1&limit=${limit}`}
               className='home-menu__accordion__nav'
               onClick={onMenuOpen}>
               HOME
@@ -33,7 +34,7 @@ const HomeMenu = ({ onMenuOpen }) => {
           className='home-menu__accordion__item'>
           <Accordion.Control className='home-menu__accordion__control'>
             <Link
-              to='/restaurants'
+              to={`/restaurants?filter=all&page=1&limit=${limit}`}
               className='home-menu__accordion__nav'
               onClick={onMenuOpen}>
               RESTAURANTS

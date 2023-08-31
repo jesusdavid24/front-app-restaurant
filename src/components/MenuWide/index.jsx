@@ -1,9 +1,8 @@
-import React from 'react';
 import { Accordion } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import './index.scss';
 
-const HomeMenuWide = () => {
+const HomeMenuWide = ({ limit }) => {
   const handleClick = (event) => {
     const currentElement = event.target;
     const selectedElement = document.querySelector(
@@ -31,33 +30,28 @@ const HomeMenuWide = () => {
           <Accordion.Control
             className='home-menu-wide__accordion__control'
             onClick={handleClick}>
-            <Link to='/' className='home-menu-wide__accordion__nav'>
+            <Link
+              to={`/?filter=all&page=1&limit=${limit}`}
+              className='home-menu-wide__accordion__nav'>
               HOME
             </Link>
           </Accordion.Control>
-          {/* <div className='home-menu-wide__accordion__panel-box'>
-            <Accordion.Panel className='home-menu-wide__accordion__panel'>
-              Panel 1
-            </Accordion.Panel>
-            <Accordion.Panel className='home-menu-wide__accordion__panel'>
-              Panel 2
-            </Accordion.Panel>
-            <Accordion.Panel className='home-menu-wide__accordion__panel'>
-              Panel 3
-            </Accordion.Panel>
-          </div> */}
         </Accordion.Item>
+
         <Accordion.Item
           value='restaurant'
           className='home-menu-wide__accordion__item'>
           <Accordion.Control
             className='home-menu-wide__accordion__control'
             onClick={handleClick}>
-            <Link to='/restaurants' className='home-menu-wide__accordion__nav'>
+            <Link
+              to={`/restaurants?filter=all&page=1&limit=${limit}`}
+              className='home-menu-wide__accordion__nav'>
               RESTAURANTS
             </Link>
           </Accordion.Control>
         </Accordion.Item>
+
         <Accordion.Item
           value='pages'
           className='home-menu-wide__accordion__item'>

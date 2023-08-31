@@ -1,25 +1,7 @@
-import { useContext } from 'react';
-import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
-const FilterBox = ({ handleBoxAndMenuOpen }) => {
-  const { restaurantsFilterHandler } = useContext(RestaurantsContext);
-
-  const handleClick = (event) => {
-    const currentElement = event.target;
-
-    const selectedElement = document.querySelector('.box-list__item--selected');
-
-    if (currentElement !== selectedElement) {
-      selectedElement &&
-        selectedElement.classList.remove('box-list__item--selected');
-
-      currentElement.classList.toggle('box-list__item--selected');
-    }
-
-    restaurantsFilterHandler(currentElement.id);
-  };
-
+const FilterBox = ({ handleBoxAndMenuOpen, filter, limit }) => {
   const handleMenuOpen = (event) => {
     handleBoxAndMenuOpen(event);
   };
@@ -29,29 +11,77 @@ const FilterBox = ({ handleBoxAndMenuOpen }) => {
       <div className='filters__buttons'>
         <h2>Filter</h2>
         <i
-          className='bi bi-caret-down-fill filters__buttons__icon'
           id='filter-box-open-button'
+          className='bi bi-caret-down-fill filters__buttons__icon'
           onClick={handleMenuOpen}
         />
       </div>
 
       <div className='filters__buttons__box'>
         <ul className='filters__buttons__box-list'>
-          <li
+          <Link
             id='all'
-            className='box-list__item box-list__item--selected'
-            onClick={handleClick}>
-            All
-          </li>
-          <li id='popular' className='box-list__item' onClick={handleClick}>
-            Popular
-          </li>
-          <li id='latest' className='box-list__item' onClick={handleClick}>
-            Latest
-          </li>
-          <li id='trend' className='box-list__item' onClick={handleClick}>
-            Trend
-          </li>
+            name='filter'
+            to={`/restaurants?filter=all&page=1&limit=${limit}`}>
+            <button
+              id='all'
+              name='filter'
+              className={
+                filter == 'all'
+                  ? 'box-list__item box-list__item--selected'
+                  : 'box-list__item box-list__item'
+              }>
+              All
+            </button>
+          </Link>
+
+          <Link
+            id='popular'
+            name='filter'
+            to={`/restaurants?filter=popular&page=1&limit=${limit}`}>
+            <button
+              id='popular'
+              name='filter'
+              className={
+                filter == 'popular'
+                  ? 'box-list__item box-list__item--selected'
+                  : 'box-list__item box-list__item'
+              }>
+              Popular
+            </button>
+          </Link>
+
+          <Link
+            id='latest'
+            name='filter'
+            to={`/restaurants?filter=latest&page=1&limit=${limit}`}>
+            <button
+              id='latest'
+              name='filter'
+              className={
+                filter == 'latest'
+                  ? 'box-list__item box-list__item--selected'
+                  : 'box-list__item box-list__item'
+              }>
+              Latest
+            </button>
+          </Link>
+
+          <Link
+            id='trend'
+            name='filter'
+            to={`/restaurants?filter=trend&page=1&limit=${limit}`}>
+            <button
+              id='trend'
+              name='filter'
+              className={
+                filter == 'trend'
+                  ? 'box-list__item box-list__item--selected'
+                  : 'box-list__item box-list__item'
+              }>
+              Trend
+            </button>
+          </Link>
         </ul>
       </div>
 

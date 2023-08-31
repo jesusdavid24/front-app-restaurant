@@ -1,12 +1,26 @@
-import React from 'react';
+import { useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import { RestaurantsContext } from '../../store/RestaurantsContext';
 import LocationForm from '../../components/LocationForm';
 import FilterBox from '../../components/FilterBox';
 import FilterMenu from '../../components/FilterMenu';
 import RestaurantsList from '../../components/RestaurantsList';
-import { RestaurantsProvider } from '../../store/RestaurantsContext';
+
 import './index.scss';
 
 const ListRestaurants = () => {
+  const location = useLocation();
+  const queryParamsLocation = new URLSearchParams(location.search);
+
+  const filter = queryParamsLocation.get('filter');
+  const page = queryParamsLocation.get('page');
+
+  const { queryParamsHandler, limit } = useContext(RestaurantsContext);
+
+  useEffect(() => {
+    queryParamsHandler(filter, page);
+  }, [location]);
+
   const handleBoxAndMenuOpen = (event) => {
     const id = event.target.id;
     const buttonsBox = document.querySelector('.filters__buttons__box');
@@ -25,24 +39,26 @@ const ListRestaurants = () => {
   };
 
   return (
-    <RestaurantsProvider>
-      <div className='restaurants-page'>
-        <LocationForm />
-        <div className='restaurants-page__menu-container'>
-          <div className='restaurants-page__filter-box'>
-            <FilterBox handleBoxAndMenuOpen={handleBoxAndMenuOpen} />
+    <div className='restaurants-page'>
+      <LocationForm />
+      <div className='restaurants-page__menu-container'>
+        <div className='restaurants-page__filter-box'>
+          <FilterBox
+            handleBoxAndMenuOpen={handleBoxAndMenuOpen}
+            filter={filter}
+            limit={limit}
+          />
+        </div>
+        <div className='restaurants-page__menu-list'>
+          <div className='restaurants-page__menu-list__filter-menu'>
+            <FilterMenu handleBoxAndMenuOpen={handleBoxAndMenuOpen} />
           </div>
-          <div className='restaurants-page__menu-list'>
-            <div className='restaurants-page__menu-list__filter-menu'>
-              <FilterMenu handleBoxAndMenuOpen={handleBoxAndMenuOpen} />
-            </div>
-            <div className='restaurants-page__menu-list__list'>
-              <RestaurantsList />
-            </div>
+          <div className='restaurants-page__menu-list__list'>
+            <RestaurantsList actualPage='/restaurants' />
           </div>
         </div>
       </div>
-    </RestaurantsProvider>
+    </div>
   );
 };
 

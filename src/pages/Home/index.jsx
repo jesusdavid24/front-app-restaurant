@@ -1,26 +1,35 @@
-import React from 'react';
+import { useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import { RestaurantsContext } from '../../store/RestaurantsContext';
 import LocationForm from '../../components/LocationForm';
 import FoodCarousel from '../../components/FoodCarousel';
 import Promos from '../../components/Promos';
 import BookingPath from '../../components/BookingPath';
 import ButtonsFilters from '../../components/ButtonsFilters';
 import RestaurantsList from '../../components/RestaurantsList';
-import { RestaurantsProvider } from '../../store/RestaurantsContext';
 import Store from '../../components/Store';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const location = useLocation();
+  const queryParamsLocation = new URLSearchParams(location.search);
+
+  const filter = queryParamsLocation.get('filter');
+  const page = queryParamsLocation.get('page');
+
+  const { queryParamsHandler, limit } = useContext(RestaurantsContext);
+
+  useEffect(() => {
+    queryParamsHandler(filter, page);
+  }, [location]);
   return (
     <>
-      <RestaurantsProvider>
-        <LocationForm />
-        <FoodCarousel />
-        <Promos />
-        <BookingPath />
-        <ButtonsFilters />
-        <RestaurantsList />
-        <Store />
-      </RestaurantsProvider>
+      <LocationForm />
+      <FoodCarousel />
+      <Promos />
+      <BookingPath />
+      <ButtonsFilters filter={filter} limit={limit} />
+      <RestaurantsList actualPage='/' />
+      <Store />
     </>
   );
 };
