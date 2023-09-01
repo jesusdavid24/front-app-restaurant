@@ -10,10 +10,13 @@ import './index.scss';
 
 const ListRestaurants = () => {
   const location = useLocation();
+  const search = location.search;
   const queryParamsLocation = new URLSearchParams(location.search);
 
   const filter = queryParamsLocation.get('filter');
   const page = queryParamsLocation.get('page');
+  const star = queryParamsLocation.get('star');
+  const delivery = queryParamsLocation.get('delivery');
 
   const { queryParamsHandler, limit } = useContext(RestaurantsContext);
 
@@ -51,7 +54,12 @@ const ListRestaurants = () => {
         </div>
         <div className='restaurants-page__menu-list'>
           <div className='restaurants-page__menu-list__filter-menu'>
-            <FilterMenu handleBoxAndMenuOpen={handleBoxAndMenuOpen} />
+            <FilterMenu
+              handleBoxAndMenuOpen={handleBoxAndMenuOpen}
+              search={search}
+              star={star}
+              delivery={delivery}
+            />
           </div>
           <div className='restaurants-page__menu-list__list'>
             <RestaurantsList actualPage='/restaurants' />

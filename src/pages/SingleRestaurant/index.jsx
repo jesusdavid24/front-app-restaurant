@@ -81,7 +81,6 @@ const SingleRestaurant = () => {
 export default SingleRestaurant;
 
 export const loaderSingleRestaurant = async ({ params }) => {
-  console.log(params);
   const { id } = params;
   const data = await fetchRestaurantById(id);
   return { restaurant: data };

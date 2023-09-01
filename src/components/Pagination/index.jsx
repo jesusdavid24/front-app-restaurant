@@ -55,7 +55,7 @@ const Pagination = ({ actualPage, restaurantsLength, limit }) => {
           id='next'
           name='next'
           className='restaurants-pagination__arrows'
-          disabled={page * 12 > restaurantsLength}>
+          disabled={page * 12 >= restaurantsLength}>
           <img
             id='next'
             name='next'
