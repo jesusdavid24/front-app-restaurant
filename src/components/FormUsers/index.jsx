@@ -1,9 +1,8 @@
 import { useForm } from "../../hooks/useForm"
 import { createUsers } from "../../api/login";
+import './index.scss'
 
 const FormUsers = ({roles}) => {
-
-  console.log(roles)
 
   const { form, handleChange } = useForm();
     const handleSubmit = async (event) => {
@@ -12,95 +11,93 @@ const FormUsers = ({roles}) => {
     };
 
   return (
-    <div>
-      <form className="row g-3" onSubmit={handleSubmit}>
-        <div className="col-md-6">
-          <label htmlFor="firstName" className="form-label">FirstName</label>
-          <input
-            className="form-control"
-            type="text"
-            name="firstName"
-            onChange={handleChange}
-            autoComplete="off"
-          />
+    <div className="custom">
+      <div className="custom__container">
+        <div className="custom__container__form">
+          <form className="custom__container__form__forms" onSubmit={handleSubmit}>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="firstName">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                name="address"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="phone">Phone</label>
+              <input
+                type="text"
+                name="phone"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+              <label htmlFor="age">Age</label>
+              <input
+                type="text"
+                name="age"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+            <div className="custom__container__form__forms__field">
+            <label htmlFor="roleId">Roles</label>
+              <select
+                className="form-select"
+                onChange={handleChange}
+                name="roleId"
+              >
+                <option>Choose roles</option>
+                {roles && roles.map((role) => (
+                  <option value={role.id}>{role.name}</option>
+                ))}
+              </select>
+            </div>
+            <div className="custom__container__form__forms__button">
+              <button type="submit" className="btn btn-primary w-25">Create Users</button>
+            </div>
+          </form>
         </div>
-        <div className="col-md-6">
-          <label htmlFor="lastName" className="form-label">LastName</label>
-          <input
-            className="form-control"
-            type="text"
-            name="lastName"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="address" className="form-label">Address</label>
-          <input
-            className="form-control"
-            type="text"
-            name="address"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="phone" className="form-label">Phone</label>
-          <input
-            type="text"
-            className="form-control"
-            name="phone"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="email" className="form-label">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="password" className="form-label">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            name="password"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="age" className="form-label">age</label>
-          <input
-            type="text"
-            className="form-control"
-            name="age"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        </div>
-        <div className="col-md-6">
-        <label htmlFor="roleId" className="form-label">Role</label>
-          <select
-            className="form-select"
-            onChange={handleChange}
-            name="roleId"
-          >
-            <option>Choose roles</option>
-            {roles && roles.map((role) => (
-              <option value={role.id}>{role.name}</option>
-            ))}
-          </select>
-        </div>
-        <div className="col-md-10">
-          <button type="submit" className="btn btn-primary w-25">Create Users</button>
-        </div>
-      </form>
+      </div>
+
     </div>
   )
 }
