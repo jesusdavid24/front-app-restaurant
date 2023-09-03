@@ -30,75 +30,55 @@
           width: 100%;
 
           button {
-            width: 25%;
-            border: none;
-            border-radius: 8px;
-            padding: 8px;
-            font-weight: 600;
-            background-color: var(--primary-accent);
+            width: 22%;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 0;
+            background-color: rgb(253, 87, 112);
+            letter-spacing: 1.5px;
+            font-size: 16px;
+            transition: all .3s ease;
+            box-shadow: rgb(187, 50, 71) 0px 10px 0px 0px;
+            color: hsl(0, 0%, 100%);
             cursor: pointer;
+
+            &:hover {
+              box-shadow: rgb(178, 35, 56) 0px 7px 0px 0px;
+            }
+
+            &:active {
+              background-color: rgb(255, 56, 86);
+              box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+              transform: translateY(5px);
+              transition: 200ms;
+            }
           }
         }
 
 
       }
 
-      &__table {
-        width: 100%;
 
-        table {
-          border-collapse: collapse;
+  }
+}
+
+@media (max-width: 1024px) {
+  .admin {
+    padding: 3%;
+
+    &__container {
+
+      &__card {
+        gap: 10px;
+      }
+
+      &__form{
+
+        button {
           width: 100%;
-          border: 1px solid #ddd;
-          background-color: #fff;
-          margin-top: 20px;
-          cursor: pointer;
-
-
-          td, th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-          }
-
-          th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-          }
-
-          tr:nth-child(even) {
-            background-color: #f2f2f2;
-          }
-
-          tr:hover {
-            background-color: #ddd;
-          }
-
-          tbody th {
-            display: flex;
-            gap: 22px;
-            background-color: #f2f2f2;
-          }
-
-          td button {
-            text-align: center;
-            border: none;
-            width: 30%;
-            border-radius: 5px;
-            background-color: #9b8a8a;
-            cursor: pointer;
-          }
-
-          td button:not(:last-child) {
-            margin-right: 5px;
-          }
-
-          td button:hover {
-            background-color: #554545 ;
-          }
-
+          padding: 2px 7px;
         }
-
       }
+    }
   }
 }

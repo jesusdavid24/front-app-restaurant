@@ -2,7 +2,7 @@ import { useForm } from "../../hooks/useForm"
 import { createUsers } from "../../api/login";
 import './index.scss'
 
-const FormUsers = ({roles}) => {
+const FormUsers = ({roles, handleCloseForm}) => {
 
   const { form, handleChange } = useForm();
     const handleSubmit = async (event) => {
@@ -87,12 +87,17 @@ const FormUsers = ({roles}) => {
               >
                 <option>Choose roles</option>
                 {roles && roles.map((role) => (
-                  <option value={role.id}>{role.name}</option>
+                  <option key={role.id} value={role.id}>{role.name}</option>
                 ))}
               </select>
             </div>
-            <div className="custom__container__form__forms__button">
-              <button type="submit" className="btn btn-primary w-25">Create Users</button>
+            <div className="custom__container__form__forms__container">
+              <div className="custom__container__form__forms__container__button-1">
+                <button type="submit">Create</button>
+              </div>
+              <div className="custom__container__form__forms__container__button-2">
+                <button type="button" onClick={handleCloseForm}>Cancel</button>
+              </div>
             </div>
           </form>
         </div>

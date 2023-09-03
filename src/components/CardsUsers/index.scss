@@ -4,7 +4,7 @@
   &__body {
     padding: 1.20rem;
     background-color: #f8f6f6;
-    border-bottom: 4px solid #f13f4b;
+    border-bottom: 3px solid rgb(126, 251, 126);
     border-radius: 8px;
     box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.1),
       0px 0px 0px rgba(0, 0, 0, 0.1);
@@ -14,6 +14,7 @@
       font-weight: lighter;
       color: #6c757d;
       margin-bottom: 2px;
+      font-size: 16px;
     }
 
     &__title {
@@ -21,6 +22,22 @@
       font-size: 40px;
       margin-top: 2px;
       color: var(--neutral-cod);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+
+    &__body {
+
+      &__subtitle {
+        font-size: 12px;
+      }
+
+      &__title {
+        font-size: 27px;
+      }
     }
   }
 }
