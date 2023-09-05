@@ -6,8 +6,9 @@ export const fetchReviews = async () => {
   try {
     const { data } = await axios.get(`${URL}/reviews`);
     return data;
-  } catch (error) {
-    console.log(error)
-    return [];
+  } catch(error) {
+    return res.status(422).json({
+      "error": [errorHandler(error), '[]'].join(' ')
+    });
   }
 };

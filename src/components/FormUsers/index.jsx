@@ -7,7 +7,8 @@ const FormUsers = ({roles, handleCloseForm}) => {
   const { form, handleChange } = useForm();
     const handleSubmit = async (event) => {
       event.preventDefault();
-      return await createUsers(form);
+      const dataForm = await createUsers(form);
+      return dataForm;
     };
 
   return (

@@ -14,12 +14,12 @@ const DashboardAdmin = () => {
   const [showForm, setShowForm] = useState(false);
 
   const handleShowForm = () => {
-    setShowForm(true)
-  }
+    setShowForm(true);
+  };
 
   const handleCloseForm = () => {
-    setShowForm(false)
-  }
+    setShowForm(false);
+  };
 
 
   return (

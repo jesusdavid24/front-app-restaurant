@@ -35,17 +35,6 @@ const HomeMenuWide = () => {
               HOME
             </Link>
           </Accordion.Control>
-          {/* <div className='home-menu-wide__accordion__panel-box'>
-            <Accordion.Panel className='home-menu-wide__accordion__panel'>
-              Panel 1
-            </Accordion.Panel>
-            <Accordion.Panel className='home-menu-wide__accordion__panel'>
-              Panel 2
-            </Accordion.Panel>
-            <Accordion.Panel className='home-menu-wide__accordion__panel'>
-              Panel 3
-            </Accordion.Panel>
-          </div> */}
         </Accordion.Item>
         <Accordion.Item
           value='restaurant'
