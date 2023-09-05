@@ -4,6 +4,8 @@
   @include menu-container;
   left: 0;
   padding-bottom: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   @media (min-width: 992px) {
     width: 230px;
@@ -23,7 +25,16 @@
   }
 
   &::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #bebaba;
+    border-radius: 10px;
   }
 
   &__back {
@@ -124,7 +135,7 @@
 
   &__sub-control {
     width: 270px;
-    padding: 5px 0 10px 0;
+    padding: 5px 0 10px 5px;
     border-top: 1px solid var(--primary-background);
 
     @media (min-width: 992px) {
@@ -148,7 +159,7 @@
 
   &__sub-menu {
     position: relative;
-    left: -20px;
+    left: -10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -179,11 +190,8 @@
       align-items: center;
       gap: 10px;
       font-weight: 400;
+      text-transform: capitalize;
       color: var(--neutral-silver-text);
-
-      // @media (min-width: 992px) {
-      //   padding-bottom: 10px;
-      // }
 
       @media (min-width: 1440px) {
         font-size: 16px;
@@ -200,7 +208,7 @@
       width: 250px;
       position: relative;
       left: -20px;
-      padding: 40px 0 20px 0;
+      padding: 40px 0 20px 10px;
 
       @media (min-width: 992px) {
         width: 187px;
@@ -265,6 +273,29 @@
     @media (min-width: 992px) {
       padding-right: 0;
       padding-bottom: 0;
+    }
+  }
+
+  &__clear-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 30px;
+
+    @media (min-width: 992px) {
+      padding-top: 30px;
+    }
+
+    &__button {
+      color: #ffffff;
+      font-weight: 700;
+      padding: 5px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--primary-accent);
+      cursor: pointer;
     }
   }
 

@@ -5,50 +5,38 @@ import MenuSlider from '../MenuSlider';
 import { cuisinesFilters } from '../../assets/data/cuisinesFilters';
 import './index.scss';
 
-const FilterMenu = ({ handleBoxAndMenuOpen, search, star, delivery }) => {
-  const [mainSearch, setMainSearch] = useState('');
+const FilterMenu = ({
+  handleBoxAndMenuOpen,
+  search,
+  cuisine,
+  star,
+  delivery,
+}) => {
   const [open, setOpen] = useState(0);
+  const [filterObejct, setFilterObejct] = useState({
+    cuisine: '',
+    star: '',
+    delivery: '',
+  });
+  const [selectedPopular, setSelectedPopular] = useState(null);
+  const [selectedCuisine, setSelectedCuisine] = useState(null);
+  const [selectedStar, setSelectedStar] = useState(null);
+  const [selectedDelivery, setSelecteddelivery] = useState(null);
 
   useEffect(() => {
-    setMainSearch(search);
+    setSelectedCuisine(cuisine);
+    setSelectedStar(star);
+    setSelecteddelivery(delivery);
   }, [search]);
 
   const handleChange = (event) => {
-    const { name } = event.target;
-    const { id } = event.target;
-    if (name == 'star') {
-      const starIndex = mainSearch.indexOf('star');
+    const { name, id } = event.target;
 
-      if (starIndex > 0) {
-        const starValue = mainSearch.slice(starIndex, starIndex + 6);
-        console.log(starValue, id);
-        const replace = mainSearch.replace(starValue, `star=${id}`);
-        setMainSearch(replace);
-      }
+    name == 'cuisine' && setSelectedCuisine(id);
+    name == 'star' && setSelectedStar(id);
+    name == 'delivery' && setSelecteddelivery(id);
 
-      if (starIndex < 0) {
-        const concat = mainSearch.concat(`&star=${id}`);
-        setMainSearch(concat);
-      }
-    }
-
-    if (name == 'delivery') {
-      const deliveryIndex = mainSearch.indexOf('&delivery');
-
-      if (deliveryIndex > 0) {
-        const cleanDelivery = mainSearch.slice(
-          deliveryIndex + 10,
-          deliveryIndex + 12
-        );
-        const replace = mainSearch.replace(cleanDelivery, id);
-        setMainSearch(replace);
-      }
-
-      if (deliveryIndex < 0) {
-        const concat = mainSearch.concat(`&delivery=${id}`);
-        setMainSearch(concat);
-      }
-    }
+    setFilterObejct({ ...filterObejct, [name]: `&${name}=${id}` });
   };
 
   const handleMenuOpen = (event) => {
@@ -56,15 +44,18 @@ const FilterMenu = ({ handleBoxAndMenuOpen, search, star, delivery }) => {
   };
 
   const handleOpen = (id) => {
-    // console.log(id);
     if (open == id) {
       return setOpen(0);
     }
-    // const { id } = event.target;
     setOpen(id);
   };
 
-  const [selectedPopular, setSelectedPopular] = useState(null);
+  const handleClear = () => {
+    setSelectedPopular(null);
+    setSelectedCuisine(null);
+    setSelectedStar(null);
+    setSelecteddelivery(null);
+  };
 
   return (
     <nav className='filters__menu'>
@@ -192,8 +183,12 @@ const FilterMenu = ({ handleBoxAndMenuOpen, search, star, delivery }) => {
                   <Accordion.Panel key={index + 1}>
                     <div className='filters__menu__sub-menu'>
                       <input
+                        id={cuisine}
+                        name='cuisine'
                         type='checkbox'
+                        checked={selectedCuisine == cuisine}
                         className='filters__menu__sub-menu__checkbox'
+                        onClick={handleChange}
                       />
                       <h2 className='filters__menu__sub-menu__title'>
                         {cuisine}
@@ -226,18 +221,15 @@ const FilterMenu = ({ handleBoxAndMenuOpen, search, star, delivery }) => {
                 {[5, 4, 3, 2].map((item) => (
                   <Accordion.Panel key={item}>
                     <div className='filters__menu__sub-menu'>
-                      <Link to={mainSearch}>
-                        <input
-                          id={item}
-                          name='star'
-                          type='checkbox'
-                          className='filters__menu__sub-menu__checkbox'
-                          checked={star == item}
-                          disabled={star == item}
-                          onClick={handleChange}
-                          readOnly
-                        />
-                      </Link>
+                      <input
+                        id={item}
+                        name='star'
+                        type='checkbox'
+                        className='filters__menu__sub-menu__checkbox'
+                        checked={selectedStar == item}
+                        onClick={handleChange}
+                        readOnly
+                      />
                       <h2 className='filters__menu__sub-menu__title'>
                         <span className='filters__menu__sub-menu__stars'>
                           {[1, 2, 3, 4, 5].map((subItem) =>
@@ -313,18 +305,15 @@ const FilterMenu = ({ handleBoxAndMenuOpen, search, star, delivery }) => {
                 {[20, 30, 45, 60].map((item, index) => (
                   <Accordion.Panel key={index + 1}>
                     <div className='filters__menu__sub-menu'>
-                      <Link to={mainSearch}>
-                        <input
-                          id={item}
-                          name='delivery'
-                          type='checkbox'
-                          className='filters__menu__sub-menu__checkbox'
-                          checked={delivery == item}
-                          disabled={delivery == item}
-                          onClick={handleChange}
-                          readOnly
-                        />
-                      </Link>
+                      <input
+                        id={item}
+                        name='delivery'
+                        type='checkbox'
+                        className='filters__menu__sub-menu__checkbox'
+                        checked={selectedDelivery == item}
+                        onClick={handleChange}
+                        readOnly
+                      />
                       <h2 className='filters__menu__sub-menu__title'>
                         Upto {item} Minutes
                       </h2>
@@ -337,9 +326,19 @@ const FilterMenu = ({ handleBoxAndMenuOpen, search, star, delivery }) => {
         </Accordion.Item>
       </Accordion>
 
-      <div>
+      <div className='filters__menu__clear-box'>
+        <Link
+          to={`/restaurants?filter=all&page=1&limit=12${Object.values(
+            filterObejct
+          ).join('')}`}>
+          <button className='filters__menu__clear-box__button'>Send</button>
+        </Link>
         <Link to='/restaurants?filter=all&page=1&limit=12'>
-          <button>clear</button>
+          <button
+            className='filters__menu__clear-box__button'
+            onClick={handleClear}>
+            Clear
+          </button>
         </Link>
       </div>
 

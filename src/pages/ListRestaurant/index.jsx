@@ -15,13 +15,14 @@ const ListRestaurants = () => {
 
   const filter = queryParamsLocation.get('filter');
   const page = queryParamsLocation.get('page');
+  const cuisine = queryParamsLocation.get('cuisine');
   const star = queryParamsLocation.get('star');
   const delivery = queryParamsLocation.get('delivery');
 
   const { queryParamsHandler, limit } = useContext(RestaurantsContext);
 
   useEffect(() => {
-    queryParamsHandler(filter, page);
+    queryParamsHandler(filter, page, cuisine, star, delivery);
   }, [location]);
 
   const handleBoxAndMenuOpen = (event) => {
@@ -57,6 +58,7 @@ const ListRestaurants = () => {
             <FilterMenu
               handleBoxAndMenuOpen={handleBoxAndMenuOpen}
               search={search}
+              cuisine={cuisine}
               star={star}
               delivery={delivery}
             />

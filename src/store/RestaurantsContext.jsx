@@ -10,6 +10,9 @@ export const RestaurantsProvider = ({ children }) => {
     filter: '',
     page: 1,
     limit,
+    cuisine: '',
+    star: '',
+    delivery: '',
   });
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsLength, setRestaurantsLength] = useState([0]);
@@ -21,11 +24,14 @@ export const RestaurantsProvider = ({ children }) => {
     });
   }, [queryParams]);
 
-  const queryParamsHandler = (filter, page) => {
+  const queryParamsHandler = (filter, page, cuisine, star, delivery) => {
     setQueryParams({
       ...queryParams,
       filter,
       page,
+      cuisine,
+      star,
+      delivery,
     });
   };
 
