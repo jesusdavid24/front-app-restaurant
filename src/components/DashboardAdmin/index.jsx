@@ -2,82 +2,51 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import CardsUsers from "../CardsUsers";
 import FormUsers from "../FormUsers";
+import TableUsers from "../TableUsers";
 import { getRoles } from "../../api/roles";
+import './index.scss'
+
 
 
 const DashboardAdmin = () => {
 
   const { roles } = useLoaderData();
 
-  console.log(roles)
-
   const [showForm, setShowForm] = useState(false);
 
   const handleShowForm = () => {
-    setShowForm(true)
-  }
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
 
 
   return (
-    <div className="container-fluid p-5 h-100">
-      <div className="d-flex flex-column gap-5">
-        <div className="px-1">
-        <ul className="nav justify-content-start">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Clients</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Restaurant</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Administrators</a>
-          </li>
-        </ul>
-        </div>
-        <div className="d-flex flex-row align-items-start justify-content-between px-1">
-          <div className="col-3">
+    <div className="admin">
+      <div className="admin__container">
+        <div className="admin__container__card">
+          <div className="admin__container__card__item">
             <CardsUsers />
           </div>
-          <div className="col-3">
+          <div className="admin__container__card__item">
             <CardsUsers />
           </div>
-          <div className="col-3">
+          <div className="admin__container__card__item">
             <CardsUsers />
           </div>
         </div>
-        <div className="row">
-          <div className="d-flex flex-column w-50">
-            <button type="button" className="w-25" onClick={handleShowForm}>Crear clientes</button>
+        <div className="admin__container__form">
+          <div className="admin__container__form__button">
+            <button type="button" onClick={handleShowForm}>Creat Users</button>
           </div>
-          <div className="d-flex mt-5">
-            {showForm && (<FormUsers roles={roles} />)}
+          <div className="admin__container__form__forms">
+            {showForm && (<FormUsers roles={roles} handleCloseForm={handleCloseForm} />)}
           </div>
         </div>
-        <div className="px-5">
-          <table className="table table-hover table-responsive px-5">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name Users</th>
-                <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Jesus Bravo</th>
-                <th>Active</th>
-                <th>
-                  <button>Edit</button>
-                </th>
-                <th>
-                  <button>Delete</button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+        <div className="admin__container__table">
+          <TableUsers />
         </div>
       </div>
     </div>
