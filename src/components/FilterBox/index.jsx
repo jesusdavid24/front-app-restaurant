@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import './index.scss';
 
-const FilterBox = ({ handleBoxAndMenuOpen, filter, limit }) => {
+const FilterBox = ({ handleBoxAndMenuOpen, filter, page, search }) => {
+  const filterIndex = search.indexOf(filter);
+  const ampersandIndex = search.indexOf('&');
+  const filterSliced = search.slice(filterIndex, ampersandIndex);
+  const pageIndex = search.indexOf(page);
+  const pageSliced = search.slice(pageIndex, pageIndex + 1);
+
   const handleMenuOpen = (event) => {
     handleBoxAndMenuOpen(event);
   };
@@ -19,69 +25,26 @@ const FilterBox = ({ handleBoxAndMenuOpen, filter, limit }) => {
 
       <div className='filters__buttons__box'>
         <ul className='filters__buttons__box-list'>
-          <Link
-            id='all'
-            name='filter'
-            to={`/restaurants?filter=all&page=1&limit=${limit}`}>
-            <button
-              id='all'
+          {['all', 'popular', 'latest', 'trend'].map((button, index) => (
+            <Link
+              key={index}
+              id={button}
               name='filter'
-              className={
-                filter == 'all'
-                  ? 'box-list__item box-list__item--selected'
-                  : 'box-list__item box-list__item'
-              }>
-              All
-            </button>
-          </Link>
-
-          <Link
-            id='popular'
-            name='filter'
-            to={`/restaurants?filter=popular&page=1&limit=${limit}`}>
-            <button
-              id='popular'
-              name='filter'
-              className={
-                filter == 'popular'
-                  ? 'box-list__item box-list__item--selected'
-                  : 'box-list__item box-list__item'
-              }>
-              Popular
-            </button>
-          </Link>
-
-          <Link
-            id='latest'
-            name='filter'
-            to={`/restaurants?filter=latest&page=1&limit=${limit}`}>
-            <button
-              id='latest'
-              name='filter'
-              className={
-                filter == 'latest'
-                  ? 'box-list__item box-list__item--selected'
-                  : 'box-list__item box-list__item'
-              }>
-              Latest
-            </button>
-          </Link>
-
-          <Link
-            id='trend'
-            name='filter'
-            to={`/restaurants?filter=trend&page=1&limit=${limit}`}>
-            <button
-              id='trend'
-              name='filter'
-              className={
-                filter == 'trend'
-                  ? 'box-list__item box-list__item--selected'
-                  : 'box-list__item box-list__item'
-              }>
-              Trend
-            </button>
-          </Link>
+              to={search
+                .replace(filterSliced, button)
+                .replace(pageSliced, '1')}>
+              <button
+                id={button}
+                name='filter'
+                className={
+                  filter == button
+                    ? 'box-list__item box-list__item--selected'
+                    : 'box-list__item box-list__item'
+                }>
+                {button}
+              </button>
+            </Link>
+          ))}
         </ul>
       </div>
 

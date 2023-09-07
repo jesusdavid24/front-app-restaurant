@@ -15,8 +15,8 @@ import './index.scss';
 
 const SingleRestaurant = () => {
   const { restaurant } = useLoaderData();
-  const { latitude, longitude } = restaurant;
-  const coordinates = [latitude, longitude];
+  const { longitude, latitude } = restaurant;
+  const coordinates = [longitude, latitude];
 
   return (
     <div className='single-restaurant'>

@@ -8,6 +8,7 @@ import './index.scss';
 const FilterMenu = ({
   handleBoxAndMenuOpen,
   search,
+  filter,
   cuisine,
   star,
   delivery,
@@ -18,25 +19,45 @@ const FilterMenu = ({
     star: '',
     delivery: '',
   });
-  const [selectedPopular, setSelectedPopular] = useState(null);
   const [selectedCuisine, setSelectedCuisine] = useState(null);
   const [selectedStar, setSelectedStar] = useState(null);
-  const [selectedDelivery, setSelecteddelivery] = useState(null);
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
 
   useEffect(() => {
     setSelectedCuisine(cuisine);
     setSelectedStar(star);
-    setSelecteddelivery(delivery);
+    setSelectedDelivery(delivery);
   }, [search]);
 
   const handleChange = (event) => {
     const { name, id } = event.target;
 
-    name == 'cuisine' && setSelectedCuisine(id);
-    name == 'star' && setSelectedStar(id);
-    name == 'delivery' && setSelecteddelivery(id);
+    if (name == 'cuisine') {
+      if (selectedCuisine == id) {
+        setSelectedCuisine(null);
+      } else {
+        setSelectedCuisine(id);
+      }
+    }
+    if (name == 'star') {
+      if (selectedStar == id) {
+        setSelectedStar(null);
+      } else {
+        setSelectedStar(id);
+      }
+    }
+    if (name == 'delivery') {
+      if (selectedDelivery == id) {
+        setSelectedDelivery(null);
+      } else {
+        setSelectedDelivery(id);
+      }
+    }
 
-    setFilterObejct({ ...filterObejct, [name]: `&${name}=${id}` });
+    setFilterObejct({
+      ...filterObejct,
+      [name]: filterObejct[name] == `&${name}=${id}` ? '' : `&${name}=${id}`,
+    });
   };
 
   const handleMenuOpen = (event) => {
@@ -51,10 +72,15 @@ const FilterMenu = ({
   };
 
   const handleClear = () => {
-    setSelectedPopular(null);
     setSelectedCuisine(null);
     setSelectedStar(null);
-    setSelecteddelivery(null);
+    setSelectedDelivery(null);
+
+    setFilterObejct({
+      cuisine: '',
+      star: '',
+      delivery: '',
+    });
   };
 
   return (
@@ -91,6 +117,7 @@ const FilterMenu = ({
           <Accordion.Control className='filters__menu__main-control'>
             Latest Filter
           </Accordion.Control>
+
           <Accordion.Panel>
             <Accordion
               id='1'
@@ -102,79 +129,9 @@ const FilterMenu = ({
                 )
               }
               disableChevronRotation
-              defaultValue={['popular']}
-              transitionDuration={500}
-              onChange={() => handleOpen('1')}>
-              <Accordion.Item value='popular'>
-                <Accordion.Control className='filters__menu__sub-control'>
-                  Popular
-                </Accordion.Control>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                      checked={selectedPopular === 'p1'}
-                      onChange={() => setSelectedPopular('p1')}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Free Delivery
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                      checked={selectedPopular === 'p2'}
-                      onChange={() => setSelectedPopular('p2')}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Reached In 20 Min
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                      checked={selectedPopular === 'p3'}
-                      onChange={() => setSelectedPopular('p3')}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Pure Veg</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                      checked={selectedPopular === 'p4'}
-                      onChange={() => setSelectedPopular('p4')}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Non Veg</h2>
-                  </div>
-                </Accordion.Panel>
-              </Accordion.Item>
-            </Accordion>
-          </Accordion.Panel>
-
-          <Accordion.Panel>
-            <Accordion
-              id='2'
-              chevron={
-                open == '2' ? (
-                  <i className='bi bi-dash filters__menu__sub-menu__close' />
-                ) : (
-                  <i className='bi bi-plus filters__menu__sub-menu__close' />
-                )
-              }
-              disableChevronRotation
               defaultValue={['cuisines']}
               transitionDuration={800}
-              onChange={() => handleOpen('2')}>
+              onChange={() => handleOpen('1')}>
               <Accordion.Item value='cuisines'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Cuisines
@@ -202,9 +159,9 @@ const FilterMenu = ({
 
           <Accordion.Panel>
             <Accordion
-              id='3'
+              id='2'
               chevron={
-                open == '3' ? (
+                open == '2' ? (
                   <i className='bi bi-dash filters__menu__sub-menu__close' />
                 ) : (
                   <i className='bi bi-plus filters__menu__sub-menu__close' />
@@ -213,7 +170,7 @@ const FilterMenu = ({
               disableChevronRotation
               defaultValue={['star']}
               transitionDuration={500}
-              onChange={() => handleOpen('3')}>
+              onChange={() => handleOpen('2')}>
               <Accordion.Item value='star'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Star Category
@@ -328,7 +285,7 @@ const FilterMenu = ({
 
       <div className='filters__menu__clear-box'>
         <Link
-          to={`/restaurants?filter=all&page=1&limit=12${Object.values(
+          to={`/restaurants?filter=${filter}&page=1&limit=12${Object.values(
             filterObejct
           ).join('')}`}>
           <button className='filters__menu__clear-box__button'>Send</button>

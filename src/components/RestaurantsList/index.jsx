@@ -4,7 +4,7 @@ import Restaurantcard from '../RestaurantCard';
 import Pagination from '../Pagination';
 import './index.scss';
 
-const RestaurantsList = ({ actualPage }) => {
+const RestaurantsList = () => {
   const { restaurants, restaurantsLength, limit } =
     useContext(RestaurantsContext);
 
@@ -28,11 +28,7 @@ const RestaurantsList = ({ actualPage }) => {
         ))}
       </div>
       <div className='restaurants-list__navigate'>
-        <Pagination
-          actualPage={actualPage}
-          restaurantsLength={restaurantsLength}
-          limit={limit}
-        />
+        <Pagination restaurantsLength={restaurantsLength} />
       </div>
     </div>
   );

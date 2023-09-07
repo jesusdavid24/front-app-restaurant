@@ -29,9 +29,9 @@ export const RestaurantsProvider = ({ children }) => {
       ...queryParams,
       filter,
       page,
-      cuisine,
-      star,
-      delivery,
+      cuisine: cuisine || null,
+      star: star || null,
+      delivery: delivery || null,
     });
   };
 

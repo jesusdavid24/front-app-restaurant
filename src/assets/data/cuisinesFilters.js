@@ -8,7 +8,6 @@ export const cuisinesFilters = [
   'western',
   'chinese',
   'mexican',
-  'fast Food',
   'desserts',
   'bakery',
 ];
