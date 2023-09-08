@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Slider } from '@mantine/core';
 import '../../styles/variables.scss';
 import './index.scss';
 
-const MenuSlider = () => {
+const MenuSlider = ({ search, filterObejct, setFilterObejct, cost }) => {
   const [sliderValue, setSliderValue] = useState(100);
 
-  const handleSliderChange = (value) => {
+  useEffect(() => {
+    setSliderValue(cost);
+  }, [search]);
+
+  const handleSliderChange = (value, cost) => {
     setSliderValue(value);
+    setFilterObejct({
+      ...filterObejct,
+      cost: filterObejct[cost] == `&cost=${value}` ? '' : `&cost=${value}`,
+    });
   };
+
   return (
-    <div className='slider'>
+    <div>
       <Slider
-        value={sliderValue}
+        id={sliderValue}
+        name='cost'
+        value={sliderValue ? sliderValue : 100}
         onChange={handleSliderChange}
         color='red'
         size='sm'

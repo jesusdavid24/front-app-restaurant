@@ -17,16 +17,17 @@ const ListRestaurants = () => {
   const page = queryParamsLocation.get('page');
   const cuisine = queryParamsLocation.get('cuisine');
   const star = queryParamsLocation.get('star');
+  const cost = queryParamsLocation.get('cost');
   const delivery = queryParamsLocation.get('delivery');
 
   const { queryParamsHandler } = useContext(RestaurantsContext);
 
   useEffect(() => {
-    queryParamsHandler(filter, page, cuisine, star, delivery);
+    queryParamsHandler(filter, page, cuisine, star, cost, delivery);
   }, [location]);
 
-  const handleBoxAndMenuOpen = (event) => {
-    const id = event.target.id;
+  const handleBoxAndMenuOpen = (e) => {
+    const { id } = e.target;
     const buttonsBox = document.querySelector('.filters__buttons__box');
     const menuBox = document.querySelector(
       '.restaurants-page__menu-list__filter-menu'
@@ -62,6 +63,7 @@ const ListRestaurants = () => {
               filter={filter}
               cuisine={cuisine}
               star={star}
+              cost={cost}
               delivery={delivery}
             />
           </div>

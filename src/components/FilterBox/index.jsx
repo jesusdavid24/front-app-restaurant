@@ -8,8 +8,8 @@ const FilterBox = ({ handleBoxAndMenuOpen, filter, page, search }) => {
   const pageIndex = search.indexOf(page);
   const pageSliced = search.slice(pageIndex, pageIndex + 1);
 
-  const handleMenuOpen = (event) => {
-    handleBoxAndMenuOpen(event);
+  const handleMenuOpen = (e) => {
+    handleBoxAndMenuOpen(e);
   };
 
   return (

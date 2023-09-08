@@ -12,6 +12,7 @@ export const RestaurantsProvider = ({ children }) => {
     limit,
     cuisine: '',
     star: '',
+    cost: '',
     delivery: '',
   });
   const [restaurants, setRestaurants] = useState([]);
@@ -24,14 +25,15 @@ export const RestaurantsProvider = ({ children }) => {
     });
   }, [queryParams]);
 
-  const queryParamsHandler = (filter, page, cuisine, star, delivery) => {
+  const queryParamsHandler = (filter, page, cuisine, star, cost, delivery) => {
     setQueryParams({
       ...queryParams,
       filter,
       page,
-      cuisine: cuisine || null,
-      star: star || null,
-      delivery: delivery || null,
+      cuisine,
+      star,
+      cost,
+      delivery,
     });
   };
 

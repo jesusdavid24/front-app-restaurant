@@ -11,14 +11,23 @@ const FilterMenu = ({
   filter,
   cuisine,
   star,
+  cost,
   delivery,
 }) => {
-  const [open, setOpen] = useState(0);
   const [filterObejct, setFilterObejct] = useState({
     cuisine: '',
     star: '',
+    cost: '',
     delivery: '',
   });
+
+  const [openChevron, setOpenChevron] = useState({
+    cuisines_acc: true,
+    star_acc: true,
+    cost_acc: true,
+    delivery_acc: true,
+  });
+
   const [selectedCuisine, setSelectedCuisine] = useState(null);
   const [selectedStar, setSelectedStar] = useState(null);
   const [selectedDelivery, setSelectedDelivery] = useState(null);
@@ -31,7 +40,6 @@ const FilterMenu = ({
 
   const handleChange = (event) => {
     const { name, id } = event.target;
-
     if (name == 'cuisine') {
       if (selectedCuisine == id) {
         setSelectedCuisine(null);
@@ -39,6 +47,7 @@ const FilterMenu = ({
         setSelectedCuisine(id);
       }
     }
+
     if (name == 'star') {
       if (selectedStar == id) {
         setSelectedStar(null);
@@ -46,6 +55,7 @@ const FilterMenu = ({
         setSelectedStar(id);
       }
     }
+
     if (name == 'delivery') {
       if (selectedDelivery == id) {
         setSelectedDelivery(null);
@@ -64,11 +74,11 @@ const FilterMenu = ({
     handleBoxAndMenuOpen(event);
   };
 
-  const handleOpen = (id) => {
-    if (open == id) {
-      return setOpen(0);
-    }
-    setOpen(id);
+  const handleOpenChevron = (name) => {
+    setOpenChevron({
+      ...openChevron,
+      [name]: openChevron[name] ? false : true,
+    });
   };
 
   const handleClear = () => {
@@ -79,6 +89,7 @@ const FilterMenu = ({
     setFilterObejct({
       cuisine: '',
       star: '',
+      cost: '',
       delivery: '',
     });
   };
@@ -122,7 +133,7 @@ const FilterMenu = ({
             <Accordion
               id='1'
               chevron={
-                open == '1' ? (
+                openChevron.cuisines_acc ? (
                   <i className='bi bi-dash filters__menu__sub-menu__close' />
                 ) : (
                   <i className='bi bi-plus filters__menu__sub-menu__close' />
@@ -131,7 +142,7 @@ const FilterMenu = ({
               disableChevronRotation
               defaultValue={['cuisines']}
               transitionDuration={800}
-              onChange={() => handleOpen('1')}>
+              onChange={() => handleOpenChevron('cuisines_acc')}>
               <Accordion.Item value='cuisines'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Cuisines
@@ -161,7 +172,7 @@ const FilterMenu = ({
             <Accordion
               id='2'
               chevron={
-                open == '2' ? (
+                openChevron.star_acc ? (
                   <i className='bi bi-dash filters__menu__sub-menu__close' />
                 ) : (
                   <i className='bi bi-plus filters__menu__sub-menu__close' />
@@ -170,7 +181,7 @@ const FilterMenu = ({
               disableChevronRotation
               defaultValue={['star']}
               transitionDuration={500}
-              onChange={() => handleOpen('2')}>
+              onChange={() => handleOpenChevron('star_acc')}>
               <Accordion.Item value='star'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Star Category
@@ -205,7 +216,7 @@ const FilterMenu = ({
                             )
                           )}
                         </span>
-                        (2012)
+                        (100)
                       </h2>
                     </div>
                   </Accordion.Panel>
@@ -218,7 +229,7 @@ const FilterMenu = ({
             <Accordion
               id='4'
               chevron={
-                open == '4' ? (
+                openChevron.cost_acc ? (
                   <i className='bi bi-dash filters__menu__sub-menu__close' />
                 ) : (
                   <i className='bi bi-plus filters__menu__sub-menu__close' />
@@ -227,14 +238,19 @@ const FilterMenu = ({
               disableChevronRotation
               defaultValue={['cost']}
               transitionDuration={500}
-              onChange={handleOpen}>
+              onChange={() => handleOpenChevron('cost_acc')}>
               <Accordion.Item value='cost'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Cost For Two
                 </Accordion.Control>
                 <Accordion.Panel>
                   <div className='filters__menu__sub-menu__slider'>
-                    <MenuSlider />
+                    <MenuSlider
+                      search={search}
+                      filterObejct={filterObejct}
+                      setFilterObejct={setFilterObejct}
+                      cost={cost}
+                    />
                   </div>
                 </Accordion.Panel>
               </Accordion.Item>
@@ -245,7 +261,7 @@ const FilterMenu = ({
             <Accordion
               id='5'
               chevron={
-                open == 5 ? (
+                openChevron.delivery_acc ? (
                   <i className='bi bi-dash filters__menu__sub-menu__close' />
                 ) : (
                   <i className='bi bi-plus filters__menu__sub-menu__close' />
@@ -254,7 +270,7 @@ const FilterMenu = ({
               disableChevronRotation
               defaultValue={['delivery']}
               transitionDuration={500}
-              onChange={handleOpen}>
+              onChange={() => handleOpenChevron('delivery_acc')}>
               <Accordion.Item value='delivery'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Delivery Time
