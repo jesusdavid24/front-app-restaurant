@@ -1,16 +1,17 @@
 import { useLocation, Link } from 'react-router-dom';
 import './index.scss';
 
-const Pagination = ({ actualPage, restaurantsLength, limit }) => {
+const Pagination = ({ restaurantsLength }) => {
   const location = useLocation();
   const queryParamsLocation = new URLSearchParams(location.search);
-  const filter = queryParamsLocation.get('filter');
   const page = parseInt(queryParamsLocation.get('page'));
+
+  const search = location.search;
+  const pageIndex = search.indexOf('page') + 5;
 
   return (
     <div className='restaurants-pagination'>
-      <Link
-        to={`${actualPage}?filter=${filter}&page=${page - 1}&limit=${limit}`}>
+      <Link to={search.replace(search[pageIndex], page - 1)}>
         <button
           id='prev'
           name='prev'
@@ -30,9 +31,7 @@ const Pagination = ({ actualPage, restaurantsLength, limit }) => {
           <Link
             key={index}
             id={index + 1}
-            to={`${actualPage}?filter=${filter}&page=${
-              index + 1
-            }&limit=${limit}`}
+            to={search.replace(search[pageIndex], index + 1)}
             name='page'
             className='restaurants-pagination__link'>
             <button
@@ -49,13 +48,12 @@ const Pagination = ({ actualPage, restaurantsLength, limit }) => {
         )
       )}
 
-      <Link
-        to={`${actualPage}?filter=${filter}&page=${page + 1}&limit=${limit}`}>
+      <Link to={search.replace(search[pageIndex], page + 1)}>
         <button
           id='next'
           name='next'
           className='restaurants-pagination__arrows'
-          disabled={page * 12 > restaurantsLength}>
+          disabled={page * 12 >= restaurantsLength}>
           <img
             id='next'
             name='next'

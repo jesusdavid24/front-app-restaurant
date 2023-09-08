@@ -10,19 +10,24 @@ import './index.scss';
 
 const ListRestaurants = () => {
   const location = useLocation();
+  const search = location.search;
   const queryParamsLocation = new URLSearchParams(location.search);
 
   const filter = queryParamsLocation.get('filter');
   const page = queryParamsLocation.get('page');
+  const cuisine = queryParamsLocation.get('cuisine');
+  const star = queryParamsLocation.get('star');
+  const cost = queryParamsLocation.get('cost');
+  const delivery = queryParamsLocation.get('delivery');
 
-  const { queryParamsHandler, limit } = useContext(RestaurantsContext);
+  const { queryParamsHandler } = useContext(RestaurantsContext);
 
   useEffect(() => {
-    queryParamsHandler(filter, page);
+    queryParamsHandler(filter, page, cuisine, star, cost, delivery);
   }, [location]);
 
-  const handleBoxAndMenuOpen = (event) => {
-    const id = event.target.id;
+  const handleBoxAndMenuOpen = (e) => {
+    const { id } = e.target;
     const buttonsBox = document.querySelector('.filters__buttons__box');
     const menuBox = document.querySelector(
       '.restaurants-page__menu-list__filter-menu'
@@ -46,15 +51,24 @@ const ListRestaurants = () => {
           <FilterBox
             handleBoxAndMenuOpen={handleBoxAndMenuOpen}
             filter={filter}
-            limit={limit}
+            page={page}
+            search={search}
           />
         </div>
         <div className='restaurants-page__menu-list'>
           <div className='restaurants-page__menu-list__filter-menu'>
-            <FilterMenu handleBoxAndMenuOpen={handleBoxAndMenuOpen} />
+            <FilterMenu
+              handleBoxAndMenuOpen={handleBoxAndMenuOpen}
+              search={search}
+              filter={filter}
+              cuisine={cuisine}
+              star={star}
+              cost={cost}
+              delivery={delivery}
+            />
           </div>
           <div className='restaurants-page__menu-list__list'>
-            <RestaurantsList actualPage='/restaurants' />
+            <RestaurantsList />
           </div>
         </div>
       </div>

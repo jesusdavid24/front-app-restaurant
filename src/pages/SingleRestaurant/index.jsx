@@ -15,8 +15,8 @@ import './index.scss';
 
 const SingleRestaurant = () => {
   const { restaurant } = useLoaderData();
-  const { latitude, longitude } = restaurant;
-  const coordinates = [latitude, longitude];
+  const { longitude, latitude } = restaurant;
+  const coordinates = [longitude, latitude];
 
   return (
     <div className='single-restaurant'>
@@ -81,7 +81,6 @@ const SingleRestaurant = () => {
 export default SingleRestaurant;
 
 export const loaderSingleRestaurant = async ({ params }) => {
-  console.log(params);
   const { id } = params;
   const data = await fetchRestaurantById(id);
   return { restaurant: data };

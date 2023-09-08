@@ -1,16 +1,98 @@
-import React, { useState } from "react";
-import { Accordion } from "@mantine/core";
-import MenuSlider from "../MenuSlider";
-import "./index.scss";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Accordion } from '@mantine/core';
+import MenuSlider from '../MenuSlider';
+import { cuisinesFilters } from '../../assets/data/cuisinesFilters';
+import './index.scss';
 
-const FilterMenu = ({ handleBoxAndMenuOpen }) => {
+const FilterMenu = ({
+  handleBoxAndMenuOpen,
+  search,
+  filter,
+  cuisine,
+  star,
+  cost,
+  delivery,
+}) => {
+  const [filterObejct, setFilterObejct] = useState({
+    cuisine: '',
+    star: '',
+    cost: '',
+    delivery: '',
+  });
+
+  const [openChevron, setOpenChevron] = useState({
+    cuisines_acc: true,
+    star_acc: true,
+    cost_acc: true,
+    delivery_acc: true,
+  });
+
+  const [selectedCuisine, setSelectedCuisine] = useState(null);
+  const [selectedStar, setSelectedStar] = useState(null);
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
+
+  useEffect(() => {
+    setSelectedCuisine(cuisine);
+    setSelectedStar(star);
+    setSelectedDelivery(delivery);
+  }, [search]);
+
+  const handleChange = (event) => {
+    const { name, id } = event.target;
+    if (name == 'cuisine') {
+      if (selectedCuisine == id) {
+        setSelectedCuisine(null);
+      } else {
+        setSelectedCuisine(id);
+      }
+    }
+
+    if (name == 'star') {
+      if (selectedStar == id) {
+        setSelectedStar(null);
+      } else {
+        setSelectedStar(id);
+      }
+    }
+
+    if (name == 'delivery') {
+      if (selectedDelivery == id) {
+        setSelectedDelivery(null);
+      } else {
+        setSelectedDelivery(id);
+      }
+    }
+
+    setFilterObejct({
+      ...filterObejct,
+      [name]: filterObejct[name] == `&${name}=${id}` ? '' : `&${name}=${id}`,
+    });
+  };
+
   const handleMenuOpen = (event) => {
     handleBoxAndMenuOpen(event);
   };
 
-  const [selectedPopular, setSelectedPopular] = useState(null);
-  const [selectedStart, setSelectedStart] = useState(null);
-  const [selectedDelivery, setSelectedDelivery] = useState(null);
+  const handleOpenChevron = (name) => {
+    setOpenChevron({
+      ...openChevron,
+      [name]: openChevron[name] ? false : true,
+    });
+  };
+
+  const handleClear = () => {
+    setSelectedCuisine(null);
+    setSelectedStar(null);
+    setSelectedDelivery(null);
+
+    setFilterObejct({
+      cuisine: '',
+      star: '',
+      cost: '',
+      delivery: '',
+    });
+  };
 
   return (
     <nav className='filters__menu'>
@@ -28,7 +110,7 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
             placeholder='Search here...'
           />
           <br />
-          <i className="bi bi-search filters__menu__back__search__icon" />
+          <i className='bi bi-search filters__menu__back__search__icon' />
         </div>
       </div>
       <Accordion
@@ -46,293 +128,129 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
           <Accordion.Control className='filters__menu__main-control'>
             Latest Filter
           </Accordion.Control>
-          <Accordion.Panel>
-            <Accordion
-              chevron={
-                <i className='bi bi-dash filters__menu__sub-menu__close' />
-              }
-              disableChevronRotation
-              defaultValue={['popular']}
-              transitionDuration={500}>
-              <Accordion.Item value='popular'>
-                <Accordion.Control className='filters__menu__sub-control'>
-                  Popular
-                </Accordion.Control>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedPopular === "p1"}
-                      onChange={() => setSelectedPopular("p1")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Free Delivery
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedPopular === "p2"}
-                      onChange={() => setSelectedPopular("p2")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Reached In 20 Min
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedPopular === "p3"}
-                      onChange={() => setSelectedPopular("p3")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Pure Veg</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedPopular === "p4"}
-                      onChange={() => setSelectedPopular("p4")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Non Veg</h2>
-                  </div>
-                </Accordion.Panel>
-              </Accordion.Item>
-            </Accordion>
-          </Accordion.Panel>
 
           <Accordion.Panel>
             <Accordion
+              id='1'
               chevron={
-                <i className='bi bi-dash filters__menu__sub-menu__close' />
+                openChevron.cuisines_acc ? (
+                  <i className='bi bi-dash filters__menu__sub-menu__close' />
+                ) : (
+                  <i className='bi bi-plus filters__menu__sub-menu__close' />
+                )
               }
               disableChevronRotation
               defaultValue={['cuisines']}
-              transitionDuration={800}>
+              transitionDuration={800}
+              onChange={() => handleOpenChevron('cuisines_acc')}>
               <Accordion.Item value='cuisines'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Cuisines
                 </Accordion.Control>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Asian</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>SeaFood</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Italian</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Pizza</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Western</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Chinese</h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type='checkbox'
-                      className='filters__menu__sub-menu__checkbox'
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>Dessert</h2>
-                  </div>
-                </Accordion.Panel>
+                {cuisinesFilters.map((cuisine, index) => (
+                  <Accordion.Panel key={index + 1}>
+                    <div className='filters__menu__sub-menu'>
+                      <input
+                        id={cuisine}
+                        name='cuisine'
+                        type='checkbox'
+                        checked={selectedCuisine == cuisine}
+                        className='filters__menu__sub-menu__checkbox'
+                        onClick={handleChange}
+                      />
+                      <h2 className='filters__menu__sub-menu__title'>
+                        {cuisine}
+                      </h2>
+                    </div>
+                  </Accordion.Panel>
+                ))}
               </Accordion.Item>
             </Accordion>
           </Accordion.Panel>
 
           <Accordion.Panel>
             <Accordion
+              id='2'
               chevron={
-                <i className='bi bi-dash filters__menu__sub-menu__close' />
+                openChevron.star_acc ? (
+                  <i className='bi bi-dash filters__menu__sub-menu__close' />
+                ) : (
+                  <i className='bi bi-plus filters__menu__sub-menu__close' />
+                )
               }
               disableChevronRotation
               defaultValue={['star']}
-              transitionDuration={500}>
+              transitionDuration={500}
+              onChange={() => handleOpenChevron('star_acc')}>
               <Accordion.Item value='star'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Star Category
                 </Accordion.Control>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedStart === "sc1"}
-                      onChange={() => setSelectedStart("sc1")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      <span className='filters__menu__sub-menu__stars'>
-                        {[1, 2, 3, 4, 5].map((item) => (
-                          <img
-                            key={item}
-                            src="/icons/star-fill.png"
-                            style={{ width: "14px", height: "14px" }}
-                          />
-                        ))}
-                      </span>
-                      (4025)
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedStart === "sc2"}
-                      onChange={() => setSelectedStart("sc2")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      <span className='filters__menu__sub-menu__stars'>
-                        {[1, 2, 3, 4, 5].map((item) =>
-                          item <= 4 ? (
-                            <img
-                              key={item}
-                              src="/icons/star-fill.png"
-                              style={{ width: "14px", height: "14px" }}
-                            />
-                          ) : (
-                            <img
-                              key={item}
-                              src="/icons/star.png"
-                              style={{ width: "14px", height: "14px" }}
-                            />
-                          )
-                        )}
-                      </span>
-                      (2012)
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedStart === "sc3"}
-                      onChange={() => setSelectedStart("sc3")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      <span className='filters__menu__sub-menu__stars'>
-                        {[1, 2, 3, 4, 5].map((item) =>
-                          item <= 3 ? (
-                            <img
-                              key={item}
-                              src="/icons/star-fill.png"
-                              style={{ width: "14px", height: "14px" }}
-                            />
-                          ) : (
-                            <img
-                              key={item}
-                              src="/icons/star.png"
-                              style={{ width: "14px", height: "14px" }}
-                            />
-                          )
-                        )}
-                      </span>
-                      (25)
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedStart === "sc4"}
-                      onChange={() => setSelectedStart("sc4")}
-                    />
-
-                    <h2 className='filters__menu__sub-menu__title'>
-                      <span className='filters__menu__sub-menu__stars'>
-                        {[1, 2, 3, 4, 5].map((item) =>
-                          item <= 2 ? (
-                            <img
-                              key={item}
-                              src="/icons/star-fill.png"
-                              style={{ width: "14px", height: "14px" }}
-                            />
-                          ) : (
-                            <img
-                              key={item}
-                              src="/icons/star.png"
-                              style={{ width: "14px", height: "14px" }}
-                            />
-                          )
-                        )}
-                      </span>
-                      (3)
-                    </h2>
-                  </div>
-                </Accordion.Panel>
+                {[5, 4, 3, 2].map((item) => (
+                  <Accordion.Panel key={item}>
+                    <div className='filters__menu__sub-menu'>
+                      <input
+                        id={item}
+                        name='star'
+                        type='checkbox'
+                        className='filters__menu__sub-menu__checkbox'
+                        checked={selectedStar == item}
+                        onClick={handleChange}
+                        readOnly
+                      />
+                      <h2 className='filters__menu__sub-menu__title'>
+                        <span className='filters__menu__sub-menu__stars'>
+                          {[1, 2, 3, 4, 5].map((subItem) =>
+                            subItem <= item ? (
+                              <img
+                                key={subItem}
+                                src='/icons/star-fill.png'
+                                style={{ width: '14px', height: '14px' }}
+                              />
+                            ) : (
+                              <img
+                                key={subItem}
+                                src='/icons/star.png'
+                                style={{ width: '14px', height: '14px' }}
+                              />
+                            )
+                          )}
+                        </span>
+                        (100)
+                      </h2>
+                    </div>
+                  </Accordion.Panel>
+                ))}
               </Accordion.Item>
             </Accordion>
           </Accordion.Panel>
 
           <Accordion.Panel>
             <Accordion
+              id='4'
               chevron={
-                <i className='bi bi-dash filters__menu__sub-menu__close' />
+                openChevron.cost_acc ? (
+                  <i className='bi bi-dash filters__menu__sub-menu__close' />
+                ) : (
+                  <i className='bi bi-plus filters__menu__sub-menu__close' />
+                )
               }
               disableChevronRotation
               defaultValue={['cost']}
-              transitionDuration={500}>
+              transitionDuration={500}
+              onChange={() => handleOpenChevron('cost_acc')}>
               <Accordion.Item value='cost'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Cost For Two
                 </Accordion.Control>
                 <Accordion.Panel>
                   <div className='filters__menu__sub-menu__slider'>
-                    <MenuSlider />
+                    <MenuSlider
+                      search={search}
+                      filterObejct={filterObejct}
+                      setFilterObejct={setFilterObejct}
+                      cost={cost}
+                    />
                   </div>
                 </Accordion.Panel>
               </Accordion.Item>
@@ -341,73 +259,61 @@ const FilterMenu = ({ handleBoxAndMenuOpen }) => {
 
           <Accordion.Panel>
             <Accordion
+              id='5'
               chevron={
-                <i className='bi bi-dash filters__menu__sub-menu__close' />
+                openChevron.delivery_acc ? (
+                  <i className='bi bi-dash filters__menu__sub-menu__close' />
+                ) : (
+                  <i className='bi bi-plus filters__menu__sub-menu__close' />
+                )
               }
               disableChevronRotation
               defaultValue={['delivery']}
-              transitionDuration={500}>
+              transitionDuration={500}
+              onChange={() => handleOpenChevron('delivery_acc')}>
               <Accordion.Item value='delivery'>
                 <Accordion.Control className='filters__menu__sub-control'>
                   Delivery Time
                 </Accordion.Control>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedDelivery === "dt1"}
-                      onChange={() => setSelectedDelivery("dt1")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Upto 20 Minutes
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedDelivery === "dt2"}
-                      onChange={() => setSelectedDelivery("dt2")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Upto 30 Minutes
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedDelivery === "dt3"}
-                      onChange={() => setSelectedDelivery("dt3")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Upto 45 Minutes
-                    </h2>
-                  </div>
-                </Accordion.Panel>
-                <Accordion.Panel>
-                  <div className='filters__menu__sub-menu'>
-                    <input
-                      type="checkbox"
-                      className="filters__menu__sub-menu__checkbox"
-                      checked={selectedDelivery === "dt4"}
-                      onChange={() => setSelectedDelivery("dt4")}
-                    />
-                    <h2 className='filters__menu__sub-menu__title'>
-                      Upto 60 Minutes
-                    </h2>
-                  </div>
-                </Accordion.Panel>
+                {[20, 30, 45, 60].map((item, index) => (
+                  <Accordion.Panel key={index + 1}>
+                    <div className='filters__menu__sub-menu'>
+                      <input
+                        id={item}
+                        name='delivery'
+                        type='checkbox'
+                        className='filters__menu__sub-menu__checkbox'
+                        checked={selectedDelivery == item}
+                        onClick={handleChange}
+                        readOnly
+                      />
+                      <h2 className='filters__menu__sub-menu__title'>
+                        Upto {item} Minutes
+                      </h2>
+                    </div>
+                  </Accordion.Panel>
+                ))}
               </Accordion.Item>
             </Accordion>
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
+
+      <div className='filters__menu__clear-box'>
+        <Link
+          to={`/restaurants?filter=${filter}&page=1&limit=12${Object.values(
+            filterObejct
+          ).join('')}`}>
+          <button className='filters__menu__clear-box__button'>Send</button>
+        </Link>
+        <Link to='/restaurants?filter=all&page=1&limit=12'>
+          <button
+            className='filters__menu__clear-box__button'
+            onClick={handleClear}>
+            Clear
+          </button>
+        </Link>
+      </div>
 
       <div className='filters__menu__help-box'>
         <button className='filters__menu__help-box__button'>
