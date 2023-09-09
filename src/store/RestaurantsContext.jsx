@@ -37,7 +37,6 @@ export const RestaurantsProvider = ({ children }) => {
       cost,
       delivery,
     });
-    console.log(queryParams);
   };
 
   return (
