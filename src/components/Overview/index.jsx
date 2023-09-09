@@ -20,7 +20,9 @@ const Overview = ({ restaurant }) => {
           <h6 className='overview__category'>Cuisine</h6>
           <ul>
             {cuisines.map((cuisine, index) => (
-              <li key={index}>{cuisine}</li>
+              <li key={index} className='overview__category__item'>
+                {cuisine}
+              </li>
             ))}
           </ul>
         </div>

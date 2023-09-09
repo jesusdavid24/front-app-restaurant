@@ -1,8 +1,8 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .location-form {
   @include location-form__box;
-  background-image: url("../../assets/img/form.jpg");
+  background-image: url('../../assets/img/form.jpg');
   background-size: cover;
   background-position: center;
 
@@ -75,6 +75,7 @@
     &__craving {
       width: 90%;
       height: 40px;
+      text-transform: capitalize;
       padding-left: 10px;
       border: none;
       border-radius: 5px;
@@ -91,6 +92,15 @@
       }
     }
 
+    &__link {
+      width: 90%;
+      height: 35px;
+
+      @media (min-width: 768px) {
+        width: 40%;
+      }
+    }
+
     &__location::placeholder,
     &__craving::placeholder {
       line-height: 35px;
@@ -99,18 +109,14 @@
     }
 
     &__food {
-      width: 90%;
-      height: 35px;
+      width: 100%;
+      height: 100%;
       font-weight: 900;
       color: var(--primary-background);
       border: none;
       border-radius: 5px;
       background-color: var(--primary-accent);
       cursor: pointer;
-
-      @media (min-width: 768px) {
-        width: 40%;
-      }
     }
   }
 }

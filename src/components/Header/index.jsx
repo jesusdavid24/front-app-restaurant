@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='header__logo-container'>
-        <Link to={`/?filter=all&page=1&limit=${limit}`}>
+        <Link to={'/'}>
           <img
             id='logo'
             src='/img/logo.png'

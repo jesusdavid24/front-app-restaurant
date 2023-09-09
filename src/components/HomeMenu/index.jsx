@@ -21,7 +21,7 @@ const HomeMenu = ({ onMenuOpen, limit }) => {
         <Accordion.Item value='home' className='home-menu__accordion__item'>
           <Accordion.Control className='home-menu__accordion__control'>
             <Link
-              to={`/?filter=all&page=1&limit=${limit}`}
+              to={'/'}
               className='home-menu__accordion__nav'
               onClick={onMenuOpen}>
               HOME

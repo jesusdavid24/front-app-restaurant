@@ -4,9 +4,8 @@ import Restaurantcard from '../RestaurantCard';
 import Pagination from '../Pagination';
 import './index.scss';
 
-const RestaurantsList = () => {
-  const { restaurants, restaurantsLength, limit } =
-    useContext(RestaurantsContext);
+const RestaurantsList = ({ restaurants }) => {
+  const { restaurantsLength } = useContext(RestaurantsContext);
 
   return (
     <div className='restaurants-list'>

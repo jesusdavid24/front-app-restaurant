@@ -4,10 +4,10 @@ import { fetchRestaurants } from '../api/restaurants';
 export const RestaurantsContext = createContext();
 
 export const RestaurantsProvider = ({ children }) => {
-  const [limit, setLimit] = useState(12);
+  const [limit, _] = useState(12);
 
   const [queryParams, setQueryParams] = useState({
-    filter: '',
+    filter: 'all',
     page: 1,
     limit,
     cuisine: '',
@@ -17,11 +17,13 @@ export const RestaurantsProvider = ({ children }) => {
   });
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsLength, setRestaurantsLength] = useState([0]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
 
   useEffect(() => {
     fetchRestaurants(queryParams).then((res) => {
       setRestaurants(res.data);
       setRestaurantsLength(res.length);
+      setAllRestaurants(res.allRestaurants);
     });
   }, [queryParams]);
 
@@ -42,8 +44,8 @@ export const RestaurantsProvider = ({ children }) => {
       value={{
         restaurants,
         restaurantsLength,
+        allRestaurants,
         queryParamsHandler,
-        queryParams,
         limit,
       }}>
       {children}

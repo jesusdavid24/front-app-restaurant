@@ -20,7 +20,7 @@ const ListRestaurants = () => {
   const cost = queryParamsLocation.get('cost');
   const delivery = queryParamsLocation.get('delivery');
 
-  const { queryParamsHandler } = useContext(RestaurantsContext);
+  const { restaurants, queryParamsHandler } = useContext(RestaurantsContext);
 
   useEffect(() => {
     queryParamsHandler(filter, page, cuisine, star, cost, delivery);
@@ -68,7 +68,7 @@ const ListRestaurants = () => {
             />
           </div>
           <div className='restaurants-page__menu-list__list'>
-            <RestaurantsList />
+            <RestaurantsList restaurants={restaurants} />
           </div>
         </div>
       </div>

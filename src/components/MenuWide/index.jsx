@@ -30,9 +30,7 @@ const HomeMenuWide = ({ limit }) => {
           <Accordion.Control
             className='home-menu-wide__accordion__control'
             onClick={handleClick}>
-            <Link
-              to={`/?filter=all&page=1&limit=${limit}`}
-              className='home-menu-wide__accordion__nav'>
+            <Link to={'/'} className='home-menu-wide__accordion__nav'>
               HOME
             </Link>
           </Accordion.Control>
