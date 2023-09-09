@@ -40,6 +40,10 @@
 
   &__category {
     margin-bottom: 5px;
+
+    &__item {
+      text-transform: capitalize;
+    }
   }
 
   ul {

@@ -16,7 +16,7 @@ const Home = () => {
   const filter = queryParamsLocation.get('filter');
   const page = queryParamsLocation.get('page');
 
-  const { restaurants, queryParamsHandler, limit } =
+  const { restaurants, allRestaurants, queryParamsHandler, limit } =
     useContext(RestaurantsContext);
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const Home = () => {
   }, [location]);
   return (
     <>
-      <LocationForm />
-      <FoodCarousel />
+      <LocationForm limit={limit} />
+      <FoodCarousel restaurants={allRestaurants} limit={limit} />
       <Promos />
       <BookingPath />
       <ButtonsFilters filter={filter} limit={limit} />

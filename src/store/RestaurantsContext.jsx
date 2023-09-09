@@ -37,6 +37,7 @@ export const RestaurantsProvider = ({ children }) => {
       cost,
       delivery,
     });
+    console.log(queryParams);
   };
 
   return (
@@ -46,7 +47,6 @@ export const RestaurantsProvider = ({ children }) => {
         restaurantsLength,
         allRestaurants,
         queryParamsHandler,
-        queryParams,
         limit,
       }}>
       {children}
