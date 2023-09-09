@@ -23,6 +23,7 @@ const LocationForm = ({ limit }) => {
           id='location'
           className='location-form__input-box__location'
           placeholder='Enter Your Location'
+          autoComplete='off'
         />
         <input
           type='text'
@@ -30,6 +31,7 @@ const LocationForm = ({ limit }) => {
           value={craving}
           className='location-form__input-box__craving'
           placeholder='What Are You Craving?'
+          autoComplete='off'
           onChange={handleChange}
         />
         <Link
