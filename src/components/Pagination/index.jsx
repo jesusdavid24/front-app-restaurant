@@ -1,13 +1,22 @@
+import { useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { RestaurantsContext } from '../../store/RestaurantsContext';
+
 import './index.scss';
 
 const Pagination = ({ restaurantsLength }) => {
   const location = useLocation();
   const queryParamsLocation = new URLSearchParams(location.search);
-  const page = parseInt(queryParamsLocation.get('page'));
+  let page = parseInt(queryParamsLocation.get('page'));
+
+  if (!page) {
+    page = 1;
+  }
 
   const search = location.search;
   const pageIndex = search.indexOf('page') + 5;
+
+  const { limit } = useContext(RestaurantsContext);
 
   return (
     <div className='restaurants-pagination'>
@@ -31,14 +40,18 @@ const Pagination = ({ restaurantsLength }) => {
           <Link
             key={index}
             id={index + 1}
-            to={search.replace(search[pageIndex], index + 1)}
+            to={
+              search
+                ? search.replace(search[pageIndex], index + 1)
+                : `/?filter=all&page=${index + 1}&limit=${limit}`
+            }
             name='page'
             className='restaurants-pagination__link'>
             <button
               id={index + 1}
               name='page'
               className={
-                index + 1 == page
+                page == index + 1
                   ? 'restaurants-pagination__numbers restaurants-pagination__numbers--selected'
                   : 'restaurants-pagination__numbers'
               }>
@@ -48,7 +61,12 @@ const Pagination = ({ restaurantsLength }) => {
         )
       )}
 
-      <Link to={search.replace(search[pageIndex], page + 1)}>
+      <Link
+        to={
+          search
+            ? search.replace(search[pageIndex], page + 1)
+            : `/?filter=all&page=2&limit=${limit}`
+        }>
         <button
           id='next'
           name='next'

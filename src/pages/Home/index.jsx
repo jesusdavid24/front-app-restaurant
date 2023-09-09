@@ -16,10 +16,13 @@ const Home = () => {
   const filter = queryParamsLocation.get('filter');
   const page = queryParamsLocation.get('page');
 
-  const { queryParamsHandler, limit } = useContext(RestaurantsContext);
+  const { restaurants, queryParamsHandler, limit } =
+    useContext(RestaurantsContext);
 
   useEffect(() => {
-    queryParamsHandler(filter, page);
+    filter && page
+      ? queryParamsHandler(filter, page)
+      : queryParamsHandler('all', 1);
   }, [location]);
   return (
     <>
@@ -28,7 +31,7 @@ const Home = () => {
       <Promos />
       <BookingPath />
       <ButtonsFilters filter={filter} limit={limit} />
-      <RestaurantsList actualPage='/' />
+      <RestaurantsList restaurants={restaurants} />
       <Store />
     </>
   );

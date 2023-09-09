@@ -7,10 +7,10 @@ import './index.scss';
 const RestaurantsCarousel = () => {
   const [loading, setLoading] = useState(true);
 
-  const { restaurants } = useContext(RestaurantsContext);
+  const { allRestaurants } = useContext(RestaurantsContext);
 
   useEffect(() => {
-    restaurants.length & setLoading(false);
+    allRestaurants.length & setLoading(false);
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const RestaurantsCarousel = () => {
           withControls={false}
           loop
           className='order-restaurants__carousel'>
-          {restaurants.map((restaurant) => {
+          {allRestaurants.map((restaurant) => {
             return (
               <Carousel.Slide
                 key={restaurant.id}

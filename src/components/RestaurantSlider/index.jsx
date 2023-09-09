@@ -19,7 +19,7 @@ const RestaurantSlider = ({ restaurant }) => {
         </h3>
         <div className='restaurant-slider__box__inner-box'>
           <h3 className='restaurant-slider__box__rating'>
-            {restaurant.rating} Rating
+            {restaurant.rating.toFixed(1)} Rating
           </h3>
           |
           <h3 className='restaurant-slider__box__time'>

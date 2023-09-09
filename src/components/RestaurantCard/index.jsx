@@ -36,7 +36,7 @@ const Restaurantcard = ({
                   ? 'card__content__rating--recommended'
                   : 'card__content__rating--inadmisable'
               }>
-              {rating} &#9733;
+              {rating.toFixed(1)} &#9733;
             </h2>
           </div>
           <div className='card__info'>

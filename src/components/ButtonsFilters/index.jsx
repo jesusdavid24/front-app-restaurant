@@ -11,7 +11,7 @@ const ButtonsFilters = ({ filter, limit }) => {
             id='all'
             name='filter'
             className={
-              filter == 'all'
+              !filter || filter == 'all'
                 ? 'buttons-filters__box__button--selected'
                 : 'buttons-filters__box__button'
             }>
