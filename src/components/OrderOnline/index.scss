@@ -28,37 +28,21 @@
       padding: 20px;
     }
 
-    &__bestseller {
-      margin-bottom: 10px;
-      border-bottom: 2px solid var(--primary-background);
-    }
-
-    &__quickBites {
+    &__section {
+      text-transform: capitalize;
       margin-bottom: 10px;
       border-bottom: 2px solid var(--primary-background);
     }
 
     &__category {
       font-size: 17px;
-      font-weight: 400;
-      color: var(--neutral-silver-text);
+      font-weight: 700;
+      margin-top: 0px;
     }
 
     &__amount {
       font-weight: 400;
       color: var(--neutral-silver-text);
-    }
-
-    &__first-subcategory {
-      font-size: 17px;
-      font-weight: 700;
-      margin-top: 0px;
-    }
-
-    &__subcategory {
-      font-size: 17px;
-      font-weight: 700;
-      margin-top: 10px;
     }
 
     &__item {
@@ -67,6 +51,16 @@
       gap: 5px;
       padding: 10px 0;
       border-bottom: 2px solid var(--primary-background);
+    }
+
+    &__item-box {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+
+      &__image {
+        width: 20px;
+      }
     }
 
     &__item-description {
