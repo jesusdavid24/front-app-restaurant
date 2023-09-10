@@ -3,7 +3,7 @@ import errorHandler from '../utils/errorHandler';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const fetchRestaurants = async (queryParams) => {
+export const fetchRestaurants = async (queryParams, res) => {
   const params = {
     ...queryParams,
   };
@@ -18,7 +18,7 @@ export const fetchRestaurants = async (queryParams) => {
   }
 };
 
-export const fetchRestaurantById = async (id) => {
+export const fetchRestaurantById = async (id, res) => {
   try {
     const { data } = await axios.get(`${URL}/restaurants/${id}`);
     return data;

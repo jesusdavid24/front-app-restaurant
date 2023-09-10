@@ -6,8 +6,6 @@ import TableUsers from "../TableUsers";
 import { getRoles } from "../../api/roles";
 import './index.scss'
 
-
-
 const DashboardAdmin = () => {
 
   const { roles } = useLoaderData();

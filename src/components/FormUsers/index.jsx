@@ -1,15 +1,16 @@
 import { useForm } from "../../hooks/useForm"
-import { createUsers } from "../../api/login";
+import { createUsers } from "../../api/users";
 import './index.scss'
 
 const FormUsers = ({roles, handleCloseForm}) => {
 
   const { form, handleChange } = useForm();
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-      const dataForm = await createUsers(form);
-      return dataForm;
-    };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const dataForm = await createUsers(form);
+    return dataForm;
+  };
 
   return (
     <div className="custom">
