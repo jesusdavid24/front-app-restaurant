@@ -12,6 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const { form, handleChange } = useForm();
+
   const handleSubmit = async (event) => {
 
     event.preventDefault();
@@ -22,7 +23,15 @@ const Login = () => {
     localStorage.setItem('lasttName', data.newUser.lastName)
     localStorage.setItem('email', data.newUser.email)
 
-    navigate("/")
+    const role = data.newUser.role.name
+
+    if( role  === 'ADMIN') {
+      navigate("/admin");
+    };
+
+    if( role === 'CLIENT') {
+      navigate("/");
+    };
   };
 
   return (

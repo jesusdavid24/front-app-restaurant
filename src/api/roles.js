@@ -1,8 +1,9 @@
 import axios from "axios";
+import errorHandler from "../utils/errorHandler";
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const getRoles = async () => {
+export const getRoles = async (_, res) => {
   try {
     const { data } = await axios.get(`${URL}/roles`)
     return data;
