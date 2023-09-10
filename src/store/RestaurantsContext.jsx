@@ -18,12 +18,14 @@ export const RestaurantsProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsLength, setRestaurantsLength] = useState([0]);
   const [allRestaurants, setAllRestaurants] = useState([]);
+  const [copy, setCopy] = useState([]);
 
   useEffect(() => {
     fetchRestaurants(queryParams).then((res) => {
       setRestaurants(res.data);
       setRestaurantsLength(res.length);
       setAllRestaurants(res.allRestaurants);
+      setCopy(res.data);
     });
   }, [queryParams]);
 
@@ -39,10 +41,25 @@ export const RestaurantsProvider = ({ children }) => {
     });
   };
 
+  const restaurantsHandler = (search) => {
+    if (search) {
+      const searchRestaurants = allRestaurants.filter((restaurant) =>
+        restaurant.title.toLowerCase().includes(search)
+      );
+
+      setRestaurants(searchRestaurants);
+      setRestaurantsLength(searchRestaurants.length);
+    } else if (search == false) {
+      setRestaurants(copy);
+      setRestaurantsLength(allRestaurants.length);
+    }
+  };
+
   return (
     <RestaurantsContext.Provider
       value={{
         restaurants,
+        restaurantsHandler,
         restaurantsLength,
         allRestaurants,
         queryParamsHandler,
