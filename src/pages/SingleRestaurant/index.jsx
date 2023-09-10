@@ -15,7 +15,7 @@ import './index.scss';
 
 const SingleRestaurant = () => {
   const { restaurant } = useLoaderData();
-  const { longitude, latitude } = restaurant;
+  const { longitude, latitude, menu } = restaurant;
   const coordinates = [longitude, latitude];
 
   return (
@@ -28,7 +28,7 @@ const SingleRestaurant = () => {
             <div
               id='order'
               className='single-restaurant__principal__options-box__election'>
-              <OrderOnline />
+              <OrderOnline menu={menu} />
             </div>
             <div
               id='overview'
