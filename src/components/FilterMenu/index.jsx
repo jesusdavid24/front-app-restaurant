@@ -7,6 +7,7 @@ import './index.scss';
 
 const FilterMenu = ({
   handleBoxAndMenuOpen,
+  restaurantsHandler,
   search,
   filter,
   cuisine,
@@ -15,11 +16,13 @@ const FilterMenu = ({
   delivery,
 }) => {
   const [filterObejct, setFilterObejct] = useState({
-    cuisine: '',
-    star: '',
-    cost: '',
-    delivery: '',
+    cuisine: cuisine ? `&cuisine=${cuisine}` : '',
+    star: star ? `&cuisine=${star}` : '',
+    cost: cost ? `&cuisine=${cost}` : '',
+    delivery: delivery ? `&cuisine=${delivery}` : '',
   });
+
+  const [searchInput, setSearchInput] = useState('');
 
   const [openChevron, setOpenChevron] = useState({
     cuisines_acc: true,
@@ -81,6 +84,19 @@ const FilterMenu = ({
     });
   };
 
+  const handleSearch = (e) => {
+    const { value } = e.target;
+    setSearchInput(value);
+
+    setSearchInput((updatedSearchInput) => {
+      if (updatedSearchInput) {
+        restaurantsHandler(updatedSearchInput);
+      } else if (updatedSearchInput == '') {
+        restaurantsHandler(false);
+      }
+    });
+  };
+
   const handleClear = () => {
     setSelectedCuisine(null);
     setSelectedStar(null);
@@ -107,7 +123,9 @@ const FilterMenu = ({
           <input
             type='text'
             className='filters__menu__back__search__input'
+            value={searchInput}
             placeholder='Search here...'
+            onChange={handleSearch}
           />
           <br />
           <i className='bi bi-search filters__menu__back__search__icon' />
@@ -156,7 +174,7 @@ const FilterMenu = ({
                         type='checkbox'
                         checked={selectedCuisine == cuisine}
                         className='filters__menu__sub-menu__checkbox'
-                        onClick={handleChange}
+                        onChange={handleChange}
                       />
                       <h2 className='filters__menu__sub-menu__title'>
                         {cuisine}
@@ -195,8 +213,7 @@ const FilterMenu = ({
                         type='checkbox'
                         className='filters__menu__sub-menu__checkbox'
                         checked={selectedStar == item}
-                        onClick={handleChange}
-                        readOnly
+                        onChange={handleChange}
                       />
                       <h2 className='filters__menu__sub-menu__title'>
                         <span className='filters__menu__sub-menu__stars'>
@@ -284,8 +301,7 @@ const FilterMenu = ({
                         type='checkbox'
                         className='filters__menu__sub-menu__checkbox'
                         checked={selectedDelivery == item}
-                        onClick={handleChange}
-                        readOnly
+                        onChange={handleChange}
                       />
                       <h2 className='filters__menu__sub-menu__title'>
                         Upto {item} Minutes
@@ -306,6 +322,7 @@ const FilterMenu = ({
           ).join('')}`}>
           <button className='filters__menu__clear-box__button'>Send</button>
         </Link>
+
         <Link to='/restaurants?filter=all&page=1&limit=12'>
           <button
             className='filters__menu__clear-box__button'
