@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 
 import './index.scss';
 

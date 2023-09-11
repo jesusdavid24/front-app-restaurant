@@ -1,4 +1,6 @@
-import { useLoaderData } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { clearCar } from '../../store/redux/slices/cartSlice';
+import { useLoaderData, Link } from 'react-router-dom';
 import RestaurantSlider from '../../components/RestaurantSlider';
 import RestaurantOptions from '../../components/RestaurantOptions';
 import OrderOnline from '../../components/OrderOnline';
@@ -14,9 +16,15 @@ import { fetchRestaurantById } from '../../api/restaurants';
 import './index.scss';
 
 const SingleRestaurant = () => {
+  const dispatch = useDispatch();
+
   const { restaurant } = useLoaderData();
   const { longitude, latitude, menu } = restaurant;
   const coordinates = [longitude, latitude];
+
+  const handleClear = () => {
+    dispatch(clearCar());
+  };
 
   return (
     <div className='single-restaurant'>
@@ -66,7 +74,22 @@ const SingleRestaurant = () => {
         <div className='single-restaurant__principal__cart'>
           <div className='single-restaurant__principal__cart__sticky'>
             <div className='single-restaurant__principal__cart__items'>
-              <Cart />
+              <Cart>
+                <div className='order-cart__fill__bottom__buttons-box'>
+                  <button
+                    className='order-cart__fill__bottom__buttons-box__button'
+                    onClick={handleClear}>
+                    clear
+                  </button>
+                  <Link
+                    to='/checkout'
+                    className='order-cart__fill__bottom__buttons-box__link'>
+                    <button className='order-cart__fill__bottom__buttons-box__button'>
+                      place order
+                    </button>
+                  </Link>
+                </div>
+              </Cart>
             </div>
             <div className='single-restaurant__principal__offers'>
               <AlwaysFirst />
