@@ -4,10 +4,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   @media (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   &__container-card {
     width: 100%;
     display: flex;
@@ -15,42 +17,51 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #dddddd;
     height: 220px;
+
     @media (min-width: 768px) {
       width: calc(50% - (20px / 2));
     }
+
     @media (min-width: 1200px) {
       width: calc(40% - (20px / 2));
     }
+
     &--selected {
       border: 1px solid rgba(0, 0, 0, 0.5);
     }
   }
+
   &__info {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
     align-self: center;
+
     &__title {
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
     }
+
     &__name {
       color: black;
       font-size: 15px;
+      text-transform: capitalize;
     }
+
     &__span {
       background-color: rgba(0, 128, 0, 0.9);
       border-radius: 5px;
-      color: #FFFFFF;
+      color: #ffffff;
       padding: 5px 15px;
       font-size: 12px;
       font-weight: 700px;
     }
+
     &__content {
       &__p {
         color: black;
@@ -59,19 +70,22 @@
       }
     }
   }
+
   &__button-container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid #DDDDDD;
+    border-top: 1px solid #dddddd;
     padding-top: 10px;
     gap: 15px;
   }
+
   @media (min-width: 1024px) {
     .container {
       padding: 30%;
     }
+
     .container_card {
       display: flex;
     }

@@ -82,7 +82,7 @@
         display: none;
       }
 
-      [class*=" bi-"]::before {
+      [class*=' bi-']::before {
         font-size: 25px;
         font-weight: 900 !important;
       }
@@ -147,6 +147,15 @@
       @media (min-width: 768px) {
         display: none;
       }
+    }
+
+    &__image {
+      width: 35px;
+      height: 35px;
+      border: 2px solid var(--primary-background);
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
     }
   }
 }

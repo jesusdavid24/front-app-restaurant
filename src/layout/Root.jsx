@@ -1,5 +1,5 @@
 import { Outlet, useNavigation } from 'react-router-dom';
-import { RestaurantsProvider } from '../store/RestaurantsContext';
+import { RestaurantsProvider } from '../store/context/RestaurantsContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ValidateElement from '../components/ValidateElement';

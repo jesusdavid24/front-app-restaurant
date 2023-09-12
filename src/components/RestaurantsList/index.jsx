@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 import Restaurantcard from '../RestaurantCard';
 import Pagination from '../Pagination';
 import './index.scss';
