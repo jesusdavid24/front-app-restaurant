@@ -1,11 +1,13 @@
 .sticky-nav {
   position: sticky;
   top: 0;
+
   &__search {
     position: relative;
     padding-bottom: 15px;
     margin-bottom: 5px;
     border-bottom: 2px solid var(--primary-background);
+
     &__input {
       width: 165px;
       padding: 8px 16px;
@@ -14,7 +16,7 @@
       outline: none;
 
       @media (min-width: 1200px) {
-        width: 220px;
+        width: 100%;
       }
 
       &::placeholder {
@@ -33,15 +35,18 @@
       }
     }
   }
+
   &__list {
     &__item {
       list-style: none;
 
       &__category {
+        text-transform: capitalize;
         padding: 5px 15px;
 
         &--selected {
           color: var(--primary-accent);
+          text-transform: capitalize;
           padding: 5px 15px;
           background-color: var(--primary-background);
         }
@@ -53,15 +58,15 @@
     &__item {
       list-style: none;
 
-      &__subcategory {
+      &__product {
         font-weight: 400;
         color: var(--neutral-silver-text);
         padding: 5px 15px;
-        margin-left: 15px;
+        margin-left: 20px;
 
         &--selected {
           font-weight: 700;
-          color: #000000;
+          color: #6a6969;
           padding: 5px 15px;
           margin-left: 15px;
         }
