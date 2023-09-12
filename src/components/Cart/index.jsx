@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
   selectProducts,
+  selectPayment,
   updateProduct,
 } from '../../store/redux/slices/cartSlice';
 import './index.scss';
@@ -9,8 +9,7 @@ import './index.scss';
 const Cart = ({ children }) => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
-  let total = 0;
-  products.forEach((product) => (total += product.price * product.quantity));
+  const payment = useSelector(selectPayment);
 
   const handleIncrement = (e) => {
     const id = e.target.id;
@@ -97,27 +96,12 @@ const Cart = ({ children }) => {
           <div className='order-cart__fill__bottom'>
             <div className='order-cart__fill__bottom__box'>
               <h5 className='order-cart__fill__bottom__subtotal'>subtotal</h5>
-              <h5 className='order-cart__fill__bottom__total'>${total}.00</h5>
+              <h5 className='order-cart__fill__bottom__total'>${payment}.00</h5>
             </div>
             <p className='order-cart__fill__bottom__charges'>
               delivery charges may apply to your order
             </p>
             {children}
-
-            {/* <div className='order-cart__fill__bottom__buttons-box'>
-              <button
-                className='order-cart__fill__bottom__buttons-box__button'
-                onClick={handleClear}>
-                clear
-              </button>
-              <Link
-                to='/checkout'
-                className='order-cart__fill__bottom__buttons-box__link'>
-                <button className='order-cart__fill__bottom__buttons-box__button'>
-                  place order
-                </button>
-              </Link>
-            </div> */}
           </div>
         </div>
       )}

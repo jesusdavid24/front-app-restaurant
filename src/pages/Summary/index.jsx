@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { clearCar } from '../../store/redux/slices/cartSlice';
+import { clearCart } from '../../store/redux/slices/cartSlice';
 import AddressList from '../../components/AddressList';
 import Paymentitems from '../../components/PaymentItems';
 import CardView from '../../components/CardView';
 import AlwaysFirst from '../../components/AlwaysFirst';
-import './index.scss';
 import Cart from '../../components/Cart';
+import './index.scss';
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [paymentitems, setPaymentitems] = useState([]);
@@ -24,7 +26,8 @@ const Checkout = () => {
   };
 
   const handleClear = () => {
-    dispatch(clearCar());
+    dispatch(clearCart());
+    navigate(-1);
   };
 
   return (

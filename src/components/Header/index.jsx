@@ -21,6 +21,7 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const token = localStorage.getItem('token');
   return (
     <header className='header'>
       <div className='header__logo-container'>
@@ -57,11 +58,18 @@ const Header = () => {
           <option value='ita'>ITA</option>
         </select>
 
-        <button className='header__buttons-container__profile'>
-          <Link to='/login'>
-            <i className='bi bi-person-fill' />
-          </Link>
-        </button>
+        {token ? (
+          <img
+            className='header__buttons-container__image'
+            src='https://picsum.photos/100/100'
+          />
+        ) : (
+          <button className='header__buttons-container__profile'>
+            <Link to='/login'>
+              <i className='bi bi-person-fill' />
+            </Link>
+          </button>
+        )}
 
         <button className='header__buttons-container__settings'>
           <i className='bi bi-gear-fill' />

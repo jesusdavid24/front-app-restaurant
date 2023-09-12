@@ -94,20 +94,13 @@
       }
 
       &__sticky {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
         @media (min-width: 992px) {
           position: sticky;
           top: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-      }
-
-      &__items {
-        display: none;
-
-        @media (min-width: 992px) {
-          display: block;
         }
       }
     }

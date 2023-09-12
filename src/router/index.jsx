@@ -9,7 +9,10 @@ import ListRestaurants from '../pages/ListRestaurant';
 import Login from '../components/Login';
 import Registration from '../components/Registration';
 import Checkout from '../pages/Summary';
-import DashboardAdmin, { loaderDashboardAdmin } from '../components/DashboardAdmin';
+import DashboardAdmin, {
+  loaderDashboardAdmin,
+} from '../components/DashboardAdmin';
+import PaymentStatus from '../components/PaymentStatus';
 import PrivateRoute from '../components/PrivateRoute';
 
 const router = createBrowserRouter([
@@ -44,8 +47,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: <PrivateRoute><DashboardAdmin /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <DashboardAdmin />
+          </PrivateRoute>
+        ),
         loader: loaderDashboardAdmin,
+      },
+      {
+        path: '/payment/status',
+        element: <PaymentStatus />,
       },
       {
         path: '*',

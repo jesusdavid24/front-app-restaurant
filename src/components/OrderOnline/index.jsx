@@ -2,16 +2,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectProducts,
   postProduct,
-  updateProduct,
 } from '../../store/redux/slices/cartSlice';
 import StickyNavigation from '../StickyNavigation';
 import './index.scss';
 
-const OrderOnline = ({ menu }) => {
+const OrderOnline = ({ restaurantId, menu }) => {
   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
-  const handlePost = (product) => {
-    dispatch(postProduct(product));
+
+  const handlePost = (e, product) => {
+    const { id: restaurantId } = e.target;
+    dispatch(postProduct({ restaurantId, product }));
   };
 
   return (
@@ -51,13 +52,14 @@ const OrderOnline = ({ menu }) => {
                 </p>
                 <h5>${product.price}.00</h5>
                 <button
+                  id={restaurantId}
                   className='restaurant-order__menu__item-button'
                   disabled={
                     products.find((item) => item.id == product.id)
                       ? true
                       : false
                   }
-                  onClick={() => handlePost(product)}>
+                  onClick={(e) => handlePost(e, product)}>
                   Add
                 </button>
               </div>

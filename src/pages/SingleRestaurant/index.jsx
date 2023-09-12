@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { clearCar } from '../../store/redux/slices/cartSlice';
+import { clearCart } from '../../store/redux/slices/cartSlice';
 import { useLoaderData, Link } from 'react-router-dom';
 import RestaurantSlider from '../../components/RestaurantSlider';
 import RestaurantOptions from '../../components/RestaurantOptions';
@@ -23,7 +23,7 @@ const SingleRestaurant = () => {
   const coordinates = [longitude, latitude];
 
   const handleClear = () => {
-    dispatch(clearCar());
+    dispatch(clearCart());
   };
 
   return (
@@ -36,7 +36,7 @@ const SingleRestaurant = () => {
             <div
               id='order'
               className='single-restaurant__principal__options-box__election'>
-              <OrderOnline menu={menu} />
+              <OrderOnline restaurantId={restaurant.id} menu={menu} />
             </div>
             <div
               id='overview'
@@ -84,7 +84,9 @@ const SingleRestaurant = () => {
                   <Link
                     to='/checkout'
                     className='order-cart__fill__bottom__buttons-box__link'>
-                    <button className='order-cart__fill__bottom__buttons-box__button'>
+                    <button
+                      id={restaurant.id}
+                      className='order-cart__fill__bottom__buttons-box__button'>
                       place order
                     </button>
                   </Link>
