@@ -88,7 +88,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
                 name="roleId"
               >
                 <option>Choose roles</option>
-                {roles && roles.map((role) => (
+                {roles.map((role) => (
                   <option key={role.id} value={role.id}>{role.name}</option>
                 ))}
               </select>

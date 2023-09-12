@@ -2,6 +2,8 @@ import './index.scss'
 
 const TableUsers = ({ users }) => {
 
+ console.log(users)
+
   const capitalizeText = (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
   return (
@@ -18,7 +20,7 @@ const TableUsers = ({ users }) => {
           </tr>
         </thead>
         <tbody>
-          {users && users.map((user, index) => (
+          {users.map((user, index) => (
             <tr key={user.email}>
               <td>{index + 1}</td>
               <td>{capitalizeText(`${user.firstName} ${user.lastName}`)}</td>

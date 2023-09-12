@@ -14,6 +14,9 @@ const DashboardAdmin = () => {
   useEffect(() => {
     fetchUsers().then((user) => {
       setUsers(user);
+    })
+    .catch(error => {
+      console.log('ERO¿RORRRRRRR',error)
     });
   }, []);
 

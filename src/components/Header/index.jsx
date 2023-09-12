@@ -86,8 +86,8 @@ const Header = () => {
                 <h6>
                   {`${localStorage.getItem("fullName")}`}
                 </h6>
-              </div>
                 <a type="button" onClick={handleLogout}>logout</a>
+              </div>
             </div>
           )}
         </div>

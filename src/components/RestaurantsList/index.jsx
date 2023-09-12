@@ -5,12 +5,18 @@ import Pagination from '../Pagination';
 import './index.scss';
 
 const RestaurantsList = ({ restaurants }) => {
-  const { restaurantsLength } = useContext(RestaurantsContext);
+  const { restaurantsLength, error } = useContext(RestaurantsContext);
+
+  if(error) {
+    return (
+      <p>Ocurrió algo: {error}</p>
+    )
+  }
 
   return (
     <div className='restaurants-list'>
       <div className='restaurants-list__cards'>
-        {restaurants && restaurants.map((restaurant) => (
+        {restaurants.map((restaurant) => (
           <Restaurantcard
             key={restaurant.id}
             id={restaurant.id}

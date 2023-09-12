@@ -19,14 +19,19 @@ export const RestaurantsProvider = ({ children }) => {
   const [restaurantsLength, setRestaurantsLength] = useState([0]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [copy, setCopy] = useState([]);
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetchRestaurants(queryParams).then((res) => {
-      setRestaurants(res.data);
-      setRestaurantsLength(res.length);
-      setAllRestaurants(res.allRestaurants);
-      setCopy(res.data);
-    });
+    fetchRestaurants(queryParams)
+      .then((res) => {
+        setRestaurants(res.data);
+        setRestaurantsLength(res.length);
+        setAllRestaurants(res.allRestaurants);
+        setCopy(res.data);
+      })
+      .catch((error) => {
+        setError(error)
+      });
   }, [queryParams]);
 
   const queryParamsHandler = (filter, page, cuisine, star, cost, delivery) => {
@@ -64,6 +69,7 @@ export const RestaurantsProvider = ({ children }) => {
         allRestaurants,
         queryParamsHandler,
         limit,
+        error
       }}>
       {children}
     </RestaurantsContext.Provider>
