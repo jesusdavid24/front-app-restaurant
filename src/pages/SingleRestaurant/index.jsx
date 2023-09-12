@@ -79,7 +79,7 @@ const SingleRestaurant = () => {
                   <button
                     className='order-cart__fill__bottom__buttons-box__button'
                     onClick={handleClear}>
-                    clear
+                    Clear
                   </button>
                   <Link
                     to='/checkout'
@@ -87,7 +87,7 @@ const SingleRestaurant = () => {
                     <button
                       id={restaurant.id}
                       className='order-cart__fill__bottom__buttons-box__button'>
-                      place order
+                      Place Order
                     </button>
                   </Link>
                 </div>

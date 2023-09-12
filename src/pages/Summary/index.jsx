@@ -44,7 +44,7 @@ const Checkout = () => {
                   <button
                     className='order-cart__fill__bottom__buttons-box__button'
                     onClick={handleClear}>
-                    clear
+                    Clear
                   </button>
                 </div>
               </Cart>

@@ -7,8 +7,7 @@ import store from './store/redux/index.js';
 import './index.scss';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiY3Jpc3RpYW5qczkzIiwiYSI6ImNsa292YXBvcjBhcDIzcmw5cThnOGl6MTMifQ.K0CoYwD-yvtbr2VDTFecXQ';
+mapboxgl.accessToken = `${import.meta.env.MAPBOX_ACCESS_TOKEN}`;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

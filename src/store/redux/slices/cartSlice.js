@@ -55,7 +55,7 @@ export const cartSlice = createSlice({
       });
 
       state.products = state.products.filter(
-        (product) => product.quantity != 0
+        (product) => product.quantity !== 0
       );
 
       let total = 0;
@@ -66,7 +66,7 @@ export const cartSlice = createSlice({
 
       state.payment = total;
 
-      if (state.products.length == 0) {
+      if (!state.products.length) {
         state.restaurantId = initialState.restaurantId;
       }
     },

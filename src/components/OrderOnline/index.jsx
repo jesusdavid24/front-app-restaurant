@@ -54,11 +54,7 @@ const OrderOnline = ({ restaurantId, menu }) => {
                 <button
                   id={restaurantId}
                   className='restaurant-order__menu__item-button'
-                  disabled={
-                    products.find((item) => item.id == product.id)
-                      ? true
-                      : false
-                  }
+                  disabled={products.find((item) => item.id == product.id)}
                   onClick={(e) => handlePost(e, product)}>
                   Add
                 </button>
