@@ -1,5 +1,4 @@
 import axios from 'axios';
-import errorHandler from '../utils/errorHandler'
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
@@ -9,14 +8,13 @@ const config = {
   }
 };
 
-export const fetchUsers = async (_, res) => {
+export const fetchUsers = async () => {
   try {
     const { data } = await axios.get(`${URL}/users`, config);
     return data;
   } catch(error) {
-    return res.status(422).json({
-      "error": [errorHandler(error), '[]'].join(' ')
-    });
+    console.log(error)
+    return error.message
   };
 };
 
@@ -25,9 +23,8 @@ export const createUsers = async (form) => {
     const { data } = await axios.post(`${URL}/users`, form);
     return data;
   } catch(error) {
-    return res.status(422).json({
-      "error": [errorHandler(error), '[]'].join(' ')
-    });
+    console.log(error)
+    return error.message
   };
 };
 
@@ -36,9 +33,8 @@ export const updateUsers = async (id) => {
     const { data } = await axios.put(`${URL}/users`, id);
     return data;
   } catch(error) {
-    return res.status(422).json({
-      "error": [errorHandler(error), '[]'].join(' ')
-    });
+    console.log(error)
+    return error.message
   };
 };
 
@@ -47,8 +43,7 @@ export const deleteUsers = async (id) => {
     const { data } = await axios.delete(`${URL}/users`, id);
     return data;
   } catch(error) {
-    return res.status(422).json({
-      "error": [errorHandler(error), '[]'].join(' ')
-    });
+    console.log(error)
+    return error.message
   };
 };

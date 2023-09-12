@@ -1,11 +1,14 @@
 import { useState, useEffect, useContext } from 'react';
 import { RestaurantsContext } from '../../store/RestaurantsContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import HomeMenu from '../HomeMenu';
 import HomeMenuWide from '../MenuWide';
 import './index.scss';
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const { limit } = useContext(RestaurantsContext);
 
@@ -17,9 +20,23 @@ const Header = () => {
     }
   }, [menuOpen]);
 
+  const token = `Bearer ${localStorage.getItem('token')}`
+
   const handleMenuOpen = () => {
     setMenuOpen(!menuOpen);
   };
+
+
+
+  const handleLogut = () => {
+    const deleteKeys = ['token', 'fullName', 'email', 'avatar'];
+
+    deleteKeys.forEach(key => {
+      localStorage.removeItem(key);
+    });
+
+    navigate("/");
+  }
 
   return (
     <header className='header'>
@@ -57,11 +74,20 @@ const Header = () => {
           <option value='ita'>ITA</option>
         </select>
 
-        <button className='header__buttons-container__profile'>
-          <Link to='/login'>
-            <i className='bi bi-person-fill' />
-          </Link>
-        </button>
+        <div className='header__buttons-container__profile'>
+          { !!token ? (
+            <button >
+              <Link to='/login'>
+                <i className='bi bi-person-fill' />
+              </Link>
+            </button>
+          ) : (
+            <div>
+              <span>{localStorage.getItem('firstName')}</span>
+              <button type="button" onClick={handleLogut}>logout</button>
+            </div>
+          )}
+        </div>
 
         <button className='header__buttons-container__settings'>
           <i className='bi bi-gear-fill' />

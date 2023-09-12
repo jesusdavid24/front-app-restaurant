@@ -19,10 +19,10 @@ const TableUsers = ({ users }) => {
         </thead>
         <tbody>
           {users.map((user, index) => (
-            <tr key={user.id}>
+            <tr key={user.email}>
               <td>{index + 1}</td>
-              <td>{`${user.firstName} ${user.lastName}`}</td>
-              <td>{`${user.isActive}`}</td>
+              <td>{capitalizeText(`${user.firstName} ${user.lastName}`)}</td>
+              <td>{capitalizeText(`${user.isActive}`)}</td>
               <td>{capitalizeText(`${user.role.name}`)}</td>
               <td>
                 <button>Edit</button>
