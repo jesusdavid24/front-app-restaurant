@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectCart,
   selectProducts,
   selectPayment,
   updateProduct,
@@ -9,7 +8,6 @@ import './index.scss';
 
 const Cart = ({ children }) => {
   const dispatch = useDispatch();
-  const cart = useSelector(selectCart);
 
   const products = useSelector(selectProducts);
   const payment = useSelector(selectPayment);
@@ -26,7 +24,6 @@ const Cart = ({ children }) => {
 
   return (
     <div className='order-cart'>
-      <button onClick={() => console.log(cart)}>cart</button>
       <h4 className='order-cart__empty__title'>Cart Items:</h4>
       {!products.length ? (
         <div className='order-cart__empty'>
