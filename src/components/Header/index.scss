@@ -42,7 +42,7 @@
     cursor: pointer;
 
     &__logo {
-      width: 110px;
+      width: 90px;
       filter: invert(1);
     }
   }
@@ -131,16 +131,50 @@
 
     &__profile,
     &__settings {
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-      border: none;
+
+      &__button {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        border: none;
+        background-color: var(--primary-background);
+        border-radius: 5px;
+      }
     }
 
     &__profile,
     &__settings {
       background-color: var(--primary-background);
       border-radius: 5px;
+    }
+
+    &__profile {
+
+      &__login {
+        display: flex;
+        align-content: center;
+        gap: 5px;
+
+        &__logo {
+          margin-top: 10px;
+        }
+
+        &__person {
+          display: flex;
+          flex-direction: row;
+          align-content: center;
+
+          h6{
+            text-transform: capitalize;
+            font-size: 13px;
+          }
+        }
+
+        a {
+          font-size: 11px;
+          cursor: pointer;
+        }
+      }
     }
 
     &__settings {

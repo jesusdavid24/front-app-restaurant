@@ -10,7 +10,7 @@ const RestaurantsList = ({ restaurants }) => {
   return (
     <div className='restaurants-list'>
       <div className='restaurants-list__cards'>
-        {restaurants.map((restaurant) => (
+        {restaurants && restaurants.map((restaurant) => (
           <Restaurantcard
             key={restaurant.id}
             id={restaurant.id}

@@ -18,7 +18,7 @@ const TableUsers = ({ users }) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {users && users.map((user, index) => (
             <tr key={user.email}>
               <td>{index + 1}</td>
               <td>{capitalizeText(`${user.firstName} ${user.lastName}`)}</td>

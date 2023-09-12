@@ -19,8 +19,7 @@ const Login = () => {
     const data = await login(form);
 
     localStorage.setItem('token', data.token)
-    localStorage.setItem('firstName', data.newUser.firstName)
-    localStorage.setItem('lasttName', data.newUser.lastName)
+    localStorage.setItem('fullName', data.newUser.fullName)
     localStorage.setItem('email', data.newUser.email)
 
     const role = data.newUser.role.name
