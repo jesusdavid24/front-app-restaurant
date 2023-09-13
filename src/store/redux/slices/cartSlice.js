@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import toast from '../../../utils/toast/Toast';
+import toast from '../../../utils/toast';
 
 const initialState = {
   products: [],

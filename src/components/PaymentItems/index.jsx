@@ -4,7 +4,7 @@ import { selectCart, clearCart } from '../../store/redux/slices/cartSlice';
 import { Link } from 'react-router-dom';
 import { Accordion } from '@mantine/core';
 import { createOrder } from '../../api/orders';
-import toast from '../../utils/toast/Toast';
+import toast from '../../utils/toast';
 import './index.scss';
 
 const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
