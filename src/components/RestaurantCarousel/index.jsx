@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import Restaurantcard from '../RestaurantCard';
 import { Carousel } from '@mantine/carousel';
-import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 import './index.scss';
 
 const RestaurantsCarousel = () => {

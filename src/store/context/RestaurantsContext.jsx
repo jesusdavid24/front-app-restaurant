@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { fetchRestaurants } from '../api/restaurants';
+import { fetchRestaurants } from '../../api/restaurants';
 
 export const RestaurantsContext = createContext();
 

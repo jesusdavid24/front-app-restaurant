@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { RestaurantsContext } from '../../store/RestaurantsContext';
+import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 import LocationForm from '../../components/LocationForm';
 import FilterBox from '../../components/FilterBox';
 import FilterMenu from '../../components/FilterMenu';
