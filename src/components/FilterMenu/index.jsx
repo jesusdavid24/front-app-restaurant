@@ -87,14 +87,7 @@ const FilterMenu = ({
   const handleSearch = (e) => {
     const { value } = e.target;
     setSearchInput(value);
-
-    setSearchInput((updatedSearchInput) => {
-      if (updatedSearchInput) {
-        restaurantsHandler(updatedSearchInput);
-      } else if (updatedSearchInput == '') {
-        restaurantsHandler(false);
-      }
-    });
+    restaurantsHandler(value);
   };
 
   const handleClear = () => {
