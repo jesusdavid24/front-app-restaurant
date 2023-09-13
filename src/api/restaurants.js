@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const fetchRestaurants = async (queryParams, res) => {
+export const fetchRestaurants = async (queryParams) => {
   const params = {
     ...queryParams,
   };
@@ -16,7 +16,7 @@ export const fetchRestaurants = async (queryParams, res) => {
   };
 };
 
-export const fetchRestaurantById = async (id, res) => {
+export const fetchRestaurantById = async (id) => {
   try {
     const { data } = await axios.get(`${URL}/restaurants/${id}`);
     return data;
