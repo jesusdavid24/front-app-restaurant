@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { RestaurantsContext } from "../../store/RestaurantsContext";
+import { RestaurantsContext } from "../../store/context/RestaurantsContext";
 import { Link, useNavigate } from "react-router-dom";
 import HomeMenu from "../HomeMenu";
 import HomeMenuWide from "../MenuWide";
