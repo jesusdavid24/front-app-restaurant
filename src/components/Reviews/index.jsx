@@ -16,7 +16,7 @@ const Reviews = ({ restaurant }) => {
 
   return (
     <div className='restaurant-reviews'>
-      {!reviewsWithUser.map((review) => (
+      {reviewsWithUser.map((review) => (
         <div key={review.id} className='restaurant-reviews__review'>
           <div className='restaurant-reviews__review__rating'>
             <span className='restaurant-reviews__review__star'>
