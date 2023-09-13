@@ -19,6 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -57,10 +58,6 @@ const router = createBrowserRouter([
       {
         path: '/payment/status',
         element: <PaymentStatus />,
-      },
-      {
-        path: '*',
-        element: <NotFound />,
       },
     ],
   },

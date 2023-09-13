@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import { fetchRestaurants } from '../../api/restaurants';
+import errorHandler from '../../utils/errorHandler';
 
 export const RestaurantsContext = createContext();
 
@@ -18,15 +19,22 @@ export const RestaurantsProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [restaurantsLength, setRestaurantsLength] = useState([0]);
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const [copy, setCopy] = useState([]);
+  const [responseCopy, setResponseCopy] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetchRestaurants(queryParams).then((res) => {
-      setRestaurants(res.data);
-      setRestaurantsLength(res.length);
-      setAllRestaurants(res.allRestaurants);
-      setCopy(res.data);
-    });
+    (async function getRestaurants() {
+      try {
+        const response = await fetchRestaurants(queryParams);
+        setRestaurants(response.data);
+        setRestaurantsLength(response.length);
+        setAllRestaurants(response.allRestaurants);
+        setResponseCopy(response);
+      } catch (error) {
+        const message = errorHandler(error);
+        setError(message);
+      }
+    })();
   }, [queryParams]);
 
   const queryParamsHandler = (filter, page, cuisine, star, cost, delivery) => {
@@ -49,9 +57,9 @@ export const RestaurantsProvider = ({ children }) => {
 
       setRestaurants(searchRestaurants);
       setRestaurantsLength(searchRestaurants.length);
-    } else if (search == false) {
-      setRestaurants(copy);
-      setRestaurantsLength(allRestaurants.length);
+    } else if (!search) {
+      setRestaurants(responseCopy.data);
+      setRestaurantsLength(responseCopy.length);
     }
   };
 
@@ -64,6 +72,7 @@ export const RestaurantsProvider = ({ children }) => {
         allRestaurants,
         queryParamsHandler,
         limit,
+        error,
       }}>
       {children}
     </RestaurantsContext.Provider>
