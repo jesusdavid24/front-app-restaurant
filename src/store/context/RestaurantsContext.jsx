@@ -1,6 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
 import { fetchRestaurants } from '../../api/restaurants';
-import errorHandler from '../../utils/errorHandler';
 
 export const RestaurantsContext = createContext();
 
@@ -31,8 +30,7 @@ export const RestaurantsProvider = ({ children }) => {
         setAllRestaurants(response.allRestaurants);
         setResponseCopy(response);
       } catch (error) {
-        const message = errorHandler(error);
-        setError(message);
+        setError(error.message);
       }
     })();
   }, [queryParams]);

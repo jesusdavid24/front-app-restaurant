@@ -2,8 +2,6 @@ import './index.scss'
 
 const TableUsers = ({ users }) => {
 
- console.log(users)
-
   const capitalizeText = (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
   return (

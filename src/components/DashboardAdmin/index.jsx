@@ -16,7 +16,7 @@ const DashboardAdmin = () => {
       setUsers(user);
     })
     .catch(error => {
-      console.log('ERO¿RORRRRRRR',error)
+      console.log(error)
     });
   }, []);
 

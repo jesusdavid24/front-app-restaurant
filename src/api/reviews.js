@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
-export const fetchReviews = async (_, res) => {
+
+export const fetchReviews = async () => {
   try {
     const { data } = await axios.get(`${URL}/reviews`);
     return data;
@@ -10,7 +11,7 @@ export const fetchReviews = async (_, res) => {
     return error.message
   };
 };
-export const fetchReviewsByRestaurantId = async (id, res) => {
+export const fetchReviewsByRestaurantId = async (id) => {
   try {
     const { data } = await axios.get(`${URL}/reviews/restaurant/${id}`);
     return data;
