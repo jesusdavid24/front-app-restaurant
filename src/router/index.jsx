@@ -48,11 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: (
-          <PrivateRoute>
-            <DashboardAdmin />
-          </PrivateRoute>
-        ),
+        element: <PrivateRoute> <DashboardAdmin /> </PrivateRoute>,
         loader: loaderDashboardAdmin,
       },
       {

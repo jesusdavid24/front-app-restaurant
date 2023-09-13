@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import CardsUsers from "../CardsUsers";
 import FormUsers from "../FormUsers";
 import TableUsers from "../TableUsers";
+import { fetchUsers } from "../../api/users";
 import { getRoles } from "../../api/roles";
 import './index.scss'
 
 const DashboardAdmin = () => {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers().then((user) => {
+      setUsers(user);
+    })
+    .catch(error => {
+      console.log('ERO¿RORRRRRRR',error)
+    });
+  }, []);
 
   const { roles } = useLoaderData();
 
@@ -37,21 +49,21 @@ const DashboardAdmin = () => {
         </div>
         <div className="admin__container__form">
           <div className="admin__container__form__button">
-            <button type="button" onClick={handleShowForm}>Creat Users</button>
+            <button type="button" onClick={handleShowForm}>Create Users</button>
           </div>
           <div className="admin__container__form__forms">
             {showForm && (<FormUsers roles={roles} handleCloseForm={handleCloseForm} />)}
           </div>
         </div>
         <div className="admin__container__table">
-          <TableUsers />
+          <TableUsers users={users} />
         </div>
       </div>
     </div>
   )
 }
 
-export default DashboardAdmin
+export default DashboardAdmin;
 
 export const loaderDashboardAdmin = async () => {
   const data = await getRoles();
