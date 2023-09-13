@@ -17,7 +17,6 @@ const Login = () => {
 
     event.preventDefault();
     const data = await login(form);
-    console.log(data)
 
     localStorage.setItem('token', data.token)
     localStorage.setItem('fullName', data.newUser.fullName)
