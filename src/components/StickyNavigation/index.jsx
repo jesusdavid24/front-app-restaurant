@@ -14,32 +14,33 @@ const StickyNavigation = ({ menu }) => {
       </div>
 
       <ul className='sticky-nav__list'>
-        {menu.map((item, index) => (
-          <div key={index} className='sticky-nav__box'>
-            <li className='sticky-nav__list__item'>
-              <h5
-                className={
-                  index == 0
-                    ? 'sticky-nav__list__item__category--selected'
-                    : 'sticky-nav__list__item__category'
-                }>
-                {item.category}
-              </h5>
-            </li>
-            {item.products.map((product, subIndex) => (
-              <li key={product.id} className='sticky-nav__inner-list__item'>
-                <h6
+        {menu &&
+          menu.map((item, index) => (
+            <div key={index} className='sticky-nav__box'>
+              <li className='sticky-nav__list__item'>
+                <h5
                   className={
-                    index == 0 && subIndex == 0
-                      ? 'sticky-nav__inner-list__item__product--selected'
-                      : 'sticky-nav__inner-list__item__product'
+                    index === 0
+                      ? 'sticky-nav__list__item__category--selected'
+                      : 'sticky-nav__list__item__category'
                   }>
-                  {product.productName}
-                </h6>
+                  {item.category}
+                </h5>
               </li>
-            ))}
-          </div>
-        ))}
+              {item.products.map((product, subIndex) => (
+                <li key={product.id} className='sticky-nav__inner-list__item'>
+                  <h6
+                    className={
+                      index === 0 && subIndex === 0
+                        ? 'sticky-nav__inner-list__item__product--selected'
+                        : 'sticky-nav__inner-list__item__product'
+                    }>
+                    {product.productName}
+                  </h6>
+                </li>
+              ))}
+            </div>
+          ))}
       </ul>
     </aside>
   );

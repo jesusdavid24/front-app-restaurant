@@ -35,6 +35,11 @@ export const cartSlice = createSlice({
 
         state.payment = total;
 
+        toast.fire({
+          icon: 'success',
+          title: 'Product added',
+        });
+
         return state;
       } else {
         toast.fire({
