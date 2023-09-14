@@ -20,7 +20,7 @@ const StickyNavigation = ({ menu }) => {
               <li className='sticky-nav__list__item'>
                 <h5
                   className={
-                    index == 0
+                    index === 0
                       ? 'sticky-nav__list__item__category--selected'
                       : 'sticky-nav__list__item__category'
                   }>
@@ -31,7 +31,7 @@ const StickyNavigation = ({ menu }) => {
                 <li key={product.id} className='sticky-nav__inner-list__item'>
                   <h6
                     className={
-                      index == 0 && subIndex == 0
+                      index === 0 && subIndex === 0
                         ? 'sticky-nav__inner-list__item__product--selected'
                         : 'sticky-nav__inner-list__item__product'
                     }>
