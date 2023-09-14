@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useForm = (initialState) => {
   const [form, setForm] = useState(initialState);
-  const handleChange = (event) => {
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
     setForm({
-        ...form,
-        [event.target.name]: event.target.value
+      ...form,
+      [name]: value,
     });
   };
   return { form, handleChange };

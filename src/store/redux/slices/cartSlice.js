@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import toast from '../../../utils/toast/Toast';
 
 const initialState = {
+  restaurantId: '',
+  userEmail: localStorage.getItem('email'),
+  delivery_address: {},
   products: [],
   payment: 0,
-  userEmail: localStorage.getItem('email'),
-  restaurantId: '',
-  delivery_address: {},
   type: 'DELIVERY',
 };
 
