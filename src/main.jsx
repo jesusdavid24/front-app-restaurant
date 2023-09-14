@@ -12,11 +12,9 @@ mapboxgl.accessToken =
   'pk.eyJ1IjoiY3Jpc3RpYW5qczkzIiwiYSI6ImNsa292YXBvcjBhcDIzcmw5cThnOGl6MTMifQ.K0CoYwD-yvtbr2VDTFecXQ';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RestaurantsProvider>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </RestaurantsProvider>
-  </React.StrictMode>
+  <RestaurantsProvider>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </RestaurantsProvider>
 );

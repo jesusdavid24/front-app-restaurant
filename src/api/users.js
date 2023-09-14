@@ -2,13 +2,13 @@ import axios from 'axios';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-const config = {
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-};
+export const fetchUsers = async (tokenLS) => {
+  const config = {
+    headers:{
+      Authorization: `Bearer ${tokenLS}`
+    }
+  };
 
-export const fetchUsers = async () => {
   try {
     const { data } = await axios.get(`${URL}/users`, config);
     return data;

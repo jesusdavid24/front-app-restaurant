@@ -8,11 +8,11 @@ import { getRoles } from "../../api/roles";
 import './index.scss'
 
 const DashboardAdmin = () => {
-
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetchUsers().then((user) => {
+    const token = localStorage.getItem('token')
+    fetchUsers(token).then((user) => {
       setUsers(user);
     })
     .catch(error => {
