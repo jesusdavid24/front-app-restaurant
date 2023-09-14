@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 import { fetchReviewsByRestaurantId } from '../../api/reviews';
 import dayjs from 'dayjs';
 import './index.scss';
@@ -6,11 +7,21 @@ import './index.scss';
 const Reviews = ({ restaurant }) => {
   const [reviewsWithUser, setReviewsWithUser] = useState([]);
 
+  const { handleError } = useContext(RestaurantsContext);
+
   useEffect(() => {
     (async function fetchAll() {
-      const reviewsData = await fetchReviewsByRestaurantId(restaurant.id);
+      try {
+        const reviewsData = await fetchReviewsByRestaurantId(restaurant.id);
 
-      setReviewsWithUser(reviewsData);
+        if (typeof reviewsData === 'string') {
+          throw new Error(reviewsData);
+        }
+
+        setReviewsWithUser(reviewsData);
+      } catch (error) {
+        handleError(error.message);
+      }
     })();
   }, []);
 

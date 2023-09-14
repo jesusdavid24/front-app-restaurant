@@ -2,10 +2,10 @@ import { useContext } from 'react';
 import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 
 const ErrorElement = () => {
-  const { error } = useContext(RestaurantsContext);
+  const { error, handleError } = useContext(RestaurantsContext);
 
   const handleClick = () => {
-    window.location.reload();
+    handleError(false);
   };
 
   return (
