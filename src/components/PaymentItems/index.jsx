@@ -82,50 +82,21 @@ const Paymentitems = ({ removePaymentitem, payment }) => {
           </Accordion.Control>
           <Accordion.Panel>
             <form onSubmit={handleSubmit}>
-              <CardElement />
-              <button type="submit">Payment</button>
-            </form>
-            <div className="container">
-              <div className="container_nameCard">
-                <label htmlFor="nameCard">Name On Card</label>
-                <input type="text" name="nameCard" />
-                <label htmlFor="cardNumber">Card Number</label>
-                <div className="container_cardNumber">
-                  <input type="text" name="cardNumber" />
-                  <img
-                    className="container_img_tc_debit"
-                    src="/img/creditcards.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <br />
-              <div className="container-dates">
-                <div className="container-dates__confirm">
-                  <label htmlFor="month_label">Month</label>
-                  <input type="text" name="month_label" />
-                </div>
-                <div className="container-dates__confirm">
-                  <label htmlFor="year_label">Year</label>
-                  <input type="text" name="year_label" />
-                </div>
-                <div className="container-dates__confirm">
-                  <label htmlFor="pay_cvv">Cvv</label>
-                  <div className="container_cardNumber">
-                    <input type="text" name="pay_cvv" />
-                    <img
-                      className="container_img_tc_debit"
-                      src="/img/cvv.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <br />
+              <CardElement
+                className="carito"
+                options={{
+                  showIcon: true,
+                  style: {
+                    base: {
+                      fontSize: "16px",
+                    },
+                  },
+                }}
+              />
               <div className="container_buttonP">
-                <button>MAKE PAYMENT</button>
+                <button type="submit">MAKE PAYMENT</button>
               </div>
-            </div>
+            </form>
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item
