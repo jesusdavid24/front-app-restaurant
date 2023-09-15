@@ -5,7 +5,7 @@ import { selectCart, clearCart } from '../../store/redux/slices/cartSlice';
 import { useNavigate } from 'react-router-dom';
 import { Accordion } from '@mantine/core';
 import { createOrder } from '../../api/orders';
-import toast from '../../utils/toast/toast';
+import toast from '../../utils/toast/index';
 import './index.scss';
 
 const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
@@ -32,7 +32,6 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
   const handleClick = async () => {
     try {
       if (cart.delivery_products.length) {
-
         const order = await createOrder(cart);
 
         if (typeof order === 'string') {

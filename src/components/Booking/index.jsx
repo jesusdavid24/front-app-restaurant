@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectBooking,
   postBooking,
+  postUserEmail,
   postRestaurantId,
   postDate,
   clearBooking,
@@ -12,10 +13,10 @@ import { useForm } from '../../hooks/useForm';
 import { DateTimePicker } from '@mantine/dates';
 import { validateField } from '../../utils/validateField';
 import { createOrder } from '../../api/orders';
-import toast from '../../utils/toast/toast';
+import toast from '../../utils/toast/index';
 import './index.scss';
 
-const Booking = ({ restaurant, handleError }) => {
+const Booking = ({ restaurant }) => {
   const [errors, setErrors] = useState({
     booking_firstName: '',
     booking_lastName: '',
@@ -41,6 +42,9 @@ const Booking = ({ restaurant, handleError }) => {
   });
 
   useEffect(() => {
+    const email = localStorage.getItem('email');
+    dispatch(postUserEmail(email));
+
     dispatch(postRestaurantId(restaurant.id));
   }, []);
 
@@ -48,7 +52,7 @@ const Booking = ({ restaurant, handleError }) => {
     dispatch(postBooking(form));
   }, [form]);
 
-  const email = localStorage.getItem('email');
+  const token = localStorage.getItem('token');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -82,33 +86,29 @@ const Booking = ({ restaurant, handleError }) => {
         });
       }
 
-      if (email) {
-        const order = await createOrder(booking);
+      const order = await createOrder(booking, token);
 
-        if (typeof order === 'string') {
-          throw new Error(order);
-        }
-
-        toast.fire({
-          icon: 'success',
-          title: 'Order created',
-        });
-
-        resetForm();
-
-        setBookingDate(null);
-
-        dispatch(clearBooking());
-
-        navigate('/payment/status');
-      } else {
-        toast.fire({
-          icon: 'error',
-          title: 'You must log in to booking',
-        });
+      if (typeof order === 'string') {
+        throw new Error(order);
       }
+
+      toast.fire({
+        icon: 'success',
+        title: 'Order created',
+      });
+
+      resetForm();
+
+      setBookingDate(null);
+
+      dispatch(clearBooking());
+
+      navigate('/payment/status');
     } catch (error) {
-      handleError(error.message);
+      toast.fire({
+        icon: 'error',
+        title: error.message,
+      });
     }
   };
 

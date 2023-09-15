@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   restaurantId: '',
-  userEmail: localStorage.getItem('email'),
+  userEmail: '',
   booking_firstName: '',
   booking_lastName: '',
   booking_email: '',
@@ -25,6 +25,9 @@ export const bookingSlice = createSlice({
     postDate: (state, { payload }) => {
       state.booking_date = payload;
     },
+    postUserEmail: (state, { payload }) => {
+      state.userEmail = payload;
+    },
     postRestaurantId: (state, { payload }) => {
       state.restaurantId = payload;
     },
@@ -37,6 +40,11 @@ export const bookingSlice = createSlice({
 
 export const selectBooking = (state) => state.booking;
 
-export const { postBooking, postDate, postRestaurantId, clearBooking } =
-  bookingSlice.actions;
+export const {
+  postBooking,
+  postDate,
+  postUserEmail,
+  postRestaurantId,
+  clearBooking,
+} = bookingSlice.actions;
 export default bookingSlice.reducer;

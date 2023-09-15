@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import toast from '../../../utils/toast/toast';
-
+import toast from '../../../utils/toast/index';
 
 const initialState = {
   restaurantId: '',
