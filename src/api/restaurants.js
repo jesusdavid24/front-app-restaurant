@@ -12,7 +12,7 @@ export const fetchRestaurants = async (queryParams) => {
     return data;
   } catch(error) {
     console.log(error)
-    return error.message
+    return []
   };
 };
 

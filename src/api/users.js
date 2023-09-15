@@ -15,7 +15,7 @@ export const fetchUsers = async (tokenLS) => {
     return data;
   } catch(error) {
     console.log(error)
-    return error.message
+    return []
   };
 };
 
