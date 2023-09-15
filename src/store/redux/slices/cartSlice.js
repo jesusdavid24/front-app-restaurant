@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import toast from '../../../utils/toast';
+import toast from '../../../utils/toast/index';
 
 const initialState = {
-  products: [],
-  payment: 0,
-  userEmail: localStorage.getItem('email'),
   restaurantId: '',
+  userEmail: localStorage.getItem('email'),
   delivery_address: {},
+  delivery_products: [],
+  delivery_payment: 0,
   type: 'DELIVERY',
 };
 
@@ -22,14 +22,14 @@ export const cartSlice = createSlice({
         : restaurantId;
 
       if (state.restaurantId == restaurantId) {
-        state.products.push({
+        state.delivery_products.push({
           ...product,
           quantity: 1,
         });
 
         let total = 0;
 
-        state.products.forEach(
+        state.delivery_products.forEach(
           (product) => (total += product.price * product.quantity)
         );
 
@@ -50,7 +50,7 @@ export const cartSlice = createSlice({
     },
 
     updateProduct: (state, { payload }) => {
-      state.products.map((product) => {
+      state.delivery_products.map((product) => {
         product.id == payload.id
           ? {
               ...product,
@@ -59,19 +59,19 @@ export const cartSlice = createSlice({
           : product;
       });
 
-      state.products = state.products.filter(
+      state.delivery_products = state.delivery_products.filter(
         (product) => product.quantity !== 0
       );
 
       let total = 0;
 
-      state.products.forEach(
+      state.delivery_products.forEach(
         (product) => (total += product.price * product.quantity)
       );
 
-      state.payment = total;
+      state.delivery_payment = total;
 
-      if (!state.products.length) {
+      if (!state.delivery_products.length) {
         state.restaurantId = initialState.restaurantId;
       }
     },
@@ -88,8 +88,8 @@ export const cartSlice = createSlice({
 });
 
 export const selectCart = (state) => state.cart;
-export const selectProducts = (state) => state.cart.products;
-export const selectPayment = (state) => state.cart.payment;
+export const selectProducts = (state) => state.cart.delivery_products;
+export const selectPayment = (state) => state.cart.delivery_payment;
 
 export const {
   postProduct,

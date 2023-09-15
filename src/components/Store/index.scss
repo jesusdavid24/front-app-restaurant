@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .store {
   background-color: var(--primary-background);
@@ -29,7 +29,6 @@
     }
 
     @media (min-width: 1440px) {
-      align-items: flex-start;
       padding-left: 80px;
     }
   }
@@ -114,8 +113,10 @@
     }
 
     &__play-store {
-      @include store__buttons($background-color: var(--neutral-main-cards),
-        $color: var(--primary-accent));
+      @include store__buttons(
+        $background-color: var(--neutral-main-cards),
+        $color: var(--primary-accent)
+      );
     }
   }
 
@@ -125,7 +126,7 @@
 
     @media (min-width: 768px) {
       display: block;
-      background-image: url("/src/assets/img/store-image.jpg");
+      background-image: url('/src/assets/img/store-image.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
