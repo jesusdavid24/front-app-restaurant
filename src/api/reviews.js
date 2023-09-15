@@ -1,26 +1,23 @@
 import axios from 'axios';
-import errorHandler from '../utils/errorHandler';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const fetchReviews = async (_, res) => {
+export const fetchReviews = async () => {
   try {
     const { data } = await axios.get(`${URL}/reviews`);
+
     return data;
   } catch (error) {
-    return res.status(422).json({
-      error: [errorHandler(error), '[]'].join(' '),
-    });
+    return error.message;
   }
 };
 
-export const fetchReviewsByRestaurantId = async (id, res) => {
+export const fetchReviewsByRestaurantId = async (id) => {
   try {
     const { data } = await axios.get(`${URL}/reviews/restaurant/${id}`);
+
     return data;
   } catch (error) {
-    return res.status(422).json({
-      error: [errorHandler(error), '[]'].join(' '),
-    });
+    return error.message;
   }
 };

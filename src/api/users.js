@@ -1,16 +1,19 @@
 import axios from 'axios';
-import errorHandler from '../utils/errorHandler';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const fetchUsers = async () => {
+export const fetchUsers = async (tokenLS) => {
+  const config = {
+    headers:{
+      Authorization: `Bearer ${tokenLS}`
+    }
+  };
+
   try {
-    const { data } = await axios.get(`${URL}/users`);
+    const { data } = await axios.get(`${URL}/users`, config);
     return data;
   } catch (error) {
-    return res.status(422).json({
-      error: [errorHandler(error), '[]'].join(' '),
-    });
+    return error.message;
   }
 };
 
@@ -19,9 +22,7 @@ export const createUsers = async (form) => {
     const { data } = await axios.post(`${URL}/users`, form);
     return data;
   } catch (error) {
-    return res.status(422).json({
-      error: [errorHandler(error), '[]'].join(' '),
-    });
+    return error.message;
   }
 };
 
@@ -30,9 +31,7 @@ export const updateUsers = async (id) => {
     const { data } = await axios.put(`${URL}/users`, id);
     return data;
   } catch (error) {
-    return res.status(422).json({
-      error: [errorHandler(error), '[]'].join(' '),
-    });
+    return error.message;
   }
 };
 
@@ -41,8 +40,6 @@ export const deleteUsers = async (id) => {
     const { data } = await axios.delete(`${URL}/users`, id);
     return data;
   } catch (error) {
-    return res.status(422).json({
-      error: [errorHandler(error), '[]'].join(' '),
-    });
+    return error.message;
   }
 };

@@ -42,7 +42,7 @@
     cursor: pointer;
 
     &__logo {
-      width: 110px;
+      width: 90px;
       filter: invert(1);
     }
   }
@@ -129,18 +129,69 @@
       }
     }
 
-    &__profile,
-    &__settings {
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-      border: none;
+    &__profile {
+
+      &__button {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        border: none;
+        background-color: var(--primary-background);
+        border-radius: 5px;
+      }
     }
 
-    &__profile,
-    &__settings {
-      background-color: var(--primary-background);
-      border-radius: 5px;
+    &__setting {
+
+      button {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        border: none;
+        background-color: var(--primary-background);
+        border-radius: 5px;
+      }
+    }
+
+    &__profile {
+      padding: 2px 5px;
+
+      &__login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        &__logo {
+          padding: 0 0 0 10px;
+        }
+
+        &__person {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 8rem;
+          padding: 5px;
+
+          h6{
+            text-transform: capitalize;
+            font-size: 14px;
+          }
+
+          a {
+            font-style: oblique;
+            font-size: 11px;
+            cursor: pointer;
+            color: var(--neutral-silver-text);
+
+            &:hover {
+              color: black;
+              font-style: normal;
+            }
+          }
+        }
+
+      }
     }
 
     &__settings {
@@ -156,6 +207,21 @@
       border-radius: 50%;
       object-fit: cover;
       cursor: pointer;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .header {
+    display: flex;
+    gap: 50px;
+    padding: 8px 20px;
+
+
+    &__buttons-container {
+
+      &__settings {
+        display: none;
+      }
     }
   }
 }

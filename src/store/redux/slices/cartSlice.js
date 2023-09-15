@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import toast from '../../../utils/toast/toast';
 
+
 const initialState = {
   restaurantId: '',
   userEmail: localStorage.getItem('email'),
@@ -33,7 +34,13 @@ export const cartSlice = createSlice({
           (product) => (total += product.price * product.quantity)
         );
 
-        state.delivery_payment = total;
+        state.payment = total;
+
+        toast.fire({
+          icon: 'success',
+          title: 'Product added',
+        });
+
         return state;
       } else {
         toast.fire({

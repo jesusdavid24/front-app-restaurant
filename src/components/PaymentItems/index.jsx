@@ -32,6 +32,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
   const handleClick = async () => {
     try {
       if (cart.delivery_products.length) {
+
         const order = await createOrder(cart);
 
         if (typeof order === 'string') {

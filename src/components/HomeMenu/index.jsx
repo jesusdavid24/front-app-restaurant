@@ -19,7 +19,9 @@ const HomeMenu = ({ onMenuOpen, limit }) => {
         chevron={<i className='bi-plus home-menu__accordion__chevron' />}
         className='home-menu__accordion'>
         <Accordion.Item value='home' className='home-menu__accordion__item'>
-          <Accordion.Control className='home-menu__accordion__control'>
+          <Accordion.Control
+            chevron=' '
+            className='home-menu__accordion__control'>
             <Link
               to={'/'}
               className='home-menu__accordion__nav'
@@ -32,7 +34,9 @@ const HomeMenu = ({ onMenuOpen, limit }) => {
         <Accordion.Item
           value='restaurant'
           className='home-menu__accordion__item'>
-          <Accordion.Control className='home-menu__accordion__control'>
+          <Accordion.Control
+            className='home-menu__accordion__control'
+            chevron=' '>
             <Link
               to={`/restaurants?filter=all&page=1&limit=${limit}`}
               className='home-menu__accordion__nav'
