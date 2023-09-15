@@ -20,13 +20,12 @@ const FoodCarousel = ({ restaurants, limit }) => {
               <img src={item.image} className='carousel__restaurant__image' />
               <h2 className='carousel__restaurant__cuisine'>{item.cuisine}</h2>
               <h2 className='carousel__restaurant__number'>
-                {
+                {restaurants &&
                   restaurants.filter((restaurant) =>
                     restaurant.cuisines.includes(item.cuisine)
                       ? restaurant
                       : null
-                  ).length
-                }{' '}
+                  ).length}{' '}
                 Restaurants
               </h2>
             </div>

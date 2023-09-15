@@ -40,8 +40,7 @@ const CardView = () => {
           <div className='checkout__info'>
             <div className='checkout__info__title'>
               <h6 className='checkout__info__name'>
-                {localStorage.getItem('firstName')}{' '}
-                {localStorage.getItem('lasttName')}
+                {localStorage.getItem('fullName')}
               </h6>
               <span className='checkout__info__span'>{card.place}</span>
             </div>

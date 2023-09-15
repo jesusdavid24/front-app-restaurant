@@ -15,7 +15,7 @@ const RestaurantSlider = ({ restaurant }) => {
         <img src={restaurant.logo} className='restaurant-slider__box__img' />
         <h2 className='restaurant-slider__box__name'>{restaurant.title}</h2>
         <h3 className='restaurant-slider__box__cuisine'>
-          {restaurant.cuisines.join(', ')}
+          {restaurant && restaurant.cuisines.join(', ')}
         </h3>
         <div className='restaurant-slider__box__inner-box'>
           <h3 className='restaurant-slider__box__rating'>

@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import CardsUsers from "../CardsUsers";
-import FormUsers from "../FormUsers";
-import TableUsers from "../TableUsers";
-import { fetchUsers } from "../../api/users";
-import { getRoles } from "../../api/roles";
-import './index.scss'
+import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import CardsUsers from '../CardsUsers';
+import FormUsers from '../FormUsers';
+import TableUsers from '../TableUsers';
+import { fetchUsers } from '../../api/users';
+import { getRoles } from '../../api/roles';
+import './index.scss';
 
 const DashboardAdmin = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    fetchUsers(token).then((user) => {
-      setUsers(user);
-    })
-    .catch(error => {
-      console.log(error)
-    });
+    const token = localStorage.getItem('token');
+    fetchUsers(token)
+      .then((user) => {
+        setUsers(user);
+      })
+      .catch((error) => {
+        return error.messagw;
+      });
   }, []);
 
   const { roles } = useLoaderData();
@@ -32,36 +33,39 @@ const DashboardAdmin = () => {
     setShowForm(false);
   };
 
-
   return (
-    <div className="admin">
-      <div className="admin__container">
-        <div className="admin__container__card">
-          <div className="admin__container__card__item">
+    <div className='admin'>
+      <div className='admin__container'>
+        <div className='admin__container__card'>
+          <div className='admin__container__card__item'>
             <CardsUsers />
           </div>
-          <div className="admin__container__card__item">
+          <div className='admin__container__card__item'>
             <CardsUsers />
           </div>
-          <div className="admin__container__card__item">
+          <div className='admin__container__card__item'>
             <CardsUsers />
           </div>
         </div>
-        <div className="admin__container__form">
-          <div className="admin__container__form__button">
-            <button type="button" onClick={handleShowForm}>Create Users</button>
+        <div className='admin__container__form'>
+          <div className='admin__container__form__button'>
+            <button type='button' onClick={handleShowForm}>
+              Create Users
+            </button>
           </div>
-          <div className="admin__container__form__forms">
-            {showForm && (<FormUsers roles={roles} handleCloseForm={handleCloseForm} />)}
+          <div className='admin__container__form__forms'>
+            {showForm && (
+              <FormUsers roles={roles} handleCloseForm={handleCloseForm} />
+            )}
           </div>
         </div>
-        <div className="admin__container__table">
+        <div className='admin__container__table'>
           <TableUsers users={users} />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default DashboardAdmin;
 
@@ -69,5 +73,3 @@ export const loaderDashboardAdmin = async () => {
   const data = await getRoles();
   return { roles: data };
 };
-
-
