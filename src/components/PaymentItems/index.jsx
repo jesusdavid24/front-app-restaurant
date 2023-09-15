@@ -5,15 +5,12 @@ import { Link } from "react-router-dom";
 import { Accordion } from "@mantine/core";
 import { createOrder } from "../../api/orders";
 import toast from "../../utils/toast";
-import {
-  CardElement,
-  useElements,
-  useStripe,
-  CardNumberElement,
-} from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import axios from "axios";
+import { postCheckout } from "../../api/checkout";
 import "./index.scss";
 
-const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
+const Paymentitems = ({ removePaymentitem, payment }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const [selectedOption, setSelectOption] = useState(null);
@@ -21,14 +18,34 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const transactionErrors = {
+    "sin fondos": () => alert("sin fondos"),
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: "card",
+        card: elements.getElement(CardElement),
+      });
 
-    const paymentMethod = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardNumberElement),
-    });
-    console.log(paymentMethod);
+      if (error) {
+        console.log(error);
+        return;
+      }
+
+      postCheckout({
+        paymentMethod,
+        amount: Math.floor(payment * 100),
+      });
+
+      alert("thanks for your payment");
+    } catch ({ response }) {
+      transactionErrors[response.data.message]();
+    } finally {
+      elements.getElement(CardElement).clear();
+    }
   };
 
   const handleRemoveAddress = (index) => {
@@ -85,53 +102,54 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
           </Accordion.Control>
           <Accordion.Panel>
             <form onSubmit={handleSubmit}>
-              <div className="container">
-                <div className="container_nameCard">
-                  <label htmlFor="nameCard">Name On Card</label>
-                  <input type="text" name="nameCard" />
-                  <label htmlFor="cardNumber">Card Number</label>
+              <CardElement />
+              <button type="submit">Payment</button>
+            </form>
+            <div className="container">
+              <div className="container_nameCard">
+                <label htmlFor="nameCard">Name On Card</label>
+                <input type="text" name="nameCard" />
+                <label htmlFor="cardNumber">Card Number</label>
+                <div className="container_cardNumber">
+                  <input type="text" name="cardNumber" />
+                  <img
+                    className="container_img_tc_debit"
+                    src="/img/creditcards.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <br />
+              <div className="container-dates">
+                <div className="container-dates__confirm">
+                  <label htmlFor="month_label">Month</label>
+                  <input type="text" name="month_label" />
+                </div>
+                <div className="container-dates__confirm">
+                  <label htmlFor="year_label">Year</label>
+                  <input type="text" name="year_label" />
+                </div>
+                <div className="container-dates__confirm">
+                  <label htmlFor="pay_cvv">Cvv</label>
                   <div className="container_cardNumber">
-                    <CardNumberElement className="carito" Name="cardNumber" />
-                    {/* <input type="text" name="cardNumber" /> */}
+                    <input type="text" name="pay_cvv" />
                     <img
                       className="container_img_tc_debit"
-                      src="/img/creditcards.png"
+                      src="/img/cvv.png"
                       alt=""
                     />
                   </div>
                 </div>
-                <br />
-                <div className="container-dates">
-                  <div className="container-dates__confirm">
-                    <label htmlFor="month_label">Month</label>
-                    <input type="text" name="month_label" />
-                  </div>
-                  <div className="container-dates__confirm">
-                    <label htmlFor="year_label">Year</label>
-                    <input type="text" name="year_label" />
-                  </div>
-                  <div className="container-dates__confirm">
-                    <label htmlFor="pay_cvv">Cvv</label>
-                    <div className="container_cardNumber">
-                      <input type="text" name="pay_cvv" />
-                      <img
-                        className="container_img_tc_debit"
-                        src="/img/cvv.png"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <br />
-                <div className="container_buttonP">
-                  <Link to={cart.products.length ? "/payment/status" : null}>
-                    <button onClick={handleClick} type="submit">
-                      MAKE PAYMENT
-                    </button>
-                  </Link>
-                </div>
               </div>
-            </form>
+              <br />
+              <div className="container_buttonP">
+                <Link to={cart.products.length ? "/payment/status" : null}>
+                  <button onClick={handleClick} type="submit">
+                    MAKE PAYMENT
+                  </button>
+                </Link>
+              </div>
+            </div>
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item
