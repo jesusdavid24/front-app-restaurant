@@ -12,9 +12,7 @@ import { selectPayment } from "../../store/redux/slices/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import "./index.scss";
 
-const stripePromise = loadStripe(
-  "pk_test_51NiN00Isblv2sRW8edxjWByXYrbDZG86nyVa4KDjJCMLZi5QaOjiqlOb02jafd0jRDWI3OtrQmr3XCS94ILcFDLJ00y4dMEfMb"
-);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_SECRET_KEY);
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -37,7 +35,6 @@ const Checkout = () => {
     dispatch(clearCart());
     navigate(-1);
   };
-  console.log(payment);
   return (
     <div className="summary">
       <div className="summary__container-immg">
