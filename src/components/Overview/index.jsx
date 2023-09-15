@@ -12,6 +12,7 @@ const Overview = ({ restaurant }) => {
     address,
     services,
   } = restaurant;
+
   return (
     <div className='overview'>
       <div className='overview__col-1'>

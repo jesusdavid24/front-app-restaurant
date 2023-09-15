@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import toast from '../../../utils/toast/Toast';
 
 const initialState = {
   restaurantId: '',
   userEmail: localStorage.getItem('email'),
-  firstName: '',
-  lastName: '',
-  bookingEmail: '',
-  phone: '',
-  date: '',
-  persons: '',
+  booking_firstName: '',
+  booking_lastName: '',
+  booking_email: '',
+  booking_phone: '',
+  booking_date: '',
+  booking_persons: '',
+  delivery_products: [{}],
   type: 'BOOKING',
 };
 
@@ -19,14 +19,11 @@ export const bookingSlice = createSlice({
   reducers: {
     postBooking: (state, { payload }) => {
       state = { ...state, ...payload };
-      //   toast.fire({
-      //     icon: 'success',
-      //     title: 'Booking has been generated successfully',
-      //   });
+
       return state;
     },
     postDate: (state, { payload }) => {
-      state.date = payload;
+      state.booking_date = payload;
     },
     postRestaurantId: (state, { payload }) => {
       state.restaurantId = payload;

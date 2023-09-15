@@ -50,6 +50,10 @@
         }
       }
 
+      &__link {
+        width: 22%;
+      }
+
       &__dowload {
         display: flex;
         justify-content: center;
@@ -60,7 +64,6 @@
           padding: 5px;
           color: #fff;
           border: none;
-          width: 22%;
           font-weight: bolder;
           font-size: 13px;
           cursor: pointer;
@@ -71,12 +74,10 @@
 }
 
 @media (max-width: 1024px) {
-
   .payment {
     padding: 6%;
 
     &__container {
-
       &__img {
         img {
           width: 265px;

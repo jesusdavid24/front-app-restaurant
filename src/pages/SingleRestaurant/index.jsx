@@ -18,7 +18,7 @@ import './index.scss';
 const SingleRestaurant = () => {
   const dispatch = useDispatch();
 
-  const { restaurant } = useLoaderData();
+  const { restaurant, handleError } = useLoaderData();
   const { longitude, latitude, menu } = restaurant;
   const coordinates = [longitude, latitude];
 
@@ -59,7 +59,7 @@ const SingleRestaurant = () => {
             <div
               id='booking'
               className='single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive'>
-              <Booking restaurant={restaurant} />
+              <Booking restaurant={restaurant} handleError={handleError} />
             </div>
             <div
               id='reviews'

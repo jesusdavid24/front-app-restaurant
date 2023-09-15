@@ -8,8 +8,14 @@ export const useForm = (initialState) => {
 
     setForm({
       ...form,
-      [name]: value,
+      [name]:
+        name === 'booking_persons' ? (value ? parseInt(value) : '') : value,
     });
   };
-  return { form, handleChange };
+
+  const resetForm = () => {
+    setForm(initialState);
+  };
+
+  return { form, handleChange, resetForm };
 };
