@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -48,7 +48,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: <PrivateRoute> <DashboardAdmin /> </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <DashboardAdmin />
+          </PrivateRoute>
+        ),
         loader: loaderDashboardAdmin,
       },
       {

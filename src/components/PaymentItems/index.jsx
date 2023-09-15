@@ -123,11 +123,7 @@ const Paymentitems = ({ removePaymentitem, payment }) => {
               </div>
               <br />
               <div className="container_buttonP">
-                <Link to={cart.products.length ? "/payment/status" : null}>
-                  <button onClick={handleClick} type="submit">
-                    MAKE PAYMENT
-                  </button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -190,9 +186,7 @@ const Paymentitems = ({ removePaymentitem, payment }) => {
                 </div>
               </div>
               <div className="container_buttonP">
-                <Link to={cart.products.length ? "/payment/status" : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -263,9 +257,7 @@ const Paymentitems = ({ removePaymentitem, payment }) => {
                 />
               </div>
               <div className="container_buttonP">
-                <Link to={cart.products.length ? "/payment/status" : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -325,9 +317,7 @@ const Paymentitems = ({ removePaymentitem, payment }) => {
               </div>
               <br />
               <div className="container_payments">
-                <Link to={cart.products.length ? "/payment/status" : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
