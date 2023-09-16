@@ -8,7 +8,7 @@ import bookingReducer from './slices/bookingSlice';
 const store = configureStore({
   reducer: {
     cart: cartReducer,
-    login: loginReducer
+    login: loginReducer,
     booking: bookingReducer,
   },
 });
