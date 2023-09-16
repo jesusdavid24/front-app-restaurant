@@ -3,23 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 import CardsUsers from '../CardsUsers';
 import FormUsers from '../FormUsers';
 import TableUsers from '../TableUsers';
-import { fetchUsers } from '../../api/users';
 import { getRoles } from '../../api/roles';
 import './index.scss';
 
 const DashboardAdmin = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    fetchUsers(token)
-      .then((user) => {
-        setUsers(user);
-      })
-      .catch((error) => {
-        return error.messagw;
-      });
-  }, []);
+  // const [users, setUsers] = useState([]);
 
   const { roles } = useLoaderData();
 
@@ -60,7 +48,7 @@ const DashboardAdmin = () => {
           </div>
         </div>
         <div className='admin__container__table'>
-          <TableUsers users={users} />
+          <TableUsers />
         </div>
       </div>
     </div>

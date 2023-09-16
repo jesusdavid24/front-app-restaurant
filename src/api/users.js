@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const fetchUsers = async (tokenLS) => {
+export const fetchUsers = async () => {
   const config = {
     headers:{
-      Authorization: `Bearer ${tokenLS}`
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   };
 
