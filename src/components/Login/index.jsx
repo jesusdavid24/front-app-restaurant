@@ -1,12 +1,13 @@
 import Google from '../shared/svg/Google';
 import Twitter from '../shared/svg/Twitter';
 import GitHub from '../shared/svg/Github';
+import { useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin, authLogin } from '../../store/redux/slices/loginSlice';
 import { useForm } from "../../hooks/useForm"
+import toast from '../../utils/toast';
 import './index.scss';
-import { useEffect } from 'react';
 
 const Login = () => {
 
@@ -19,6 +20,10 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(setLogin(form))
+    toast.fire({
+      icon: "success",
+      title: "session started successfully",
+    });
   };
 
   useEffect(() =>{
