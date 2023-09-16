@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { RestaurantsContext } from '../../store/context/RestaurantsContext';
+import img from '/img/not-found.png';
 
 const ErrorElement = () => {
-  const { error } = useContext(RestaurantsContext);
+  const { error, handleError } = useContext(RestaurantsContext);
 
   const handleClick = () => {
-    window.location.reload();
+    handleError(false);
   };
 
   return (
@@ -13,10 +14,7 @@ const ErrorElement = () => {
       <div className='not-found'>
         <div className='not-found__container'>
           <div className='not-found__container__img-box'>
-            <img
-              src='img/not-found.png'
-              className='not-found__container__image'
-            />
+            <img src={img} className='not-found__container__image' />
           </div>
           <div className='not-found__container__content'>
             <h1 className='not-found__container__content__title'>

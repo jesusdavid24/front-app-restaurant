@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 import { selectCart, clearCart } from '../../store/redux/slices/cartSlice';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Accordion } from '@mantine/core';
 import { createOrder } from '../../api/orders';
-import toast from '../../utils/toast';
+import toast from '../../utils/toast/index';
 import './index.scss';
 
 const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
+  const navigate = useNavigate();
+  const { handleError } = useContext(RestaurantsContext);
+
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const [selectedOption, setSelectOption] = useState(null);
@@ -26,25 +30,30 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
   };
 
   const handleClick = async () => {
-    if (cart.products.length) {
-      const order = await createOrder(cart);
-      if (order) {
+    try {
+      if (cart.delivery_products.length) {
+        const order = await createOrder(cart);
+
+        if (typeof order === 'string') {
+          throw new Error(order);
+        }
+
         toast.fire({
           icon: 'success',
           title: 'Order created',
         });
+
         dispatch(clearCart());
+
+        navigate('/payment/status');
       } else {
         toast.fire({
           icon: 'error',
-          title: 'Something went wrong',
+          title: 'There are not products',
         });
       }
-    } else {
-      toast.fire({
-        icon: 'error',
-        title: 'There are not products',
-      });
+    } catch (error) {
+      handleError(error.message);
     }
   };
 
@@ -108,9 +117,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
               <br />
               <div className='container_buttonP'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button onClick={handleClick}>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -172,9 +179,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                 </div>
               </div>
               <div className='container_buttonP'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button onClick={handleClick}>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -244,9 +249,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                 />
               </div>
               <div className='container_buttonP'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button onClick={handleClick}>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -306,9 +309,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
               <br />
               <div className='container_payments'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button onClick={handleClick}>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>

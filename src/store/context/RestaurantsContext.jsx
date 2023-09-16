@@ -25,6 +25,11 @@ export const RestaurantsProvider = ({ children }) => {
     (async function getRestaurants() {
       try {
         const response = await fetchRestaurants(queryParams);
+
+        if (typeof response === 'string') {
+          throw new Error(response);
+        }
+
         setRestaurants(response.data);
         setRestaurantsLength(response.length);
         setAllRestaurants(response.allRestaurants);
@@ -61,6 +66,10 @@ export const RestaurantsProvider = ({ children }) => {
     }
   };
 
+  const handleError = (error) => {
+    setError(error);
+  };
+
   return (
     <RestaurantsContext.Provider
       value={{
@@ -71,6 +80,7 @@ export const RestaurantsProvider = ({ children }) => {
         queryParamsHandler,
         limit,
         error,
+        handleError,
       }}>
       {children}
     </RestaurantsContext.Provider>

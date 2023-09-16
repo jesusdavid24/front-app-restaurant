@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
@@ -10,7 +10,6 @@ const config = {
 
 export const login = async ({email, password}) => {
   try {
-
     const { data } = await axios.post(`${URL}/auth/local/login`,
     { email, password}, config)
 
@@ -26,6 +25,3 @@ export const login = async ({email, password}) => {
     throw new Error('Ocurrio un error')
   };
 };
-
-
-
