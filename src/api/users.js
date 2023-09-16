@@ -12,9 +12,11 @@ export const fetchUsers = async (tokenLS) => {
   try {
     const { data } = await axios.get(`${URL}/users`, config);
     return data;
-  } catch (error) {
-    return error.message;
-  }
+  } catch(error) {
+    console.log(error)
+    return []
+  };
+
 };
 
 export const createUsers = async (form) => {

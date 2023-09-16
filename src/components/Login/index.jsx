@@ -1,37 +1,44 @@
 import Google from '../shared/svg/Google';
 import Twitter from '../shared/svg/Twitter';
 import GitHub from '../shared/svg/Github';
+import { useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin, authLogin } from '../../store/redux/slices/loginSlice';
 import { useForm } from "../../hooks/useForm"
-import { login } from '../../api/login';
+import toast from '../../utils/toast';
 import './index.scss';
-
 
 const Login = () => {
 
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const { data, error, status } = useSelector(authLogin);
   const { form, handleChange } = useForm();
 
-  const handleSubmit = async (event) => {
-
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const data = await login(form);
+    dispatch(setLogin(form))
+    toast.fire({
+      icon: "success",
+      title: "session started successfully",
+    });
+  };
 
-    localStorage.setItem('token', data.token)
-    localStorage.setItem('fullName', data.newUser.fullName)
-    localStorage.setItem('email', data.newUser.email)
-
-    const role = data.newUser.role.name
-
-    if( role  === 'ADMIN') {
+  useEffect(() =>{
+    if( data?.role?.name === 'ADMIN') {
       navigate("/admin");
     };
 
-    if( role === 'CLIENT') {
+    if( data?.role?.name === 'CLIENT') {
       navigate("/");
     };
-  };
+  }, [data])
+
+  if(status === 'loading') return  <div>Loading...</div>
+
+  if (error) return <div>Error: {error}</div>
 
   return (
     <div className="login">

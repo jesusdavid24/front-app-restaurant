@@ -9,11 +9,12 @@ export const fetchRestaurants = async (queryParams) => {
 
   try {
     const { data } = await axios.get(`${URL}/restaurants`, { params });
-
     return data;
-  } catch (error) {
-    return error.message;
-  }
+  } catch(error) {
+    console.log(error)
+    return []
+  };
+
 };
 
 export const fetchRestaurantById = async (id) => {
