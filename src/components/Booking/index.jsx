@@ -30,7 +30,9 @@ const Booking = ({ restaurant }) => {
   const dispatch = useDispatch();
 
   const booking = useSelector(selectBooking);
+  
   const { token, email } = useSelector(authLogin);
+
 
   const { form, handleChange, resetForm } = useForm({
     booking_firstName: '',
