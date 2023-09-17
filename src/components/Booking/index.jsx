@@ -30,7 +30,9 @@ const Booking = ({ restaurant }) => {
   const dispatch = useDispatch();
 
   const booking = useSelector(selectBooking);
-  const { email } = useSelector(authLogin);
+  
+  const { token, email } = useSelector(authLogin);
+
 
   const { form, handleChange, resetForm } = useForm({
     booking_firstName: '',
@@ -49,8 +51,6 @@ const Booking = ({ restaurant }) => {
   useEffect(() => {
     dispatch(postBooking(form));
   }, [form]);
-
-  const token = localStorage.getItem('token');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

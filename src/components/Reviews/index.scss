@@ -1,42 +1,147 @@
-.restaurant-reviews {
+.reviews {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 15px;
-  background-color: var(--neutral-main-cards);
-  box-shadow: 0 2px 4px 0 #dedede;
+  gap: 20px;
 
-  @media (min-width: 576px) {
-    padding: 30px;
-  }
-
-  &__review {
+  &__restaurant-reviews {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding-top: 15px;
-    border-top: 1px solid var(--primary-background);
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--neutral-main-cards);
+    box-shadow: 0 2px 4px 0 #dedede;
 
-    &:first-child {
-      padding-top: 0px;
-      border-top: none;
+    @media (min-width: 576px) {
+      padding: 30px;
     }
 
-    &__rating {
+    &__review {
       display: flex;
       flex-direction: column;
       gap: 5px;
-    }
+      padding-top: 15px;
+      border-top: 1px solid var(--primary-background);
 
-    &__star {
+      &:first-child {
+        padding-top: 0px;
+        border-top: none;
+      }
+
+      &__rating {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      &__star {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      &__author {
+        font-weight: 400;
+        color: var(--neutral-silver-text);
+      }
+    }
+  }
+
+  &__create {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--neutral-main-cards);
+    box-shadow: 0 2px 4px 0 #dedede;
+
+    &__star-box {
       display: flex;
       flex-direction: row;
-      gap: 8px;
+      gap: 5px;
+
+      &__star {
+        width: 20px;
+        cursor: pointer;
+
+        &:hover {
+          content: url('/icons/star-fill.png');
+        }
+
+        &::before {
+          content: url('/icons/star-fill.png');
+          position: absolute;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        &:hover::before,
+        &:hover ~ &::before {
+          content: url('/icons/star-fill.png');
+          opacity: 1;
+        }
+      }
     }
 
-    &__author {
-      font-weight: 400;
-      color: var(--neutral-silver-text);
+    &__input-box {
+      display: flex;
+      flex-direction: column;
+
+      &__label {
+        font-weight: 700;
+      }
+
+      &__input {
+        padding: 6px 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+
+        &:focus {
+          outline-color: var(--primary-accent);
+        }
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+
+        &--textarea {
+          resize: none;
+
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: #ffffff;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #bebaba;
+            border-radius: 10px;
+          }
+        }
+      }
     }
+
+    &__submit {
+      width: fit-content;
+      align-self: flex-end;
+      font-weight: 700;
+      color: var(--neutral-main-cards);
+      padding: 6px 12px;
+      border: none;
+      background-color: var(--primary-accent);
+      cursor: pointer;
+
+      @media (min-width: 576px) {
+        font-size: 17px;
+        padding: 8px 20px;
+      }
+    }
+  }
+
+  &__rating {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 }

@@ -21,3 +21,21 @@ export const fetchReviewsByRestaurantId = async (id) => {
     return error.message;
   }
 };
+
+export const createReview = async (review, token) => {
+  try {
+    if (!token) {
+      throw new Error('Unauthorized! You have to log in first.');
+    }
+
+    const { data } = await axios.post(`${URL}/reviews`, review, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+};
