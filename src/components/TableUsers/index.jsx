@@ -1,19 +1,20 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers, selectedUsers } from '../../store/redux/slices/usersSlice'
+import Loader  from '../Loader'
+import { getUsers, selectUsers } from '../../store/redux/slices/usersSlice'
 import './index.scss'
 
-const TableUsers = () => {
+const TableUsers = ({ onEditUser }) => {
 
   const dispatch = useDispatch();
-  const { users, error, status } = useSelector(selectedUsers)
-  console.log(status)
+
+  const { users, error, status } = useSelector(selectUsers)
 
   useEffect(() => {
     dispatch(getUsers())
   }, []);
 
-   if(status === 'loading') return  <div>Loading...</div>
+  if(status === 'loading') return  <div><Loader /></div>
 
   if(error) return <div>Error: {error}</div>
 
@@ -40,7 +41,7 @@ const TableUsers = () => {
               <td>{capitalizeText(`${user.isActive}`)}</td>
               <td>{capitalizeText(`${user.role.name}`)}</td>
               <td>
-                <button>Edit</button>
+                <button onClick={() => onEditUser(user.id)}>Edit</button>
                 <button>Delete</button>
               </td>
             </tr>

@@ -26,7 +26,7 @@ const Login = () => {
     });
   };
 
-  useEffect(() =>{
+  useEffect(() => {
     if( data?.role?.name === 'ADMIN') {
       navigate("/admin");
     };

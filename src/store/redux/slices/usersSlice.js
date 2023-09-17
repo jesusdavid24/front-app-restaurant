@@ -9,8 +9,8 @@ import
 
 const initialState = {
   users: [],
-  // data: {},
-  // updateData: {},
+  data: {},
+  updateData: {},
   // deleteUsers: {},
   error: null,
   status: 'idle'
@@ -24,21 +24,21 @@ export const getUsers = createAsyncThunk(
   }
 );
 
-// export const postUsers = createAsyncThunk(
-//   'user/postUsers',
-//   async(form) => {
-//     const data = await createUsers(form);
-//     return data;
-//   }
-// );
+export const postUsers = createAsyncThunk(
+  'user/postUsers',
+  async(form) => {
+    const data = await createUsers(form);
+    return data;
+  }
+);
 
-// export const updateUsers = createAsyncThunk(
-//   'user/updateUsers',
-//   async(id) => {
-//     const updateData = await updateUsers(id);
-//     return updateData;
-//   }
-// );
+export const updateUser = createAsyncThunk(
+  'user/updateUsers',
+  async({id, user}) => {
+    const updateData = await updateUsers(id, user);
+    return updateData;
+  }
+);
 
 // export const deleteUsers = createAsyncThunk(
 //   'user/deleteUsers',
@@ -64,9 +64,33 @@ const usersSlice = createSlice({
         state.status = 'failed',
         state.error = error.message
       })
+      .addCase(postUsers.pending, (state) => {
+        state.status = 'loading'
+      })
+      .addCase(postUsers.fulfilled, (state, { payload }) => {
+        state.status = 'idle',
+        state.data = payload
+      })
+      .addCase(postUsers.rejected, (state, { error }) => {
+        state.status = 'failed',
+        state.error = error.message
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.status = 'loading'
+      })
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
+        state.status = 'idle',
+        state.updateData = payload
+      })
+      .addCase(updateUser.rejected, (state, { error }) => {
+        state.status = 'failed',
+        state.error = error.message
+      })
   }
 });
 
-export const selectedUsers = state => state.users;
+export const selectUsers = state => state.users;
+export const selectPostUsers = state => state.users;
+export const selectUpdateUsers = state => state.users;
 
 export default usersSlice.reducer;

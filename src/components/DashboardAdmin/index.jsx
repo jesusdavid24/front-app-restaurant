@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CardsUsers from '../CardsUsers';
 import FormUsers from '../FormUsers';
 import TableUsers from '../TableUsers';
+import { useDispatch } from 'react-redux';
 import { getRoles } from '../../api/roles';
 import './index.scss';
 
 const DashboardAdmin = () => {
-  // const [users, setUsers] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const [selectedUserId, setSelectedEditUserId] = useState();
 
   const { roles } = useLoaderData();
 
@@ -20,6 +24,12 @@ const DashboardAdmin = () => {
   const handleCloseForm = () => {
     setShowForm(false);
   };
+
+  const handleEditUser = (id) => {
+    setSelectedEditUserId(id)
+    setShowForm(true)
+  };
+
 
   return (
     <div className='admin'>
@@ -43,12 +53,16 @@ const DashboardAdmin = () => {
           </div>
           <div className='admin__container__form__forms'>
             {showForm && (
-              <FormUsers roles={roles} handleCloseForm={handleCloseForm} />
+              <FormUsers
+                roles={roles}
+                handleCloseForm={handleCloseForm}
+                selectedUserId={selectedUserId}
+              />
             )}
           </div>
         </div>
         <div className='admin__container__table'>
-          <TableUsers />
+          <TableUsers onEditUser={handleEditUser}  />
         </div>
       </div>
     </div>
