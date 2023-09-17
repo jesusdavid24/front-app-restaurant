@@ -33,7 +33,7 @@ export const cartSlice = createSlice({
           (product) => (total += product.price * product.quantity)
         );
 
-        state.payment = total;
+        state.delivery_payment = total;
 
         toast.fire({
           icon: 'success',
@@ -48,7 +48,6 @@ export const cartSlice = createSlice({
         });
       }
     },
-
     updateProduct: (state, { payload }) => {
       state.delivery_products.map((product) => {
         product.id == payload.id
@@ -75,14 +74,15 @@ export const cartSlice = createSlice({
         state.restaurantId = initialState.restaurantId;
       }
     },
-
+    updateAddress: (state, { payload }) => {
+      state.delivery_address = payload;
+    },
+    postUserEmail: (state, { payload }) => {
+      state.userEmail = payload;
+    },
     clearCart: (state) => {
       state = initialState;
       return state;
-    },
-
-    updateAddress: (state, { payload }) => {
-      state.delivery_address = payload;
     },
   },
 });
@@ -95,8 +95,9 @@ export const {
   postProduct,
   updateProduct,
   deleteProduct,
-  clearCart,
   updateAddress,
+  postUserEmail,
+  clearCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

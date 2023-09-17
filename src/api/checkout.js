@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios from 'axios';
+import { errorHandler } from '../utils/errorHandler';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
@@ -7,6 +8,7 @@ export const postCheckout = async (form) => {
     const { data } = await axios.post(`${URL}/checkout`, form);
     return data;
   } catch (error) {
-    return error.message;
+    const message = errorHandler(error);
+    return message;
   }
 };
