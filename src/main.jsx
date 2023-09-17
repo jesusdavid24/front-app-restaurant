@@ -8,8 +8,7 @@ import { RestaurantsProvider } from '../src/store/context/RestaurantsContext.jsx
 import mapboxgl from 'mapbox-gl';
 import './index.scss';
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiY3Jpc3RpYW5qczkzIiwiYSI6ImNsa292YXBvcjBhcDIzcmw5cThnOGl6MTMifQ.K0CoYwD-yvtbr2VDTFecXQ';
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>

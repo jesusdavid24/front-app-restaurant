@@ -90,7 +90,6 @@
   }
 
   &__buttons-container {
-    width: 80px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -130,7 +129,6 @@
     }
 
     &__profile {
-
       &__button {
         width: 35px;
         height: 35px;
@@ -142,7 +140,6 @@
     }
 
     &__setting {
-
       button {
         width: 35px;
         height: 35px;
@@ -154,26 +151,19 @@
     }
 
     &__profile {
-      padding: 2px 5px;
-
       &__login {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 5px;
 
-        &__logo {
-          padding: 0 0 0 10px;
-        }
-
         &__person {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          width: 8rem;
-          padding: 5px;
 
-          h6{
+          h6 {
+            overflow-wrap: break-word;
             text-transform: capitalize;
             font-size: 14px;
           }
@@ -190,7 +180,6 @@
             }
           }
         }
-
       }
     }
 
@@ -216,9 +205,7 @@
     gap: 50px;
     padding: 8px 20px;
 
-
     &__buttons-container {
-
       &__settings {
         display: none;
       }
