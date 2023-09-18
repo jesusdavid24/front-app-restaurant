@@ -15,35 +15,31 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
 
   const users = useSelector((state) => state.users.users)
 
-  const { form, handleChange, resetForm } = useForm();
-
-  const selectedUser = users.find((user) => user.id === selectedUserId);
-
-  const [formData, setFormData] = useState({
-    id: selectedUserId,
-    firstName: selectedUser ? selectedUser.firstName: '',
-    lastName: selectedUser ? selectedUser.lastName: '',
-    address: selectedUser ? selectedUser.address: '',
-    phone: selectedUser ?  selectedUser.phone: '',
-    email: selectedUser ? selectedUser.email: '',
+  const { form, handleChange, setForm, resetForm } = useForm({
+    id:'',
+    firstName: '',
+    lastName: '',
+    address: '',
+    phone: '',
+    email: '',
     password: '',
-    age: selectedUser  ? selectedUser.age: '',
-    role: selectedUser ? selectedUser.role: ''
+    age: '',
+    roleId: ''
   });
-
 
   useEffect(() => {
     if (selectedUserId) {
-      setFormData({
-        id: selectedUserId,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        address: formData.address,
-        phone: formData.phone,
-        email: formData.email,
-        password: '',
-        age: formData.age,
-        role: formData.role
+      const user = users.find((user) => user.id === selectedUserId)
+      setForm({
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        address: user.address,
+        phone: user.phone,
+        email: user.email,
+        password: user.password,
+        age: user.age,
+        roleId: user.roleId
       });
     }
   }, [selectedUserId]);
@@ -52,8 +48,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
     event.preventDefault();
 
     if(selectedUserId){
-      console.log(form);
-      await updateUsers(form);
+      await updateUsers(form.id, form);
       toast.fire({
         icon: "success",
         title: "User successfully update",
@@ -83,6 +78,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="firstName"
+                value={form.firstName}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -92,6 +88,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="lastName"
+                value={form.lastName}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -101,6 +98,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="address"
+                value={form.address}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -110,6 +108,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="phone"
+                value={form.phone}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -119,7 +118,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="email"
                 name="email"
-
+                value={form.email}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -129,7 +128,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="password"
                 name="password"
-
+                value={form.password}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -139,7 +138,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="age"
-
+                value={form.age}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -150,6 +149,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
                 className="form-select"
                 onChange={handleChange}
                 name="roleId"
+                value={form.roleId}
               >
                 <option>Choose roles</option>
                 {roles.map((role) => (

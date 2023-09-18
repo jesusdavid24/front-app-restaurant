@@ -26,5 +26,5 @@ export const useForm = (initialState) => {
     setForm(initialState);
   };
 
-  return { form, handleChange, resetForm };
+  return { form, handleChange, resetForm, setForm };
 };
