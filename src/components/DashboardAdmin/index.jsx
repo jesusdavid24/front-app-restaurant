@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useState } from 'react';
+import { useLoaderData, Link } from 'react-router-dom';
 import CardsUsers from '../CardsUsers';
 import FormUsers from '../FormUsers';
 import TableUsers from '../TableUsers';
@@ -34,6 +34,9 @@ const DashboardAdmin = () => {
   return (
     <div className='admin'>
       <div className='admin__container'>
+        <div className="admin__container__link" >
+        <Link to="/">← Back to Home</Link>
+        </div>
         <div className='admin__container__card'>
           <div className='admin__container__card__item'>
             <CardsUsers />
