@@ -11,6 +11,7 @@ const TableUsers = ({ onEditUser }) => {
   const { users, error, status } = useSelector(selectUsers)
 
   useEffect(() => {
+    localStorage.getItem('token')
     dispatch(getUsers())
   }, []);
 

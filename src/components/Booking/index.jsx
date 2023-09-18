@@ -30,8 +30,10 @@ const Booking = ({ restaurant }) => {
   const dispatch = useDispatch();
 
   const booking = useSelector(selectBooking);
-  
-  const { token, email } = useSelector(authLogin);
+
+  const { email } = useSelector(authLogin);
+
+  const token = localStorage.getItem('token');
 
 
   const { form, handleChange, resetForm } = useForm({
