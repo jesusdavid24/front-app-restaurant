@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { login } from "../../../api/login";
 
-const token = localStorage.getItem('userToken')
-  ? localStorage.getItem('userToken')
+const token = localStorage.getItem('token')
+  ? localStorage.getItem('token')
   : null
 
 const initialState = {

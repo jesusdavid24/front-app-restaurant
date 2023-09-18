@@ -4,7 +4,7 @@ import toast from '../../utils/toast'
 import Loader  from '../Loader'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUsers } from '../../api/users';
-import { postUsers, updateUser, selectPostUsers, selectUsers } from '../../store/redux/slices/usersSlice';
+import { postUsers, selectPostUsers } from '../../store/redux/slices/usersSlice';
 import './index.scss'
 
 const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
@@ -15,56 +15,51 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
 
   const users = useSelector((state) => state.users.users)
 
-  //const { form, handleChange, resetForm } = useForm();
-
+  const { form, handleChange, resetForm } = useForm();
 
   const selectedUser = users.find((user) => user.id === selectedUserId);
 
   const [formData, setFormData] = useState({
     id: selectedUserId,
-    firstName: selectedUser.firstName,
-    lastName: selectedUser.lastName,
-    address: selectedUser.address,
-    phone: selectedUser.phone,
-    email: selectedUser.email,
+    firstName: selectedUser ? selectedUser.firstName: '',
+    lastName: selectedUser ? selectedUser.lastName: '',
+    address: selectedUser ? selectedUser.address: '',
+    phone: selectedUser ?  selectedUser.phone: '',
+    email: selectedUser ? selectedUser.email: '',
     password: '',
-    age: selectedUser.age,
-    role: selectedUser.role
+    age: selectedUser  ? selectedUser.age: '',
+    role: selectedUser ? selectedUser.role: ''
   });
 
 
-  // useEffect(() => {
-  //   if (selectedUserId) {
-  //     //const selectedUser = users.find((user) => user.id === selectedUserId);
-
-  //     if (selectedUser) {
-  //       setFormData();
-  //     }
-  //   } else {
-  //     setFormData(initialFormData);
-  //   }
-  // }, [selectedUserId, users]);
-
-  const handleChange = async (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name] : value
-    })
-  }
+  useEffect(() => {
+    if (selectedUserId) {
+      setFormData({
+        id: selectedUserId,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        address: formData.address,
+        phone: formData.phone,
+        email: formData.email,
+        password: '',
+        age: formData.age,
+        role: formData.role
+      });
+    }
+  }, [selectedUserId]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if(selectedUserId){
       console.log(form);
-      await updateUsers(formData);
+      await updateUsers(form);
       toast.fire({
         icon: "success",
         title: "User successfully update",
       });
     } else {
-      dispatch(postUsers(formData))
+      dispatch(postUsers(form))
       toast.fire({
         icon: "success",
         title: "User successfully created",
@@ -77,8 +72,6 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
   if(status === 'loading') return  <div><Loader />.</div>
 
   if(error) return <div>Error: {error}</div>
-
-  console.log(formData);
 
   return (
     <div className="custom">
@@ -120,7 +113,6 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="phone"
-                value={formData.phone}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -130,7 +122,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="email"
                 name="email"
-                value={formData.email}
+
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -140,7 +132,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="password"
                 name="password"
-                value={formData.password}
+
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -150,7 +142,7 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="age"
-                value={formData.age}
+
                 onChange={handleChange}
                 autoComplete="off"
               />

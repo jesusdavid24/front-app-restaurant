@@ -7,7 +7,8 @@ import SingleRestaurant, {
 } from '../pages/SingleRestaurant';
 import ListRestaurants from '../pages/ListRestaurant';
 import Login from '../components/Login';
-import Registration from '../components/Registration';
+import RegistrationPages,
+  { loaderRegistration } from '../pages/Registration';
 import Checkout from '../pages/Summary';
 import DashboardAdmin, {
   loaderDashboardAdmin,
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/registration',
-        element: <Registration />,
+        element: <RegistrationPages />,
+        loader: loaderRegistration,
       },
       {
         path: '/checkout',
