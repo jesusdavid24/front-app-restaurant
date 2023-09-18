@@ -3,13 +3,10 @@ import { useLoaderData, Link } from 'react-router-dom';
 import CardsUsers from '../CardsUsers';
 import FormUsers from '../FormUsers';
 import TableUsers from '../TableUsers';
-import { useDispatch } from 'react-redux';
 import { getRoles } from '../../api/roles';
 import './index.scss';
 
 const DashboardAdmin = () => {
-
-  const dispatch = useDispatch();
 
   const [selectedUserId, setSelectedEditUserId] = useState();
 

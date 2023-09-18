@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCart, clearCart } from '../../store/redux/slices/cartSlice';
-import { authLogin } from '../../store/redux/slices/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import { Accordion } from '@mantine/core';
 import { createOrder } from '../../api/orders';
@@ -17,7 +16,8 @@ const Paymentitems = ({ removePaymentitem, payment }) => {
 
   const dispatch = useDispatch();
 
-  const { token } = useSelector(authLogin);
+  const token = localStorage.getItem('token')
+
   const cart = useSelector(selectCart);
   const stripe = useStripe();
   const elements = useElements();

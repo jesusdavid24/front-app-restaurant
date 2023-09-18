@@ -3,10 +3,13 @@ import { RestaurantsContext } from '../../store/context/RestaurantsContext';
 import { Link, useNavigate } from 'react-router-dom';
 import HomeMenu from '../HomeMenu';
 import HomeMenuWide from '../MenuWide';
+import { useDispatch } from 'react-redux';
+import { clearLogin } from '../../store/redux/slices/loginSlice';
 import './index.scss';
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const { limit } = useContext(RestaurantsContext);
@@ -29,6 +32,8 @@ const Header = () => {
     deleteKeys.forEach((key) => {
       localStorage.removeItem(key);
     });
+
+    dispatch(clearLogin());
 
     navigate('/');
   };

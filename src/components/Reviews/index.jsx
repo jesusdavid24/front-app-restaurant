@@ -14,7 +14,9 @@ const Reviews = ({ restaurant }) => {
 
   const [reviewsWithUser, setReviewsWithUser] = useState([]);
 
-  const { token, email } = useSelector(authLogin);
+  const { email } = useSelector(authLogin);
+
+  const token = localStorage.getItem('token')
 
   const { form, handleChange, resetForm } = useForm({
     rating: 0,
