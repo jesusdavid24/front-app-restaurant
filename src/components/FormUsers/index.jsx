@@ -83,7 +83,6 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="firstName"
-                value={formData.firstName}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -93,7 +92,6 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="lastName"
-                value={formData.lastName}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -103,7 +101,6 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
               <input
                 type="text"
                 name="address"
-                value={formData.address}
                 onChange={handleChange}
                 autoComplete="off"
               />
