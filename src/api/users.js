@@ -27,9 +27,9 @@ export const createUsers = async (form) => {
   }
 };
 
-export const updateUsers = async (body) => {
+export const updateUsers = async (id, body) => {
   try {
-    const { data } = await axios.put(`${URL}/users`,
+    const { data } = await axios.put(`${URL}/users/${id}`,
     body, config);
     return data;
   } catch (error) {
