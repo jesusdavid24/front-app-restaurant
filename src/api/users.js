@@ -14,7 +14,7 @@ export const fetchUsers = async () => {
     return data;
   } catch(error) {
     console.log(error)
-    return error.message
+    return []
   };
 };
 
@@ -22,28 +22,26 @@ export const createUsers = async (form) => {
   try {
     const { data } = await axios.post(`${URL}/users`, form);
     return data;
-  } catch(error) {
-    console.log(error)
-    return error.message
-  };
+  } catch (error) {
+    return error.message;
+  }
 };
 
-export const updateUsers = async (id) => {
+export const updateUsers = async (body) => {
   try {
-    const { data } = await axios.put(`${URL}/users`, id);
+    const { data } = await axios.put(`${URL}/users`,
+    body, config);
     return data;
-  } catch(error) {
-    console.log(error)
-    return error.message
-  };
+  } catch (error) {
+    return error.message;
+  }
 };
 
 export const deleteUsers = async (id) => {
   try {
     const { data } = await axios.delete(`${URL}/users`, id);
     return data;
-  } catch(error) {
-    console.log(error)
-    return error.message
-  };
+  } catch (error) {
+    return error.message;
+  }
 };

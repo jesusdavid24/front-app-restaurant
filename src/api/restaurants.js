@@ -12,16 +12,16 @@ export const fetchRestaurants = async (queryParams) => {
     return data;
   } catch(error) {
     console.log(error)
-    return error.message
+    return []
   };
+
 };
 
 export const fetchRestaurantById = async (id) => {
   try {
     const { data } = await axios.get(`${URL}/restaurants/${id}`);
     return data;
-  } catch(error) {
-    console.log(error)
-    return error.message
-  };
+  } catch (error) {
+    return error.message;
+  }
 };

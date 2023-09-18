@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { clearCart } from '../../store/redux/slices/cartSlice';
 import AddressList from '../../components/AddressList';
 import Paymentitems from '../../components/PaymentItems';
 import CardView from '../../components/CardView';
 import AlwaysFirst from '../../components/AlwaysFirst';
 import Cart from '../../components/Cart';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import { selectPayment } from '../../store/redux/slices/cartSlice';
+import { useSelector, useDispatch } from 'react-redux';
 import './index.scss';
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_SECRET_KEY);
 
 const Checkout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const payment = useSelector(selectPayment);
 
   const [paymentitems, setPaymentitems] = useState([]);
 
@@ -29,7 +35,6 @@ const Checkout = () => {
     dispatch(clearCart());
     navigate(-1);
   };
-
   return (
     <div className='summary'>
       <div className='summary__container-immg'>
@@ -63,11 +68,14 @@ const Checkout = () => {
           </div>
           <div className='summary__payment'>
             <h2 className='summary__payment__title'>Payment:</h2>
-            <Paymentitems
-              paymentitems={paymentitems}
-              addPaymentitem={addPaymentitem}
-              removePaymentitem={removePaymentitem}
-            />
+            <Elements stripe={stripePromise}>
+              <Paymentitems
+                payment={payment}
+                paymentitems={paymentitems}
+                addPaymentitem={addPaymentitem}
+                removePaymentitem={removePaymentitem}
+              />
+            </Elements>
           </div>
         </div>
       </div>

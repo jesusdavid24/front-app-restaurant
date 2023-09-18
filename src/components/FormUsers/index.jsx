@@ -1,16 +1,77 @@
-import { useForm } from "../../hooks/useForm"
-import { createUsers } from "../../api/users";
+import { useState, useEffect } from 'react';
+import { useForm } from '../../hooks/useForm'
+import toast from '../../utils/toast'
+import Loader  from '../Loader'
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUsers } from '../../api/users';
+import { postUsers, selectPostUsers } from '../../store/redux/slices/usersSlice';
 import './index.scss'
 
-const FormUsers = ({roles, handleCloseForm}) => {
+const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
 
-  const { form, handleChange } = useForm();
+  const dispatch = useDispatch();
+
+  const { error, status } = useSelector(selectPostUsers)
+
+  const users = useSelector((state) => state.users.users)
+
+  const { form, handleChange, resetForm } = useForm();
+
+  const selectedUser = users.find((user) => user.id === selectedUserId);
+
+  const [formData, setFormData] = useState({
+    id: selectedUserId,
+    firstName: selectedUser ? selectedUser.firstName: '',
+    lastName: selectedUser ? selectedUser.lastName: '',
+    address: selectedUser ? selectedUser.address: '',
+    phone: selectedUser ?  selectedUser.phone: '',
+    email: selectedUser ? selectedUser.email: '',
+    password: '',
+    age: selectedUser  ? selectedUser.age: '',
+    role: selectedUser ? selectedUser.role: ''
+  });
+
+
+  useEffect(() => {
+    if (selectedUserId) {
+      setFormData({
+        id: selectedUserId,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        address: formData.address,
+        phone: formData.phone,
+        email: formData.email,
+        password: '',
+        age: formData.age,
+        role: formData.role
+      });
+    }
+  }, [selectedUserId]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const dataForm = await createUsers(form);
-    return dataForm;
+
+    if(selectedUserId){
+      console.log(form);
+      await updateUsers(form);
+      toast.fire({
+        icon: "success",
+        title: "User successfully update",
+      });
+    } else {
+      dispatch(postUsers(form))
+      toast.fire({
+        icon: "success",
+        title: "User successfully created",
+      });
+    }
+
+    resetForm();
   };
+
+  if(status === 'loading') return  <div><Loader />.</div>
+
+  if(error) return <div>Error: {error}</div>
 
   return (
     <div className="custom">
@@ -22,6 +83,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
               <input
                 type="text"
                 name="firstName"
+                value={formData.firstName}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -31,6 +93,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
               <input
                 type="text"
                 name="lastName"
+                value={formData.lastName}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -40,6 +103,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
               <input
                 type="text"
                 name="address"
+                value={formData.address}
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -58,6 +122,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
               <input
                 type="email"
                 name="email"
+
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -67,6 +132,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
               <input
                 type="password"
                 name="password"
+
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -76,6 +142,7 @@ const FormUsers = ({roles, handleCloseForm}) => {
               <input
                 type="text"
                 name="age"
+
                 onChange={handleChange}
                 autoComplete="off"
               />
@@ -94,9 +161,15 @@ const FormUsers = ({roles, handleCloseForm}) => {
               </select>
             </div>
             <div className="custom__container__form__forms__container">
+              { selectedUserId ? (
+                <div className="custom__container__form__forms__container__button-1">
+                  <button type="submit">Update</button>
+                </div>
+              ) : (
               <div className="custom__container__form__forms__container__button-1">
                 <button type="submit">Create</button>
               </div>
+            )}
               <div className="custom__container__form__forms__container__button-2">
                 <button type="button" onClick={handleCloseForm}>Cancel</button>
               </div>

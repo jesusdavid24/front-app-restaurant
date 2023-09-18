@@ -1,50 +1,87 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCart, clearCart } from '../../store/redux/slices/cartSlice';
-import { Link } from 'react-router-dom';
+import { authLogin } from '../../store/redux/slices/loginSlice';
+import { useNavigate } from 'react-router-dom';
 import { Accordion } from '@mantine/core';
 import { createOrder } from '../../api/orders';
 import toast from '../../utils/toast';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { postCheckout } from '../../api/checkout';
 import './index.scss';
 
-const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
-  const dispatch = useDispatch();
-  const cart = useSelector(selectCart);
+const Paymentitems = ({ removePaymentitem, payment }) => {
   const [selectedOption, setSelectOption] = useState(null);
 
-  const handleAddpaymentitem = () => {
-    const item = prompt('Ingrese un nuevo producto: ');
-    if (item) {
-      addPaymentitem(item);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const { token } = useSelector(authLogin);
+  const cart = useSelector(selectCart);
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const transactionErrors = {
+    'sin fondos': () => alert('sin fondos'),
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      if (cart.delivery_products.length) {
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+          type: 'card',
+          card: elements.getElement(CardElement),
+        });
+
+        if (error) {
+          throw new Error(error.message);
+        }
+
+        const checkoutPayment = await postCheckout({
+          paymentMethod,
+          amount: Math.floor(payment * 100),
+        });
+
+        if (typeof checkoutPayment === 'string') {
+          throw new Error(checkoutPayment);
+        }
+
+        const order = await createOrder(cart, token);
+
+        if (typeof order === 'string') {
+          throw new Error(order);
+        }
+
+        toast.fire({
+          icon: 'success',
+          title: 'Order created',
+        });
+
+        dispatch(clearCart());
+
+        navigate('/payment/status');
+      } else {
+        toast.fire({
+          icon: 'error',
+          title: 'There are not products',
+        });
+      }
+    } catch (error) {
+      // transactionErrors[response.data.message]();
+      toast.fire({
+        icon: 'error',
+        title: error.message,
+      });
+    } finally {
+      elements.getElement(CardElement).clear();
     }
   };
 
   const handleRemoveAddress = (index) => {
     if (window.confirm('¿Are you sure you want to remove?')) {
       removePaymentitem(index);
-    }
-  };
-
-  const handleClick = async () => {
-    if (cart.products.length) {
-      const order = await createOrder(cart);
-      if (order) {
-        toast.fire({
-          icon: 'success',
-          title: 'Order created',
-        });
-        dispatch(clearCart());
-      } else {
-        toast.fire({
-          icon: 'error',
-          title: 'Something went wrong',
-        });
-      }
-    } else {
-      toast.fire({
-        icon: 'error',
-        title: 'There are not products',
-      });
     }
   };
 
@@ -70,49 +107,22 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
             </label>
           </Accordion.Control>
           <Accordion.Panel>
-            <div className='container'>
-              <div className='container_nameCard'>
-                <label htmlFor='nameCard'>Name On Card</label>
-                <input type='text' name='nameCard' />
-                <label htmlFor='cardNumber'>Card Number</label>
-                <div className='container_cardNumber'>
-                  <input type='text' name='cardNumber' />
-                  <img
-                    className='container_img_tc_debit'
-                    src='/img/creditcards.png'
-                    alt=''
-                  />
-                </div>
-              </div>
-              <br />
-              <div className='container-dates'>
-                <div className='container-dates__confirm'>
-                  <label htmlFor='month_label'>Month</label>
-                  <input type='text' name='month_label' />
-                </div>
-                <div className='container-dates__confirm'>
-                  <label htmlFor='year_label'>Year</label>
-                  <input type='text' name='year_label' />
-                </div>
-                <div className='container-dates__confirm'>
-                  <label htmlFor='pay_cvv'>Cvv</label>
-                  <div className='container_cardNumber'>
-                    <input type='text' name='pay_cvv' />
-                    <img
-                      className='container_img_tc_debit'
-                      src='/img/cvv.png'
-                      alt=''
-                    />
-                  </div>
-                </div>
-              </div>
-              <br />
+            <form onSubmit={handleSubmit}>
+              <CardElement
+                className='carito'
+                options={{
+                  showIcon: true,
+                  style: {
+                    base: {
+                      fontSize: '16px',
+                    },
+                  },
+                }}
+              />
               <div className='container_buttonP'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button type='submit'>MAKE PAYMENT</button>
               </div>
-            </div>
+            </form>
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item
@@ -172,9 +182,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                 </div>
               </div>
               <div className='container_buttonP'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -244,9 +252,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
                 />
               </div>
               <div className='container_buttonP'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>
@@ -306,9 +312,7 @@ const Paymentitems = ({ paymentitems, addPaymentitem, removePaymentitem }) => {
               </div>
               <br />
               <div className='container_payments'>
-                <Link to={cart.products.length ? '/payment/status' : null}>
-                  <button onClick={handleClick}>MAKE PAYMENT</button>
-                </Link>
+                <button>MAKE PAYMENT</button>
               </div>
             </div>
           </Accordion.Panel>

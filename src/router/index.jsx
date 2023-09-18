@@ -7,7 +7,8 @@ import SingleRestaurant, {
 } from '../pages/SingleRestaurant';
 import ListRestaurants from '../pages/ListRestaurant';
 import Login from '../components/Login';
-import Registration from '../components/Registration';
+import RegistrationPages,
+  { loaderRegistration } from '../pages/Registration';
 import Checkout from '../pages/Summary';
 import DashboardAdmin, {
   loaderDashboardAdmin,
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/registration',
-        element: <Registration />,
+        element: <RegistrationPages />,
+        loader: loaderRegistration,
       },
       {
         path: '/checkout',
@@ -48,7 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: <PrivateRoute> <DashboardAdmin /> </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <DashboardAdmin />
+          </PrivateRoute>
+        ),
         loader: loaderDashboardAdmin,
       },
       {

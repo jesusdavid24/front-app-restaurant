@@ -33,7 +33,7 @@ const Root = () => {
       <ValidateElement invalidPaths={invalidPaths}>
         <Header />
       </ValidateElement>
-      <main>{navigation.state === 'loading' ? 'Loading...' : <Outlet />}</main>
+      <main>{navigation.state === 'loading' ? <Loader /> : <Outlet />}</main>
       <ValidateElement invalidPaths={invalidPaths}>
         <Footer />
       </ValidateElement>

@@ -59,7 +59,7 @@ const SingleRestaurant = () => {
             <div
               id='booking'
               className='single-restaurant__principal__options-box__election single-restaurant__principal__options-box__election--inactive'>
-              <Booking />
+              <Booking restaurant={restaurant} />
             </div>
             <div
               id='reviews'

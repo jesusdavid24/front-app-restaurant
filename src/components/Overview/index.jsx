@@ -12,6 +12,7 @@ const Overview = ({ restaurant }) => {
     address,
     services,
   } = restaurant;
+
   return (
     <div className='overview'>
       <div className='overview__col-1'>
@@ -19,11 +20,12 @@ const Overview = ({ restaurant }) => {
         <div className='overview__cuisine'>
           <h6 className='overview__category'>Cuisine</h6>
           <ul>
-            {cuisines.map((cuisine, index) => (
-              <li key={index} className='overview__category__item'>
-                {cuisine}
-              </li>
-            ))}
+            {cuisines &&
+              cuisines.map((cuisine, index) => (
+                <li key={index} className='overview__category__item'>
+                  {cuisine}
+                </li>
+              ))}
           </ul>
         </div>
         <div className='overview__opening'>
@@ -39,9 +41,8 @@ const Overview = ({ restaurant }) => {
         <div className='overview__address'>
           <h6 className='overview__category'>Address</h6>
           <ul>
-            {address.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
+            {address &&
+              address.map((item, index) => <li key={index}>{item}</li>)}
           </ul>
         </div>
       </div>
@@ -49,9 +50,8 @@ const Overview = ({ restaurant }) => {
         <div className='overview__facility'>
           <h6 className='overview__category'>Facility</h6>
           <ul>
-            {services.map((service, index) => (
-              <li key={index}>{service}</li>
-            ))}
+            {services &&
+              services.map((service, index) => <li key={index}>{service}</li>)}
           </ul>
         </div>
       </div>
