@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectProducts,
   selectPayment,
   updateProduct,
+  postUserEmail,
 } from '../../store/redux/slices/cartSlice';
+import { authLogin } from '../../store/redux/slices/loginSlice';
 import './index.scss';
 
 const Cart = ({ children }) => {
@@ -11,6 +14,11 @@ const Cart = ({ children }) => {
 
   const products = useSelector(selectProducts);
   const payment = useSelector(selectPayment);
+  const { email } = useSelector(authLogin);
+
+  useEffect(() => {
+    dispatch(postUserEmail(email));
+  }, []);
 
   const handleIncrement = (e) => {
     const id = e.target.id;

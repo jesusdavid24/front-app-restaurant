@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectBooking,
@@ -9,6 +8,7 @@ import {
   postDate,
   clearBooking,
 } from '../../store/redux/slices/bookingSlice';
+import { authLogin } from '../../store/redux/slices/loginSlice';
 import { useForm } from '../../hooks/useForm';
 import { DateTimePicker } from '@mantine/dates';
 import { validateField } from '../../utils/validateField';
@@ -27,11 +27,12 @@ const Booking = ({ restaurant }) => {
 
   const [bookingDate, setBookingDate] = useState(null);
 
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const booking = useSelector(selectBooking);
+  
+  const { token, email } = useSelector(authLogin);
+
 
   const { form, handleChange, resetForm } = useForm({
     booking_firstName: '',
@@ -42,7 +43,6 @@ const Booking = ({ restaurant }) => {
   });
 
   useEffect(() => {
-    const email = localStorage.getItem('email');
     dispatch(postUserEmail(email));
 
     dispatch(postRestaurantId(restaurant.id));
@@ -51,8 +51,6 @@ const Booking = ({ restaurant }) => {
   useEffect(() => {
     dispatch(postBooking(form));
   }, [form]);
-
-  const token = localStorage.getItem('token');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -102,8 +100,6 @@ const Booking = ({ restaurant }) => {
       setBookingDate(null);
 
       dispatch(clearBooking());
-
-      navigate('/payment/status');
     } catch (error) {
       toast.fire({
         icon: 'error',
