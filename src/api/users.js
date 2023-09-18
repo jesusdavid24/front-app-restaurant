@@ -2,13 +2,13 @@ import axios from 'axios';
 
 const URL = `${import.meta.env.VITE_BASE_URL}`;
 
-export const fetchUsers = async (tokenLS) => {
-  const config = {
-    headers:{
-      Authorization: `Bearer ${tokenLS}`
-    }
-  };
+const config = {
+  headers:{
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+};
 
+export const fetchUsers = async () => {
   try {
     const { data } = await axios.get(`${URL}/users`, config);
     return data;
@@ -16,7 +16,6 @@ export const fetchUsers = async (tokenLS) => {
     console.log(error)
     return []
   };
-
 };
 
 export const createUsers = async (form) => {
@@ -28,9 +27,10 @@ export const createUsers = async (form) => {
   }
 };
 
-export const updateUsers = async (id) => {
+export const updateUsers = async (body) => {
   try {
-    const { data } = await axios.put(`${URL}/users`, id);
+    const { data } = await axios.put(`${URL}/users`,
+    body, config);
     return data;
   } catch (error) {
     return error.message;

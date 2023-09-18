@@ -1,6 +1,22 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Loader  from '../Loader'
+import { getUsers, selectUsers } from '../../store/redux/slices/usersSlice'
 import './index.scss'
 
-const TableUsers = ({ users }) => {
+const TableUsers = ({ onEditUser }) => {
+
+  const dispatch = useDispatch();
+
+  const { users, error, status } = useSelector(selectUsers)
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, []);
+
+  if(status === 'loading') return  <div><Loader /></div>
+
+  if(error) return <div>Error: {error}</div>
 
   const capitalizeText = (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
@@ -18,14 +34,14 @@ const TableUsers = ({ users }) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {users.length > 0 && users.map((user, index) => (
             <tr key={user.email}>
               <td>{index + 1}</td>
               <td>{capitalizeText(`${user.firstName} ${user.lastName}`)}</td>
               <td>{capitalizeText(`${user.isActive}`)}</td>
               <td>{capitalizeText(`${user.role.name}`)}</td>
               <td>
-                <button>Edit</button>
+                <button onClick={() => onEditUser(user.id)}>Edit</button>
                 <button>Delete</button>
               </td>
             </tr>
