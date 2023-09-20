@@ -4,6 +4,7 @@ import CardsUsers from '../CardsUsers';
 import FormUsers from '../FormUsers';
 import TableUsers from '../TableUsers';
 import { getRoles } from '../../api/roles';
+import { deleteUsers } from '../../api/users';
 import './index.scss';
 
 const DashboardAdmin = () => {
@@ -26,6 +27,10 @@ const DashboardAdmin = () => {
     setSelectedEditUserId(id)
     setShowForm(true)
   };
+
+  const hanldeDeleteUser = async (id) => {
+    await deleteUsers(id)
+  }
 
   return (
     <div className='admin'>
@@ -61,7 +66,10 @@ const DashboardAdmin = () => {
           </div>
         </div>
         <div className='admin__container__table'>
-          <TableUsers onEditUser={handleEditUser}  />
+          <TableUsers
+            onEditUser={handleEditUser}
+            onDeleteUser={hanldeDeleteUser}
+          />
         </div>
       </div>
     </div>

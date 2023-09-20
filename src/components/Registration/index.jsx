@@ -176,4 +176,3 @@ const RegistrationComponent = ({ roles }) => {
 };
 
 export default RegistrationComponent
-

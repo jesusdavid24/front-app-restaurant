@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Loader  from '../Loader'
+import Loader  from '../Loader';
+import toast from '../../utils/toast';
 import { getUsers, selectUsers } from '../../store/redux/slices/usersSlice'
 import './index.scss'
 
-const TableUsers = ({ onEditUser }) => {
+const TableUsers = ({ onEditUser, onDeleteUser }) => {
 
   const dispatch = useDispatch();
 
@@ -14,6 +15,14 @@ const TableUsers = ({ onEditUser }) => {
     localStorage.getItem('token')
     dispatch(getUsers())
   }, []);
+
+  const hanldeDeleteUser = (id) => {
+    onDeleteUser(id);
+    toast.fire({
+      icon: "success",
+      title: "Product deleted!",
+    });
+  }
 
   if(status === 'loading') return  <div><Loader /></div>
 
@@ -43,7 +52,7 @@ const TableUsers = ({ onEditUser }) => {
               <td>{capitalizeText(`${user.role.name}`)}</td>
               <td>
                 <button onClick={() => onEditUser(user.id)}>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => hanldeDeleteUser(user.id)}>Delete</button>
               </td>
             </tr>
           ))}
