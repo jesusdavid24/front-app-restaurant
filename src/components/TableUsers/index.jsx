@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader  from '../Loader';
 import toast from '../../utils/toast';
+import { deleteUser } from '../../store/redux/slices/usersSlice';
 import { getUsers, selectUsers } from '../../store/redux/slices/usersSlice'
 import './index.scss'
 
@@ -16,8 +17,9 @@ const TableUsers = ({ onEditUser, onDeleteUser }) => {
     dispatch(getUsers())
   }, []);
 
-  const hanldeDeleteUser = (id) => {
+  const hanldeDeleteUser = (id, index) => {
     onDeleteUser(id);
+    dispatch(deleteUser({ index }))
     toast.fire({
       icon: "success",
       title: "Product deleted!",
@@ -52,7 +54,7 @@ const TableUsers = ({ onEditUser, onDeleteUser }) => {
               <td>{capitalizeText(`${user.role.name}`)}</td>
               <td>
                 <button onClick={() => onEditUser(user.id)}>Edit</button>
-                <button onClick={() => hanldeDeleteUser(user.id)}>Delete</button>
+                <button onClick={() => hanldeDeleteUser(user.id, index)}>Delete</button>
               </td>
             </tr>
           ))}
