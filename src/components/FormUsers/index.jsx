@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useForm } from '../../hooks/useForm'
 import toast from '../../utils/toast'
 import Loader  from '../Loader'
@@ -7,7 +7,11 @@ import { updateUsers } from '../../api/users';
 import { postUsers, selectPostUsers } from '../../store/redux/slices/usersSlice';
 import './index.scss'
 
-const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
+const FormUsers = ({
+  roles,
+  handleCloseForm,
+  selectedUserId
+}) => {
 
   const dispatch = useDispatch();
 
@@ -174,7 +178,6 @@ const FormUsers = ({roles, handleCloseForm, selectedUserId}) => {
           </form>
         </div>
       </div>
-
     </div>
   )
 }

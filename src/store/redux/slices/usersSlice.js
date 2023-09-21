@@ -4,14 +4,11 @@ import
   fetchUsers,
   createUsers,
   updateUsers,
-  deleteUsers,
 } from "../../../api/users";
 
 const initialState = {
   users: [],
   data: {},
-  updateData: {},
-  // deleteUsers: {},
   error: null,
   status: 'idle'
 };
@@ -32,25 +29,14 @@ export const postUsers = createAsyncThunk(
   }
 );
 
-export const updateUser = createAsyncThunk(
-  'user/updateUsers',
-  async({id, user}) => {
-    const updateData = await updateUsers(id, user);
-    return updateData;
-  }
-);
-
-// export const deleteUsers = createAsyncThunk(
-//   'user/deleteUsers',
-//   async(id) => {
-//     const deleteUsers = await deleteUsers(id);
-//     return deleteUsers;
-//   }
-// );
-
 const usersSlice = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    deleteUser: (state, action) => {
+      state.users = state.users.filter((_, idx) => idx !== action.payload.index);
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getUsers.pending, (state) => {
@@ -75,22 +61,11 @@ const usersSlice = createSlice({
         state.status = 'failed',
         state.error = error.message
       })
-      .addCase(updateUser.pending, (state) => {
-        state.status = 'loading'
-      })
-      .addCase(updateUser.fulfilled, (state, { payload }) => {
-        state.status = 'idle',
-        state.updateData = payload
-      })
-      .addCase(updateUser.rejected, (state, { error }) => {
-        state.status = 'failed',
-        state.error = error.message
-      })
   }
 });
 
 export const selectUsers = state => state.users;
 export const selectPostUsers = state => state.users;
-export const selectUpdateUsers = state => state.users;
+export const { deleteUser } = usersSlice.actions;
 
 export default usersSlice.reducer;
