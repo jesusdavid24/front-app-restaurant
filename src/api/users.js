@@ -39,7 +39,8 @@ export const updateUsers = async (id, body) => {
 
 export const deleteUsers = async (id) => {
   try {
-    const { data } = await axios.delete(`${URL}/users`, id);
+    const { data } = await axios.delete(`${URL}/users/${id}`,
+    config);
     return data;
   } catch (error) {
     return error.message;
