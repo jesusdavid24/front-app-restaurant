@@ -19,8 +19,10 @@ const FormUsers = ({
 
   const users = useSelector((state) => state.users.users)
 
+  const userId = users.filter((user) => user.id)
+  const id = userId[0].id;
+
   const { form, handleChange, setForm, resetForm } = useForm({
-    id:'',
     firstName: '',
     lastName: '',
     address: '',
@@ -28,6 +30,7 @@ const FormUsers = ({
     email: '',
     password: '',
     age: '',
+    isActive: true,
     roleId: ''
   });
 
@@ -35,7 +38,6 @@ const FormUsers = ({
     if (selectedUserId) {
       const user = users.find((user) => user.id === selectedUserId)
       setForm({
-        id: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         address: user.address,
@@ -43,6 +45,7 @@ const FormUsers = ({
         email: user.email,
         password: user.password,
         age: user.age,
+        isActive: user.isActive,
         roleId: user.roleId
       });
     }
@@ -52,7 +55,8 @@ const FormUsers = ({
     event.preventDefault();
 
     if(selectedUserId){
-      await updateUsers(form.id, form);
+      await updateUsers(id, form);
+      console.log(form);
       toast.fire({
         icon: "success",
         title: "User successfully update",
