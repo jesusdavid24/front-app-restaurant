@@ -22,7 +22,7 @@ const TableUsers = ({ onEditUser, onDeleteUser }) => {
     dispatch(deleteUser({ index }))
     toast.fire({
       icon: "success",
-      title: "Product deleted!",
+      title: "User deleted!",
     });
   }
 
