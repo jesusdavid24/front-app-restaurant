@@ -19,9 +19,6 @@ const FormUsers = ({
 
   const users = useSelector((state) => state.users.users)
 
-  const userId = users.filter((user) => user.id)
-  const id = userId[0].id;
-
   const { form, handleChange, setForm, resetForm } = useForm({
     firstName: '',
     lastName: '',
@@ -55,6 +52,8 @@ const FormUsers = ({
     event.preventDefault();
 
     if(selectedUserId){
+      const userId = users.filter((user) => user.id)
+      const id = userId[0].id;
       await updateUsers(id, form);
       console.log(form);
       toast.fire({
